@@ -1,11 +1,11 @@
 language
 	0.概览
-		0.helloword
+		helloword
 			dart
 			go
 			js
 			python
-		Keywords（关键字）
+		Keywords（关键字/保留字）
 		Built-in types(内置的类型)
 		重要概念
 		库/包/模块
@@ -35,6 +35,7 @@ language
 			生成随机数
 			三角函数
 			十进制浮点运算
+			进制转换
 		字符串
 			字符串定义
 			多行字符串
@@ -79,6 +80,7 @@ language
 			for
 			while
 			break/continue
+			pass语句
 			switch
 	4.函数和方法
 		函数和方法定义
@@ -119,6 +121,7 @@ language
 			静态变量
 			静态函数
 		可调用的类
+		自定义hash码
 		可迭代对象
 		Typedefs
 	6.语法专题
@@ -140,6 +143,12 @@ language
 		元数据/装饰器
 		正则表达式
 		反射
+		面向对象
+			new 命令
+			this关键字
+			原型链
+			获取对象的所有属性
+			对象的拷贝
 	7.常用对象或方法
 		内置函数
 		URIs
@@ -171,6 +180,7 @@ language
 			查找目录中的所有文件和子目录
 		JSON
 		UTF-8
+		Base64
 		操作系统接口
 		模板
 		日志
