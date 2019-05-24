@@ -1,0 +1,182 @@
+language
+	0.概览
+		hello
+		helloword
+		Keywords（关键字/保留字）
+		Built-in types(内置的类型)
+		重要概念
+		库/包/模块
+		目录结构
+		安装
+		包管理
+		格式化
+		命令行
+	1.基础知识
+		标识符
+		命名风格
+			要使用 UpperCamelCase 风格来命名类型名称
+			要使用 lowercase_with_underscores 风格来命名库和文件名名字
+			要使用 lowerCamelCase 风格来命名其他的标识符
+		Variables（变量）
+		私有变量
+		常量
+		Default value（默认值）
+		Comments（注释）
+		打印
+		Assert（断言）
+		Exceptions（异常）
+	2.数据类型
+		Type test operators（类型判定/类型判断操作符）
+		数字转换/整数转换/类型转换
+		计算最大值和最小值
+		数学常量
+		生成随机数
+		三角函数
+		十进制浮点运算
+		进制转换
+		Strings（字符串）
+		多行字符串
+		“原始 raw” 字符串
+		Searching inside a string（在字符串内搜索）
+		Extracting data from a string（从字符串中提取数据/字符串截取）
+		Converting to uppercase or lowercase（大小写转换）
+		Trimming and empty strings（裁剪和判断空字符串）
+		Replacing part of a string（替换部分字符）
+		格式化输出
+		list/array列表/数组定义及操作
+		列表推导式
+		列表/数组的高阶函数
+		tuple 元组定义及操作
+		Maps/dict(字典)
+		从 map 中删除 key 和 value
+		Maps(字典)遍历，获取 map 的所有 key 和 value
+		判断 map 是否包含一个 key
+		Set 集合定义及操作
+		判断Iterable集合（List, Set, 和 Map）是否为空的
+		（List, Set, 和 Map）常用的集合函数
+		序列和其它类型的比较
+		检查两个引用是否指向同一个对象(内存地址)
+		Symbols
+	3.操作符及流程控制
+		Arithmetic operators（算术操作符）
+		Equality and relational operators（相等相关的操作符）
+		Type test operators（类型判定操作符）
+		Assignment operators（赋值操作符）
+		Logical operators（逻辑操作符）
+		Bitwise and shift operators（位和移位操作符）
+		Conditional expressions（条件表达式）/三元操作符
+		Cascade notation (..)（级联操作符）
+		条件成员访问
+		If and else
+		For loops
+		range() 函数
+		While and do-while
+		Break and continue
+		pass 语句
+		Switch and case
+	4.函数和方法
+		Functions（方法）函数定义
+		Optional named parameters（可选命名参数）
+		Optional positional parameters（可选位置参数）
+		Default parameter values（默认参数值）
+		解包参数列表
+		The main() function（入口函数）
+		Functions as first-class objects（一等方法对象）
+		Anonymous functions（匿名方法）匿名函数
+		函数标注
+		Lexical scope（静态作用域）
+		Lexical closures（词法闭包）
+		Testing functions for equality（测试函数是否相等）
+		Return values（默认返回值）
+		立即调用的函数表达式（IIFE）
+	5.类
+		Classes 类定义及用法
+		Instance variables 实例变量
+		私有变量
+		Constructors 构造函数
+		Default constructors（默认构造函数）
+		Named constructors（命名构造函数）
+		Invoking a non-default superclass constructor（调用超类构造函数）
+		Initializer list（初始化列表）
+		Redirecting constructors（重定向构造函数）
+		Constant constructors（常量构造函数）
+		Factory constructors（工厂方法构造函数）
+		Instance methods（实例函数）
+		Getters and setters
+		Abstract methods（抽象函数）
+		Overridable operators（可覆写的操作符）
+		Abstract classes（抽象类）
+		Implicit interfaces（隐式接口）
+		Extending a class（扩展类）继承
+		Enumerated types（枚举类型）
+		Adding features to a class: mixins（为类添加新的功能）多重继承
+		Static variables（静态变量）
+		Static methods（静态函数）
+		Callable classes（可调用的类）
+		Implementing map keys 自定义 hash 码
+		Iteration 可迭代对象
+		Typedefs
+	6.语法专题
+		Generics（泛型）
+		Using collection literals（使用集合字面量）
+		Using parameterized types with constructors（在构造函数中使用泛型）
+		泛型判断
+		Restricting the parameterized type（限制泛型类型）
+		Using generic methods（使用泛型函数）
+		Asynchrony support（异步支持）
+		Declaring async functions（声明异步方法）
+		Using await expressions with Futures（使用 await 表达式）
+		Using asynchronous for loops with Streams（在循环中使用异步）
+		并发/同时触发/竞争触发
+		异步的错误捕获
+		生成器
+		Metadata（元数据）注解/装饰器
+		Regular expressions（正则表达式）
+		new 命令
+		this关键字
+		原型链
+		获取对象的所有属性
+		对象的拷贝
+	7.常用对象或方法
+		内置函数
+		Encoding and decoding fully qualified URIs（编码解码URI）
+		Encoding and decoding URI components（编码解码URI组件）
+		Parsing URIs
+		Building URIs
+		Dates and times 日期和时间
+		Comparing objects（比较对象）
+		Finding elements
+		Manipulating elements
+		Creating elements
+		Adding, replacing, and removing nodes
+		Manipulating CSS styles
+		Handling events
+		Getting data from the server
+		Sending data to the server
+		Sending and receiving real-time data with WebSockets
+		HTTP server
+		HTTP client
+		Reading a file as text 读取整个文本
+		Reading a file as binary 把文件数据读取为字节流
+		Streaming file contents 一点点的/逐行读取
+		Writing file contents 写入内容
+		Listing files in a directory 查找目录中的所有文件和子目录
+		Decoding and encoding JSON
+		Decoding and encoding UTF-8 characters
+		Base64
+		操作系统接口
+		模板
+		日志
+	8.算法
+		斐波那契数列
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello
+		hello

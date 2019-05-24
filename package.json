@@ -1,0 +1,26 @@
+{
+  "name": "programming-language-comparison",
+  "version": "1.0.0",
+  "description": "- [0.概览](./src/0.概览.md) - [1.基础知识](./src/1.基础知识.md) - [2.数据类型](./src/2.数据类型.md) - [3.操作符及流程控制](./src/3.操作符及流程控制.md) - [4.函数和方法](./src/4.函数和方法.md) - [5.类](./src/5.类.md) - [6.语法专题](./src/6.语法专题.md) - [7.常用对象或方法](./src/7.常用对象或方法.md) - [8.算法](./src/8.算法.md)",
+  "main": "index.js",
+  "bin": {
+    "programming-language-comparison": "md2html.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fishjar/programming-language-comparison.git"
+  },
+  "author": "gabe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fishjar/programming-language-comparison/issues"
+  },
+  "homepage": "https://github.com/fishjar/programming-language-comparison#readme",
+  "dependencies": {
+    "fs-extra": "^8.0.1",
+    "marked": "^0.6.2"
+  }
+}
