@@ -1,5 +1,4 @@
 const fs = require('fs');
-const fse = require('fs-extra');
 const marked = require('marked');
 
 
@@ -55,10 +54,11 @@ fs.readdirSync('./src')
 const indexLines = [];
 outlines.forEach(item => {
   item.titles.forEach((title, index) => {
+    const fileName = item.file.slice(0, -3);
     if (index === 0) {
-      indexLines.push(`- [${item.file.slice(0, -3)}](./${encodeURIComponent(item.file)})`);
+      indexLines.push(`- [${fileName}](./${encodeURIComponent(fileName)}.html)`);
     } else {
-      indexLines.push(`${'  '.repeat(title.level - 1)}- [${title.text}](./${encodeURIComponent(item.file)}#${encodeURIComponent(title.text)})`);
+      indexLines.push(`${'  '.repeat(title.level - 1)}- [${title.text}](./${encodeURIComponent(fileName)}.html#${encodeURIComponent(title.text)})`);
     }
   })
 });
