@@ -1,0 +1,451 @@
+<!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8"/>
+        <title>1.基础知识.md</title>
+      </head>
+      <body>
+        <div id="nav">
+          <ul>
+<li><a href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">基础知识</a><ul>
+<li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></li>
+<li><a href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC">命名风格</a><ul>
+<li>[要使用 UpperCamelCase 风格来命名类型名称](#要使用 UpperCamelCase 风格来命名类型名称)</li>
+<li>[要使用 lowercase_with_underscores 风格来命名库和文件名名字](#要使用 lowercase_with_underscores 风格来命名库和文件名名字)</li>
+<li>[要使用 lowerCamelCase 风格来命名其他的标识符](#要使用 lowerCamelCase 风格来命名其他的标识符)</li>
+</ul>
+</li>
+<li><a href="#Variables%EF%BC%88%E5%8F%98%E9%87%8F%EF%BC%89">Variables（变量）</a></li>
+<li><a href="#%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F">私有变量</a></li>
+<li><a href="#%E5%B8%B8%E9%87%8F">常量</a></li>
+<li>[Default value（默认值）](#Default value（默认值）)</li>
+<li><a href="#Comments%EF%BC%88%E6%B3%A8%E9%87%8A%EF%BC%89">Comments（注释）</a></li>
+<li><a href="#%E6%89%93%E5%8D%B0">打印</a></li>
+<li><a href="#Assert%EF%BC%88%E6%96%AD%E8%A8%80%EF%BC%89">Assert（断言）</a></li>
+<li><a href="#Exceptions%EF%BC%88%E5%BC%82%E5%B8%B8%EF%BC%89">Exceptions（异常）</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div id="content">
+          <h1 id="基础知识">基础知识</h1><h2 id="标识符">标识符</h2><p>dart</p>
+<ul>
+<li>标识符可以以字母或者 _ 下划线开头，后面可以是 其他字符和数字的组合。</li>
+</ul>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<ul>
+<li>第一个字符，可以是任意 Unicode 字母（包括英文字母和其他语言的字母），
+以及美元符号（$）和下划线（_）。</li>
+<li>第二个字符及后面的字符，除了 Unicode 字母、美元符号和下划线，还可以用数字0-9。</li>
+</ul>
+<p>python</p>
+<ul>
+<li>大写和小写字母 A 至 Z，下划线 _ 以及数字 0 至 9，但不可以数字打头。</li>
+<li>标识符的长度没有限制。对大小写敏感。</li>
+</ul>
+<h2 id="命名风格">命名风格</h2><p>dart</p>
+<ul>
+<li>UpperCamelCase</li>
+<li>lowerCamelCase</li>
+<li>lowercase_with_underscores</li>
+</ul>
+<h3 id="要使用 UpperCamelCase 风格来命名类型名称">要使用 UpperCamelCase 风格来命名类型名称</h3><pre><code class="language-dart">class SliderMenu { ... }
+class HttpRequest { ... }
+typedef bool Predicate&lt;T&gt;(T value);
+
+class Foo {
+  const Foo([arg]);
+}
+@Foo(anArg)
+class A { ... }
+@Foo()
+class B { ... }
+
+const foo = const Foo();
+@foo
+class C { ... }</code></pre>
+<h3 id="要使用 lowercase_with_underscores 风格来命名库和文件名名字">要使用 lowercase_with_underscores 风格来命名库和文件名名字</h3><pre><code class="language-dart">library peg_parser.source_scanner;
+import &#39;file_system.dart&#39;;
+import &#39;slider_menu.dart&#39;;
+
+import &#39;dart:json&#39; as json;
+import &#39;dart:math&#39; as math;
+import &#39;package:javascript_utils/javascript_utils.dart&#39; as js_utils;
+import &#39;package:js/js.dart&#39; as js;</code></pre>
+<h3 id="要使用 lowerCamelCase 风格来命名其他的标识符">要使用 lowerCamelCase 风格来命名其他的标识符</h3><pre><code class="language-dart">var item;
+HttpRequest httpRequest;
+align(clearItems) {
+  // ...
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Variables（变量）">Variables（变量）</h2><p>dart</p>
+<pre><code class="language-dart">// 不要 显式的把变量初始化为 null
+int _nextId;
+assert(_nextId == null);
+
+// 没有明确类型
+var name = &#39;Bob&#39;;
+Object name = &#39;Bob&#39;;
+dynamic name = &#39;Bob&#39;;
+
+// 可以选择加上具体 类型
+// 对于局部变量，这里准守 代码风格推荐 部分的建议，
+// 使用 var 而不是具体的类型来定义局部变量。
+String name2 = &#39;Bob&#39;;
+
+// 定义集合
+var points = [];
+var addresses = {};
+// 如果有必要还可以提供泛型类型
+var points = &lt;Point&gt;[];
+var addresses = &lt;String, Address&gt;{};</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">// var name = &#39;Bob&#39;;
+let name = &#39;Bob&#39;;</code></pre>
+<p>python</p>
+<pre><code class="language-python">name = &#39;Bob&#39;</code></pre>
+<h2 id="私有变量">私有变量</h2><p>dart</p>
+<pre><code class="language-dart">// 变量名以&quot;_&quot;开头意味着对它的 lib 是私有的
+var _name = &#39;Bob&#39;;</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="常量">常量</h2><p>dart</p>
+<ul>
+<li>dart的<code>final</code>类似于js中的const，只能定义一次，但可运行时才确定值，
+如果是复杂对象，内存地址不变，但是对象的成员是可变的。</li>
+<li>dart的<code>const</code>比final限制更严格，在编译时需有确定值，运行时不可变，
+不但内存地址不变，对象的成员也都不可变。</li>
+</ul>
+<pre><code class="language-dart">// 一个 final 变量只能赋值一次
+final name = &#39;Bob&#39;;
+final String name = &#39;Bob&#39;;
+// 一个 const 变量是编译时常量
+const bar = 1000000;
+var varList = const [];</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<ul>
+<li>js的<code>const</code>类似与dart的final，声明一个只读的常量。</li>
+<li>对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。</li>
+<li>但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，
+保存的只是一个指向实际数据的指针，
+const只能保证这个指针是固定的（即总是指向另一个固定的地址），
+至于它指向的数据结构是不是可变的，就完全不能控制了</li>
+</ul>
+<pre><code class="language-js">const name = &#39;Bob&#39;;</code></pre>
+<p>python</p>
+<pre><code class="language-python"># 自定义
+class Const:
+  class ConstError(TypeError) :
+    pass
+  class ConstCaseError(ConstError):
+    pass
+
+  def __setattr__(self, name, value):
+    if name in self.__dict__:
+      raise self.ConstError, &quot;Can&#39;t change const value!&quot;
+    if not name.isupper():
+      raise self.ConstCaseError, &#39;const &quot;%s&quot; is not all letters are capitalized&#39; %name
+    self.__dict__[name] = value
+
+import sys
+sys.modules[__name__] = Const()
+
+# 使用
+import constant
+constant.MAX_COUNT=1</code></pre>
+<h2 id="Default value（默认值）">Default value（默认值）</h2><p>未初始化的变量自动获取的值</p>
+<p>dart</p>
+<pre><code class="language-dart">int lineCount;
+print(lineCount);
+// null</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">let lineCount;
+console.log(lineCount);
+// undefined</code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Comments（注释）">Comments（注释）</h2><p>dart</p>
+<ul>
+<li>单行注释以 // 开始。</li>
+<li>多行注释以 /* 开始， */ 结尾。 多行注释 可以 嵌套。</li>
+<li>文档注释可以使用 /// 开始， 也可以使用 /** 开始 并以 */ 结束。</li>
+</ul>
+<pre><code class="language-dart">main() {
+  // TODO: refactor into an AbstractLlamaGreetingFactory?
+  print(&#39;Welcome to my Llama farm!&#39;);
+}
+
+main() {
+  /*
+   * This is a lot of work. Consider raising chickens.
+
+  Llama larry = new Llama();
+  larry.feed();
+  larry.exercise();
+  larry.clean();
+   */
+}
+
+/// A domesticated South American camelid (Lama glama).
+///
+/// Andean cultures have used llamas as meat and pack
+/// animals since pre-Hispanic times.
+class Llama {
+  String name;
+
+  /// Feeds your llama [Food].
+  ///
+  /// The typical llama eats one bale of hay per week.
+  void feed(Food food) {
+    // ...
+  }
+
+  /// Exercises your llama with an [activity] for
+  /// [timeLimit] minutes.
+  void exercise(Activity activity, int timeLimit) {
+    // ...
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"># 一个多行文档字符串的例子:
+def my_function():
+    &quot;&quot;&quot;Do nothing, but document it.
+
+    No, really, it doesn&#39;t do anything.
+    &quot;&quot;&quot;
+    pass
+
+print(my_function.__doc__)
+# Do nothing, but document it.
+
+#     No, really, it doesn&#39;t do anything.</code></pre>
+<h2 id="打印">打印</h2><p>dart</p>
+<pre><code class="language-dart">print(&#39;The number is $aNumber.&#39;); // 在控制台打印内容。</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">console.log(`The number is ${aNumber}.`)
+var number = 11 * 9;
+var color = &#39;red&#39;;
+console.log(&#39;%d %s balloons&#39;, number, color);
+
+console.log(&#39; %s + %s &#39;, 1, 1, &#39;= 2&#39;)
+// 1 + 1  = 2
+
+console.log({foo: &#39;bar&#39;})
+// Object {foo: &quot;bar&quot;}
+console.log(Date)
+// function Date() { [native code] }
+
+var languages = [
+  { name: &quot;JavaScript&quot;, fileExtension: &quot;.js&quot; },
+  { name: &quot;TypeScript&quot;, fileExtension: &quot;.ts&quot; },
+  { name: &quot;CoffeeScript&quot;, fileExtension: &quot;.coffee&quot; }
+];
+console.table(languages);
+
+var languages = {
+  csharp: { name: &quot;C#&quot;, paradigm: &quot;object-oriented&quot; },
+  fsharp: { name: &quot;F#&quot;, paradigm: &quot;functional&quot; }
+};
+console.table(languages);
+
+console.assert(false, &#39;判断条件不成立&#39;)
+// Assertion failed: 判断条件不成立
+// 相当于
+try {
+  if (!false) {
+    throw new Error(&#39;判断条件不成立&#39;);
+  }
+} catch(e) {
+  console.error(e);
+}</code></pre>
+<p>python</p>
+<pre><code class="language-python">print(&#39;The number is {}.&#39;.format(aNumber)) #打印</code></pre>
+<h2 id="Assert（断言）">Assert（断言）</h2><p>dart</p>
+<ul>
+<li>断言只在检查模式下运行有效，如果在生产模式 运行，则断言不会执行。</li>
+<li>assert 方法的参数可以为任何返回布尔值的表达式或者方法。</li>
+<li>如果返回的值为 true， 断言执行通过，执行结束。</li>
+<li>如果返回值为 false， 断言执行失败，会抛出一个异常 AssertionError</li>
+</ul>
+<pre><code class="language-dart">// Make sure the variable has a non-null value.
+assert(text != null);
+
+// Make sure the value is less than 100.
+assert(number &lt; 100);
+
+// Make sure this is an https URL.
+assert(urlString.startsWith(&#39;https&#39;));</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">// 条件为true，打印消息
+console.assert(assertion, obj1 [, obj2, ..., objN]);
+console.assert(assertion, msg [, subst1, ..., substN]);
+const a = &#39;1&#39;
+console.assert(typeof a === &#39;number&#39;, &#39;a should be Number&#39;)
+
+// node 内置assert模块
+assert(value, message) // 当条件为false，就抛出一个错误。
+assert.ok(value, message) // 同上
+
+// 第一个参数是实际值，第二个是预期值，第三个是错误的提示信息。
+// equal方法内部使用的是相等运算符（==），而不是严格运算符（===）
+assert.equal(actual, expected, [message]) // 实际值不等于预期值时，抛出错误
+assert.notEqual(actual, expected, [message]) // 实际值等于预期值时，抛出错误</code></pre>
+<p>python</p>
+<pre><code class="language-python"># expression 是必填的条件表达式，
+# arguments 是可选参数，用于在断言被触发的时候输出相关信息
+# 当 expression 值为 False 的时候将触发断言
+assert expression [, arguments]</code></pre>
+<h2 id="Exceptions（异常）">Exceptions（异常）</h2><p>dart</p>
+<pre><code class="language-dart">throw new FormatException(&#39;Expected at least 1 section&#39;);
+throw &#39;Out of llamas!&#39;;
+
+try {
+  breedMoreLlamas();
+} on OutOfLlamasException {
+  buyMoreLlamas();
+} finally {
+  //
+}
+
+try {
+  breedMoreLlamas();
+} on OutOfLlamasException {
+  // A specific exception
+  buyMoreLlamas();
+} on Exception catch (e) {
+  // Anything else that is an exception
+  print(&#39;Unknown exception: $e&#39;);
+} catch (e) {
+  // No specified type, handles all
+  print(&#39;Something really unknown: $e&#39;);
+}
+
+final foo = &#39;&#39;;
+void misbehave() {
+  try {
+    foo = &quot;You can&#39;t change a final variable&#39;s value.&quot;;
+  } catch (e) {
+    print(&#39;misbehave() partially handled ${e.runtimeType}.&#39;);
+    rethrow; // 使用 rethrow 关键字可以 把捕获的异常给 重新抛出。
+    // rethrow 保留了原来的异常堆栈信息。 
+    // 而 throw 会把异常堆栈信息 重置为最后抛出的位置。
+  }
+}
+
+// 通过实现 Exception 接口来自定义 一些异常
+class FooException implements Exception {
+  final String msg;
+  const FooException([this.msg]);
+  String toString() =&gt; msg ?? &#39;FooException&#39;;
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">throw new Error(&#39;&#39;);
+
+try {
+  writeFile(Data);
+} catch(e) {
+  handleError(e);
+} finally {
+  closeFile();
+}
+
+function UserError(message) {
+  this.message = message || &#39;默认信息&#39;;
+  this.name = &#39;UserError&#39;;
+}
+UserError.prototype = new Error();
+UserError.prototype.constructor = UserError;
+new UserError(&#39;这是自定义的错误！&#39;);</code></pre>
+<p>python</p>
+<pre><code class="language-python">while True:
+  try:
+    x = int(input(&quot;Please enter a number: &quot;))
+    break
+  except ValueError:
+    print(&quot;Oops!  That was no valid number.  Try again...&quot;)
+
+try:
+  raise KeyboardInterrupt
+finally:
+  print(&#39;Goodbye, world!&#39;)
+
+def divide(x, y):
+  try:
+    result = x / y
+  except ZeroDivisionError:
+    print(&quot;division by zero!&quot;)
+  else:
+    print(&quot;result is&quot;, result)
+  finally:
+    print(&quot;executing finally clause&quot;)
+
+# 抛出异常
+try:
+    raise NameError(&#39;HiThere&#39;)
+except NameError:
+    print(&#39;An exception flew by!&#39;)
+    raise
+
+# 用户自定义异常
+class Error(Exception):
+    &quot;&quot;&quot;Base class for exceptions in this module.&quot;&quot;&quot;
+    pass
+
+class InputError(Error):
+    &quot;&quot;&quot;Exception raised for errors in the input.
+
+    Attributes:
+        expression -- input expression in which the error occurred
+        message -- explanation of the error
+    &quot;&quot;&quot;
+
+    def __init__(self, expression, message):
+        self.expression = expression
+        self.message = message
+
+class TransitionError(Error):
+    &quot;&quot;&quot;Raised when an operation attempts a state transition that&#39;s not
+    allowed.
+
+    Attributes:
+        previous -- state at beginning of transition
+        next -- attempted new state
+        message -- explanation of why the specific transition is not allowed
+    &quot;&quot;&quot;
+
+    def __init__(self, previous, next, message):
+        self.previous = previous
+        self.next = next
+        self.message = message</code></pre>
+
+        </div>
+      </body>
+      </html>

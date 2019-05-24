@@ -22,12 +22,61 @@ fs.readdirSync('./src')
       fileInfo.titles.push({ text, level });
       return `<h${level} id="${text}">${text}</h${level}>`;
     };
+
     const data = fs.readFileSync(`./src/${file}`, 'utf8');
-    marked(data, { renderer });
+    const htmlBody = marked(data, { renderer });
+    const htmlNav = marked(fileInfo.titles.map(title => `${'  '.repeat(title.level - 1)}- [${title.text}](#${title.text})`).join('\n'));
+
+    const html = `<!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8"/>
+        <title>${file}</title>
+      </head>
+      <body>
+        <div id="nav">
+          ${htmlNav}
+        </div>
+        <div id="content">
+          ${htmlBody}
+        </div>
+      </body>
+      </html>`;
+    fs.writeFileSync(`./dist/${file.slice(0, -3)}.html`, html);
 
     outlines.push(fileInfo);
   });
 // console.log(outlines);
+
+
+/**
+ * 生成index.html
+ */
+const indexLines = [];
+outlines.forEach(item => {
+  item.titles.forEach((title, index) => {
+    if (index === 0) {
+      indexLines.push(`- [${item.file.slice(0, -3)}](./${encodeURIComponent(item.file)})`);
+    } else {
+      indexLines.push(`${'  '.repeat(title.level - 1)}- [${title.text}](./${encodeURIComponent(item.file)}#${encodeURIComponent(title.text)})`);
+    }
+  })
+});
+const indexStr = `<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>programming-language-comparison</title>
+</head>
+<body>
+  <div id="nav">
+    ${marked(indexLines.join('\n'))}
+  </div>
+</body>
+</html>
+`;
+// console.log(readmeStr)
+fs.writeFileSync('./dist/index.html', indexStr);
 
 
 /**

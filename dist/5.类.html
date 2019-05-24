@@ -1,0 +1,1234 @@
+<!doctype html>
+      <html>
+      <head>
+        <meta charset="utf-8"/>
+        <title>5.类.md</title>
+      </head>
+      <body>
+        <div id="nav">
+          <ul>
+<li><a href="#%E7%B1%BB">类</a><ul>
+<li>[Classes 类定义及用法](#Classes 类定义及用法)</li>
+<li>[Instance variables 实例变量](#Instance variables 实例变量)</li>
+<li><a href="#%E7%A7%81%E6%9C%89%E5%8F%98%E9%87%8F">私有变量</a></li>
+<li>[Constructors 构造函数](#Constructors 构造函数)</li>
+<li>[Default constructors（默认构造函数）](#Default constructors（默认构造函数）)</li>
+<li>[Named constructors（命名构造函数）](#Named constructors（命名构造函数）)</li>
+<li>[Invoking a non-default superclass constructor（调用超类构造函数）](#Invoking a non-default superclass constructor（调用超类构造函数）)</li>
+<li>[Initializer list（初始化列表）](#Initializer list（初始化列表）)</li>
+<li>[Redirecting constructors（重定向构造函数）](#Redirecting constructors（重定向构造函数）)</li>
+<li>[Constant constructors（常量构造函数）](#Constant constructors（常量构造函数）)</li>
+<li>[Factory constructors（工厂方法构造函数）](#Factory constructors（工厂方法构造函数）)</li>
+<li>[Instance methods（实例函数）](#Instance methods（实例函数）)</li>
+<li>[Getters and setters](#Getters and setters)</li>
+<li>[Abstract methods（抽象函数）](#Abstract methods（抽象函数）)</li>
+<li>[Overridable operators（可覆写的操作符）](#Overridable operators（可覆写的操作符）)</li>
+<li>[Abstract classes（抽象类）](#Abstract classes（抽象类）)</li>
+<li>[Implicit interfaces（隐式接口）](#Implicit interfaces（隐式接口）)</li>
+<li>[Extending a class（扩展类）继承](#Extending a class（扩展类）继承)</li>
+<li>[Enumerated types（枚举类型）](#Enumerated types（枚举类型）)</li>
+<li>[Adding features to a class: mixins（为类添加新的功能）多重继承](#Adding features to a class: mixins（为类添加新的功能）多重继承)</li>
+<li>[Static variables（静态变量）](#Static variables（静态变量）)</li>
+<li>[Static methods（静态函数）](#Static methods（静态函数）)</li>
+<li>[Callable classes（可调用的类）](#Callable classes（可调用的类）)</li>
+<li>[Implementing map keys 自定义 hash 码](#Implementing map keys 自定义 hash 码)</li>
+<li>[Iteration 可迭代对象](#Iteration 可迭代对象)</li>
+<li><a href="#Typedefs">Typedefs</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+        <div id="content">
+          <h1 id="类">类</h1><h2 id="Classes 类定义及用法">Classes 类定义及用法</h2><p>dart</p>
+<pre><code class="language-dart">class Point {
+  num x;
+  num y;
+  Point(this.x, this.y);
+  // Named constructor
+  Point.fromJson(Map json) {
+    x = json[&#39;x&#39;];
+    y = json[&#39;y&#39;];
+  }
+}
+
+var jsonData = JSON.decode(&#39;{&quot;x&quot;:1, &quot;y&quot;:2}&#39;);
+// 使用 new 关键字 来创建新的对象
+// Create a Point using Point().
+var p1 = new Point(2, 2);
+// 使用 构造函数 来创建新的对象
+// Create a Point using Point.fromJson().
+var p2 = new Point.fromJson(jsonData);
+
+// 使用点(.)来引用对象的变量或者方法：
+var p = new Point(2, 2);
+// Set the value of the instance variable y.
+p.y = 3;
+// Get the value of y.
+assert(p.y == 3);
+// Invoke distanceTo() on p.
+num distance = p.distanceTo(new Point(4, 4));
+
+// 使用 ?. 来替代 . 可以避免当左边对象为 null 时候 抛出异常：
+// If p is non-null, set its y value to 4.
+p?.y = 4;
+
+// 使用常量构造函数 可以创建编译时常量，
+// 要使用常量构造函数只需要用 const 替代 new 即可：
+var p = const ImmutablePoint(2, 2);
+// 两个一样的编译时常量其实是 同一个对象：
+var a = const ImmutablePoint(1, 1);
+var b = const ImmutablePoint(1, 1);
+assert(identical(a, b)); // They are the same instance!
+
+// 可以使用 Object 的 runtimeType 属性来判断实例 的类型，
+// 该属性 返回一个 Type 对象。
+print(&#39;The type of a is ${a.runtimeType}&#39;);</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">class Point {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+  toString() {
+    return &#39;(&#39; + this.x + &#39;, &#39; + this.y + &#39;)&#39;;
+  }
+}
+typeof Point // &quot;function&quot;
+Point === Point.prototype.constructor // true</code></pre>
+<p>python</p>
+<p>类提供了一种组合数据和功能的方法。
+创建一个新类意味着创建一个新 类型 的对象，
+从而允许创建一个该类型的新 实例 。
+每个类的实例可以拥有保存自己状态的属性。</p>
+<p>多个名称（在多个作用域内）可以绑定到同一个对象。
+这在其他语言中称为别名。</p>
+<p>namespace 是一个从名字到对象的映射。
+大部分命名空间当前都由 Python 字典实现，
+从某种意义上说，对象的属性集合也是一种命名空间的形式。
+不同命名空间中的名称之间绝对没有关系；</p>
+<p>我把任何跟在一个点号之后的名称都称为 属性</p>
+<p>模块属性是可以写，你可以写出 modname.the_answer = 42 。
+可写的属性同样可以用 del 语句删除。</p>
+<p>内置名称实际上也存在于一个模块中；这个模块称作 builtins</p>
+<pre><code class="language-python"># 作用域和命名空间示例
+def scope_test():
+    def do_local():
+        spam = &quot;local spam&quot;
+
+    def do_nonlocal():
+        nonlocal spam
+        spam = &quot;nonlocal spam&quot;
+
+    def do_global():
+        global spam
+        spam = &quot;global spam&quot;
+
+    spam = &quot;test spam&quot;
+    do_local()
+    print(&quot;After local assignment:&quot;, spam)
+    do_nonlocal()
+    print(&quot;After nonlocal assignment:&quot;, spam)
+    do_global()
+    print(&quot;After global assignment:&quot;, spam)
+
+scope_test()
+print(&quot;In global scope:&quot;, spam)
+# After local assignment: test spam
+# After nonlocal assignment: nonlocal spam
+# After global assignment: nonlocal spam
+# In global scope: global spam
+
+# MyClass.i 和 MyClass.f 就是有效的属性引用，
+# 将分别返回一个整数和一个函数对象。
+# 类属性也可以被赋值，因此可以通过赋值来更改 MyClass.i 的值。
+class MyClass:
+    &quot;&quot;&quot;A simple example class&quot;&quot;&quot;
+    i = 12345
+
+    # 当一个类定义了 __init__() 方法时，
+    # 类的实例化操作会自动为新创建的类实例发起调用 __init__()
+    def __init__(self):
+        self.data = []
+
+    def f(self):
+        return &#39;hello world&#39;
+x = MyClass()
+
+class Complex:
+    def __init__(self, realpart, imagpart):
+        self.r = realpart
+        self.i = imagpart
+
+x = Complex(3.0, -4.5) # 实例化</code></pre>
+<h2 id="Instance variables 实例变量">Instance variables 实例变量</h2><p>dart</p>
+<pre><code class="language-dart">// 每个实例变量都会自动生成一个 getter 方法（隐含的）。
+// Non-final 实例变量还会自动生成一个 setter 方法。
+class Point {
+  num x; // Declare instance variable x, initially null.
+  num y; // Declare y, initially null.
+  num z = 0; // Declare z, initially 0.
+}
+main() {
+  var point = new Point();
+  point.x = 4;          // Use the setter method for x.
+  assert(point.x == 4); // Use the getter method for x.
+  assert(point.y == null); // Values default to null.
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">class IncreasingCounter {
+  constructor() {
+    this._count = 0;
+  }
+  get value() {
+    console.log(&#39;Getting the current value!&#39;);
+    return this._count;
+  }
+  increment() {
+    this._count++;
+  }
+}
+class IncreasingCounter {
+  _count = 0;
+  get value() {
+    console.log(&#39;Getting the current value!&#39;);
+    return this._count;
+  }
+  increment() {
+    this._count++;
+  }
+}
+
+class foo {
+  bar = &#39;hello&#39;;
+  baz = &#39;world&#39;;
+
+  constructor() {
+    // ...
+  }
+}
+
+
+class Duck {
+  constructor(name) {
+    this.name = name
+  }
+
+  fly() {
+    console.log(`${this.name} can fly`)
+  }
+
+  // not static: call a method on an instance
+  // const duck = new Duck(...)
+  // duck.create(...)
+  //
+  // static: call a method on a class
+  // Duck.create(...)
+  static create(name, kind) {
+    if (kind === &#39;mallard&#39;) {
+      return new MallardDuck(name)
+    } else if (kind === &#39;rubber&#39;) {
+      return new RubberDuck(name)
+    } else {
+      // this = Duck
+      return new this(name)
+    }
+  }
+}
+
+class MallardDuck extends Duck {
+  // get:
+  // use duck.color instead of duck.color()
+  get color() {
+    return &#39;green&#39;
+  }
+}
+
+class RubberDuck extends Duck {
+  constructor(name, eyeColor = &#39;black&#39;) {
+    super(name)
+    this.eyeColor = eyeColor
+  }
+
+  fly() {
+    super.fly()
+    console.log(`Just kidding, ${this.name} cannot fly`)
+  }
+
+  get color() {
+    return &#39;yellow&#39;
+  }
+}
+
+const regularDuck = new Duck(&#39;reggie&#39;)
+// reggie can fly
+regularDuck.fly()
+
+const mallardDuck = Duck.create(&#39;mal&#39;, &#39;mallard&#39;)
+// mal
+console.log(mallardDuck.name)
+// green
+console.log(mallardDuck.color)
+
+rubberDuck = new RubberDuck(&#39;vic&#39;, &#39;blue&#39;)
+// vic can fly
+// Just kidding, vic cannot fly
+rubberDuck.fly()
+
+// yellow
+console.log(rubberDuck.color)
+
+// blue
+console.log(rubberDuck.eyeColor)</code></pre>
+<p>python</p>
+<p>有两种有效的属性名称，数据属性和方法。
+数据属性 对应于 Smalltalk 中的“实例变量”，以及 C++ 中的“数据成员”。
+另一类实例属性引用称为 方法。 方法是“从属于”对象的函数。
+但是 x.f 与 MyClass.f 并不是一回事 --- 它是一个 方法对象，不是函数对象</p>
+<p>数据属性会覆盖掉具有相同名称的方法属性；
+为了避免会在大型程序中导致难以发现的错误的意外名称冲突，
+明智的做法是使用某种约定来最小化冲突的发生几率。
+可能的约定包括方法名称使用大写字母，
+属性名称加上独特的短字符串前缀（或许只加一个下划线），
+或者是用动词来命名方法，而用名词来命名数据属性</p>
+<p>方法的第一个参数常常被命名为 self。
+这也不过就是一个约定: self 这一名称在 Python 中绝对没有特殊含义。</p>
+<pre><code class="language-python">class Duck:
+    def __init__(self, name):
+        self.name = name
+
+    def fly(self):
+        print(f&quot;{self.name} can fly&quot;)
+
+    # not @classmethod: call a method on an instance
+    # duck = Duck(...)
+    # duck.create(...)
+    #
+    # @classmethod: call a method on a class
+    # Duck.create(...)
+    @classmethod
+    def create(cls, name, kind):
+        if kind == &quot;mallard&quot;:
+            return MallardDuck(name)
+        elif kind == &quot;rubber&quot;:
+            return RubberDuck(name)
+        else:
+            # cls = Duck
+            return cls(name)
+
+
+class MallardDuck(Duck):
+    # @property:
+    # use duck.color instead of duck.color()
+    @property
+    def color(self):
+        return &quot;green&quot;
+
+
+class RubberDuck(Duck):
+    def __init__(self, name, eye_color=&quot;black&quot;):
+        super().__init__(name)
+        self.eye_color = eye_color
+
+    def fly(self):
+        super().fly()
+        print(f&quot;Just kidding, {self.name} cannot fly&quot;)
+
+    @property
+    def color(self):
+        return &quot;yellow&quot;
+
+
+regularDuck = Duck(&quot;reggie&quot;)
+# reggie can fly
+regularDuck.fly()
+
+mallardDuck = Duck.create(&quot;mal&quot;, &quot;mallard&quot;)
+# mal
+print(mallardDuck.name)
+# green
+print(mallardDuck.color)
+
+rubberDuck = RubberDuck(&quot;vic&quot;, &quot;blue&quot;)
+# vic can fly
+# Just kidding, vic cannot fly
+rubberDuck.fly()
+# yellow
+print(rubberDuck.color)
+# blue
+print(rubberDuck.eye_color)</code></pre>
+<pre><code class="language-sh">class Dog:
+
+    kind = &#39;canine&#39;         # class variable shared by all instances
+
+    def __init__(self, name):
+        self.name = name    # instance variable unique to each instance
+
+&gt;&gt;&gt; d = Dog(&#39;Fido&#39;)
+&gt;&gt;&gt; e = Dog(&#39;Buddy&#39;)
+&gt;&gt;&gt; d.kind                  # shared by all dogs
+&#39;canine&#39;
+&gt;&gt;&gt; e.kind                  # shared by all dogs
+&#39;canine&#39;
+&gt;&gt;&gt; d.name                  # unique to d
+&#39;Fido&#39;
+&gt;&gt;&gt; e.name                  # unique to e
+&#39;Buddy&#39;
+
+# 以下代码中的 tricks 列表不应该被用作类变量，
+# 因为所有的 Dog 实例将只共享一个单独的列表:
+class Dog:
+
+    tricks = []             # mistaken use of a class variable
+
+    def __init__(self, name):
+        self.name = name
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+&gt;&gt;&gt; d = Dog(&#39;Fido&#39;)
+&gt;&gt;&gt; e = Dog(&#39;Buddy&#39;)
+&gt;&gt;&gt; d.add_trick(&#39;roll over&#39;)
+&gt;&gt;&gt; e.add_trick(&#39;play dead&#39;)
+&gt;&gt;&gt; d.tricks                # unexpectedly shared by all dogs
+[&#39;roll over&#39;, &#39;play dead&#39;]
+
+# 正确的类设计应该使用实例变量:
+class Dog:
+
+    def __init__(self, name):
+        self.name = name
+        self.tricks = []    # creates a new empty list for each dog
+
+    def add_trick(self, trick):
+        self.tricks.append(trick)
+
+&gt;&gt;&gt; d = Dog(&#39;Fido&#39;)
+&gt;&gt;&gt; e = Dog(&#39;Buddy&#39;)
+&gt;&gt;&gt; d.add_trick(&#39;roll over&#39;)
+&gt;&gt;&gt; e.add_trick(&#39;play dead&#39;)
+&gt;&gt;&gt; d.tricks
+[&#39;roll over&#39;]
+&gt;&gt;&gt; e.tricks
+[&#39;play dead&#39;]</code></pre>
+<pre><code class="language-python">class Bag:
+    def __init__(self):
+        self.data = []
+
+    def add(self, x):
+        self.data.append(x)
+
+    def addtwice(self, x):
+        self.add(x)
+        self.add(x)</code></pre>
+<h2 id="私有变量">私有变量</h2><p>dart</p>
+<pre><code class="language-dart"></code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Constructors 构造函数">Constructors 构造函数</h2><p>dart</p>
+<p>定义一个和类名字一样的方法就定义了一个构造函数</p>
+<pre><code class="language-dart">class Point {
+  num x;
+  num y;
+  Point(num x, num y) {
+    // There&#39;s a better way to do this, stay tuned.
+    this.x = x;
+    this.y = y;
+  }
+}
+// 由于把构造函数参数赋值给实例变量的场景太常见了，
+// Dart 提供了一个语法糖来简化这个操作：
+class Point {
+  num x;
+  num y;
+  // Syntactic sugar for setting x and y
+  // before the constructor body runs.
+  Point(this.x, this.y);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python">class MyClass:
+    def __init__(self):
+        pass</code></pre>
+<h2 id="Default constructors（默认构造函数）">Default constructors（默认构造函数）</h2><p>dart</p>
+<p>如果你没有定义构造函数，则会有个默认构造函数。
+默认构造函数没有参数，并且会调用超类的 没有参数的构造函数。</p>
+<pre><code class="language-dart"></code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<p>constructor方法是类的默认方法，通过new命令生成对象实例时，自动调用该方法。
+一个类必须有constructor方法，如果没有显式定义，一个空的constructor方法会被默认添加。</p>
+<pre><code class="language-js">class Point {
+}
+
+// 等同于
+class Point {
+  constructor() {}
+}</code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Named constructors（命名构造函数）">Named constructors（命名构造函数）</h2><p>dart</p>
+<p>构造函数不能继承，所以超类的命名构造函数 也不会被继承。
+如果你希望 子类也有超类一样的命名构造函数， 你必须在子类中自己实现该构造函数。</p>
+<pre><code class="language-dart">class Point {
+  num x;
+  num y;
+
+  Point(this.x, this.y);
+
+  // Named constructor
+  Point.fromJson(Map json) {
+    x = json[&#39;x&#39;];
+    y = json[&#39;y&#39;];
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Invoking a non-default superclass constructor（调用超类构造函数）">Invoking a non-default superclass constructor（调用超类构造函数）</h2><p>dart</p>
+<ul>
+<li>默认情况下，子类的构造函数会自动调用超类的 无名无参数的默认构造函数。
+超类的构造函数在子类构造函数体开始执行的位置调用。</li>
+<li>如果提供了一个 initializer list（初始化参数列表） ，
+则初始化参数列表在超类构造函数执行之前执行。</li>
+<li>如果在构造函数的初始化列表中使用 super()，需要把它放到最后。</li>
+</ul>
+<p>构造函数执行顺序:</p>
+<ul>
+<li>initializer list（初始化参数列表）</li>
+<li>superclass’s no-arg constructor（超类的无名无参构造函数）</li>
+<li>main class’s no-arg constructor（主类的无名无参构造函数）</li>
+</ul>
+<pre><code class="language-dart">class Person {
+  String firstName;
+
+  Person.fromJson(Map data) {
+    print(&#39;in Person&#39;);
+  }
+}
+
+class Employee extends Person {
+  // Person does not have a default constructor;
+  // you must call super.fromJson(data).
+  // 此处实现超类的命名构造函数
+  Employee.fromJson(Map data) : super.fromJson(data) {
+    print(&#39;in Employee&#39;);
+  }
+}
+
+main() {
+  var emp = new Employee.fromJson({});
+
+  // Prints:
+  // in Person
+  // in Employee
+  if (emp is Person) {
+    // Type check
+    emp.firstName = &#39;Bob&#39;;
+  }
+  (emp as Person).firstName = &#39;Bob&#39;;
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Initializer list（初始化列表）">Initializer list（初始化列表）</h2><p>dart</p>
+<p>在构造函数体执行之前除了可以调用超类构造函数之外，
+还可以 初始化实例参数。
+使用逗号分隔初始化表达式。
+初始化表达式等号右边的部分不能访问 this。</p>
+<pre><code class="language-dart">class Point {
+  num x;
+  num y;
+
+  Point(this.x, this.y);
+
+  // Initializer list sets instance variables before
+  // the constructor body runs.
+  Point.fromJson(Map jsonMap)
+      : x = jsonMap[&#39;x&#39;],
+        y = jsonMap[&#39;y&#39;] {
+    print(&#39;In Point.fromJson(): ($x, $y)&#39;);
+  }
+}
+
+// 初始化列表非常适合用来设置 final 变量的值
+import &#39;dart:math&#39;;
+
+class Point {
+  final num x;
+  final num y;
+  final num distanceFromOrigin;
+
+  Point(x, y)
+      : x = x,
+        y = y,
+        distanceFromOrigin = sqrt(x * x + y * y);
+}
+
+main() {
+  var p = new Point(2, 3);
+  print(p.distanceFromOrigin);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Redirecting constructors（重定向构造函数）">Redirecting constructors（重定向构造函数）</h2><p>dart</p>
+<p>有时候一个构造函数会调动类中的其他构造函数。
+一个重定向构造函数是没有代码的，
+在构造函数声明后，使用 冒号调用其他构造函数。</p>
+<pre><code class="language-dart">class Point {
+  num x;
+  num y;
+
+  // The main constructor for this class.
+  Point(this.x, this.y);
+
+  // Delegates to the main constructor.
+  Point.alongXAxis(num x) : this(x, 0);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Constant constructors（常量构造函数）">Constant constructors（常量构造函数）</h2><p>dart</p>
+<p>如果你的类提供一个状态不变的对象，你可以把这些对象 定义为编译时常量。
+要实现这个功能，需要定义一个 const 构造函数， 并且声明所有类的变量为 final。</p>
+<pre><code class="language-dart">class ImmutablePoint {
+  final num x;
+  final num y;
+  const ImmutablePoint(this.x, this.y);
+  static final ImmutablePoint origin =
+      const ImmutablePoint(0, 0);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Factory constructors（工厂方法构造函数）">Factory constructors（工厂方法构造函数）</h2><p>dart</p>
+<ul>
+<li>如果一个构造函数并不总是返回一个新的对象，则使用 factory 来定义 这个构造函数。
+例如，一个工厂构造函数 可能从缓存中获取一个实例并返回，或者 返回一个子类型的实例。</li>
+<li>工厂构造函数无法访问 this。</li>
+</ul>
+<pre><code class="language-dart">// 下面代码演示工厂构造函数 如何从缓存中返回对象。
+class Logger {
+  final String name;
+  bool mute = false;
+
+  // _cache is library-private, thanks to the _ in front
+  // of its name.
+  static final Map&lt;String, Logger&gt; _cache =
+      &lt;String, Logger&gt;{};
+
+  factory Logger(String name) {
+    if (_cache.containsKey(name)) {
+      return _cache[name];
+    } else {
+      final logger = new Logger._internal(name);
+      _cache[name] = logger;
+      return logger;
+    }
+  }
+
+  Logger._internal(this.name);
+
+  void log(String msg) {
+    if (!mute) {
+      print(msg);
+    }
+  }
+}
+// 使用 new 关键字来调用工厂构造函数。
+var logger = new Logger(&#39;UI&#39;);
+logger.log(&#39;Button clicked&#39;);</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Instance methods（实例函数）">Instance methods（实例函数）</h2><p>dart</p>
+<p>对象的实例函数可以访问 this。 </p>
+<pre><code class="language-dart">import &#39;dart:math&#39;;
+
+class Point {
+  num x;
+  num y;
+  Point(this.x, this.y);
+
+  num distanceTo(Point other) {
+    var dx = x - other.x;
+    var dy = y - other.y;
+    return sqrt(dx * dx + dy * dy);
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Getters and setters">Getters and setters</h2><p>dart</p>
+<ul>
+<li>Getters 和 setters 是用来设置和访问对象属性的特殊 函数。
+每个实例变量都隐含的具有一个 getter， 如果变量不是 final 的则还有一个 setter。</li>
+<li>通过实行 getter 和 setter 来创建新的属性，
+使用 get 和 set 关键字定义 getter 和 setter</li>
+</ul>
+<pre><code class="language-dart">class Rectangle {
+  num left;
+  num top;
+  num width;
+  num height;
+
+  Rectangle(this.left, this.top, this.width, this.height);
+
+  // Define two calculated properties: right and bottom.
+  num get right             =&gt; left + width;
+      set right(num value)  =&gt; left = value - width;
+  num get bottom            =&gt; top + height;
+      set bottom(num value) =&gt; top = value - height;
+}
+
+main() {
+  var rect = new Rectangle(3, 4, 20, 15);
+  assert(rect.left == 3);
+  rect.right = 12;
+  assert(rect.left == -8);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js">class MyClass {
+  constructor() {
+    // ...
+  }
+  get prop() {
+    return &#39;getter&#39;;
+  }
+  set prop(value) {
+    console.log(&#39;setter: &#39;+value);
+  }
+}
+let inst = new MyClass();
+inst.prop = 123;
+// setter: 123
+inst.prop
+// &#39;getter&#39;</code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Abstract methods（抽象函数）">Abstract methods（抽象函数）</h2><p>dart</p>
+<ul>
+<li>实例函数、 getter、和 setter 函数可以为抽象函数，</li>
+<li>抽象函数是只定义函数接口但是没有实现的函数，由子类来 实现该函数。</li>
+<li>如果用分号来替代函数体则这个函数就是抽象函数。</li>
+<li>调用一个没实现的抽象函数会导致运行时异常。</li>
+</ul>
+<pre><code class="language-dart">abstract class Doer {
+  // ...Define instance variables and methods...
+
+  void doSomething(); // Define an abstract method.
+}
+
+class EffectiveDoer extends Doer {
+  void doSomething() {
+    // ...Provide an implementation, so the method is not abstract here...
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Overridable operators（可覆写的操作符）">Overridable operators（可覆写的操作符）</h2><p>dart</p>
+<p>下表中的操作符可以被覆写。</p>
+<pre><code class="language-sh">&lt;    +    |    []
+&gt;    /    ^    []=
+&lt;=    ~/    &amp;    ~
+&gt;=    *    &lt;&lt;    ==
+–    %    &gt;&gt;</code></pre>
+<ul>
+<li>例如，如果你定义了一个 Vector 类，你可以定义一个 + 函数来实现两个向量相加。</li>
+<li>如果你覆写了 == ，则还应该覆写对象的 hashCode getter 函数。 </li>
+</ul>
+<pre><code class="language-dart">class Vector {
+  final int x;
+  final int y;
+  const Vector(this.x, this.y);
+
+  /// Overrides + (a + b).
+  Vector operator +(Vector v) {
+    return new Vector(x + v.x, y + v.y);
+  }
+
+  /// Overrides - (a - b).
+  Vector operator -(Vector v) {
+    return new Vector(x - v.x, y - v.y);
+  }
+}
+
+main() {
+  final v = new Vector(2, 3);
+  final w = new Vector(2, 2);
+
+  // v == (2, 3)
+  assert(v.x == 2 &amp;&amp; v.y == 3);
+
+  // v + w == (4, 5)
+  assert((v + w).x == 4 &amp;&amp; (v + w).y == 5);
+
+  // v - w == (0, 1)
+  assert((v - w).x == 0 &amp;&amp; (v - w).y == 1);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Abstract classes（抽象类）">Abstract classes（抽象类）</h2><p>dart</p>
+<p>使用 <code>abstract</code> 修饰符定义一个 抽象类—一个不能被实例化的类。
+抽象类通常用来定义接口， 以及部分实现。
+如果你希望你的抽象类 是可实例化的，则定义一个 工厂 构造函数。</p>
+<pre><code class="language-dart">// 抽象类通常具有 抽象函数。 下面是定义具有抽象函数的 抽象类的示例：
+// This class is declared abstract and thus
+// can&#39;t be instantiated.
+abstract class AbstractContainer {
+  // ...Define constructors, fields, methods...
+
+  void updateChildren(); // Abstract method.
+}
+
+// 下面的类不是抽象的，但是定义了一个抽象函数，这样 的类是可以被实例化的：
+class SpecializedContainer extends AbstractContainer {
+  // ...Define more constructors, fields, methods...
+
+  void updateChildren() {
+    // ...Implement updateChildren()...
+  }
+
+  // Abstract method causes a warning but
+  // doesn&#39;t prevent instantiation.
+  void doSomething();
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Implicit interfaces（隐式接口）">Implicit interfaces（隐式接口）</h2><p>dart</p>
+<p>每个类都隐式的定义了一个包含所有实例成员的接口， 并且这个类实现了这个接口。
+一个类可以通过 implements 关键字来实现一个或者多个接口， 并实现每个接口定义的 API。</p>
+<p>Dart提供了隐式接口的功能,在定义类时使用implements关键字,
+可以像extends一样从父类获取到成员,
+与extends不同的是,这不是继承,而是接口成员约束.</p>
+<pre><code class="language-dart">// A person. The implicit interface contains greet().
+class Person {
+  // In the interface, but visible only in this library.
+  final _name;
+
+  // Not in the interface, since this is a constructor.
+  Person(this._name);
+
+  // In the interface.
+  String greet(who) =&gt; &#39;Hello, $who. I am $_name.&#39;;
+}
+
+// An implementation of the Person interface.
+class Imposter implements Person {
+  // We have to define this, but we don&#39;t use it.
+  final _name = &quot;&quot;;
+
+  String greet(who) =&gt; &#39;Hi $who. Do you know who I am?&#39;;
+}
+
+greetBob(Person person) =&gt; person.greet(&#39;bob&#39;);
+
+main() {
+  print(greetBob(new Person(&#39;kathy&#39;)));
+  print(greetBob(new Imposter()));
+}
+
+// 下面是实现多个接口 的示例：
+class Point implements Comparable, Location {
+  // ...
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Extending a class（扩展类）继承">Extending a class（扩展类）继承</h2><p>dart</p>
+<p>使用 extends 定义子类， supper 引用 超类：
+子类可以覆写实例函数，getter 和 setter。</p>
+<pre><code class="language-dart">class Television {
+  void turnOn() {
+    _illuminateDisplay();
+    _activateIrSensor();
+  }
+  // ...
+}
+
+class SmartTelevision extends Television {
+  void turnOn() {
+    super.turnOn();
+    _bootNetworkInterface();
+    _initializeMemory();
+    _upgradeApps();
+  }
+  // ...
+}
+
+// 如果调用了对象上不存在的函数，则就会触发 noSuchMethod() 函 数。
+class A {
+  // Unless you override noSuchMethod, using a
+  // non-existent member results in a NoSuchMethodError.
+  void noSuchMethod(Invocation mirror) {
+    print(&#39;You tried to use a non-existent member:&#39; +
+          &#39;${mirror.memberName}&#39;);
+  }
+}
+
+// 还可以使用 @override 注解来 表明你的函数是想覆写超类的一个函数：
+class A {
+  @override
+  void noSuchMethod(Invocation mirror) {
+    // ...
+  }
+}
+
+// 如果你使用 noSuchMethod() 函数来实现每个可能的 getter 、setter、 以及其他类型的函数，
+// 你可以使用 @proxy 注解来避免警告信息：
+@proxy
+class A {
+  void noSuchMethod(Invocation mirror) {
+    // ...
+  }
+}
+// 如果你知道编译时的具体类型，则可以 实现这些类来避免警告，和 使用 @proxy 效果一样：
+class A implements SomeClass, SomeOtherClass {
+  void noSuchMethod(Invocation mirror) {
+    // ...
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python">class DerivedClassName(BaseClassName):
+    pass
+
+class DerivedClassName(modname.BaseClassName):</code></pre>
+<h2 id="Enumerated types（枚举类型）">Enumerated types（枚举类型）</h2><p>dart</p>
+<p>枚举类型通常称之为 enumerations 或者 enums，
+是一种特殊的类，用来表现一个固定 数目的常量。</p>
+<ul>
+<li>无法继承枚举类型、无法使用 mixin、无法实现一个枚举类型</li>
+<li>无法显式的初始化一个枚举类型</li>
+</ul>
+<pre><code class="language-dart">// 使用 enum 关键字来定义枚举类型：
+enum Color {
+  red,
+  green,
+  blue
+}
+
+// 枚举类型中的每个值都有一个 index getter 函数，
+// 该函数返回该值在枚举类型定义中的位置（从 0 开始）。
+assert(Color.red.index == 0);
+assert(Color.green.index == 1);
+assert(Color.blue.index == 2);
+
+// 枚举的 values 常量可以返回 所有的枚举值。
+List&lt;Color&gt; colors = Color.values;
+assert(colors[2] == Color.blue);
+
+// 可以在 switch 语句 中使用枚举
+enum Color {
+  red,
+  green,
+  blue
+}
+// ...
+Color aColor = Color.blue;
+switch (aColor) {
+  case Color.red:
+    print(&#39;Red as roses!&#39;);
+    break;
+  case Color.green:
+    print(&#39;Green as grass!&#39;);
+    break;
+  default: // Without this, you see a WARNING.
+    print(aColor);  // &#39;Color.blue&#39;
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Adding features to a class: mixins（为类添加新的功能）多重继承">Adding features to a class: mixins（为类添加新的功能）多重继承</h2><p>dart</p>
+<p>Mixins 是一种在多类继承中重用 一个类代码的方法。
+使用 with 关键字后面为一个或者多个 mixin 名字来使用 mixin。</p>
+<pre><code class="language-dart">class Musician extends Performer with Musical {
+  // ...
+}
+class Maestro extends Person with Musical, Aggressive, Demented {
+  Maestro(String maestroName) {
+    name = maestroName;
+    canConduct = true;
+  }
+}
+
+// 定义一个类继承 Object，该类没有构造函数，
+// 不能调用 super ，则该类就是一个 mixin。
+// 注意： 从 Dart 1.13 开始， 这两个限制在 Dart VM 上 没有那么严格了：
+// 1.Mixins 可以继承其他类，不再限制为继承 Object
+// 2.Mixins 可以调用 super()。
+abstract class Musical {
+  bool canPlayPiano = false;
+  bool canCompose = false;
+  bool canConduct = false;
+
+  void entertainMe() {
+    if (canPlayPiano) {
+      print(&#39;Playing piano&#39;);
+    } else if (canConduct) {
+      print(&#39;Waving hands&#39;);
+    } else {
+      print(&#39;Humming to self&#39;);
+    }
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python">class DerivedClassName(Base1, Base2, Base3):
+    pass</code></pre>
+<h2 id="Static variables（静态变量）">Static variables（静态变量）</h2><p>dart</p>
+<p>静态变量在第一次使用的时候才被初始化</p>
+<pre><code class="language-dart">class Color {
+  static const red = const Color(&#39;red&#39;); // A constant static variable.
+  final String name;      // An instance variable.
+  const Color(this.name); // A constant constructor.
+}
+
+main() {
+  assert(Color.red.name == &#39;red&#39;);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Static methods（静态函数）">Static methods（静态函数）</h2><p>dart</p>
+<ul>
+<li>静态函数不再类实例上执行， 所以无法访问 this。</li>
+<li>对于通用的或者经常使用的静态函数，考虑 使用顶级方法而不是静态函数。</li>
+<li>静态函数还可以当做编译时常量使用。</li>
+</ul>
+<pre><code class="language-dart">import &#39;dart:math&#39;;
+
+class Point {
+  num x;
+  num y;
+  Point(this.x, this.y);
+
+  static num distanceBetween(Point a, Point b) {
+    var dx = a.x - b.x;
+    var dy = a.y - b.y;
+    return sqrt(dx * dx + dy * dy);
+  }
+}
+
+main() {
+  var a = new Point(2, 2);
+  var b = new Point(4, 4);
+  var distance = Point.distanceBetween(a, b);
+  assert(distance &lt; 2.9 &amp;&amp; distance &gt; 2.8);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Callable classes（可调用的类）">Callable classes（可调用的类）</h2><p>dart</p>
+<p>如果 Dart 类实现了 call() 函数则 可以当做方法来调用。</p>
+<pre><code class="language-dart">class WannabeFunction {
+  call(String a, String b, String c) =&gt; &#39;$a $b $c!&#39;;
+}
+
+main() {
+  var wf = new WannabeFunction();
+  var out = wf(&quot;Hi&quot;,&quot;there,&quot;,&quot;gang&quot;);
+  print(&#39;$out&#39;);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Implementing map keys 自定义 hash 码">Implementing map keys 自定义 hash 码</h2><p>dart</p>
+<p>Dart 中的每个对象都有一个整数 hash 码，这样每个对象都 可以当做 map 的 key 来用。
+但是，你可以覆写 hashCode getter 来自定义 hash 码的实现，
+如果你这样做了，你也需要 同时覆写 == 操作符。
+相等的对象（使用 == 比较）的 hash 码应该一样。
+Hasm 码并不要求是唯一的， 但是应该具有良好的分布形态。</p>
+<pre><code class="language-dart">class Person {
+  final String firstName, lastName;
+
+  Person(this.firstName, this.lastName);
+
+  // Override hashCode using strategy from Effective Java,
+  // Chapter 11.
+  int get hashCode {
+    int result = 17;
+    result = 37 * result + firstName.hashCode;
+    result = 37 * result + lastName.hashCode;
+    return result;
+  }
+
+  // You should generally implement operator == if you
+  // override hashCode.
+  bool operator ==(other) {
+    if (other is! Person) return false;
+    Person person = other;
+    return (person.firstName == firstName &amp;&amp;
+        person.lastName == lastName);
+  }
+}
+
+main() {
+  var p1 = new Person(&#39;bob&#39;, &#39;smith&#39;);
+  var p2 = new Person(&#39;bob&#39;, &#39;smith&#39;);
+  var p3 = &#39;not a person&#39;;
+  assert(p1.hashCode == p2.hashCode);
+  assert(p1 == p2);
+  assert(p1 != p3);
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+<h2 id="Iteration 可迭代对象">Iteration 可迭代对象</h2><p>dart</p>
+<p>Iterable 和 Iterator 类支持 for-in 循环。
+当你创建一个类的时候，继承或者实现 Iterable
+可以 提供一个用于 for-in 循环的 Iterators。
+实现 Iterator 来定义实际的遍历操作。</p>
+<pre><code class="language-dart">class Process {
+  // Represents a process...
+}
+
+class ProcessIterator implements Iterator&lt;Process&gt; {
+  Process current;
+  bool moveNext() {
+    return false;
+  }
+}
+
+// A mythical class that lets you iterate through all
+// processes. Extends a subclass of Iterable.
+class Processes extends IterableBase&lt;Process&gt; {
+  final Iterator&lt;Process&gt; iterator =
+      new ProcessIterator();
+}
+
+main() {
+  // Iterable objects can be used with for-in.
+  for (var process in new Processes()) {
+    // Do something with the process.
+  }
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<p> 定义一个 <code>__iter__()</code> 方法来返回一个带有 <code>__next__()</code> 方法的对象。 
+ 如果类已定义了 <strong>next</strong>()，则 <strong>iter</strong>() 可以简单地返回 self:</p>
+<pre><code class="language-python">class Reverse:
+    &quot;&quot;&quot;Iterator for looping over a sequence backwards.&quot;&quot;&quot;
+    def __init__(self, data):
+        self.data = data
+        self.index = len(data)
+
+    def __iter__(self):
+        return self
+
+    def __next__(self):
+        if self.index == 0:
+            raise StopIteration
+        self.index = self.index - 1
+        return self.data[self.index]</code></pre>
+<h2 id="Typedefs">Typedefs</h2><p>dart</p>
+<p>在 Dart 语言中，方法也是对象。</p>
+<pre><code class="language-dart">typedef int Compare(Object a, Object b);
+
+class SortedCollection {
+  Compare compare;
+
+  SortedCollection(this.compare);
+}
+
+ // Initial, broken implementation.
+ int sort(Object a, Object b) =&gt; 0;
+
+main() {
+  SortedCollection coll = new SortedCollection(sort);
+  assert(coll.compare is Function);
+  assert(coll.compare is Compare);
+}
+
+// 由于 typedefs 只是别名，他们还提供了一种 判断任意 function 的类型的方法
+typedef int Compare(int a, int b);
+int sort(int a, int b) =&gt; a - b;
+main() {
+  assert(sort is Compare); // True!
+}</code></pre>
+<p>go</p>
+<pre><code class="language-go"></code></pre>
+<p>js</p>
+<pre><code class="language-js"></code></pre>
+<p>python</p>
+<pre><code class="language-python"></code></pre>
+
+        </div>
+      </body>
+      </html>
