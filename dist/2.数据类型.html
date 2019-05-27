@@ -1,52 +1,151 @@
-<!doctype html>
-      <html>
-      <head>
-        <meta charset="utf-8"/>
-        <title>2.数据类型.md</title>
-      </head>
-      <body>
-        <div id="nav">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>2.数据类型.md</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./highlight/styles/github.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <ul>
+        <li>
+          <a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
           <ul>
-<li><a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a><ul>
-<li>[Type test operators（类型判定/类型判断操作符）](#Type test operators（类型判定/类型判断操作符）)</li>
-<li><a href="#%E6%95%B0%E5%AD%97%E8%BD%AC%E6%8D%A2/%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2">数字转换/整数转换/类型转换</a></li>
-<li><a href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%A4%A7%E5%80%BC%E5%92%8C%E6%9C%80%E5%B0%8F%E5%80%BC">计算最大值和最小值</a></li>
-<li><a href="#%E6%95%B0%E5%AD%A6%E5%B8%B8%E9%87%8F">数学常量</a></li>
-<li><a href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0">生成随机数</a></li>
-<li><a href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0">三角函数</a></li>
-<li><a href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97">十进制浮点运算</a></li>
-<li><a href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">进制转换</a></li>
-<li><a href="#Strings%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89">Strings（字符串）</a></li>
-<li><a href="#%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2">多行字符串</a></li>
-<li>[“原始 raw” 字符串](#“原始 raw” 字符串)</li>
-<li>[Searching inside a string（在字符串内搜索）](#Searching inside a string（在字符串内搜索）)</li>
-<li>[Extracting data from a string（从字符串中提取数据/字符串截取）](#Extracting data from a string（从字符串中提取数据/字符串截取）)</li>
-<li>[Converting to uppercase or lowercase（大小写转换）](#Converting to uppercase or lowercase（大小写转换）)</li>
-<li>[Trimming and empty strings（裁剪和判断空字符串）](#Trimming and empty strings（裁剪和判断空字符串）)</li>
-<li>[Replacing part of a string（替换部分字符）](#Replacing part of a string（替换部分字符）)</li>
-<li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA">格式化输出</a></li>
-<li><a href="#list/array%E5%88%97%E8%A1%A8/%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E6%93%8D%E4%BD%9C">list/array列表/数组定义及操作</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F">列表推导式</a></li>
-<li><a href="#%E5%88%97%E8%A1%A8/%E6%95%B0%E7%BB%84%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0">列表/数组的高阶函数</a></li>
-<li>[tuple 元组定义及操作](#tuple 元组定义及操作)</li>
-<li><a href="#Maps/dict(%E5%AD%97%E5%85%B8)">Maps/dict(字典)</a></li>
-<li>[从 map 中删除 key 和 value](#从 map 中删除 key 和 value)</li>
-<li><a href="#Maps(%E5%AD%97%E5%85%B8">Maps(字典)遍历，获取 map 的所有 key 和 value</a>遍历，获取 map 的所有 key 和 value)</li>
-<li>[判断 map 是否包含一个 key](#判断 map 是否包含一个 key)</li>
-<li>[Set 集合定义及操作](#Set 集合定义及操作)</li>
-<li>[判断Iterable集合（List, Set, 和 Map）是否为空的](#判断Iterable集合（List, Set, 和 Map）是否为空的)</li>
-<li>[（List, Set, 和 Map）常用的集合函数](#（List, Set, 和 Map）常用的集合函数)</li>
-<li><a href="#%E5%BA%8F%E5%88%97%E5%92%8C%E5%85%B6%E5%AE%83%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AF%94%E8%BE%83">序列和其它类型的比较</a></li>
-<li><a href="#%E6%A3%80%E6%9F%A5%E4%B8%A4%E4%B8%AA%E5%BC%95%E7%94%A8%E6%98%AF%E5%90%A6%E6%8C%87%E5%90%91%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1(%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80)">检查两个引用是否指向同一个对象(内存地址)</a></li>
-<li><a href="#Symbols">Symbols</a></li>
-</ul>
-</li>
-</ul>
-
-        </div>
-        <div id="content">
-          <h1 id="数据类型">数据类型</h1><h2 id="Type test operators（类型判定/类型判断操作符）">Type test operators（类型判定/类型判断操作符）</h2><p>dart</p>
-<pre><code class="language-dart">// as 类型转换
+            <li>
+              [Type test operators（类型判定/类型判断操作符）](#Type test
+              operators（类型判定/类型判断操作符）)
+            </li>
+            <li>
+              <a
+                href="#%E6%95%B0%E5%AD%97%E8%BD%AC%E6%8D%A2/%E6%95%B4%E6%95%B0%E8%BD%AC%E6%8D%A2/%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2"
+                >数字转换/整数转换/类型转换</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%E8%AE%A1%E7%AE%97%E6%9C%80%E5%A4%A7%E5%80%BC%E5%92%8C%E6%9C%80%E5%B0%8F%E5%80%BC"
+                >计算最大值和最小值</a
+              >
+            </li>
+            <li>
+              <a href="#%E6%95%B0%E5%AD%A6%E5%B8%B8%E9%87%8F">数学常量</a>
+            </li>
+            <li>
+              <a href="#%E7%94%9F%E6%88%90%E9%9A%8F%E6%9C%BA%E6%95%B0"
+                >生成随机数</a
+              >
+            </li>
+            <li>
+              <a href="#%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B0">三角函数</a>
+            </li>
+            <li>
+              <a
+                href="#%E5%8D%81%E8%BF%9B%E5%88%B6%E6%B5%AE%E7%82%B9%E8%BF%90%E7%AE%97"
+                >十进制浮点运算</a
+              >
+            </li>
+            <li>
+              <a href="#%E8%BF%9B%E5%88%B6%E8%BD%AC%E6%8D%A2">进制转换</a>
+            </li>
+            <li>
+              <a href="#Strings%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%89"
+                >Strings（字符串）</a
+              >
+            </li>
+            <li>
+              <a href="#%E5%A4%9A%E8%A1%8C%E5%AD%97%E7%AC%A6%E4%B8%B2"
+                >多行字符串</a
+              >
+            </li>
+            <li>[“原始 raw” 字符串](#“原始 raw” 字符串)</li>
+            <li>
+              [Searching inside a string（在字符串内搜索）](#Searching inside a
+              string（在字符串内搜索）)
+            </li>
+            <li>
+              [Extracting data from a
+              string（从字符串中提取数据/字符串截取）](#Extracting data from a
+              string（从字符串中提取数据/字符串截取）)
+            </li>
+            <li>
+              [Converting to uppercase or lowercase（大小写转换）](#Converting
+              to uppercase or lowercase（大小写转换）)
+            </li>
+            <li>
+              [Trimming and empty strings（裁剪和判断空字符串）](#Trimming and
+              empty strings（裁剪和判断空字符串）)
+            </li>
+            <li>
+              [Replacing part of a string（替换部分字符）](#Replacing part of a
+              string（替换部分字符）)
+            </li>
+            <li>
+              <a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E8%BE%93%E5%87%BA"
+                >格式化输出</a
+              >
+            </li>
+            <li>
+              <a
+                href="#list/array%E5%88%97%E8%A1%A8/%E6%95%B0%E7%BB%84%E5%AE%9A%E4%B9%89%E5%8F%8A%E6%93%8D%E4%BD%9C"
+                >list/array列表/数组定义及操作</a
+              >
+            </li>
+            <li>
+              <a href="#%E5%88%97%E8%A1%A8%E6%8E%A8%E5%AF%BC%E5%BC%8F"
+                >列表推导式</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%E5%88%97%E8%A1%A8/%E6%95%B0%E7%BB%84%E7%9A%84%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0"
+                >列表/数组的高阶函数</a
+              >
+            </li>
+            <li>[tuple 元组定义及操作](#tuple 元组定义及操作)</li>
+            <li>
+              <a href="#Maps/dict(%E5%AD%97%E5%85%B8)">Maps/dict(字典)</a>
+            </li>
+            <li>[从 map 中删除 key 和 value](#从 map 中删除 key 和 value)</li>
+            <li>
+              <a href="#Maps(%E5%AD%97%E5%85%B8"
+                >Maps(字典)遍历，获取 map 的所有 key 和 value</a
+              >遍历，获取 map 的所有 key 和 value)
+            </li>
+            <li>[判断 map 是否包含一个 key](#判断 map 是否包含一个 key)</li>
+            <li>[Set 集合定义及操作](#Set 集合定义及操作)</li>
+            <li>
+              [判断Iterable集合（List, Set, 和
+              Map）是否为空的](#判断Iterable集合（List, Set, 和 Map）是否为空的)
+            </li>
+            <li>
+              [（List, Set, 和 Map）常用的集合函数](#（List, Set, 和
+              Map）常用的集合函数)
+            </li>
+            <li>
+              <a
+                href="#%E5%BA%8F%E5%88%97%E5%92%8C%E5%85%B6%E5%AE%83%E7%B1%BB%E5%9E%8B%E7%9A%84%E6%AF%94%E8%BE%83"
+                >序列和其它类型的比较</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%E6%A3%80%E6%9F%A5%E4%B8%A4%E4%B8%AA%E5%BC%95%E7%94%A8%E6%98%AF%E5%90%A6%E6%8C%87%E5%90%91%E5%90%8C%E4%B8%80%E4%B8%AA%E5%AF%B9%E8%B1%A1(%E5%86%85%E5%AD%98%E5%9C%B0%E5%9D%80)"
+                >检查两个引用是否指向同一个对象(内存地址)</a
+              >
+            </li>
+            <li><a href="#Symbols">Symbols</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <h1 id="数据类型">数据类型</h1>
+      <h2 id="Type test operators（类型判定/类型判断操作符）">
+        Type test operators（类型判定/类型判断操作符）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// as 类型转换
 // is 如果对象是指定的类型返回 True
 // is! 如果对象是指定的类型返回 False
 
@@ -66,10 +165,10 @@ import &#39;dart:mirrors&#39;;
 getTypeName(dynamic obj) {
   return reflect(obj).type.reflectedType.toString();
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">typeof undefined; // undefined
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">typeof undefined; // undefined
 typeof []; // object
 typeof &#39;123&#39;; // string
 typeof null; // object
@@ -128,13 +227,14 @@ function type (obj) {
   return Reflect.apply(Object.prototype.toString, obj, []).replace(/^\[object\s(\w+)\]$/, &#39;$1&#39;).toLowerCase()
 }
 type(new String(&#39;123&#39;)) // string</code></pre>
-<p>python</p>
-<pre><code class="language-python">import types
+      <p>python</p>
+      <pre><code class="language-python">import types
 type(myInt) is types.IntType
 type(myInt) is type(1)
 isinstance(myInt, int)</code></pre>
-<h2 id="数字转换/整数转换/类型转换">数字转换/整数转换/类型转换</h2><p>dart</p>
-<pre><code class="language-dart">assert(int.parse(&#39;42&#39;) == 42);
+      <h2 id="数字转换/整数转换/类型转换">数字转换/整数转换/类型转换</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">assert(int.parse(&#39;42&#39;) == 42);
 assert(int.parse(&#39;0x42&#39;) == 66);
 assert(double.parse(&#39;0.50&#39;) == 0.5);
 
@@ -153,43 +253,45 @@ assert(123.456.toStringAsFixed(2) == &#39;123.46&#39;);
 // Specify the number of significant figures.
 assert(123.456.toStringAsPrecision(2) == &#39;1.2e+2&#39;);
 assert(double.parse(&#39;1.2e+2&#39;) == 120.0);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">parseInt(&#39;v8&#39;,32) // 1000
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">parseInt(&#39;v8&#39;,32) // 1000
 
 const string1 = &#39;1&#39;
 const number1 = parseInt(string1)
 // 3
 console.log(number1 + 2)</code></pre>
-<p>python</p>
-<pre><code class="language-python">string_1 = &quot;1&quot;
+      <p>python</p>
+      <pre><code class="language-python">string_1 = &quot;1&quot;
 number_1 = int(string_1)
 # 3
 print(number_1 + 2)</code></pre>
-<h2 id="计算最大值和最小值">计算最大值和最小值</h2><p>dart</p>
-<pre><code class="language-dart">assert(math.max(1, 1000) == 1000);
+      <h2 id="计算最大值和最小值">计算最大值和最小值</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">assert(math.max(1, 1000) == 1000);
 assert(math.min(1, -1000) == -1000);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const a = [10,5,11,7,8,9];
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const a = [10,5,11,7,8,9];
 Math.max(...a) - Math.min(...a)</code></pre>
-<p>python</p>
-<pre><code class="language-python"># 100
+      <p>python</p>
+      <pre><code class="language-python"># 100
 print(max(100, 50))
 # 40
 print(min(80, 40))</code></pre>
-<h2 id="数学常量">数学常量</h2><p>dart</p>
-<pre><code class="language-dart">import &#39;dart:math&#39; as math;
+      <h2 id="数学常量">数学常量</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:math&#39; as math;
 
 print(math.E);     // 2.718281828459045
 print(math.PI);    // 3.141592653589793
 print(math.SQRT2); // 1.4142135623730951</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">Math.E // 2.718281828459045
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">Math.E // 2.718281828459045
 Math.LN2 // 0.6931471805599453
 Math.LN10 // 2.302585092994046
 Math.LOG2E // 1.4426950408889634
@@ -197,10 +299,11 @@ Math.LOG10E // 0.4342944819032518
 Math.PI // 3.141592653589793
 Math.SQRT1_2 // 0.7071067811865476
 Math.SQRT2 // 1.4142135623730951</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="生成随机数">生成随机数</h2><p>dart</p>
-<pre><code class="language-dart">import &#39;dart:math&#39; as math;
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="生成随机数">生成随机数</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:math&#39; as math;
 
 var random = new math.Random();
 random.nextDouble(); // Between 0.0 and 1.0: [0, 1)
@@ -208,10 +311,10 @@ random.nextInt(10);  // Between 0 and 9.
 
 var random = new math.Random();
 random.nextBool();  // true or false</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// Math.random()返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// Math.random()返回0到1之间的一个伪随机数，可能等于0，但是一定小于1。
 Math.random() // 0.7151307314634323
 
 // 任意范围的随机数生成函数
@@ -246,8 +349,8 @@ const str = &#39;abcdefghijklmnopqrstuvwxyz9876543210&#39;;
 const l = 6;
 // [...Array(l)].map(()=&gt;str.charAt(Math.floor(Math.random() * str.length))).join(&#39;&#39;);
 [...Array(l)].map(()=&gt;str[~~(Math.random() * str.length)]).join(&#39;&#39;);</code></pre>
-<p>python</p>
-<pre><code class="language-sh">&gt;&gt;&gt; import random
+      <p>python</p>
+      <pre><code class="language-sh">&gt;&gt;&gt; import random
 &gt;&gt;&gt; random.choice([&#39;apple&#39;, &#39;pear&#39;, &#39;banana&#39;])
 &#39;apple&#39;
 &gt;&gt;&gt; random.sample(range(100), 10)   # sampling without replacement
@@ -266,8 +369,9 @@ const l = 6;
 1.25
 &gt;&gt;&gt; statistics.variance(data)
 1.3720238095238095</code></pre>
-<h2 id="三角函数">三角函数</h2><p>dart</p>
-<pre><code class="language-dart">import &#39;dart:math&#39; as math;
+      <h2 id="三角函数">三角函数</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:math&#39; as math;
 
 // Cosine
 assert(math.cos(math.PI) == -1.0);
@@ -279,10 +383,10 @@ var radians = degrees * (math.PI / 180);
 var sinOf30degrees = math.sin(radians);
 // sin 30° = 0.5
 assert((sinOf30degrees - 0.5).abs() &lt; 0.01);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">Math.sin(0) // 0
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">Math.sin(0) // 0
 Math.cos(0) // 1
 Math.tan(0) // 0
 
@@ -291,14 +395,15 @@ Math.sin(Math.PI / 2) // 1
 Math.asin(1) // 1.5707963267948966
 Math.acos(1) // 0
 Math.atan(1) // 0.7853981633974483</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="十进制浮点运算">十进制浮点运算</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// 小数点截取
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="十进制浮点运算">十进制浮点运算</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// 小数点截取
 (10).toFixed(2) // &quot;10.00&quot;
 10.005.toFixed(2) // &quot;10.01&quot;
 
@@ -308,8 +413,8 @@ console.log(Math.ceil(1.5))
 console.log(Math.floor(1.5))
 // 2
 console.log(Math.round(1.5))</code></pre>
-<p>python</p>
-<pre><code class="language-python">import math
+      <p>python</p>
+      <pre><code class="language-python">import math
 
 # 2
 print(math.ceil(1.5))
@@ -317,32 +422,36 @@ print(math.ceil(1.5))
 print(math.floor(1.5))
 # 2
 print(round(1.5))</code></pre>
-<h2 id="进制转换">进制转换</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// 10进制转为32进制
+      <h2 id="进制转换">进制转换</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// 10进制转为32进制
 (1000).toString(32) // &#39;v8&#39;
 // 32进制转为10进制
 parseInt(&#39;v8&#39;,32) // 1000</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Strings（字符串）">Strings（字符串）</h2><p>dart</p>
-<p>Dart 字符串是 UTF-16 编码的字符序列。
-可以使用单引号或者双引号来创建字符串：</p>
-<pre><code class="language-dart">var s1 = &#39;Single quotes work well for string literals.&#39;;
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Strings（字符串）">Strings（字符串）</h2>
+      <p>dart</p>
+      <p>
+        Dart 字符串是 UTF-16 编码的字符序列。
+        可以使用单引号或者双引号来创建字符串：
+      </p>
+      <pre><code class="language-dart">var s1 = &#39;Single quotes work well for string literals.&#39;;
 var s2 = &quot;Double quotes work just as well.&quot;;
 var s3 = &#39;It\&#39;s easy to escape the string delimiter.&#39;;
 var s4 = &quot;It&#39;s even easier to use the other delimiter.&quot;;</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const someString = &#39;abcd&#39;
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const someString = &#39;abcd&#39;
 // 4
 console.log(someString.length)</code></pre>
-<p>python</p>
-<pre><code class="language-python">some_string = &quot;abcd&quot;
+      <p>python</p>
+      <pre><code class="language-python">some_string = &quot;abcd&quot;
 # 4
 print(len(some_string))
 
@@ -362,7 +471,7 @@ print(r&#39;C:\some\name&#39;)  # note the r before the quote
 
 # 相邻的两个或多个 字符串字面值 （引号引起来的字符）将会自动连接到一起.
 &#39;Py&#39; &#39;thon&#39;</code></pre>
-<pre><code class="language-sh"># 字符串是可以被 索引 （下标访问）的，第一个字符索引是 0。
+      <pre><code class="language-sh"># 字符串是可以被 索引 （下标访问）的，第一个字符索引是 0。
 &gt;&gt;&gt; word = &#39;Python&#39;
 &gt;&gt;&gt; word[0]  # character in position 0
 &#39;P&#39;
@@ -386,25 +495,26 @@ print(r&#39;C:\some\name&#39;)  # note the r before the quote
 &#39;Python&#39;
 &gt;&gt;&gt; word[:4] + word[4:]
 &#39;Python&#39;</code></pre>
-<h2 id="多行字符串">多行字符串</h2><p>dart</p>
-<p>使用三个单引号或者双引号也可以 创建多行字符串对象：</p>
-<pre><code class="language-dart">var s1 = &#39;&#39;&#39;
+      <h2 id="多行字符串">多行字符串</h2>
+      <p>dart</p>
+      <p>使用三个单引号或者双引号也可以 创建多行字符串对象：</p>
+      <pre><code class="language-dart">var s1 = &#39;&#39;&#39;
 You can create
 multi-line strings like this one.
 &#39;&#39;&#39;;
 
 var s2 = &quot;&quot;&quot;This is also a
 multi-line string.&quot;&quot;&quot;;</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const x = `------
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const x = `------
 Line 1
 Line 2
 Line 3
 ------`</code></pre>
-<p>python</p>
-<pre><code class="language-python">x = &quot;&quot;&quot;------
+      <p>python</p>
+      <pre><code class="language-python">x = &quot;&quot;&quot;------
 Line 1
 Line 2
 Line 3
@@ -418,16 +528,20 @@ Usage: thingy [OPTIONS]
 
 text = (&#39;Put several strings within parentheses &#39;
         &#39;to have them joined together.&#39;)</code></pre>
-<h2 id="“原始 raw” 字符串">“原始 raw” 字符串</h2><p>dart</p>
-<pre><code class="language-dart">var s = r&quot;In a raw string, even \n isn&#39;t special.&quot;;</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python">print(r&#39;C:\some\name&#39;)  # note the r before the quote</code></pre>
-<h2 id="Searching inside a string（在字符串内搜索）">Searching inside a string（在字符串内搜索）</h2><p>dart</p>
-<pre><code class="language-dart">// Check whether a string contains another string.
+      <h2 id="“原始 raw” 字符串">“原始 raw” 字符串</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var s = r&quot;In a raw string, even \n isn&#39;t special.&quot;;</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python">print(r&#39;C:\some\name&#39;)  # note the r before the quote</code></pre>
+      <h2 id="Searching inside a string（在字符串内搜索）">
+        Searching inside a string（在字符串内搜索）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// Check whether a string contains another string.
 assert(&#39;Never odd or even&#39;.contains(&#39;odd&#39;));
 
 // Does a string start with another string?
@@ -438,10 +552,10 @@ assert(&#39;Never odd or even&#39;.endsWith(&#39;even&#39;));
 
 // Find the location of a string inside a string.
 assert(&#39;Never odd or even&#39;.indexOf(&#39;odd&#39;) == 6);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">let s = &#39;Hello world!&#39;;
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">let s = &#39;Hello world!&#39;;
 s.startsWith(&#39;Hello&#39;) // true
 s.endsWith(&#39;!&#39;) // true
 s.includes(&#39;o&#39;) // true
@@ -481,8 +595,8 @@ if (&#39;iphone 8&#39;.match(/\d/g)) {
 if (!&#39;iphone x&#39;.match(/\d/g)) {
   console.log(&quot;Doesn&#39;t have a number&quot;)
 }</code></pre>
-<p>python</p>
-<pre><code class="language-python"># 2 is in the string
+      <p>python</p>
+      <pre><code class="language-python"># 2 is in the string
 if &quot;2&quot; in &quot;123&quot;:
     print(&quot;2 is in the string&quot;)
 
@@ -500,8 +614,11 @@ if re.search(r&quot;\d&quot;, &quot;iphone 8&quot;):
 # Doesn&#39;t have a number
 if not re.search(r&quot;\d&quot;, &quot;iphone x&quot;):
     print(&quot;Doesn&#39;t have a number&quot;)</code></pre>
-<h2 id="Extracting data from a string（从字符串中提取数据/字符串截取）">Extracting data from a string（从字符串中提取数据/字符串截取）</h2><p>dart</p>
-<pre><code class="language-dart">// Grab a substring.
+      <h2 id="Extracting data from a string（从字符串中提取数据/字符串截取）">
+        Extracting data from a string（从字符串中提取数据/字符串截取）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// Grab a substring.
 assert(&#39;Never odd or even&#39;.substring(6, 9) == &#39;odd&#39;);
 
 // Split a string using a string pattern.
@@ -522,10 +639,10 @@ for (var char in &#39;hello&#39;.split(&#39;&#39;)) {
 // Get all the UTF-16 code units in the string.
 var codeUnitList = &#39;Never odd or even&#39;.codeUnits.toList();
 assert(codeUnitList[0] == 78);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">&#39;a|b|c&#39;.split(&#39;|&#39;) // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">&#39;a|b|c&#39;.split(&#39;|&#39;) // [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
 &#39;a||c&#39;.split(&#39;|&#39;) // [&#39;a&#39;, &#39;&#39;, &#39;c&#39;]
 
 // slice方法用于从原字符串取出子字符串并返回，不改变原字符串。
@@ -559,8 +676,8 @@ console.log(someStringSplit[0])
 console.log(someStringSplit[1])
 // c
 console.log(someStringSplit[2])</code></pre>
-<p>python</p>
-<pre><code class="language-python">some_string = &quot;0123456&quot;
+      <p>python</p>
+      <pre><code class="language-python">some_string = &quot;0123456&quot;
 # 234
 print(some_string[2:5])
 
@@ -573,30 +690,36 @@ print(some_string_split[0])
 print(some_string_split[1])
 # c
 print(some_string_split[2])</code></pre>
-<h2 id="Converting to uppercase or lowercase（大小写转换）">Converting to uppercase or lowercase（大小写转换）</h2><p>dart</p>
-<pre><code class="language-dart">// Convert to uppercase.
+      <h2 id="Converting to uppercase or lowercase（大小写转换）">
+        Converting to uppercase or lowercase（大小写转换）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// Convert to uppercase.
 assert(&#39;structured web apps&#39;.toUpperCase() == &#39;STRUCTURED WEB APPS&#39;);
 
 // Convert to lowercase.
 assert(&#39;STRUCTURED WEB APPS&#39;.toLowerCase() == &#39;structured web apps&#39;);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">&#39;Hello World&#39;.toLowerCase()
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">&#39;Hello World&#39;.toLowerCase()
 // &quot;hello world&quot;
 
 &#39;Hello World&#39;.toUpperCase()
 // &quot;HELLO WORLD&quot;</code></pre>
-<p>python</p>
-<pre><code class="language-python"># 返回原字符串的副本，其中大写字符转换为小写，小写转为大写
+      <p>python</p>
+      <pre><code class="language-python"># 返回原字符串的副本，其中大写字符转换为小写，小写转为大写
 # 请注意 s.swapcase().swapcase() == s 并不一定为真值。
 str.swapcase()
 # 返回原字符串的副本，其中所有区分大小写的字符 [4] 均转换为大写
 str.upper()
 # 返回原字符串的副本，其所有区分大小写的字符 [4] 均转换为小写
 str.lower()</code></pre>
-<h2 id="Trimming and empty strings（裁剪和判断空字符串）">Trimming and empty strings（裁剪和判断空字符串）</h2><p>dart</p>
-<pre><code class="language-dart">// Trim a string.
+      <h2 id="Trimming and empty strings（裁剪和判断空字符串）">
+        Trimming and empty strings（裁剪和判断空字符串）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// Trim a string.
 assert(&#39;  hello  &#39;.trim() == &#39;hello&#39;);
 
 // Check whether a string is empty.
@@ -604,31 +727,34 @@ assert(&#39;&#39;.isEmpty);
 
 // Strings with only white space are not empty.
 assert(!&#39;  &#39;.isEmpty);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">&#39;  hello world  &#39;.trim()
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">&#39;  hello world  &#39;.trim()
 // &quot;hello world&quot;
 
 const s = &#39;  abc  &#39;;
 s.trim() // &quot;abc&quot;
 s.trimStart() // &quot;abc  &quot;
 s.trimEnd() // &quot;  abc&quot;</code></pre>
-<p>python</p>
-<pre><code class="language-python">some_string = &quot;   abc   &quot;
+      <p>python</p>
+      <pre><code class="language-python">some_string = &quot;   abc   &quot;
 # abc
 print(some_string.strip())</code></pre>
-<h2 id="Replacing part of a string（替换部分字符）">Replacing part of a string（替换部分字符）</h2><p>dart</p>
-<pre><code class="language-dart">var greetingTemplate = &#39;Hello, NAME!&#39;;
+      <h2 id="Replacing part of a string（替换部分字符）">
+        Replacing part of a string（替换部分字符）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var greetingTemplate = &#39;Hello, NAME!&#39;;
 var greeting = greetingTemplate
     .replaceAll(new RegExp(&#39;NAME&#39;), &#39;Bob&#39;);
 
 assert(greeting !=
     greetingTemplate); // greetingTemplate didn&#39;t change.</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// replace方法用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// replace方法用于替换匹配的子字符串，一般情况下只替换第一个匹配（除非使用带有g修饰符的正则表达式）。
 &#39;aaa&#39;.replace(&#39;a&#39;, &#39;b&#39;) // &quot;baa&quot;
 
 
@@ -639,23 +765,24 @@ const someString = &#39;a b c d e&#39;
 
 // Use / /g instead of &#39; &#39; to change every space
 console.log(someString.replace(/ /g, &#39;,&#39;))</code></pre>
-<p>python</p>
-<pre><code class="language-python">some_string = &quot;a b c d e&quot;
+      <p>python</p>
+      <pre><code class="language-python">some_string = &quot;a b c d e&quot;
 # a,b,c,d,e
 print(some_string.replace(&quot; &quot;, &quot;,&quot;))</code></pre>
-<h2 id="格式化输出">格式化输出</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const x = &#39;Hello&#39;
+      <h2 id="格式化输出">格式化输出</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const x = &#39;Hello&#39;
 // Hello World
 console.log(`${x} World`)</code></pre>
-<p>python</p>
-<pre><code class="language-python">x = &quot;Hello&quot;
+      <p>python</p>
+      <pre><code class="language-python">x = &quot;Hello&quot;
 # Hello World
 print(f&quot;{x} World&quot;)</code></pre>
-<pre><code class="language-sh">&gt;&gt;&gt; year = 2016
+      <pre><code class="language-sh">&gt;&gt;&gt; year = 2016
 &gt;&gt;&gt; event = &#39;Referendum&#39;
 &gt;&gt;&gt; f&#39;Results of the {year} {event}&#39;
 &#39;Results of the 2016 Referendum&#39;
@@ -780,8 +907,9 @@ The wrap() method is just like fill()
 except that it returns a list of strings
 instead of one big string with newlines
 to separate the wrapped lines.</code></pre>
-<h2 id="list/array列表/数组定义及操作">list/array列表/数组定义及操作</h2><p>dart</p>
-<pre><code class="language-dart">var l = [1, 2, 3];
+      <h2 id="list/array列表/数组定义及操作">list/array列表/数组定义及操作</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var l = [1, 2, 3];
 
 // 在 list 字面量之前添加 const 关键字，
 // 可以 定义一个不变的 list 对象（编译时常量）
@@ -829,10 +957,10 @@ assert(fruits[0] == &#39;apples&#39;);
 var loudTeaList = teas
     .map((tea) =&gt; tea.toUpperCase())
     .toList();</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">let l = [1, 2, 3];
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">let l = [1, 2, 3];
 
 var arr = [1, 2, 3];
 typeof arr // &quot;object&quot;
@@ -1051,8 +1179,8 @@ const someList = [1, 2, 3]
 const reducer = (accumulator, currentValue) =&gt; accumulator + currentValue
 // 6
 console.log(someList.reduce(reducer))</code></pre>
-<p>python</p>
-<pre><code class="language-python">some_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
+      <p>python</p>
+      <pre><code class="language-python">some_list = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]
 # a,b,c
 print(&quot;,&quot;.join(some_list))
 
@@ -1152,7 +1280,7 @@ for x in new_list:
 some_list = [1, 2, 3]
 # 6
 print(sum(some_list))</code></pre>
-<pre><code class="language-sh">&gt;&gt;&gt; squares = [1, 4, 9, 16, 25]
+      <pre><code class="language-sh">&gt;&gt;&gt; squares = [1, 4, 9, 16, 25]
 &gt;&gt;&gt; squares
 [1, 4, 9, 16, 25]
 
@@ -1219,7 +1347,7 @@ print(sum(some_list))</code></pre>
 [&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
 &gt;&gt;&gt; x[0][1]
 &#39;b&#39;</code></pre>
-<pre><code class="language-sh"># insert ，remove 或者 sort 方法，只修改列表，没有打印出返回值
+      <pre><code class="language-sh"># insert ，remove 或者 sort 方法，只修改列表，没有打印出返回值
 &gt;&gt;&gt; fruits = [&#39;orange&#39;, &#39;apple&#39;, &#39;pear&#39;, &#39;banana&#39;, &#39;kiwi&#39;, &#39;apple&#39;, &#39;banana&#39;]
 &gt;&gt;&gt; fruits.count(&#39;apple&#39;)
 2
@@ -1284,12 +1412,13 @@ deque([&#39;Michael&#39;, &#39;Terry&#39;, &#39;Graham&#39;])
 
 # del 也可以被用来删除整个变量
 &gt;&gt;&gt; del a</code></pre>
-<h2 id="列表推导式">列表推导式</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const originalList = [1, 2, 3]
+      <h2 id="列表推导式">列表推导式</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const originalList = [1, 2, 3]
 // You can also do this:
 // const newList = originalList.map(x =&gt; { return x * 2 })
 const newList = originalList.map(x =&gt; x * 2)
@@ -1327,8 +1456,8 @@ const newList = originalList.filter(x =&gt; x % 2 == 0)
 newList.forEach(element =&gt; {
   console.log(element)
 })</code></pre>
-<p>python</p>
-<pre><code class="language-python">original_list = [1, 2, 3]
+      <p>python</p>
+      <pre><code class="language-python">original_list = [1, 2, 3]
 new_list = [x * 2 for x in original_list]
 # 2
 # 4
@@ -1374,7 +1503,7 @@ for x in [1,2,3]:
     for y in [3,1,4]:
         if x != y:
             combs.append((x, y))</code></pre>
-<pre><code class="language-sh">&gt;&gt;&gt; vec = [-4, -2, 0, 2, 4]
+      <pre><code class="language-sh">&gt;&gt;&gt; vec = [-4, -2, 0, 2, 4]
 &gt;&gt;&gt; # create a new list with the values doubled
 &gt;&gt;&gt; [x*2 for x in vec]
 [-8, -4, 0, 4, 8]
@@ -1406,7 +1535,7 @@ SyntaxError: invalid syntax
 &gt;&gt;&gt; from math import pi
 &gt;&gt;&gt; [str(round(pi, i)) for i in range(1, 6)]
 [&#39;3.1&#39;, &#39;3.14&#39;, &#39;3.142&#39;, &#39;3.1416&#39;, &#39;3.14159&#39;]</code></pre>
-<pre><code class="language-python">matrix = [
+      <pre><code class="language-python">matrix = [
     [1, 2, 3, 4],
     [5, 6, 7, 8],
     [9, 10, 11, 12],
@@ -1431,8 +1560,9 @@ for i in range(4):
 # zip() 函数将会很好地处理这种情况
 list(zip(*matrix))
 # [(1, 5, 9), (2, 6, 10), (3, 7, 11), (4, 8, 12)]</code></pre>
-<h2 id="列表/数组的高阶函数">列表/数组的高阶函数</h2><p>dart</p>
-<pre><code class="language-dart">// Iterable 的 where() 函数可以返回所有满足特定条件的数据。
+      <h2 id="列表/数组的高阶函数">列表/数组的高阶函数</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// Iterable 的 where() 函数可以返回所有满足特定条件的数据。
 // any() 判断是否有数据满足特定条件，
 // every() 判断是否所有数据都满足 特定条件。
 
@@ -1455,10 +1585,10 @@ assert(teas.any(isDecaffeinated));
 // Use every() to check whether all the items in a
 // collection satisfy a condition.
 assert(!teas.every(isDecaffeinated));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">var numbers = [1, 2, 3];
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">var numbers = [1, 2, 3];
 numbers.map(function (n) {
   return n + 1;
 });
@@ -1519,28 +1649,39 @@ function subtract(prev, cur) {
 }
 [3, 2, 1].reduce(subtract) // 0
 [3, 2, 1].reduceRight(subtract) // -4</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="tuple 元组定义及操作">tuple 元组定义及操作</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<p>一个元组由几个被逗号隔开的值组成。
-元组在输出时总是被圆括号包围的，以便正确表示嵌套元组。
-输入时圆括号可有可无，不过经常会是必须的。
-给元组中的一个单独的元素赋值是不允许的。
-当然你可以创建包含可变对象的元组，例如列表。</p>
-<ul>
-<li>元组是 immutable （不可变的），其序列通常包含不同种类的元素，
-并且通过解包（这一节下面会解释）或者索引来访问（如果是 namedtuples 的话甚至还可以通过属性访问）。</li>
-<li>列表是 mutable （可变的），并且列表中的元素一般是同种类型的，并且通过迭代访问。</li>
-</ul>
-<p>空元组可以直接被一对空圆括号创建，
-含有一个元素的元组可以通过在这个元素后添加一个逗号来构建</p>
-<pre><code class="language-sh">&gt;&gt;&gt; empty = ()
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="tuple 元组定义及操作">tuple 元组定义及操作</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <p>
+        一个元组由几个被逗号隔开的值组成。
+        元组在输出时总是被圆括号包围的，以便正确表示嵌套元组。
+        输入时圆括号可有可无，不过经常会是必须的。
+        给元组中的一个单独的元素赋值是不允许的。
+        当然你可以创建包含可变对象的元组，例如列表。
+      </p>
+      <ul>
+        <li>
+          元组是 immutable （不可变的），其序列通常包含不同种类的元素，
+          并且通过解包（这一节下面会解释）或者索引来访问（如果是 namedtuples
+          的话甚至还可以通过属性访问）。
+        </li>
+        <li>
+          列表是 mutable
+          （可变的），并且列表中的元素一般是同种类型的，并且通过迭代访问。
+        </li>
+      </ul>
+      <p>
+        空元组可以直接被一对空圆括号创建，
+        含有一个元素的元组可以通过在这个元素后添加一个逗号来构建
+      </p>
+      <pre><code class="language-sh">&gt;&gt;&gt; empty = ()
 &gt;&gt;&gt; singleton = &#39;hello&#39;,    # &lt;-- note trailing comma
 &gt;&gt;&gt; len(empty)
 0
@@ -1552,8 +1693,9 @@ function subtract(prev, cur) {
 t = 12345, 54321, &#39;hello!&#39;
 # 逆操作
 &gt;&gt;&gt; x, y, z = t</code></pre>
-<h2 id="Maps/dict(字典)">Maps/dict(字典)</h2><p>dart</p>
-<pre><code class="language-dart">var gifts = {
+      <h2 id="Maps/dict(字典)">Maps/dict(字典)</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var gifts = {
   &#39;first&#39; : &#39;partridge&#39;,
   &#39;second&#39;: &#39;turtledoves&#39;,
   &#39;fifth&#39; : &#39;golden rings&#39;
@@ -1578,23 +1720,28 @@ var pages = &lt;String, String&gt;{
   &#39;robots.txt&#39;: &#39;Hints for web robots&#39;,
   &#39;humans.txt&#39;: &#39;We are people, not machines&#39;
 };</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<p>JavaScript 的对象（Object），本质上是键值对的集合（Hash 结构），但是传统上只能用字符串当作键。
-WeakMap结构与Map结构类似，也是用于生成键值对的集合。</p>
-<ul>
-<li>WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。</li>
-<li>WeakMap的键名所指向的对象，不计入垃圾回收机制。</li>
-</ul>
-<p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
-<ul>
-<li>keys()：返回键名的遍历器。</li>
-<li>values()：返回键值的遍历器。</li>
-<li>entries()：返回所有成员的遍历器。</li>
-<li>forEach()：遍历 Map 的所有成员。</li>
-</ul>
-<pre><code class="language-js">let { keys, values, entries } = Object;
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>
+        JavaScript 的对象（Object），本质上是键值对的集合（Hash
+        结构），但是传统上只能用字符串当作键。
+        WeakMap结构与Map结构类似，也是用于生成键值对的集合。
+      </p>
+      <ul>
+        <li>
+          WeakMap只接受对象作为键名（null除外），不接受其他类型的值作为键名。
+        </li>
+        <li>WeakMap的键名所指向的对象，不计入垃圾回收机制。</li>
+      </ul>
+      <p>Map 结构原生提供三个遍历器生成函数和一个遍历方法。</p>
+      <ul>
+        <li>keys()：返回键名的遍历器。</li>
+        <li>values()：返回键值的遍历器。</li>
+        <li>entries()：返回所有成员的遍历器。</li>
+        <li>forEach()：遍历 Map 的所有成员。</li>
+      </ul>
+      <pre><code class="language-js">let { keys, values, entries } = Object;
 let obj = { a: 1, b: 2, c: 3 };
 for (let key of keys(obj)) {
   console.log(key); // &#39;a&#39;, &#39;b&#39;, &#39;c&#39;
@@ -1685,8 +1832,8 @@ const someVariable = 2
 const someDict = { [someVariable + 1]: &#39;three&#39; }
 // three
 console.log(someDict[3])</code></pre>
-<p>python</p>
-<pre><code class="language-sh">&gt;&gt;&gt; tel = {&#39;jack&#39;: 4098, &#39;sape&#39;: 4139}
+      <p>python</p>
+      <pre><code class="language-sh">&gt;&gt;&gt; tel = {&#39;jack&#39;: 4098, &#39;sape&#39;: 4139}
 &gt;&gt;&gt; tel[&#39;guido&#39;] = 4127
 &gt;&gt;&gt; tel
 {&#39;jack&#39;: 4098, &#39;sape&#39;: 4139, &#39;guido&#39;: 4127}
@@ -1722,8 +1869,9 @@ some_variable = 2
 some_dict = {(some_variable + 1): &quot;three&quot;}
 # three
 print(some_dict[3])</code></pre>
-<h2 id="从 map 中删除 key 和 value">从 map 中删除 key 和 value</h2><p>dart</p>
-<pre><code class="language-dart">// 使用中括号来访问或者设置 map 中的数据，
+      <h2 id="从 map 中删除 key 和 value">从 map 中删除 key 和 value</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 使用中括号来访问或者设置 map 中的数据，
 // 使用 remove() 函数来从 map 中删除 key 和 value。
 var nobleGases = {54: &#39;xenon&#39;};
 // Retrieve a value with a key.
@@ -1733,10 +1881,10 @@ assert(nobleGases.containsKey(54));
 // Remove a key and its value.
 nobleGases.remove(54);
 assert(!nobleGases.containsKey(54));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const m = new Map();
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const m = new Map();
 m.set(undefined, &#39;nah&#39;);
 m.has(undefined)     // true
 m.delete(undefined)
@@ -1751,10 +1899,13 @@ delete obj.p1 // true
 delete obj.p2 // false
 obj.p1 // undefined
 obj.p2 // 2</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Maps(字典)遍历，获取 map 的所有 key 和 value">Maps(字典)遍历，获取 map 的所有 key 和 value</h2><p>dart</p>
-<pre><code class="language-dart">// 使用 .length 来获取 map 中键值对的数目
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Maps(字典)遍历，获取 map 的所有 key 和 value">
+        Maps(字典)遍历，获取 map 的所有 key 和 value
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 使用 .length 来获取 map 中键值对的数目
 var gifts = {&#39;first&#39;: &#39;partridge&#39;};
 gifts[&#39;fourth&#39;] = &#39;calling birds&#39;;
 assert(gifts.length == 2);
@@ -1777,10 +1928,10 @@ assert(new Set.from(keys).contains(&#39;Oahu&#39;));
 var values = hawaiianBeaches.values;
 assert(values.length == 3);
 assert(values.any((v) =&gt; v.contains(&#39;Waikiki&#39;)));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// for...in循环
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// for...in循环
 // 它遍历的是对象所有可遍历（enumerable）的属性，会跳过不可遍历的属性。
 // 它不仅遍历对象自身的属性，还遍历继承的属性。
 var obj = {a: 1, b: 2, c: 3};
@@ -1826,9 +1977,9 @@ const zippedList = list1.map((x, y) =&gt; {
 zippedList.forEach(element =&gt; {
   console.log(`${element[0]} ${element[1]}`)
 })</code></pre>
-<p>python</p>
-<p>循环的技巧</p>
-<pre><code class="language-python">some_list = [6, 3, 5]
+      <p>python</p>
+      <p>循环的技巧</p>
+      <pre><code class="language-python">some_list = [6, 3, 5]
 # 0 6
 # 1 3
 # 2 5
@@ -1845,7 +1996,7 @@ list_2 = [2, 4, 6]
 # 5 6
 for x, y in zip(list_1, list_2):
     print(f&quot;{x} {y}&quot;)</code></pre>
-<pre><code class="language-sh"># 当在字典中循环时，用 items() 方法可将关键字和对应的值同时取出
+      <pre><code class="language-sh"># 当在字典中循环时，用 items() 方法可将关键字和对应的值同时取出
 &gt;&gt;&gt; knights = {&#39;gallahad&#39;: &#39;the pure&#39;, &#39;robin&#39;: &#39;the brave&#39;}
 &gt;&gt;&gt; for k, v in knights.items():
 ...     print(k, v)
@@ -1901,8 +2052,9 @@ pear
 ...
 &gt;&gt;&gt; filtered_data
 [56.2, 51.7, 55.3, 52.5, 47.8]</code></pre>
-<h2 id="判断 map 是否包含一个 key">判断 map 是否包含一个 key</h2><p>dart</p>
-<pre><code class="language-dart">// 由于 map 的 value 可以为 null，
+      <h2 id="判断 map 是否包含一个 key">判断 map 是否包含一个 key</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 由于 map 的 value 可以为 null，
 // 所有通过 key 来获取 value 并通过 判断 value 是否为 null 来判断 key 是否存在是 行不通的。
 var hawaiianBeaches = {
   &#39;Oahu&#39;      : [&#39;Waikiki&#39;, &#39;Kailua&#39;, &#39;Waimanalo&#39;],
@@ -1912,10 +2064,10 @@ var hawaiianBeaches = {
 
 assert(hawaiianBeaches.containsKey(&#39;Oahu&#39;));
 assert(!hawaiianBeaches.containsKey(&#39;Florida&#39;));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// in运算符的一个问题是，它不能识别哪些属性是对象自身的，哪些属性是继承的。
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// in运算符的一个问题是，它不能识别哪些属性是对象自身的，哪些属性是继承的。
 var obj = { p: 1 };
 &#39;p&#39; in obj // true
 &#39;toString&#39; in obj // true
@@ -1929,10 +2081,11 @@ m.has(&#39;edition&#39;)     // true
 m.has(&#39;years&#39;)       // false
 m.has(262)           // true
 m.has(undefined)     // true</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Set 集合定义及操作">Set 集合定义及操作</h2><p>dart</p>
-<pre><code class="language-dart">var ingredients = new Set();
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Set 集合定义及操作">Set 集合定义及操作</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var ingredients = new Set();
 ingredients.addAll([&#39;gold&#39;, &#39;titanium&#39;, &#39;xenon&#39;]);
 assert(ingredients.length == 3);
 // Adding a duplicate item has no effect.
@@ -1957,10 +2110,10 @@ var nobleGases = new Set.from([&#39;xenon&#39;, &#39;argon&#39;]);
 var intersection = ingredients.intersection(nobleGases);
 assert(intersection.length == 1);
 assert(intersection.contains(&#39;xenon&#39;));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const s = new Set();
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const s = new Set();
 [2, 3, 5, 4, 5, 2, 2].forEach(x =&gt; s.add(x));
 for (let i of s) {
   console.log(i);
@@ -2030,10 +2183,12 @@ for (let item of set.entries()) {
 // [&quot;red&quot;, &quot;red&quot;]
 // [&quot;green&quot;, &quot;green&quot;]
 // [&quot;blue&quot;, &quot;blue&quot;]</code></pre>
-<p>python</p>
-<p>花括号或 set() 函数可以用来创建集合。
-注意：要创建一个空集合你只能用 set() 而不能用 {}， 因为后者是创建一个空字典</p>
-<pre><code class="language-sh">&gt;&gt;&gt; basket = {&#39;apple&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;banana&#39;}
+      <p>python</p>
+      <p>
+        花括号或 set() 函数可以用来创建集合。 注意：要创建一个空集合你只能用
+        set() 而不能用 {}， 因为后者是创建一个空字典
+      </p>
+      <pre><code class="language-sh">&gt;&gt;&gt; basket = {&#39;apple&#39;, &#39;orange&#39;, &#39;apple&#39;, &#39;pear&#39;, &#39;orange&#39;, &#39;banana&#39;}
 &gt;&gt;&gt; print(basket)                      # show that duplicates have been removed
 {&#39;orange&#39;, &#39;banana&#39;, &#39;pear&#39;, &#39;apple&#39;}
 &gt;&gt;&gt; &#39;orange&#39; in basket                 # fast membership testing
@@ -2060,20 +2215,26 @@ False
 &gt;&gt;&gt; a = {x for x in &#39;abracadabra&#39; if x not in &#39;abc&#39;}
 &gt;&gt;&gt; a
 {&#39;r&#39;, &#39;d&#39;}</code></pre>
-<h2 id="判断Iterable集合（List, Set, 和 Map）是否为空的">判断Iterable集合（List, Set, 和 Map）是否为空的</h2><p>dart</p>
-<pre><code class="language-dart">// 可以使用 isEmpty 函数来判断集合是否为空的：
+      <h2 id="判断Iterable集合（List, Set, 和 Map）是否为空的">
+        判断Iterable集合（List, Set, 和 Map）是否为空的
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 可以使用 isEmpty 函数来判断集合是否为空的：
 if (lunchBox.isEmpty) return &#39;so hungry...&#39;;
 if (words.isNotEmpty) return words.join(&#39; &#39;);
 var teas = [&#39;green&#39;, &#39;black&#39;, &#39;chamomile&#39;, &#39;earl grey&#39;];
 assert(!teas.isEmpty);</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="（List, Set, 和 Map）常用的集合函数">（List, Set, 和 Map）常用的集合函数</h2><p>dart</p>
-<pre><code class="language-dart">// 使用 forEach() 函数可以对集合中的每个数据都应用 一个方法：
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="（List, Set, 和 Map）常用的集合函数">
+        （List, Set, 和 Map）常用的集合函数
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 使用 forEach() 函数可以对集合中的每个数据都应用 一个方法：
 var teas = [&#39;green&#39;, &#39;black&#39;, &#39;chamomile&#39;, &#39;earl grey&#39;];
 teas.forEach((tea) =&gt; print(&#39;I drink $tea&#39;));
 
@@ -2118,46 +2279,59 @@ assert(teas.any(isDecaffeinated));
 // Use every() to check whether all the items in a
 // collection satisfy a condition.
 assert(!teas.every(isDecaffeinated));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="序列和其它类型的比较">序列和其它类型的比较</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python">(1, 2, 3)              &lt; (1, 2, 4)
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="序列和其它类型的比较">序列和其它类型的比较</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python">(1, 2, 3)              &lt; (1, 2, 4)
 [1, 2, 3]              &lt; [1, 2, 4]
 &#39;ABC&#39; &lt; &#39;C&#39; &lt; &#39;Pascal&#39; &lt; &#39;Python&#39;
 (1, 2, 3, 4)           &lt; (1, 2, 4)
 (1, 2)                 &lt; (1, 2, -1)
 (1, 2, 3)             == (1.0, 2.0, 3.0)
 (1, 2, (&#39;aa&#39;, &#39;ab&#39;))   &lt; (1, 2, (&#39;abc&#39;, &#39;a&#39;), 4)</code></pre>
-<h2 id="检查两个引用是否指向同一个对象(内存地址)">检查两个引用是否指向同一个对象(内存地址)</h2><p>dart</p>
-<pre><code class="language-dart">bool identical(Object a, Object b)</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<p>ES5 比较两个值是否相等，只有两个运算符：相等运算符（==）和严格相等运算符（===）。
-它们都有缺点，前者会自动转换数据类型，后者的NaN不等于自身，以及+0等于-0。</p>
-<pre><code class="language-js">Object.is(&#39;foo&#39;, &#39;foo&#39;)
+      <h2 id="检查两个引用是否指向同一个对象(内存地址)">
+        检查两个引用是否指向同一个对象(内存地址)
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">bool identical(Object a, Object b)</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>
+        ES5
+        比较两个值是否相等，只有两个运算符：相等运算符（==）和严格相等运算符（===）。
+        它们都有缺点，前者会自动转换数据类型，后者的NaN不等于自身，以及+0等于-0。
+      </p>
+      <pre><code class="language-js">Object.is(&#39;foo&#39;, &#39;foo&#39;)
 // true
 Object.is({}, {})
 // false</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Symbols">Symbols</h2><p>dart</p>
-<p>mirror 系统使用 Symbol 类对象 来表达定义的 Dart 标识符名字。
-Symbols 在混淆后的代码也可以 使用。</p>
-<p>如果在写代码的时候，已经知道 symbol 的名字了，则可以使用 #符号名字 的方式直接使用。
-直接使用的 symbol 对象是编译时常量，多次定义引用的是同一个对象。
-如果名字不知道，则可以通过 Symbol 构造函数来 创建</p>
-<pre><code class="language-dart">import &#39;dart:mirrors&#39;;
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Symbols">Symbols</h2>
+      <p>dart</p>
+      <p>
+        mirror 系统使用 Symbol 类对象 来表达定义的 Dart 标识符名字。 Symbols
+        在混淆后的代码也可以 使用。
+      </p>
+      <p>
+        如果在写代码的时候，已经知道 symbol 的名字了，则可以使用 #符号名字
+        的方式直接使用。 直接使用的 symbol
+        对象是编译时常量，多次定义引用的是同一个对象。
+        如果名字不知道，则可以通过 Symbol 构造函数来 创建
+      </p>
+      <pre><code class="language-dart">import &#39;dart:mirrors&#39;;
 
 // If the symbol name is known at compile time.
 const className = #MyClass;
@@ -2170,14 +2344,19 @@ var functionName = new Symbol(userInput);
 import &#39;dart:mirrors&#39;;
 const className = #MyClass;
 assert(&#39;MyClass&#39; == MirrorSystem.getName(className));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<p>ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。
-它是 JavaScript 语言的第七种数据类型，
-前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。</p>
-<p>除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol 值，指向语言内部使用的方法。</p>
-<pre><code class="language-js">let s = Symbol();
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>
+        ES6 引入了一种新的原始数据类型Symbol，表示独一无二的值。 它是 JavaScript
+        语言的第七种数据类型，
+        前六种是：undefined、null、布尔值（Boolean）、字符串（String）、数值（Number）、对象（Object）。
+      </p>
+      <p>
+        除了定义自己使用的 Symbol 值以外，ES6 还提供了 11 个内置的 Symbol
+        值，指向语言内部使用的方法。
+      </p>
+      <pre><code class="language-js">let s = Symbol();
 typeof s
 // &quot;symbol&quot;
 
@@ -2207,9 +2386,12 @@ a[&#39;mySymbol&#39;] // &quot;Hello!&quot;
 let s1 = Symbol.for(&#39;foo&#39;);
 let s2 = Symbol.for(&#39;foo&#39;);
 s1 === s2 // true</code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-
-        </div>
-      </body>
-      </html>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+    </div>
+    <script src="./highlight/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

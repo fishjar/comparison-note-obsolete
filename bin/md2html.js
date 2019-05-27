@@ -1,8 +1,9 @@
 const fs = require('fs');
 const marked = require('marked');
+const prettier = require("prettier"); // 格式化工具
 
 
-const outlines = [];
+const outlines = []; // 所有标题
 
 
 // 获取所有文件标题
@@ -26,11 +27,13 @@ fs.readdirSync('./src')
     const htmlBody = marked(data, { renderer });
     const htmlNav = marked(fileInfo.titles.map(title => `${'  '.repeat(title.level - 1)}- [${title.text}](#${title.text})`).join('\n'));
 
-    const html = `<!doctype html>
+    const htmlStr = `<!doctype html>
       <html>
       <head>
         <meta charset="utf-8"/>
         <title>${file}</title>
+        <link rel="stylesheet" href="./styles.css" />
+        <link rel="stylesheet" href="./highlight/styles/github.css" />
       </head>
       <body>
         <div id="nav">
@@ -39,9 +42,15 @@ fs.readdirSync('./src')
         <div id="content">
           ${htmlBody}
         </div>
+        <script src="./highlight/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
       </body>
       </html>`;
-    fs.writeFileSync(`./dist/${file.slice(0, -3)}.html`, html);
+
+    // 生成 html
+    fs.writeFileSync(`./dist/${file.slice(0, -3)}.html`, prettier.format(htmlStr, {
+      parser: 'html'
+    }));
 
     outlines.push(fileInfo);
   });
@@ -67,16 +76,22 @@ const indexStr = `<!doctype html>
 <head>
   <meta charset="utf-8"/>
   <title>programming-language-comparison</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./highlight/styles/github.css" />
 </head>
 <body>
   <div id="nav">
     ${marked(indexLines.join('\n'))}
   </div>
+  <script src="./highlight/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>
 `;
 // console.log(readmeStr)
-fs.writeFileSync('./dist/index.html', indexStr);
+fs.writeFileSync('./dist/index.html', prettier.format(indexStr, {
+  parser: 'html'
+}));
 
 
 /**

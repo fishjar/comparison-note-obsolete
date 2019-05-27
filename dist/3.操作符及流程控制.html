@@ -1,77 +1,121 @@
-<!doctype html>
-      <html>
-      <head>
-        <meta charset="utf-8"/>
-        <title>3.操作符及流程控制.md</title>
-      </head>
-      <body>
-        <div id="nav">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>3.操作符及流程控制.md</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./highlight/styles/github.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <ul>
+        <li>
+          <a
+            href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6"
+            >操作符及流程控制</a
+          >
           <ul>
-<li><a href="#%E6%93%8D%E4%BD%9C%E7%AC%A6%E5%8F%8A%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6">操作符及流程控制</a><ul>
-<li>[Arithmetic operators（算术操作符）](#Arithmetic operators（算术操作符）)</li>
-<li>[Equality and relational operators（相等相关的操作符）](#Equality and relational operators（相等相关的操作符）)</li>
-<li>[Type test operators（类型判定操作符）](#Type test operators（类型判定操作符）)</li>
-<li>[Assignment operators（赋值操作符）](#Assignment operators（赋值操作符）)</li>
-<li>[Logical operators（逻辑操作符）](#Logical operators（逻辑操作符）)</li>
-<li>[Bitwise and shift operators（位和移位操作符）](#Bitwise and shift operators（位和移位操作符）)</li>
-<li>[Conditional expressions（条件表达式）/三元操作符](#Conditional expressions（条件表达式）/三元操作符)</li>
-<li>[Cascade notation (..)（级联操作符）](#Cascade notation (..)（级联操作符）)</li>
-<li><a href="#%E6%9D%A1%E4%BB%B6%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE">条件成员访问</a></li>
-<li>[If and else](#If and else)</li>
-<li>[For loops](#For loops)</li>
-<li><a href="#range(">range() 函数</a> 函数)</li>
-<li>[While and do-while](#While and do-while)</li>
-<li>[Break and continue](#Break and continue)</li>
-<li>[pass 语句](#pass 语句)</li>
-<li>[Switch and case](#Switch and case)</li>
-</ul>
-</li>
-</ul>
-
-        </div>
-        <div id="content">
-          <h1 id="操作符及流程控制">操作符及流程控制</h1><h2 id="Arithmetic operators（算术操作符）">Arithmetic operators（算术操作符）</h2><p>dart</p>
-<pre><code class="language-dart">// +, -, /, *
+            <li>
+              [Arithmetic operators（算术操作符）](#Arithmetic
+              operators（算术操作符）)
+            </li>
+            <li>
+              [Equality and relational operators（相等相关的操作符）](#Equality
+              and relational operators（相等相关的操作符）)
+            </li>
+            <li>
+              [Type test operators（类型判定操作符）](#Type test
+              operators（类型判定操作符）)
+            </li>
+            <li>
+              [Assignment operators（赋值操作符）](#Assignment
+              operators（赋值操作符）)
+            </li>
+            <li>
+              [Logical operators（逻辑操作符）](#Logical
+              operators（逻辑操作符）)
+            </li>
+            <li>
+              [Bitwise and shift operators（位和移位操作符）](#Bitwise and shift
+              operators（位和移位操作符）)
+            </li>
+            <li>
+              [Conditional expressions（条件表达式）/三元操作符](#Conditional
+              expressions（条件表达式）/三元操作符)
+            </li>
+            <li>
+              [Cascade notation (..)（级联操作符）](#Cascade notation
+              (..)（级联操作符）)
+            </li>
+            <li>
+              <a href="#%E6%9D%A1%E4%BB%B6%E6%88%90%E5%91%98%E8%AE%BF%E9%97%AE"
+                >条件成员访问</a
+              >
+            </li>
+            <li>[If and else](#If and else)</li>
+            <li>[For loops](#For loops)</li>
+            <li><a href="#range(">range() 函数</a> 函数)</li>
+            <li>[While and do-while](#While and do-while)</li>
+            <li>[Break and continue](#Break and continue)</li>
+            <li>[pass 语句](#pass 语句)</li>
+            <li>[Switch and case](#Switch and case)</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <h1 id="操作符及流程控制">操作符及流程控制</h1>
+      <h2 id="Arithmetic operators（算术操作符）">
+        Arithmetic operators（算术操作符）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// +, -, /, *
 // 位移操作符，&lt;&lt;,&gt;&gt;,&amp;,|
 // ~/ 除号，但是返回值为整数
 // % 取模</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// +, -, /, *
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// +, -, /, *
 // 位移操作符，&lt;&lt;,&gt;&gt;,&amp;,|,~,^
 
 // 指数运算符：x ** y
 // 余数运算符：x % y
 // 自增运算符：++x 或者 x++
 // 自减运算符：--x 或者 x--</code></pre>
-<p>python</p>
-<pre><code class="language-python"># +, -, /, *
+      <p>python</p>
+      <pre><code class="language-python"># +, -, /, *
 # 位移操作符，&lt;&lt;,&gt;&gt;,&amp;,|,~,^
 
 # 除法运算 (/) 永远返回浮点数类型
 # 使用 // 运算符得到一个整数结果（忽略小数部分）
 # 如果要计算余数，可以使用 %
 # 使用 ** 运算符来计算乘方</code></pre>
-<h2 id="Equality and relational operators（相等相关的操作符）">Equality and relational operators（相等相关的操作符）</h2><p>dart</p>
-<ul>
-<li>要测试两个对象代表的是否为同样的内容，使用 == 操作符。</li>
-<li>两个对象是否是同一个对象， 使用 identical() 方法。</li>
-</ul>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Type test operators（类型判定操作符）">Type test operators（类型判定操作符）</h2><p>dart</p>
-<ul>
-<li>as    类型转换</li>
-<li>is    如果对象是指定的类型返回 True</li>
-<li>is!    如果对象是指定的类型返回 False</li>
-</ul>
-<pre><code class="language-dart">if (emp is Person) { // Type check
+      <h2 id="Equality and relational operators（相等相关的操作符）">
+        Equality and relational operators（相等相关的操作符）
+      </h2>
+      <p>dart</p>
+      <ul>
+        <li>要测试两个对象代表的是否为同样的内容，使用 == 操作符。</li>
+        <li>两个对象是否是同一个对象， 使用 identical() 方法。</li>
+      </ul>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Type test operators（类型判定操作符）">
+        Type test operators（类型判定操作符）
+      </h2>
+      <p>dart</p>
+      <ul>
+        <li>as 类型转换</li>
+        <li>is 如果对象是指定的类型返回 True</li>
+        <li>is! 如果对象是指定的类型返回 False</li>
+      </ul>
+      <pre><code class="language-dart">if (emp is Person) { // Type check
   emp.firstName = &#39;Bob&#39;;
 }
 // 使用 as 操作符可以简化上面的代码：
@@ -80,37 +124,43 @@
 // 如果 emp 是 null 或者不是 Person 类型， 
 // 则第一个示例使用 is 则不会执行条件里面的代码，
 // 而第二个情况使用 as 则会抛出一个异常。</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Assignment operators（赋值操作符）">Assignment operators（赋值操作符）</h2><p>dart</p>
-<pre><code class="language-dart">a = value;   // 给 a 变量赋值
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Assignment operators（赋值操作符）">
+        Assignment operators（赋值操作符）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">a = value;   // 给 a 变量赋值
 b ??= value; // 如果 b 是 null，则赋值给 b；
              // 如果不是 null，则 b 的值保持不变</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Logical operators（逻辑操作符）">Logical operators（逻辑操作符）</h2><p>dart</p>
-<ul>
-<li>!expr    对表达式结果取反（true 变为 false ，false 变为 true）</li>
-<li>||    逻辑 OR</li>
-<li>&amp;&amp;    逻辑 AND</li>
-<li>只能对布尔值进行判断</li>
-</ul>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<ul>
-<li>能够对所有数据类型进行判断，判断时自动转换为布尔值</li>
-</ul>
-<pre><code class="language-js">// yes
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Logical operators（逻辑操作符）">
+        Logical operators（逻辑操作符）
+      </h2>
+      <p>dart</p>
+      <ul>
+        <li>!expr 对表达式结果取反（true 变为 false ，false 变为 true）</li>
+        <li>|| 逻辑 OR</li>
+        <li>&amp;&amp; 逻辑 AND</li>
+        <li>只能对布尔值进行判断</li>
+      </ul>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <ul>
+        <li>能够对所有数据类型进行判断，判断时自动转换为布尔值</li>
+      </ul>
+      <pre><code class="language-js">// yes
 if (&#39;abc&#39; === &#39;abc&#39;) {
   console.log(&#39;yes&#39;)
 } else {
@@ -179,8 +229,8 @@ if (!!!null) {
 } else {
   console.log(&#39;no&#39;)
 }</code></pre>
-<p>python</p>
-<pre><code class="language-python"># yes
+      <p>python</p>
+      <pre><code class="language-python"># yes
 if &quot;abc&quot; == &quot;abc&quot;:
     print(&quot;yes&quot;)
 else:
@@ -239,8 +289,11 @@ if not not not None:
     print(&quot;yes&quot;)
 else:
     print(&quot;no&quot;)</code></pre>
-<h2 id="Bitwise and shift operators（位和移位操作符）">Bitwise and shift operators（位和移位操作符）</h2><p>dart</p>
-<pre><code class="language-dart">final value = 0x22;
+      <h2 id="Bitwise and shift operators（位和移位操作符）">
+        Bitwise and shift operators（位和移位操作符）
+      </h2>
+      <p>dart</p>
+      <pre><code class="language-dart">final value = 0x22;
 final bitmask = 0x0f;
 
 assert((value &amp; bitmask)  == 0x02);  // AND
@@ -249,42 +302,53 @@ assert((value | bitmask)  == 0x2f);  // OR
 assert((value ^ bitmask)  == 0x2d);  // XOR
 assert((value &lt;&lt; 4)       == 0x220); // Shift left
 assert((value &gt;&gt; 4)       == 0x02);  // Shift right</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Conditional expressions（条件表达式）/三元操作符">Conditional expressions（条件表达式）/三元操作符</h2><p>dart</p>
-<ul>
-<li>condition ? expr1 : expr2
-如果 condition 是 true，执行 expr1 (并返回执行的结果)； 
-否则执行 expr2 并返回其结果。</li>
-<li>expr1 ?? expr2
-如果 expr1 是 non-null，返回其值； 否则执行 expr2 并返回其结果。</li>
-</ul>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">const x = 2
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Conditional expressions（条件表达式）/三元操作符">
+        Conditional expressions（条件表达式）/三元操作符
+      </h2>
+      <p>dart</p>
+      <ul>
+        <li>
+          condition ? expr1 : expr2 如果 condition 是 true，执行 expr1
+          (并返回执行的结果)； 否则执行 expr2 并返回其结果。
+        </li>
+        <li>
+          expr1 ?? expr2 如果 expr1 是 non-null，返回其值； 否则执行 expr2
+          并返回其结果。
+        </li>
+      </ul>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const x = 2
 const y = 3
 
 // even
 console.log(x % 2 === 0 ? &#39;even&#39; : &#39;odd&#39;)
 // odd
 console.log(y % 2 === 0 ? &#39;even&#39; : &#39;odd&#39;)</code></pre>
-<p>python</p>
-<pre><code class="language-python">x = 2
+      <p>python</p>
+      <pre><code class="language-python">x = 2
 y = 3
 
 # even
 print(&quot;even&quot; if x % 2 == 0 else &quot;odd&quot;)
 # odd
 print(&quot;even&quot; if y % 2 == 0 else &quot;odd&quot;)</code></pre>
-<h2 id="Cascade notation (..)（级联操作符）">Cascade notation (..)（级联操作符）</h2><p>dart</p>
-<p>级联操作符 (..) 可以在同一个对象上 连续调用多个函数以及访问成员变量。</p>
-<pre><code class="language-dart">querySelector(&#39;#button&#39;) // Get an object.
+      <h2 id="Cascade notation (..)（级联操作符）">
+        Cascade notation (..)（级联操作符）
+      </h2>
+      <p>dart</p>
+      <p>
+        级联操作符 (..) 可以在同一个对象上 连续调用多个函数以及访问成员变量。
+      </p>
+      <pre><code class="language-dart">querySelector(&#39;#button&#39;) // Get an object.
   ..text = &#39;Confirm&#39;   // Use its members.
   ..classes.add(&#39;important&#39;)
   ..onClick.listen((e) =&gt; window.alert(&#39;Confirmed!&#39;));
@@ -293,36 +357,40 @@ var button = querySelector(&#39;#button&#39;);
 button.text = &#39;Confirm&#39;;
 button.classes.add(&#39;important&#39;);
 button.onClick.listen((e) =&gt; window.alert(&#39;Confirmed!&#39;));</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="条件成员访问">条件成员访问</h2><p>dart</p>
-<p>?. 和 . 类似，但是左边的操作对象不能为 null，
-例如 foo?.bar 如果 foo 为 null 则返回 null，否则返回 bar 成员</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="If and else">If and else</h2><p>dart</p>
-<pre><code class="language-dart">if (isRaining()) {
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="条件成员访问">条件成员访问</h2>
+      <p>dart</p>
+      <p>
+        ?. 和 . 类似，但是左边的操作对象不能为 null， 例如 foo?.bar 如果 foo 为
+        null 则返回 null，否则返回 bar 成员
+      </p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="If and else">If and else</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">if (isRaining()) {
   you.bringRainCoat();
 } else if (isSnowing()) {
   you.wearJacket();
 } else {
   car.putTopDown();
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"># 一个 if ... elif ... elif ... 序列
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"># 一个 if ... elif ... elif ... 序列
 # 可以看作是其他语言中的 switch 或 case 语句的替代
 x = int(input(&quot;Please enter an integer: &quot;))
 
@@ -335,8 +403,9 @@ elif x == 1:
     print(&#39;Single&#39;)
 else:
     print(&#39;More&#39;)</code></pre>
-<h2 id="For loops">For loops</h2><p>dart</p>
-<pre><code class="language-dart">var message = new StringBuffer(&quot;Dart is fun&quot;);
+      <h2 id="For loops">For loops</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">var message = new StringBuffer(&quot;Dart is fun&quot;);
 for (var i = 0; i &lt; 5; i++) {
   message.write(&#39;!&#39;);
 }
@@ -356,12 +425,12 @@ var collection = [0, 1, 2];
 for (var x in collection) {
   print(x);
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"># Measure some strings:
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"># Measure some strings:
 words = [&#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;]
 for w in words:
     print(w, len(w))
@@ -373,14 +442,15 @@ for w in words[:]:  # Loop over a slice copy of the entire list.
 # [&#39;defenestrate&#39;, &#39;cat&#39;, &#39;window&#39;, &#39;defenestrate&#39;]
 # 如果写成 for w in words:，这个示例就会创建无限长的列表，
 # 一次又一次重复地插入 defenestrate。</code></pre>
-<h2 id="range() 函数">range() 函数</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-sh"># 内置函数 range() 会派上用场。它生成算术级数:
+      <h2 id="range() 函数">range() 函数</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-sh"># 内置函数 range() 会派上用场。它生成算术级数:
 &gt;&gt;&gt; for i in range(5):
 ...     print(i)
 ...
@@ -417,22 +487,24 @@ range(-10, -100, -30)
 range(0, 10)
 &gt;&gt;&gt; list(range(5))
 [0, 1, 2, 3, 4]</code></pre>
-<h2 id="While and do-while">While and do-while</h2><p>dart</p>
-<pre><code class="language-dart">while (!isDone()) {
+      <h2 id="While and do-while">While and do-while</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">while (!isDone()) {
   doSomething();
 }
 
 do {
   printLine();
 } while (!atEndOfPage());</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="Break and continue">Break and continue</h2><p>dart</p>
-<pre><code class="language-dart">// 使用 break 来终止循环：
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="Break and continue">Break and continue</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 使用 break 来终止循环：
 while (true) {
   if (shutDownRequested()) break;
   processIncomingRequests();
@@ -448,10 +520,10 @@ for (int i = 0; i &lt; candidates.length; i++) {
 // 上面的代码在实现 Iterable 接口对象上可以使用下面的写法：
 candidates.where((c) =&gt; c.yearsExperience &gt;= 5)
           .forEach((c) =&gt; c.interview());</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">// 1
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// 1
 // 2
 // Fizz
 // 4
@@ -469,8 +541,8 @@ for (let i = 1; i &lt;= 100; i = i + 1) {
 
   console.log(i)
 }</code></pre>
-<p>python</p>
-<pre><code class="language-python"># 1
+      <p>python</p>
+      <pre><code class="language-python"># 1
 # 2
 # Fizz
 # 4
@@ -483,7 +555,7 @@ for number in range(1, 101):
         print(&quot;Buzz&quot;)
         break
     print(number)</code></pre>
-<pre><code class="language-sh"># 循环语句可能带有一个 else 子句；
+      <pre><code class="language-sh"># 循环语句可能带有一个 else 子句；
 # 它会在循环遍历完列表 (使用 for) 或是在条件变为假 (使用 while) 的时候被执行，
 # 但是不会在循环被 break 语句终止时被执行。
 
@@ -524,14 +596,15 @@ Found an even number 6
 Found a number 7
 Found an even number 8
 Found a number 9</code></pre>
-<h2 id="pass 语句">pass 语句</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python">while True:
+      <h2 id="pass 语句">pass 语句</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python">while True:
     pass  # Busy-wait for keyboard interrupt (Ctrl+C)
 
 class MyEmptyClass:
@@ -539,13 +612,18 @@ class MyEmptyClass:
 
 def initlog(*args):
     pass   # Remember to implement this!</code></pre>
-<h2 id="Switch and case">Switch and case</h2><p>dart</p>
-<p>Dart 中的 Switch 语句使用 == 比较 integer、string、或者编译时常量。
-比较的对象必须都是同一个类的实例（并且不是 其子类）</p>
-<p>每个非空的 case 语句都必须有一个 break 语句。
-另外还可以通过 continue、 throw 或 者 return 来结束非空 case 语句。
-当没有 case 语句匹配的时候，可以使用 default 语句来匹配这种默认情况。</p>
-<pre><code class="language-dart">var command = &#39;OPEN&#39;;
+      <h2 id="Switch and case">Switch and case</h2>
+      <p>dart</p>
+      <p>
+        Dart 中的 Switch 语句使用 == 比较 integer、string、或者编译时常量。
+        比较的对象必须都是同一个类的实例（并且不是 其子类）
+      </p>
+      <p>
+        每个非空的 case 语句都必须有一个 break 语句。 另外还可以通过 continue、
+        throw 或 者 return 来结束非空 case 语句。 当没有 case
+        语句匹配的时候，可以使用 default 语句来匹配这种默认情况。
+      </p>
+      <pre><code class="language-dart">var command = &#39;OPEN&#39;;
 switch (command) {
   case &#39;CLOSED&#39;:
     executeClosed();
@@ -589,13 +667,16 @@ nowClosed:
     executeNowClosed();
     break;
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-
-        </div>
-      </body>
-      </html>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+    </div>
+    <script src="./highlight/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>

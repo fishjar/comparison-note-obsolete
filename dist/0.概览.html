@@ -1,44 +1,61 @@
-<!doctype html>
-      <html>
-      <head>
-        <meta charset="utf-8"/>
-        <title>0.概览.md</title>
-      </head>
-      <body>
-        <div id="nav">
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>0.概览.md</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./highlight/styles/github.css" />
+  </head>
+  <body>
+    <div id="nav">
+      <ul>
+        <li>
+          <a href="#%E6%A6%82%E8%A7%88">概览</a>
           <ul>
-<li><a href="#%E6%A6%82%E8%A7%88">概览</a><ul>
-<li><a href="#hello">hello</a></li>
-<li><a href="#helloword">helloword</a></li>
-<li><a href="#Keywords%EF%BC%88%E5%85%B3%E9%94%AE%E5%AD%97/%E4%BF%9D%E7%95%99%E5%AD%97%EF%BC%89">Keywords（关键字/保留字）</a></li>
-<li>[Built-in types(内置的类型)](#Built-in types(内置的类型))</li>
-<li><a href="#%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5">重要概念</a></li>
-<li><a href="#%E5%BA%93/%E5%8C%85/%E6%A8%A1%E5%9D%97">库/包/模块</a></li>
-<li><a href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">目录结构</a></li>
-<li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
-<li><a href="#%E5%8C%85%E7%AE%A1%E7%90%86">包管理</a></li>
-<li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a></li>
-<li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C">命令行</a></li>
-</ul>
-</li>
-</ul>
-
-        </div>
-        <div id="content">
-          <h1 id="概览">概览</h1><ul>
-<li><a href="#hello">hello</a></li>
-<li><a href="#helloword">helloword</a></li>
-</ul>
-<h2 id="hello">hello</h2><p>dart</p>
-<pre><code class="language-dart"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="helloword">helloword</h2><p>dart</p>
-<pre><code class="language-dart">// helloword.dart
+            <li><a href="#hello">hello</a></li>
+            <li><a href="#helloword">helloword</a></li>
+            <li>
+              <a
+                href="#Keywords%EF%BC%88%E5%85%B3%E9%94%AE%E5%AD%97/%E4%BF%9D%E7%95%99%E5%AD%97%EF%BC%89"
+                >Keywords（关键字/保留字）</a
+              >
+            </li>
+            <li>[Built-in types(内置的类型)](#Built-in types(内置的类型))</li>
+            <li>
+              <a href="#%E9%87%8D%E8%A6%81%E6%A6%82%E5%BF%B5">重要概念</a>
+            </li>
+            <li>
+              <a href="#%E5%BA%93/%E5%8C%85/%E6%A8%A1%E5%9D%97">库/包/模块</a>
+            </li>
+            <li>
+              <a href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84">目录结构</a>
+            </li>
+            <li><a href="#%E5%AE%89%E8%A3%85">安装</a></li>
+            <li><a href="#%E5%8C%85%E7%AE%A1%E7%90%86">包管理</a></li>
+            <li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a></li>
+            <li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C">命令行</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div id="content">
+      <h1 id="概览">概览</h1>
+      <ul>
+        <li><a href="#hello">hello</a></li>
+        <li><a href="#helloword">helloword</a></li>
+      </ul>
+      <h2 id="hello">hello</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="helloword">helloword</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// helloword.dart
 // 定义个方法。
 printNumber(num aNumber) {
   print(&#39;The number is $aNumber.&#39;); // 在控制台打印内容。
@@ -51,845 +68,866 @@ main() {
   var number = 42; // 定义并初始化一个变量。
   printNumber(number); // 调用一个方法。
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python">print(&#39;hello, world&#39;)</code></pre>
-<h2 id="Keywords（关键字/保留字）">Keywords（关键字/保留字）</h2><table>
-<thead>
-<tr>
-<th>dart</th>
-<th>go</th>
-<th>js</th>
-<th>python</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>abstract</td>
-<td></td>
-<td>-abstract</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>arguments</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>and</td>
-</tr>
-<tr>
-<td>as</td>
-<td></td>
-<td></td>
-<td>as</td>
-</tr>
-<tr>
-<td>assert</td>
-<td></td>
-<td></td>
-<td>assert</td>
-</tr>
-<tr>
-<td>async</td>
-<td></td>
-<td></td>
-<td>async</td>
-</tr>
-<tr>
-<td>async*</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>await</td>
-<td></td>
-<td>await*</td>
-<td>await</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-boolean</td>
-<td></td>
-</tr>
-<tr>
-<td>break</td>
-<td>break</td>
-<td>break</td>
-<td>break</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-byte</td>
-<td></td>
-</tr>
-<tr>
-<td>case</td>
-<td>case</td>
-<td>case</td>
-<td></td>
-</tr>
-<tr>
-<td>catch</td>
-<td></td>
-<td>catch</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>chan</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-char</td>
-<td></td>
-</tr>
-<tr>
-<td>class</td>
-<td></td>
-<td>class</td>
-<td>class</td>
-</tr>
-<tr>
-<td>const</td>
-<td>const</td>
-<td>const</td>
-<td></td>
-</tr>
-<tr>
-<td>continue</td>
-<td>continue</td>
-<td>continue</td>
-<td>continue</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>debugger</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>def</td>
-</tr>
-<tr>
-<td>default</td>
-<td>default</td>
-<td>default</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>defer</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>deferred</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>del</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>delete</td>
-<td></td>
-</tr>
-<tr>
-<td>do</td>
-<td></td>
-<td>do</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-double</td>
-<td></td>
-</tr>
-<tr>
-<td>dynamic</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>elif</td>
-</tr>
-<tr>
-<td>else</td>
-<td>else</td>
-<td>else</td>
-<td>else</td>
-</tr>
-<tr>
-<td>enum</td>
-<td></td>
-<td>enum</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>eval</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>except</td>
-</tr>
-<tr>
-<td>export</td>
-<td></td>
-<td>export</td>
-<td></td>
-</tr>
-<tr>
-<td>extends</td>
-<td></td>
-<td>extends</td>
-<td></td>
-</tr>
-<tr>
-<td>external</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>factory</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>fallthrough</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>false</td>
-<td></td>
-<td>false</td>
-<td>False</td>
-</tr>
-<tr>
-<td>final</td>
-<td></td>
-<td>-final</td>
-<td></td>
-</tr>
-<tr>
-<td>finally</td>
-<td></td>
-<td>finally</td>
-<td>finally</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-float</td>
-<td></td>
-</tr>
-<tr>
-<td>for</td>
-<td>for</td>
-<td>for</td>
-<td>for</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>from</td>
-</tr>
-<tr>
-<td>-</td>
-<td>func</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>function</td>
-<td></td>
-</tr>
-<tr>
-<td>get</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>global</td>
-</tr>
-<tr>
-<td>-</td>
-<td>go</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>goto</td>
-<td>-goto</td>
-<td></td>
-</tr>
-<tr>
-<td>if</td>
-<td>if</td>
-<td>if</td>
-<td>if</td>
-</tr>
-<tr>
-<td>implements</td>
-<td></td>
-<td>implements</td>
-<td></td>
-</tr>
-<tr>
-<td>import</td>
-<td>import</td>
-<td>import</td>
-<td>import</td>
-</tr>
-<tr>
-<td>in</td>
-<td></td>
-<td>in</td>
-<td>in</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>instanceof</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-int</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>interface</td>
-<td>interface</td>
-<td></td>
-</tr>
-<tr>
-<td>is</td>
-<td></td>
-<td></td>
-<td>is</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>lambda</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>let</td>
-<td></td>
-</tr>
-<tr>
-<td>library</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-long</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>map</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-native</td>
-<td></td>
-</tr>
-<tr>
-<td>new</td>
-<td></td>
-<td>new</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>None</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>nonlocal</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>not</td>
-</tr>
-<tr>
-<td>null</td>
-<td></td>
-<td>null</td>
-<td></td>
-</tr>
-<tr>
-<td>operator</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>or</td>
-</tr>
-<tr>
-<td>-</td>
-<td>package</td>
-<td>package</td>
-<td></td>
-</tr>
-<tr>
-<td>part</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>pass</td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>private</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>protected</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>public</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td></td>
-<td>raise</td>
-</tr>
-<tr>
-<td>-</td>
-<td>range</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>rethrow</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>return</td>
-<td>return</td>
-<td>return</td>
-<td>return</td>
-</tr>
-<tr>
-<td>-</td>
-<td>select</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>set</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-short</td>
-<td></td>
-</tr>
-<tr>
-<td>static</td>
-<td></td>
-<td>static</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td>struct</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>super</td>
-<td></td>
-<td>super</td>
-<td></td>
-</tr>
-<tr>
-<td>switch</td>
-<td>switch</td>
-<td>switch</td>
-<td></td>
-</tr>
-<tr>
-<td>sync</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>sync*</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-synchronized</td>
-<td></td>
-</tr>
-<tr>
-<td>this</td>
-<td></td>
-<td>this</td>
-<td></td>
-</tr>
-<tr>
-<td>throw</td>
-<td></td>
-<td>throw</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-throws</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-transient</td>
-<td></td>
-</tr>
-<tr>
-<td>true</td>
-<td></td>
-<td>true</td>
-<td>True</td>
-</tr>
-<tr>
-<td>try</td>
-<td></td>
-<td>try</td>
-<td>try</td>
-</tr>
-<tr>
-<td>-</td>
-<td>type</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>typedef</td>
-<td></td>
-<td>typeof</td>
-<td></td>
-</tr>
-<tr>
-<td>var</td>
-<td>var</td>
-<td>var</td>
-<td></td>
-</tr>
-<tr>
-<td>void</td>
-<td></td>
-<td>void</td>
-<td></td>
-</tr>
-<tr>
-<td>-</td>
-<td></td>
-<td>-volatile</td>
-<td></td>
-</tr>
-<tr>
-<td>while</td>
-<td></td>
-<td>while</td>
-<td>while</td>
-</tr>
-<tr>
-<td>with</td>
-<td></td>
-<td>with</td>
-<td>with</td>
-</tr>
-<tr>
-<td>yield</td>
-<td></td>
-<td>yield</td>
-<td>yield</td>
-</tr>
-<tr>
-<td>yield*</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="Built-in types(内置的类型)">Built-in types(内置的类型)</h2><table>
-<thead>
-<tr>
-<th>name</th>
-<th>dart</th>
-<th>go</th>
-<th>js</th>
-<th>python</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>numbers</td>
-<td>num</td>
-<td></td>
-<td>Number</td>
-<td>Numbers</td>
-</tr>
-<tr>
-<td>numbers</td>
-<td>int</td>
-<td></td>
-<td></td>
-<td>-int</td>
-</tr>
-<tr>
-<td>numbers</td>
-<td>double</td>
-<td></td>
-<td></td>
-<td>-float</td>
-</tr>
-<tr>
-<td>complex</td>
-<td></td>
-<td></td>
-<td></td>
-<td>complex</td>
-</tr>
-<tr>
-<td>strings</td>
-<td>String</td>
-<td></td>
-<td>String</td>
-<td>str</td>
-</tr>
-<tr>
-<td>booleans</td>
-<td>bool(true/false)</td>
-<td></td>
-<td>Boolean(true/false)</td>
-<td>bool(True/False)</td>
-</tr>
-<tr>
-<td>lists/arrays</td>
-<td>List</td>
-<td></td>
-<td>-Array</td>
-<td>list</td>
-</tr>
-<tr>
-<td>maps</td>
-<td>map</td>
-<td></td>
-<td>-Map</td>
-<td>dict</td>
-</tr>
-<tr>
-<td>runes</td>
-<td>runes</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>symbols</td>
-<td>symbol</td>
-<td></td>
-<td>Symbol</td>
-<td></td>
-</tr>
-<tr>
-<td>Null</td>
-<td>-null</td>
-<td></td>
-<td>Null(null)</td>
-<td></td>
-</tr>
-<tr>
-<td>Undefined</td>
-<td></td>
-<td></td>
-<td>Undefined(undefined)</td>
-<td></td>
-</tr>
-<tr>
-<td>Object</td>
-<td>Object</td>
-<td></td>
-<td>Object</td>
-<td></td>
-</tr>
-<tr>
-<td>Set</td>
-<td>Set</td>
-<td></td>
-<td>-Set</td>
-<td>set</td>
-</tr>
-<tr>
-<td>ArrayBuffer</td>
-<td></td>
-<td></td>
-<td>-ArrayBuffer</td>
-<td>bytearray</td>
-</tr>
-<tr>
-<td>Tuples</td>
-<td></td>
-<td></td>
-<td></td>
-<td>tuple</td>
-</tr>
-<tr>
-<td>range</td>
-<td></td>
-<td></td>
-<td></td>
-<td>range</td>
-</tr>
-<tr>
-<td>Function</td>
-<td>-Function</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>dynamic</td>
-<td>dynamic</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<h2 id="重要概念">重要概念</h2><p>dart</p>
-<ul>
-<li>所有能够使用变量引用的都是对象， 每个对象都是一个类的实例。
-在 Dart 中 甚至连 数字、方法和 null 都是对象。
-所有的对象都继承于 Object 类。</li>
-<li>没有指定类型的变量的类型为 dynamic</li>
-<li>Dart 支持顶级方法 (例如 main())</li>
-<li>Dart 还支持顶级变量，以及 在类中定义变量（静态变量和实例变量）。
-实例变量有时候被称之为域（Fields）或者属性（Properties）</li>
-<li>Dart 没有 public、 protected、 和 private 关键字。
-如果一个标识符以 (_) 开头，则该标识符 在库内是私有的。</li>
-</ul>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<ul>
-<li>ECMAScript 和 JavaScript 的关系是，前者是后者的规格，后者是前者的一种实现</li>
-<li>ES6 这个词的原意，就是指 JavaScript 语言的下一个版本</li>
-<li>ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 JavaScript 的下一代标准，
-涵盖了 ES2015、ES2016、ES2017 等等</li>
-</ul>
-<p>JavaScript学习内容包括</p>
-<ul>
-<li>ES5</li>
-<li>ES6</li>
-<li>DOM</li>
-<li>浏览器</li>
-<li>Node.js</li>
-<li>TypeScript</li>
-</ul>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="库/包/模块">库/包/模块</h2><p>dart</p>
-<ul>
-<li>库不仅仅提供 API， 还是一个私有单元：
-以下划线 (_) 开头的标识符只有在库 内部可见。
-每个 Dart app 都是一个库， 即使没有使用 library 命令也是一个库</li>
-<li>import 必须参数为库 的 URI。
-对于内置的库，URI 使用特殊的 dart: scheme。
-对于其他的库，你可以使用文件系统路径或者 package: scheme。
-package: scheme 指定的库通过包管理器来提供， 例如 pub 工具。</li>
-</ul>
-<pre><code class="language-dart">import &#39;dart:html&#39;;
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python">print(&#39;hello, world&#39;)</code></pre>
+      <h2 id="Keywords（关键字/保留字）">Keywords（关键字/保留字）</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>dart</th>
+            <th>go</th>
+            <th>js</th>
+            <th>python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>abstract</td>
+            <td></td>
+            <td>-abstract</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>arguments</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>and</td>
+          </tr>
+          <tr>
+            <td>as</td>
+            <td></td>
+            <td></td>
+            <td>as</td>
+          </tr>
+          <tr>
+            <td>assert</td>
+            <td></td>
+            <td></td>
+            <td>assert</td>
+          </tr>
+          <tr>
+            <td>async</td>
+            <td></td>
+            <td></td>
+            <td>async</td>
+          </tr>
+          <tr>
+            <td>async*</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>await</td>
+            <td></td>
+            <td>await*</td>
+            <td>await</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-boolean</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>break</td>
+            <td>break</td>
+            <td>break</td>
+            <td>break</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-byte</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>case</td>
+            <td>case</td>
+            <td>case</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>catch</td>
+            <td></td>
+            <td>catch</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>chan</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-char</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>class</td>
+            <td></td>
+            <td>class</td>
+            <td>class</td>
+          </tr>
+          <tr>
+            <td>const</td>
+            <td>const</td>
+            <td>const</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>continue</td>
+            <td>continue</td>
+            <td>continue</td>
+            <td>continue</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>debugger</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>def</td>
+          </tr>
+          <tr>
+            <td>default</td>
+            <td>default</td>
+            <td>default</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>defer</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>deferred</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>del</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>delete</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>do</td>
+            <td></td>
+            <td>do</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-double</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>dynamic</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>elif</td>
+          </tr>
+          <tr>
+            <td>else</td>
+            <td>else</td>
+            <td>else</td>
+            <td>else</td>
+          </tr>
+          <tr>
+            <td>enum</td>
+            <td></td>
+            <td>enum</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>eval</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>except</td>
+          </tr>
+          <tr>
+            <td>export</td>
+            <td></td>
+            <td>export</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>extends</td>
+            <td></td>
+            <td>extends</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>external</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>factory</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>fallthrough</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>false</td>
+            <td></td>
+            <td>false</td>
+            <td>False</td>
+          </tr>
+          <tr>
+            <td>final</td>
+            <td></td>
+            <td>-final</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>finally</td>
+            <td></td>
+            <td>finally</td>
+            <td>finally</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-float</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>for</td>
+            <td>for</td>
+            <td>for</td>
+            <td>for</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>from</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>func</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>function</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>get</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>global</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>go</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>goto</td>
+            <td>-goto</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>if</td>
+            <td>if</td>
+            <td>if</td>
+            <td>if</td>
+          </tr>
+          <tr>
+            <td>implements</td>
+            <td></td>
+            <td>implements</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>import</td>
+            <td>import</td>
+            <td>import</td>
+            <td>import</td>
+          </tr>
+          <tr>
+            <td>in</td>
+            <td></td>
+            <td>in</td>
+            <td>in</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>instanceof</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-int</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>interface</td>
+            <td>interface</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>is</td>
+            <td></td>
+            <td></td>
+            <td>is</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>lambda</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>let</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>library</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-long</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>map</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-native</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>new</td>
+            <td></td>
+            <td>new</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>None</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>nonlocal</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>not</td>
+          </tr>
+          <tr>
+            <td>null</td>
+            <td></td>
+            <td>null</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>operator</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>or</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>package</td>
+            <td>package</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>part</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>pass</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>private</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>protected</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>public</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td></td>
+            <td>raise</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>range</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>rethrow</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>return</td>
+            <td>return</td>
+            <td>return</td>
+            <td>return</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>select</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>set</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-short</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>static</td>
+            <td></td>
+            <td>static</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>struct</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>super</td>
+            <td></td>
+            <td>super</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>switch</td>
+            <td>switch</td>
+            <td>switch</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>sync</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>sync*</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-synchronized</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>this</td>
+            <td></td>
+            <td>this</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>throw</td>
+            <td></td>
+            <td>throw</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-throws</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-transient</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>true</td>
+            <td></td>
+            <td>true</td>
+            <td>True</td>
+          </tr>
+          <tr>
+            <td>try</td>
+            <td></td>
+            <td>try</td>
+            <td>try</td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td>type</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>typedef</td>
+            <td></td>
+            <td>typeof</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>var</td>
+            <td>var</td>
+            <td>var</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>void</td>
+            <td></td>
+            <td>void</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>-</td>
+            <td></td>
+            <td>-volatile</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>while</td>
+            <td></td>
+            <td>while</td>
+            <td>while</td>
+          </tr>
+          <tr>
+            <td>with</td>
+            <td></td>
+            <td>with</td>
+            <td>with</td>
+          </tr>
+          <tr>
+            <td>yield</td>
+            <td></td>
+            <td>yield</td>
+            <td>yield</td>
+          </tr>
+          <tr>
+            <td>yield*</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="Built-in types(内置的类型)">Built-in types(内置的类型)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>dart</th>
+            <th>go</th>
+            <th>js</th>
+            <th>python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>numbers</td>
+            <td>num</td>
+            <td></td>
+            <td>Number</td>
+            <td>Numbers</td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td>int</td>
+            <td></td>
+            <td></td>
+            <td>-int</td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td>double</td>
+            <td></td>
+            <td></td>
+            <td>-float</td>
+          </tr>
+          <tr>
+            <td>complex</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>complex</td>
+          </tr>
+          <tr>
+            <td>strings</td>
+            <td>String</td>
+            <td></td>
+            <td>String</td>
+            <td>str</td>
+          </tr>
+          <tr>
+            <td>booleans</td>
+            <td>bool(true/false)</td>
+            <td></td>
+            <td>Boolean(true/false)</td>
+            <td>bool(True/False)</td>
+          </tr>
+          <tr>
+            <td>lists/arrays</td>
+            <td>List</td>
+            <td></td>
+            <td>-Array</td>
+            <td>list</td>
+          </tr>
+          <tr>
+            <td>maps</td>
+            <td>map</td>
+            <td></td>
+            <td>-Map</td>
+            <td>dict</td>
+          </tr>
+          <tr>
+            <td>runes</td>
+            <td>runes</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>symbols</td>
+            <td>symbol</td>
+            <td></td>
+            <td>Symbol</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Null</td>
+            <td>-null</td>
+            <td></td>
+            <td>Null(null)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Undefined</td>
+            <td></td>
+            <td></td>
+            <td>Undefined(undefined)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Object</td>
+            <td>Object</td>
+            <td></td>
+            <td>Object</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Set</td>
+            <td>Set</td>
+            <td></td>
+            <td>-Set</td>
+            <td>set</td>
+          </tr>
+          <tr>
+            <td>ArrayBuffer</td>
+            <td></td>
+            <td></td>
+            <td>-ArrayBuffer</td>
+            <td>bytearray</td>
+          </tr>
+          <tr>
+            <td>Tuples</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>tuple</td>
+          </tr>
+          <tr>
+            <td>range</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>range</td>
+          </tr>
+          <tr>
+            <td>Function</td>
+            <td>-Function</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>dynamic</td>
+            <td>dynamic</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 id="重要概念">重要概念</h2>
+      <p>dart</p>
+      <ul>
+        <li>
+          所有能够使用变量引用的都是对象， 每个对象都是一个类的实例。 在 Dart 中
+          甚至连 数字、方法和 null 都是对象。 所有的对象都继承于 Object 类。
+        </li>
+        <li>没有指定类型的变量的类型为 dynamic</li>
+        <li>Dart 支持顶级方法 (例如 main())</li>
+        <li>
+          Dart 还支持顶级变量，以及 在类中定义变量（静态变量和实例变量）。
+          实例变量有时候被称之为域（Fields）或者属性（Properties）
+        </li>
+        <li>
+          Dart 没有 public、 protected、 和 private 关键字。 如果一个标识符以
+          (_) 开头，则该标识符 在库内是私有的。
+        </li>
+      </ul>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <ul>
+        <li>
+          ECMAScript 和 JavaScript
+          的关系是，前者是后者的规格，后者是前者的一种实现
+        </li>
+        <li>ES6 这个词的原意，就是指 JavaScript 语言的下一个版本</li>
+        <li>
+          ES6 既是一个历史名词，也是一个泛指，含义是 5.1 版以后的 JavaScript
+          的下一代标准， 涵盖了 ES2015、ES2016、ES2017 等等
+        </li>
+      </ul>
+      <p>JavaScript学习内容包括</p>
+      <ul>
+        <li>ES5</li>
+        <li>ES6</li>
+        <li>DOM</li>
+        <li>浏览器</li>
+        <li>Node.js</li>
+        <li>TypeScript</li>
+      </ul>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="库/包/模块">库/包/模块</h2>
+      <p>dart</p>
+      <ul>
+        <li>
+          库不仅仅提供 API， 还是一个私有单元： 以下划线 (_)
+          开头的标识符只有在库 内部可见。 每个 Dart app 都是一个库，
+          即使没有使用 library 命令也是一个库
+        </li>
+        <li>
+          import 必须参数为库 的 URI。 对于内置的库，URI 使用特殊的 dart:
+          scheme。 对于其他的库，你可以使用文件系统路径或者 package: scheme。
+          package: scheme 指定的库通过包管理器来提供， 例如 pub 工具。
+        </li>
+      </ul>
+      <pre><code class="language-dart">import &#39;dart:html&#39;;
 import &#39;dart:io&#39;;
 import &#39;package:mylib/mylib.dart&#39;;
 import &#39;package:utils/utils.dart&#39;;
@@ -914,15 +952,17 @@ greet() async {
   await hello.loadLibrary();
   hello.printGreeting();
 }</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<ul>
-<li>一个Node.js文件就是一个模块</li>
-<li>包是在模块基础上更深一步的抽象，使用npm来解决包的发布和获取，
-<code>package.json</code>必须在包的顶层目录下</li>
-</ul>
-<pre><code class="language-js">import { stat, exists, readFile } from &#39;fs&#39;;
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <ul>
+        <li>一个Node.js文件就是一个模块</li>
+        <li>
+          包是在模块基础上更深一步的抽象，使用npm来解决包的发布和获取，
+          <code>package.json</code>必须在包的顶层目录下
+        </li>
+      </ul>
+      <pre><code class="language-js">import { stat, exists, readFile } from &#39;fs&#39;;
 import _, { each, forEach } from &#39;lodash&#39;;
 // 整体加载的写法
 import * as circle from &#39;./circle&#39;;
@@ -950,23 +990,30 @@ export { foo, bar } from &#39;my_module&#39;;
 // 可以简单理解为
 import { foo, bar } from &#39;my_module&#39;;
 export { foo, bar };</code></pre>
-<p>python</p>
-<ul>
-<li>module：一个文件就是一个模块</li>
-<li>package：包是一个包含<strong>init</strong>.py 文件的目录
-包是一种通过用“带点号的模块名”来构造 Python 模块命名空间的方法。</li>
-<li>lib：库是完成一定功能的代码集合，在python中是包和模块的形式</li>
-</ul>
-<p>当一个名为 spam 的模块被导入的时候，
-解释器首先寻找具有该名称的内置模块。
-如果没有找到，然后解释器从 sys.path 变量给出的目录列表里寻找名为 spam.py 的文件。
-sys.path 初始有这些目录地址:</p>
-<ul>
-<li>包含输入脚本的目录（或者未指定文件时的当前目录）。</li>
-<li>PYTHONPATH （一个包含目录名称的列表，它和shell变量 PATH 有一样的语法）。</li>
-<li>取决于安装的默认设置</li>
-</ul>
-<pre><code class="language-python"># fibo.py
+      <p>python</p>
+      <ul>
+        <li>module：一个文件就是一个模块</li>
+        <li>
+          package：包是一个包含<strong>init</strong>.py 文件的目录
+          包是一种通过用“带点号的模块名”来构造 Python 模块命名空间的方法。
+        </li>
+        <li>lib：库是完成一定功能的代码集合，在python中是包和模块的形式</li>
+      </ul>
+      <p>
+        当一个名为 spam 的模块被导入的时候，
+        解释器首先寻找具有该名称的内置模块。 如果没有找到，然后解释器从 sys.path
+        变量给出的目录列表里寻找名为 spam.py 的文件。 sys.path
+        初始有这些目录地址:
+      </p>
+      <ul>
+        <li>包含输入脚本的目录（或者未指定文件时的当前目录）。</li>
+        <li>
+          PYTHONPATH （一个包含目录名称的列表，它和shell变量 PATH
+          有一样的语法）。
+        </li>
+        <li>取决于安装的默认设置</li>
+      </ul>
+      <pre><code class="language-python"># fibo.py
 def fib(n):    # write Fibonacci series up to n
   a, b = 0, 1
   while a &lt; n:
@@ -1007,31 +1054,50 @@ if __name__ == &quot;__main__&quot;:
 from . import echo
 from .. import formats
 from ..filters import equalizer</code></pre>
-<h2 id="目录结构">目录结构</h2><p>dart</p>
-<p>库包的代码位于 lib 目录中， 在其他包中可以访问这里面的代码。
-在 lib 目录下可以创建任意的目录结构。
-通常情况下都把实现代码放到 lib/src 目录中。
-位于 lib/src 下面的代码被认为是私有的；
-其他包不应该直接导入 src/... 里面的代码。
-要分享 lib/src 下的 API，你可以在 lib 目录下 创建一个文件，
-在这个文件中导入 lib/src 中的代码。</p>
-<p>最简单的库包的 目录结构
-<img src="images/simple-lib2-81ebdc20fdb53d3abbc4364956141eb0f6f8f275d1636064fc3e1db959b93c1a.png" alt="最简单的库包的 目录结构"></p>
-<p>shelf 库的目录结构
-<img src="images/shelf-02e5fd43b660fcef7dbe6a883c40159e0379c8ee2088288ca60ed7dc8781bafd.png" alt="shelf 库的目录结构"></p>
-<p>在 lib 和 web 库中如何导入 lib/src/foo/a.dart
-<img src="images/import-lib-rules-fa353f6fddc6e69fe19da41bffff4f6ec7b561eeead24840bacce032759b8473.png" alt="在 lib 和 web 库中如何导入 lib/src/foo/a.dart "></p>
-<p>go</p>
-<p>js</p>
-<p>常见包结构</p>
-<pre><code class="language-sh">├── root
+      <h2 id="目录结构">目录结构</h2>
+      <p>dart</p>
+      <p>
+        库包的代码位于 lib 目录中， 在其他包中可以访问这里面的代码。 在 lib
+        目录下可以创建任意的目录结构。 通常情况下都把实现代码放到 lib/src
+        目录中。 位于 lib/src 下面的代码被认为是私有的； 其他包不应该直接导入
+        src/... 里面的代码。 要分享 lib/src 下的 API，你可以在 lib 目录下
+        创建一个文件， 在这个文件中导入 lib/src 中的代码。
+      </p>
+      <p>
+        最简单的库包的 目录结构
+        <img
+          src="images/simple-lib2-81ebdc20fdb53d3abbc4364956141eb0f6f8f275d1636064fc3e1db959b93c1a.png"
+          alt="最简单的库包的 目录结构"
+        />
+      </p>
+
+      <p>
+        shelf 库的目录结构
+        <img
+          src="images/shelf-02e5fd43b660fcef7dbe6a883c40159e0379c8ee2088288ca60ed7dc8781bafd.png"
+          alt="shelf 库的目录结构"
+        />
+      </p>
+
+      <p>
+        在 lib 和 web 库中如何导入 lib/src/foo/a.dart
+        <img
+          src="images/import-lib-rules-fa353f6fddc6e69fe19da41bffff4f6ec7b561eeead24840bacce032759b8473.png"
+          alt="在 lib 和 web 库中如何导入 lib/src/foo/a.dart "
+        />
+      </p>
+
+      <p>go</p>
+      <p>js</p>
+      <p>常见包结构</p>
+      <pre><code class="language-sh">├── root
 │   ├── src
 │   ├── lib
 │   ├── dist
 │   ├── node_modules
 │   ├── package.json</code></pre>
-<p>python</p>
-<pre><code class="language-sh">sound/                          Top-level package
+      <p>python</p>
+      <pre><code class="language-sh">sound/                          Top-level package
       __init__.py               Initialize the sound package
       formats/                  Subpackage for file format conversions
               __init__.py
@@ -1054,7 +1120,7 @@ from ..filters import equalizer</code></pre>
               vocoder.py
               karaoke.py
               ...</code></pre>
-<pre><code class="language-python"># 包的用户可以从包中导入单个模块，例如:
+      <pre><code class="language-python"># 包的用户可以从包中导入单个模块，例如:
 import sound.effects.echo
 sound.effects.echo.echofilter(input, output, delay=0.7, atten=4)
 
@@ -1071,8 +1137,9 @@ __all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]
 # 当用户写
 from sound.effects import *
 # 意味着 from sound.effects import * 将导入 sound 包的三个命名子模块</code></pre>
-<h2 id="安装">安装</h2><p>dart</p>
-<pre><code class="language-sh"># Enable HTTPS for apt.
+      <h2 id="安装">安装</h2>
+      <p>dart</p>
+      <pre><code class="language-sh"># Enable HTTPS for apt.
 $ sudo apt-get update
 $ sudo apt-get install apt-transport-https
 # Get the Google Linux package signing key.
@@ -1082,23 +1149,24 @@ $ sudo sh -c &#39;curl https://storage.googleapis.com/download.dartlang.org/linu
 $ sudo apt-get update
 
 $ sudo apt-get install dart</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-sh"># 创建虚拟环境
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-sh"># 创建虚拟环境
 python3 -m venv tutorial-env
 # 创建虚拟环境后，您可以激活它。
 source tutorial-env/bin/activate</code></pre>
-<h2 id="包管理">包管理</h2><p>dart</p>
-<p>You can use <code>pub</code> to manage Dart packages.</p>
-<pre><code class="language-yaml"># pubspec.yaml
+      <h2 id="包管理">包管理</h2>
+      <p>dart</p>
+      <p>You can use <code>pub</code> to manage Dart packages.</p>
+      <pre><code class="language-yaml"># pubspec.yaml
 name: my_app
 dependencies:
   js: ^0.3.0
   intl: ^0.12.4</code></pre>
-<pre><code class="language-sh"># Installing packages
+      <pre><code class="language-sh"># Installing packages
 cd &lt;path-to-my_app&gt;
 pub get
 
@@ -1106,12 +1174,12 @@ pub get
 pub upgrade
 # 升级特定的依赖
 pub upgrade transmogrify</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-sh">pip search astronomy
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-sh">pip search astronomy
 pip install novas
 pip install requests==2.6.0
 pip install --upgrade requests
@@ -1119,28 +1187,30 @@ pip show requests
 pip list
 pip freeze &gt; requirements.txt
 pip install -r requirements.txt</code></pre>
-<h2 id="格式化">格式化</h2><p>dart</p>
-<pre><code class="language-sh">pub global activate dart_style
+      <h2 id="格式化">格式化</h2>
+      <p>dart</p>
+      <pre><code class="language-sh">pub global activate dart_style
 dartfmt test.dart</code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js"></code></pre>
-<p>python</p>
-<pre><code class="language-python"></code></pre>
-<h2 id="命令行">命令行</h2><p>dart</p>
-<pre><code class="language-sh"></code></pre>
-<p>go</p>
-<pre><code class="language-go"></code></pre>
-<p>js</p>
-<pre><code class="language-js">Reflect.ownKeys(&#39;&#39;.__proto__)
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="命令行">命令行</h2>
+      <p>dart</p>
+      <pre><code class="language-sh"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">Reflect.ownKeys(&#39;&#39;.__proto__)
 Reflect.ownKeys(String.prototype)
 
 // Object.getOwnPropertyNames方法返回一个数组，
 // 成员是参数对象本身的所有属性的键名，不包含继承的属性键名。
 Object.getOwnPropertyNames(Date)</code></pre>
-<p>python</p>
-<pre><code class="language-sh">&gt;&gt;&gt; import fibo, sys
+      <p>python</p>
+      <pre><code class="language-sh">&gt;&gt;&gt; import fibo, sys
 &gt;&gt;&gt; dir(fibo)
 [&#39;__name__&#39;, &#39;fib&#39;, &#39;fib2&#39;]
 &gt;&gt;&gt; dir(sys)  
@@ -1201,7 +1271,10 @@ Object.getOwnPropertyNames(Date)</code></pre>
  &#39;quit&#39;, &#39;range&#39;, &#39;repr&#39;, &#39;reversed&#39;, &#39;round&#39;, &#39;set&#39;, &#39;setattr&#39;, &#39;slice&#39;,
  &#39;sorted&#39;, &#39;staticmethod&#39;, &#39;str&#39;, &#39;sum&#39;, &#39;super&#39;, &#39;tuple&#39;, &#39;type&#39;, &#39;vars&#39;,
  &#39;zip&#39;]</code></pre>
-
-        </div>
-      </body>
-      </html>
+    </div>
+    <script src="./highlight/highlight.pack.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad();
+    </script>
+  </body>
+</html>
