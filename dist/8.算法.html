@@ -38,7 +38,25 @@
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import (
+  &quot;fmt&quot;
+)
+func fibonacci(n int, c chan int) {
+  x, y := 1, 1
+  for i := 0; i &lt; n; i++ {
+    c &lt;- x
+    x, y = y, x + y
+  }
+  close(c)
+}
+func main() {
+  c := make(chan int, 10)
+  go fibonacci(cap(c), c)
+  for i := range c {
+    fmt.Println(i)
+  }
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>

@@ -33,17 +33,6 @@
             </li>
             <li><a href="#%E4%BF%9D%E7%95%99%E5%AD%97">保留字</a></li>
             <li>
-              <a href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B">内置类型</a>
-              <ul>
-                <li>
-                  <a href="#%E5%9F%BA%E6%9C%AC%E7%B1%BB%E5%9E%8B">基本类型</a>
-                </li>
-                <li>
-                  <a href="#%E5%A4%8D%E6%9D%82%E7%B1%BB%E5%9E%8B">复杂类型</a>
-                </li>
-              </ul>
-            </li>
-            <li>
               <a href="#%E5%BA%93%E5%8C%85%E6%A8%A1%E5%9D%97">库包模块</a>
               <ul>
                 <li>
@@ -57,6 +46,15 @@
               </ul>
             </li>
             <li>
+              <a href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC">命名风格</a>
+              <ul>
+                <li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></li>
+                <li><a href="#%E6%B3%A8%E9%87%8A">注释</a></li>
+                <li><a href="#%E6%89%93%E5%8D%B0">打印</a></li>
+                <li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a></li>
+              </ul>
+            </li>
+            <li>
               <a href="#%E5%8F%98%E9%87%8F">变量</a>
               <ul>
                 <li>
@@ -64,15 +62,6 @@
                 </li>
                 <li><a href="#%E5%B8%B8%E9%87%8F">常量</a></li>
                 <li><a href="#%E9%BB%98%E8%AE%A4%E5%80%BC">默认值</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#%E5%91%BD%E5%90%8D%E9%A3%8E%E6%A0%BC">命名风格</a>
-              <ul>
-                <li><a href="#%E6%A0%87%E8%AF%86%E7%AC%A6">标识符</a></li>
-                <li><a href="#%E6%B3%A8%E9%87%8A">注释</a></li>
-                <li><a href="#%E6%89%93%E5%8D%B0">打印</a></li>
-                <li><a href="#%E6%A0%BC%E5%BC%8F%E5%8C%96">格式化</a></li>
               </ul>
             </li>
           </ul>
@@ -105,10 +94,29 @@ main() {
   var number = 42; // 定义并初始化一个变量。
   printNumber(number); // 调用一个方法。
 }</code></pre>
+      <pre><code class="language-sh">dart helloword.dart</code></pre>
       <h3 id="go">go</h3>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">// helloword.go
+package main
+import &quot;fmt&quot;
+func main() {
+  fmt.Println(&quot;Hello, world&quot;)
+}
+
+// helloword.go
+package main
+import (
+  &quot;fmt&quot;
+  &quot;time&quot;
+)
+func main() {
+  fmt.Println(&quot;Welcome to the playground!&quot;)
+  fmt.Println(&quot;The time is&quot;, time.Now())
+}</code></pre>
+      <pre><code class="language-sh">go run helloword.go</code></pre>
       <h3 id="js">js</h3>
-      <pre><code class="language-js"></code></pre>
+      <pre><code class="language-js">// helloword.js</code></pre>
+      <pre><code class="language-sh">node helloword.js</code></pre>
       <h3 id="python">python</h3>
       <pre><code class="language-python">print(&#39;hello, world&#39;)</code></pre>
       <h2 id="概念">概念</h2>
@@ -130,7 +138,15 @@ main() {
         </li>
       </ul>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <ul>
+        <li>每个 Go 程序都是由包构成的。</li>
+        <li>程序从 <code>main</code> 包开始运行。</li>
+        <li>
+          按照约定，包名与导入路径的最后一个元素一致。
+          例如，&quot;math/rand&quot; 包中的源码均以
+          <code>package rand</code> 语句开始。
+        </li>
+      </ul>
       <p>js</p>
       <ul>
         <li>
@@ -898,155 +914,6 @@ Object.getOwnPropertyNames(Date)</code></pre>
           </tr>
         </tbody>
       </table>
-      <h2 id="内置类型">内置类型</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>name</th>
-            <th>dart</th>
-            <th>go</th>
-            <th>js</th>
-            <th>python</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>numbers</td>
-            <td>num</td>
-            <td></td>
-            <td>Number</td>
-            <td>Numbers</td>
-          </tr>
-          <tr>
-            <td>numbers</td>
-            <td>int</td>
-            <td></td>
-            <td></td>
-            <td>-int</td>
-          </tr>
-          <tr>
-            <td>numbers</td>
-            <td>double</td>
-            <td></td>
-            <td></td>
-            <td>-float</td>
-          </tr>
-          <tr>
-            <td>complex</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>complex</td>
-          </tr>
-          <tr>
-            <td>strings</td>
-            <td>String</td>
-            <td></td>
-            <td>String</td>
-            <td>str</td>
-          </tr>
-          <tr>
-            <td>booleans</td>
-            <td>bool(true/false)</td>
-            <td></td>
-            <td>Boolean(true/false)</td>
-            <td>bool(True/False)</td>
-          </tr>
-          <tr>
-            <td>lists/arrays</td>
-            <td>List</td>
-            <td></td>
-            <td>-Array</td>
-            <td>list</td>
-          </tr>
-          <tr>
-            <td>maps</td>
-            <td>map</td>
-            <td></td>
-            <td>-Map</td>
-            <td>dict</td>
-          </tr>
-          <tr>
-            <td>runes</td>
-            <td>runes</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>symbols</td>
-            <td>symbol</td>
-            <td></td>
-            <td>Symbol</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Null</td>
-            <td>-null</td>
-            <td></td>
-            <td>Null(null)</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Undefined</td>
-            <td></td>
-            <td></td>
-            <td>Undefined(undefined)</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Object</td>
-            <td>Object</td>
-            <td></td>
-            <td>Object</td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Set</td>
-            <td>Set</td>
-            <td></td>
-            <td>-Set</td>
-            <td>set</td>
-          </tr>
-          <tr>
-            <td>ArrayBuffer</td>
-            <td></td>
-            <td></td>
-            <td>-ArrayBuffer</td>
-            <td>bytearray</td>
-          </tr>
-          <tr>
-            <td>Tuples</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>tuple</td>
-          </tr>
-          <tr>
-            <td>range</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td>range</td>
-          </tr>
-          <tr>
-            <td>Function</td>
-            <td>-Function</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>dynamic</td>
-            <td>dynamic</td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-      </table>
-      <h3 id="基本类型">基本类型</h3>
-      <h3 id="复杂类型">复杂类型</h3>
       <h2 id="库包模块">库包模块</h2>
       <p>dart</p>
       <p>Dart 有两种类型的包： 应用 包 和 库 包。</p>
@@ -1107,7 +974,34 @@ export &#39;french.dart&#39; show hello;
 // 引入某个库的多个对象
 import &#39;package:flutter/material.dart&#39; show StatefulWidget, StatelessWidget;</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        此代码用圆括号组合了导入，这是“分组”形式的导入语句。
+        不过使用分组导入语句是更好的形式。
+      </p>
+      <p>
+        在 Go 中，如果一个名字以大写字母开头，那么它就是已导出的。 例如，Pizza
+        就是个已导出名，Pi 也同样，它导出自 math 包。 pizza 和 pi
+        并未以大写字母开头，所以它们是未导出的。
+        在导入一个包时，你只能引用其中已导出的名字。
+        任何“未导出”的名字在该包外均无法访问。
+      </p>
+      <p>言外之意，</p>
+      <ul>
+        <li>大写字母开头的变量会导出给其他包使用，</li>
+        <li>小写字母开头的变量为包内私有，不会导出</li>
+      </ul>
+      <pre><code class="language-go">import (
+  &quot;fmt&quot;
+  &quot;math&quot;
+)
+// 等同于
+import &quot;fmt&quot;
+import &quot;math&quot;
+
+// math包内的Pi即为导出的
+func main() {
+  fmt.Println(math.Pi)
+}</code></pre>
       <p>js</p>
       <ul>
         <li>一个Node.js文件就是一个模块</li>
@@ -1320,114 +1214,6 @@ __all__ = [&quot;echo&quot;, &quot;surround&quot;, &quot;reverse&quot;]
 # 当用户写
 from sound.effects import *
 # 意味着 from sound.effects import * 将导入 sound 包的三个命名子模块</code></pre>
-      <h2 id="变量">变量</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">// 不要 显式的把变量初始化为 null
-int _nextId;
-assert(_nextId == null);
-
-// 没有明确类型
-var name = &#39;Bob&#39;;
-Object name = &#39;Bob&#39;;
-dynamic name = &#39;Bob&#39;;
-
-// 可以选择加上具体 类型
-// 对于局部变量，这里准守 代码风格推荐 部分的建议，
-// 使用 var 而不是具体的类型来定义局部变量。
-String name2 = &#39;Bob&#39;;
-
-// 定义集合
-var points = [];
-var addresses = {};
-// 如果有必要还可以提供泛型类型
-var points = &lt;Point&gt;[];
-var addresses = &lt;String, Address&gt;{};</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">// var name = &#39;Bob&#39;;
-let name = &#39;Bob&#39;;</code></pre>
-      <p>python</p>
-      <pre><code class="language-python">name = &#39;Bob&#39;</code></pre>
-      <h3 id="私有变量">私有变量</h3>
-      <p>dart</p>
-      <pre><code class="language-dart">// 变量名以&quot;_&quot;开头意味着对它的 lib 是私有的
-var _name = &#39;Bob&#39;;</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h3 id="常量">常量</h3>
-      <p>dart</p>
-      <ul>
-        <li>
-          dart的<code>final</code>类似于js中的const，只能定义一次，但可运行时才确定值，
-          如果是复杂对象，内存地址不变，但是对象的成员是可变的。
-        </li>
-        <li>
-          dart的<code>const</code>比final限制更严格，在编译时需有确定值，运行时不可变，
-          不但内存地址不变，对象的成员也都不可变。
-        </li>
-      </ul>
-      <pre><code class="language-dart">// 一个 final 变量只能赋值一次
-final name = &#39;Bob&#39;;
-final String name = &#39;Bob&#39;;
-// 一个 const 变量是编译时常量
-const bar = 1000000;
-var varList = const [];</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <ul>
-        <li>js的<code>const</code>类似与dart的final，声明一个只读的常量。</li>
-        <li>
-          对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。
-        </li>
-        <li>
-          但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，
-          保存的只是一个指向实际数据的指针，
-          const只能保证这个指针是固定的（即总是指向另一个固定的地址），
-          至于它指向的数据结构是不是可变的，就完全不能控制了
-        </li>
-      </ul>
-      <pre><code class="language-js">const name = &#39;Bob&#39;;</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"># 自定义
-class Const:
-  class ConstError(TypeError) :
-    pass
-  class ConstCaseError(ConstError):
-    pass
-
-  def __setattr__(self, name, value):
-    if name in self.__dict__:
-      raise self.ConstError, &quot;Can&#39;t change const value!&quot;
-    if not name.isupper():
-      raise self.ConstCaseError, &#39;const &quot;%s&quot; is not all letters are capitalized&#39; %name
-    self.__dict__[name] = value
-
-import sys
-sys.modules[__name__] = Const()
-
-# 使用
-import constant
-constant.MAX_COUNT=1</code></pre>
-      <h3 id="默认值">默认值</h3>
-      <p>未初始化的变量自动获取的值</p>
-      <p>dart</p>
-      <pre><code class="language-dart">int lineCount;
-print(lineCount);
-// null</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">let lineCount;
-console.log(lineCount);
-// undefined</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
       <h2 id="命名风格">命名风格</h2>
       <p>dart</p>
       <ul>
@@ -1615,6 +1401,197 @@ dartfmt test.dart</code></pre>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="变量">变量</h2>
+      <p>dart</p>
+      <pre><code class="language-dart">// 不要 显式的把变量初始化为 null
+int _nextId;
+assert(_nextId == null);
+
+// 没有明确类型
+var name = &#39;Bob&#39;;
+Object name = &#39;Bob&#39;;
+dynamic name = &#39;Bob&#39;;
+
+// 可以选择加上具体 类型
+// 对于局部变量，这里准守 代码风格推荐 部分的建议，
+// 使用 var 而不是具体的类型来定义局部变量。
+String name2 = &#39;Bob&#39;;
+
+// 定义集合
+var points = [];
+var addresses = {};
+// 如果有必要还可以提供泛型类型
+var points = &lt;Point&gt;[];
+var addresses = &lt;String, Address&gt;{};</code></pre>
+      <p>go</p>
+      <p>var 语句用于声明一个变量列表，跟函数的参数列表一样，类型在最后。</p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+var c, python, java bool
+func main() {
+  var i int
+  fmt.Println(i, c, python, java)
+}
+
+
+// 变量声明可以包含初始值，每个变量对应一个。
+// 如果初始化值已存在，则可以省略类型；变量会从初始值中获得类型。
+package main
+import &quot;fmt&quot;
+var i, j int = 1,0
+func main() {
+  var c, python, java = true, false, &quot;no!&quot; // 自动获得类型
+  fmt.Println(i, j, c, python, java) // 1 0 true false no!
+}
+
+
+// 在函数中，简洁赋值语句 := 可在类型明确的地方代替 var 声明。
+// 函数外的每个语句都必须以关键字开始（var, func 等等），
+// 因此 := 结构不能在函数外使用。
+package main
+import &quot;fmt&quot;
+func main() {
+  var i, j int = 1, 2
+  k := 3
+  c, python, java := true, false, &quot;no!&quot;
+  fmt.Println(i, j, k, c, python, java) // 1 2 3 true false no!
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// var name = &#39;Bob&#39;;
+let name = &#39;Bob&#39;;</code></pre>
+      <p>python</p>
+      <pre><code class="language-python">name = &#39;Bob&#39;</code></pre>
+      <h3 id="私有变量">私有变量</h3>
+      <p>dart</p>
+      <pre><code class="language-dart">// 变量名以&quot;_&quot;开头意味着对它的 lib 是私有的
+var _name = &#39;Bob&#39;;</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="常量">常量</h3>
+      <p>dart</p>
+      <ul>
+        <li>
+          dart的<code>final</code>类似于js中的const，只能定义一次，但可运行时才确定值，
+          如果是复杂对象，内存地址不变，但是对象的成员是可变的。
+        </li>
+        <li>
+          dart的<code>const</code>比final限制更严格，在编译时需有确定值，运行时不可变，
+          不但内存地址不变，对象的成员也都不可变。
+        </li>
+      </ul>
+      <pre><code class="language-dart">// 一个 final 变量只能赋值一次
+final name = &#39;Bob&#39;;
+final String name = &#39;Bob&#39;;
+// 一个 const 变量是编译时常量
+const bar = 1000000;
+var varList = const [];</code></pre>
+      <p>go</p>
+      <ul>
+        <li>常量的声明与变量类似，只不过是使用 const 关键字。</li>
+        <li>常量可以是字符、字符串、布尔值或数值。</li>
+        <li>常量不能用 := 语法声明。</li>
+      </ul>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+const Pi = 3.14
+func main() {
+  const World = &quot;世界&quot;
+  fmt.Println(&quot;Hello&quot;, World)
+  fmt.Println(&quot;Happy&quot;, Pi, &quot;Day&quot;)
+  const Truth = true
+  fmt.Println(&quot;Go rules?&quot;, Truth)
+}
+
+
+// 数值常量是高精度的 值。
+package main
+import &quot;fmt&quot;
+const (
+  // 将 1 左移 100 位来创建一个非常大的数字
+  // 即这个数的二进制是 1 后面跟着 100 个 0
+  Big = 1 &lt;&lt; 100
+  // 再往右移 99 位，即 Small = 1 &lt;&lt; 1，或者说 Small = 2
+  Small = Big &gt;&gt; 99
+)
+func needInt(x int) int { return x*10 + 1 }
+func needFloat(x float64) float64 {
+  return x * 0.1
+}
+func main() {
+  fmt.Println(needInt(Small))
+  fmt.Println(needFloat(Small))
+  fmt.Println(needFloat(Big))
+}</code></pre>
+      <p>js</p>
+      <ul>
+        <li>js的<code>const</code>类似与dart的final，声明一个只读的常量。</li>
+        <li>
+          对于简单类型的数据（数值、字符串、布尔值），值就保存在变量指向的那个内存地址，因此等同于常量。
+        </li>
+        <li>
+          但对于复合类型的数据（主要是对象和数组），变量指向的内存地址，
+          保存的只是一个指向实际数据的指针，
+          const只能保证这个指针是固定的（即总是指向另一个固定的地址），
+          至于它指向的数据结构是不是可变的，就完全不能控制了
+        </li>
+      </ul>
+      <pre><code class="language-js">const name = &#39;Bob&#39;;</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"># 自定义
+class Const:
+  class ConstError(TypeError) :
+    pass
+  class ConstCaseError(ConstError):
+    pass
+
+  def __setattr__(self, name, value):
+    if name in self.__dict__:
+      raise self.ConstError, &quot;Can&#39;t change const value!&quot;
+    if not name.isupper():
+      raise self.ConstCaseError, &#39;const &quot;%s&quot; is not all letters are capitalized&#39; %name
+    self.__dict__[name] = value
+
+import sys
+sys.modules[__name__] = Const()
+
+# 使用
+import constant
+constant.MAX_COUNT=1</code></pre>
+      <h3 id="默认值">默认值</h3>
+      <p>未初始化的变量自动获取的值</p>
+      <p>dart</p>
+      <pre><code class="language-dart">int lineCount;
+print(lineCount);
+// null</code></pre>
+      <p>go</p>
+      <p>没有明确初始值的变量声明会被赋予它们的 零值:</p>
+      <ul>
+        <li>数值类型为 0，</li>
+        <li>布尔类型为 false，</li>
+        <li>字符串为 &quot;&quot;（空字符串）。</li>
+        <li>指针零值为 nil</li>
+        <li>切片的零值是 nil</li>
+      </ul>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func main() {
+  var i int
+  var f float64
+  var b bool
+  var s string
+  fmt.Printf(&quot;%v %v %v %q\n&quot;, i, f, b, s) // 0 0 false &quot;&quot;
+}
+</code></pre>
+      <p>js</p>
+      <pre><code class="language-js">let lineCount;
+console.log(lineCount);
+// undefined</code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
     </div>

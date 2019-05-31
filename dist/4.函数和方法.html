@@ -19,6 +19,18 @@
                 href="#%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89"
                 >函数和方法定义</a
               >
+              <ul>
+                <li>
+                  <a href="#%E9%BB%98%E8%AE%A4%E8%BF%94%E5%9B%9E%E5%80%BC"
+                    >默认返回值</a
+                  >
+                </li>
+                <li>
+                  <a href="#%E5%91%BD%E5%90%8D%E8%BF%94%E5%9B%9E%E5%80%BC"
+                    >命名返回值</a
+                  >
+                </li>
+              </ul>
             </li>
             <li>
               <a href="#%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0">入口函数</a>
@@ -50,11 +62,6 @@
                   >
                 </li>
               </ul>
-            </li>
-            <li>
-              <a href="#%E9%BB%98%E8%AE%A4%E8%BF%94%E5%9B%9E%E5%80%BC"
-                >默认返回值</a
-              >
             </li>
             <li>
               <a href="#%E4%B8%80%E7%AD%89%E6%96%B9%E6%B3%95%E5%AF%B9%E8%B1%A1"
@@ -110,7 +117,41 @@ isNoble(atomicNumber) {
 // 在箭头 (=&gt;) 和冒号 (;) 之间只能使用一个 表达式 – 不能使用 语句。
 bool isNoble(int atomicNumber) =&gt; _nobleGases[atomicNumber] != null;</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+// 注意类型在变量名 之后。
+func add(x int, y int) int  {
+  return x + y
+}
+func main() {
+  fmt.Println(add(42, 13))
+}
+
+
+// 当连续两个或多个函数的已命名形参类型相同时，
+// 除最后一个类型以外，其它都可以省略。
+package main
+import &quot;fmt&quot;
+// x int, y int 被缩写为 x, y int
+func add(x, y int) (int) {
+  return x + y
+}
+func main() {
+  fmt.Println(add(42, 13))
+}
+
+
+// 函数可以返回任意数量的返回值。
+package main
+import &quot;fmt&quot;
+func swap(x, y string) (string, string) {
+  return y, x
+}
+func main() {
+  a, b := swap(&quot;hello&quot;, &quot;world&quot;)
+  fmt.Println(a, b)
+}
+</code></pre>
       <p>js</p>
       <pre><code class="language-js">function print(s) {
   console.log(s);
@@ -167,6 +208,48 @@ def fib2(n):  # return Fibonacci series up to n
 f100 = fib2(100)    # call it
 f100                # write the result
 # 0 1 1 2 3 5 8 13 21 34 55 89</code></pre>
+      <h3 id="默认返回值">默认返回值</h3>
+      <p>Return values（默认返回值）</p>
+      <p>dart</p>
+      <p>
+        所有的函数都返回一个值。 如果没有指定返回值，则 默认把语句 return null;
+        作为函数的最后一个语句执行。
+      </p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="命名返回值">命名返回值</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <ul>
+        <li>Go 的返回值可被命名，它们会被视作定义在函数顶部的变量。</li>
+        <li>返回值的名称应当具有一定的意义，它可以作为文档使用。</li>
+        <li>没有参数的 return 语句返回已命名的返回值。也就是 直接 返回。</li>
+        <li>
+          直接返回语句应当仅用在下面这样的短函数中。在长的函数中它们会影响代码的可读性。
+        </li>
+      </ul>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func split(sum int) (x, y int) {
+  x = sum * 4 / 9
+  y = sum - x
+  return
+}
+func main() {
+  //fmt.Println(split(17))
+  a, b := split(17)
+  fmt.Println(a, b)
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h2 id="入口函数">入口函数</h2>
       <p>dart</p>
       <p>
@@ -417,20 +500,6 @@ def f(a, L=None):
 
 d = {&quot;voltage&quot;: &quot;four million&quot;, &quot;state&quot;: &quot;bleedin&#39; demised&quot;, &quot;action&quot;: &quot;VOOM&quot;}
 parrot(**d)</code></pre>
-      <h2 id="默认返回值">默认返回值</h2>
-      <p>Return values（默认返回值）</p>
-      <p>dart</p>
-      <p>
-        所有的函数都返回一个值。 如果没有指定返回值，则 默认把语句 return null;
-        作为函数的最后一个语句执行。
-      </p>
-      <pre><code class="language-dart"></code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
       <h2 id="一等方法对象">一等方法对象</h2>
       <p>dart</p>
       <pre><code class="language-dart">// 可以把方法当做参数调用另外一个方法。
@@ -445,7 +514,29 @@ list.forEach(printElement);
 var loudify = (msg) =&gt; &#39;!!! ${msg.toUpperCase()} !!!&#39;;
 assert(loudify(&#39;hello&#39;) == &#39;!!! HELLO !!!&#39;);</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <ul>
+        <li>函数也是值。它们可以像其它值一样传递。</li>
+        <li>函数值可以用作函数的参数或返回值。</li>
+      </ul>
+      <pre><code class="language-go">package main
+import (
+  &quot;fmt&quot;
+  &quot;math&quot;
+)
+func compute(fn func(float64, float64) float64) float64 {
+  return fn(3, 4)
+}
+func main() {
+  hypot := func(x, y float64) float64 {
+    return math.Sqrt(x*x + y*y) // 求直角斜边
+  }
+  fmt.Println(hypot(5, 12))
+  fmt.Println(compute(hypot))
+  fmt.Println(compute(math.Pow)) // 指数
+}
+// 13
+// 5
+// 81</code></pre>
       <p>js</p>
       <pre><code class="language-js">function add(x, y) {
   return x + y;
@@ -625,7 +716,69 @@ main() {
   assert(add4(3) == 7);
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        闭包是一个函数值，它引用了其函数体之外的变量。
+        该函数可以访问并赋予其引用的变量的值，
+        换句话说，该函数被这些变量“绑定”在一起。
+      </p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func adder() func(int) int { // 返回：func(int) int
+  sum := 0
+  return func(x int) int { // 返回：int
+    sum += x
+    return sum
+  }
+}
+func main() {
+  pos, neg := adder(), adder()
+  for i := 0; i &lt; 10; i++ {
+    fmt.Println(
+      pos(i),
+      neg(-2*i),
+    )
+  }
+}
+// 0 0
+// 1 -2
+// 3 -6
+// 6 -12
+// 10 -20
+// 15 -30
+// 21 -42
+// 28 -56
+// 36 -72
+// 45 -90
+
+
+package main
+import &quot;fmt&quot;
+// 返回一个“返回int的函数”
+func fibonacci() func() int {
+  var n int 
+  x,y := 0,1
+  return func() int {
+    n = x
+    x,y = y,x+y
+    return n
+  }
+}
+func main() {
+  f := fibonacci()
+  for i := 0; i &lt; 10; i++ {
+    fmt.Println(f())
+  }
+}
+0
+1
+1
+2
+3
+5
+8
+13
+21
+34</code></pre>
       <p>js</p>
       <pre><code class="language-js">function f1() {
   var n = 999;

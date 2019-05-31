@@ -13,6 +13,14 @@
           <a href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">数据类型</a>
           <ul>
             <li>
+              <a href="#%E5%86%85%E7%BD%AE%E7%B1%BB%E5%9E%8B">内置类型</a>
+              <ul>
+                <li>
+                  <a href="#%E9%BB%98%E8%AE%A4%E7%B1%BB%E5%9E%8B">默认类型</a>
+                </li>
+              </ul>
+            </li>
+            <li>
               <a href="#%E7%B1%BB%E5%9E%8B%E5%88%A4%E6%96%AD">类型判断</a>
               <ul>
                 <li>
@@ -194,6 +202,7 @@
                     </li>
                   </ul>
                 </li>
+                <li><a href="#%E5%88%87%E7%89%87">切片</a></li>
                 <li><a href="#%E5%85%83%E7%BB%84">元组</a></li>
                 <li>
                   <a href="#%E5%AD%97%E5%85%B8">字典</a>
@@ -231,6 +240,8 @@
                     </li>
                   </ul>
                 </li>
+                <li><a href="#%E6%8C%87%E9%92%88">指针</a></li>
+                <li><a href="#%E7%BB%93%E6%9E%84%E4%BD%93">结构体</a></li>
               </ul>
             </li>
             <li>
@@ -256,6 +267,267 @@
     </div>
     <div id="content">
       <h1 id="数据类型">数据类型</h1>
+      <h2 id="内置类型">内置类型</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>name</th>
+            <th>dart</th>
+            <th>go</th>
+            <th>js</th>
+            <th>python</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>numbers</td>
+            <td>num</td>
+            <td></td>
+            <td>Number</td>
+            <td>Numbers</td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td>int</td>
+            <td>int</td>
+            <td></td>
+            <td>-int</td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>int8</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>int16</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>int32/rune</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>int64</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uint</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uint8/byte</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uint16</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uint32</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uint64</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>uintptr</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td>double</td>
+            <td>float32</td>
+            <td></td>
+            <td>-float</td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>float64</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>complex64</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>numbers</td>
+            <td></td>
+            <td>complex128</td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>complex</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>complex</td>
+          </tr>
+          <tr>
+            <td>strings</td>
+            <td>String</td>
+            <td>string</td>
+            <td>String</td>
+            <td>str</td>
+          </tr>
+          <tr>
+            <td>booleans</td>
+            <td>bool(true/false)</td>
+            <td>bool</td>
+            <td>Boolean(true/false)</td>
+            <td>bool(True/False)</td>
+          </tr>
+          <tr>
+            <td>lists/arrays</td>
+            <td>List</td>
+            <td></td>
+            <td>-Array</td>
+            <td>list</td>
+          </tr>
+          <tr>
+            <td>maps</td>
+            <td>map</td>
+            <td></td>
+            <td>-Map</td>
+            <td>dict</td>
+          </tr>
+          <tr>
+            <td>runes</td>
+            <td>runes</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>symbols</td>
+            <td>symbol</td>
+            <td></td>
+            <td>Symbol</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Null</td>
+            <td>-null</td>
+            <td></td>
+            <td>Null(null)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Undefined</td>
+            <td></td>
+            <td></td>
+            <td>Undefined(undefined)</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Object</td>
+            <td>Object</td>
+            <td></td>
+            <td>Object</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Set</td>
+            <td>Set</td>
+            <td></td>
+            <td>-Set</td>
+            <td>set</td>
+          </tr>
+          <tr>
+            <td>ArrayBuffer</td>
+            <td></td>
+            <td></td>
+            <td>-ArrayBuffer</td>
+            <td>bytearray</td>
+          </tr>
+          <tr>
+            <td>Tuples</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>tuple</td>
+          </tr>
+          <tr>
+            <td>range</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>range</td>
+          </tr>
+          <tr>
+            <td>Function</td>
+            <td>-Function</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>dynamic</td>
+            <td>dynamic</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+      <p>go</p>
+      <p>
+        int, uint 和 uintptr 在 32 位系统上通常为 32 位宽，在 64 位系统上则为 64
+        位宽。 当你需要一个整数值时应使用 int
+        类型，除非你有特殊的理由使用固定大小或无符号的整数类型。
+      </p>
+      <h3 id="默认类型">默认类型</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">// 在声明一个变量而不指定其类型时（即使用不带类型的 := 语法或 var = 表达式语法），
+// 变量的类型由右值推导得出。
+var i int
+j := i // j 也是一个 int
+
+// 不过当右边包含未指明类型的数值常量时，
+// 新变量的类型就可能是 int, float64 或 complex128 了，
+// 这取决于常量的精度：
+i := 42           // int
+f := 3.142        // float64
+g := 0.867 + 0.5i // complex128</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
       <h2 id="类型判断">类型判断</h2>
       <p>dart</p>
       <pre><code class="language-dart">// as 类型转换
@@ -1225,7 +1497,28 @@ var loudTeaList = teas
     .map((tea) =&gt; tea.toUpperCase())
     .toList();</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        类型 [n]T 表示拥有 n 个 T 类型的值的数组。
+        数组的长度是其类型的一部分，因此数组不能改变大小。
+      </p>
+      <p>
+        表达式: <code>var a [10]int</code>， 会将变量 a 声明为拥有 10
+        个整数的数组。
+      </p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func main() {
+  var a [2]string
+  a[0] = &quot;Hello&quot;
+  a[1] = &quot;World&quot;
+  fmt.Println(a[0], a[1])
+  fmt.Println(a)
+  primes := [6]int{2, 3, 5, 7, 11}
+  fmt.Println(primes)
+}
+// Hello World
+// [Hello World]
+// [2 3 5 7 11 0]</code></pre>
       <p>js</p>
       <pre><code class="language-js">let l = [1, 2, 3];
 
@@ -2132,6 +2425,287 @@ function subtract(prev, cur) {
 [3, 2, 1].reduceRight(subtract) // -4</code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
+      <h3 id="切片">切片</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>
+        每个数组的大小都是固定的。
+        而切片则为数组元素提供动态大小的、灵活的视角。
+        在实践中，切片比数组更常用。 类型 <code>[]T</code> 表示一个元素类型为 T
+        的切片。
+      </p>
+      <p>
+        <code>a[low : high]</code>
+        它会选择一个半开区间，包括第一个元素，但排除最后一个元素。
+      </p>
+      <pre><code class="language-go">// 以下表达式创建了一个切片，
+// 它包含 a 中下标从 1 到 3 的元素：
+package main
+import &quot;fmt&quot;
+func main() {
+  primes := [6]int{2, 3, 5, 7, 11, 13}
+  fmt.Println(primes)
+  var s []int = primes[1:4]
+  fmt.Println(s)
+}
+// [2 3 5 7 11 13]
+// [3 5 7]
+
+
+// 切片就像数组的引用
+// - 切片并不存储任何数据，它只是描述了底层数组中的一段。
+// - 更改切片的元素会修改其底层数组中对应的元素。
+// - 与它共享底层数组的切片都会观测到这些修改。
+package main
+import &quot;fmt&quot;
+func main() {
+  names := [4]string{
+    &quot;John&quot;,
+    &quot;Paul&quot;,
+    &quot;George&quot;,
+    &quot;Ringo&quot;,
+  }
+  fmt.Println(names)
+  a := names[0:2]
+  b := names[1:3]
+  fmt.Println(a, b)
+  b[0] = &quot;XXX&quot;
+  fmt.Println(a, b)
+  fmt.Println(names)
+}
+// [John Paul George Ringo]
+// [John Paul] [Paul George]
+// [John XXX] [XXX George]
+// [John XXX George Ringo]
+
+
+// 这是一个数组文法：
+[3]bool{true, true, false}
+
+// 切片文法类似于没有长度的数组文法。
+// 下面这样则会创建一个和上面相同的数组，
+// 然后构建一个引用了它的切片：
+[]bool{true, true, false}
+
+
+package main
+import &quot;fmt&quot;
+func main() {
+  q := []int{2, 3, 5, 7, 11, 13}
+  fmt.Println(q)
+  r := []bool{true, false, true, true, false, true}
+  fmt.Println(r)
+  s := []struct {
+    i int
+    b bool
+  }{
+    {2, true},
+    {3, false},
+    {5, true},
+    {7, true},
+    {11, false},
+    {13, true},
+  }
+  fmt.Println(s)
+}
+// [2 3 5 7 11 13]
+// [true false true true false true]
+// [{2 true} {3 false} {5 true} {7 true} {11 false} {13 true}]
+
+
+// 在进行切片时，你可以利用它的默认行为来忽略上下界。
+// 切片下界的默认值为 0，上界则是该切片的长度。
+var a [10]int
+// 以下切片是等价的：
+a[0:10]
+a[:10]
+a[0:]
+a[:]
+
+package main
+import &quot;fmt&quot;
+func main() {
+  s := []int{2, 3, 5, 7, 11, 13}
+  s = s[1:4]
+  fmt.Println(s)
+  s = s[:2]
+  fmt.Println(s)
+  s = s[1:]
+  fmt.Println(s)
+}
+// [3 5 7]
+// [3 5]
+// [5]
+
+
+// 切片拥有 长度 和 容量。
+// 切片的长度就是它所包含的元素个数。
+// 切片的容量是从它的第一个元素开始数，到其底层数组元素末尾的个数。
+// 切片 s 的长度和容量可通过表达式 len(s) 和 cap(s) 来获取。
+// 你可以通过重新切片来扩展一个切片，给它提供足够的容量。
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+  s := []int{2, 3, 5, 7, 11, 13}
+  printSlice(s)
+
+  // 截取切片使其长度为 0
+  s = s[:0]
+  printSlice(s)
+
+  // 拓展其长度
+  s = s[:4]
+  printSlice(s)
+
+  // 舍弃前两个值
+  s = s[2:]
+  printSlice(s)
+
+  s = s[0:4]
+  printSlice(s)
+
+  s = s[0:6]
+  printSlice(s)
+}
+func printSlice(s []int) {
+  fmt.Printf(&quot;len=%d cap=%d %v\n&quot;, len(s), cap(s), s)
+}
+// len=6 cap=6 [2 3 5 7 11 13]
+// len=0 cap=6 []
+// len=4 cap=6 [2 3 5 7]
+// len=2 cap=4 [5 7]
+// len=4 cap=4 [5 7 11 13]
+// panic: runtime error: slice bounds out of range
+
+
+// 切片的零值是 nil。
+// nil 切片的长度和容量为 0 且没有底层数组。
+package main
+import &quot;fmt&quot;
+func main() {
+  var s []int
+  fmt.Println(s, len(s), cap(s))
+  if s == nil {
+    fmt.Println(&quot;nil!&quot;)
+  }
+}
+// [] 0 0
+// nil!
+
+
+// 切片可以用内建函数 make 来创建，这也是你创建动态数组的方式。
+// make 函数会分配一个元素为零值的数组并返回一个引用了它的切片：
+// 要指定它的容量，需向 make 传入第三个参数：
+package main
+import &quot;fmt&quot;
+func main() {
+  a := make([]int, 5)
+  printSlice(&quot;a&quot;, a)
+
+  b := make([]int, 0, 5)
+  printSlice(&quot;b&quot;, b)
+
+  c := b[:2]
+  printSlice(&quot;c&quot;, c)
+
+  d := c[2:5]
+  printSlice(&quot;d&quot;, d)
+}
+func printSlice(s string, x []int) {
+  fmt.Printf(&quot;%s len=%d cap=%d %v\n&quot;,
+    s, len(x), cap(x), x)
+}
+// a len=5 cap=5 [0 0 0 0 0]
+// b len=0 cap=5 []
+// c len=2 cap=5 [0 0]
+// d len=3 cap=3 [0 0 0]
+
+
+// 切片可包含任何类型，甚至包括其它的切片。
+package main
+import (
+  &quot;fmt&quot;
+  &quot;strings&quot;
+)
+func main() {
+  // 创建一个井字板（经典游戏）
+  board := [][]string{
+    []string{&quot;_&quot;, &quot;_&quot;, &quot;_&quot;},
+    []string{&quot;_&quot;, &quot;_&quot;, &quot;_&quot;},
+    []string{&quot;_&quot;, &quot;_&quot;, &quot;_&quot;},
+  }
+  // 两个玩家轮流打上 X 和 O
+  board[0][0] = &quot;X&quot;
+  board[2][2] = &quot;O&quot;
+  board[1][2] = &quot;X&quot;
+  board[1][0] = &quot;O&quot;
+  board[0][2] = &quot;X&quot;
+  for i := 0; i &lt; len(board); i++ {
+    fmt.Printf(&quot;%s\n&quot;, strings.Join(board[i], &quot; &quot;))
+  }
+}
+// X _ X
+// O _ X
+// _ _ O
+
+
+// 为切片追加新的元素是种常用的操作，为此 Go 提供了内建的 append 函数。
+// append 的结果是一个包含原切片所有元素加上新添加元素的切片。
+// 当 s 的底层数组太小，不足以容纳所有给定的值时，它就会分配一个更大的数组。
+// 返回的切片会指向这个新分配的数组。
+package main
+import &quot;fmt&quot;
+func main() {
+  var s []int
+  printSlice(s)
+  // 添加一个空切片
+  s = append(s, 0)
+  printSlice(s)
+  // 这个切片会按需增长
+  s = append(s, 1)
+  printSlice(s)
+  // 可以一次性添加多个元素
+  s = append(s, 2, 3, 4)
+  printSlice(s)
+}
+func printSlice(s []int) {
+  fmt.Printf(&quot;len=%d cap=%d %v\n&quot;, len(s), cap(s), s)
+}
+// len=0 cap=0 []
+// len=1 cap=2 [0]
+// len=2 cap=2 [0 1]
+// len=5 cap=8 [0 1 2 3 4]
+
+
+// 实现 Pic。
+// 它应当返回一个长度为 dy 的切片，
+// 其中每个元素是一个长度为 dx，元素类型为 uint8 的切片。
+// 当你运行此程序时，它会将每个整数解释为灰度值（好吧，其实是蓝度值）并显示它所对应的图像。
+package main
+import &quot;golang.org/x/tour/pic&quot;
+//import &quot;fmt&quot;
+func Pic(dx, dy int) [][]uint8 {
+  //fmt.Println(dx, dy)
+  qie := make([][]uint8, dy)
+  // fmt.Println(qie)
+  for i := 0; i &lt; dy; i++ {
+    qie[i] = make([]uint8, dx)
+    for j := 0; j &lt; dx; j++ {
+      qie[i][j] = uint8(i-j)
+    }
+  }
+  return qie
+}
+func main() {
+  pic.Show(Pic)
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h3 id="元组">元组</h3>
       <p>tuple元组</p>
       <p>dart</p>
@@ -2204,7 +2778,88 @@ var pages = &lt;String, String&gt;{
   &#39;humans.txt&#39;: &#39;We are people, not machines&#39;
 };</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        映射将键映射到值。 映射的零值为 nil 。nil 映射既没有键，也不能添加键。
+        <code>make</code> 函数会返回给定类型的映射，并将其初始化备用。
+      </p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+type Vertex struct {
+  Lat, Long float64
+}
+var m map[string]Vertex
+func main() {
+  m = make(map[string]Vertex)
+  m[&quot;Bell Labs&quot;] = Vertex{
+    40.68433, -74.39967,
+  }
+  fmt.Println(m[&quot;Bell Labs&quot;])
+}
+// {40.68433 -74.39967}
+
+
+// 映射的文法与结构体相似，不过必须有键名。
+package main
+import &quot;fmt&quot;
+type Vertex struct {
+  Lat, Long float64
+}
+var m = map[string]Vertex{
+  &quot;Bell Labs&quot;: Vertex{
+    40.68433, -74.39967,
+  },
+  &quot;Google&quot;: Vertex{
+    37.42202, -122.08408,
+  },
+}
+func main() {
+  fmt.Println(m)
+}
+
+
+// 若顶级类型只是一个类型名，你可以在文法的元素中省略它。
+package main
+import &quot;fmt&quot;
+type Vertex struct {
+  Lat, Long float64
+}
+var m = map[string]Vertex{
+  &quot;Bell Labs&quot;: {40.68433, -74.39967},
+  &quot;Google&quot;:    {37.42202, -122.08408},
+}
+func main() {
+  fmt.Println(m)
+}
+
+
+// 修改映射
+package main
+
+import &quot;fmt&quot;
+
+func main() {
+  m := make(map[string]int)
+
+  m[&quot;Answer&quot;] = 42 // 在映射 m 中插入或修改元素：
+  fmt.Println(&quot;The value:&quot;, m[&quot;Answer&quot;]) // 获取元素：
+
+  m[&quot;Answer&quot;] = 48
+  fmt.Println(&quot;The value:&quot;, m[&quot;Answer&quot;])
+
+  delete(m, &quot;Answer&quot;) // 删除元素：
+  fmt.Println(&quot;The value:&quot;, m[&quot;Answer&quot;])
+
+  // 通过双赋值检测某个键是否存在：
+  // 若 key 在 m 中，ok 为 true ；否则，ok 为 false。
+  // 若 key 不在映射中，那么 elem 是该映射元素类型的零值。
+  // 同样的，当从映射中读取某个不存在的键时，结果是映射的元素类型的零值。
+  v, ok := m[&quot;Answer&quot;]
+  fmt.Println(&quot;The value:&quot;, v, &quot;Present?&quot;, ok)
+}
+// The value: 42
+// The value: 48
+// The value: 0
+// The value: 0 Present? false</code></pre>
       <p>js</p>
       <p>
         JavaScript 的对象（Object），本质上是键值对的集合（Hash
@@ -2729,7 +3384,133 @@ assert(!teas.isEmpty);</code></pre>
 (1, 2)                 &lt; (1, 2, -1)
 (1, 2, 3)             == (1.0, 2.0, 3.0)
 (1, 2, (&#39;aa&#39;, &#39;ab&#39;))   &lt; (1, 2, (&#39;abc&#39;, &#39;a&#39;), 4)</code></pre>
+      <h3 id="指针">指针</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>
+        Go 拥有指针。指针保存了值的内存地址。 类型 <code>*T</code> 是指向 T
+        类型值的指针。其零值为 <code>nil</code>。 与 C 不同，Go 没有指针运算。
+      </p>
+      <ul>
+        <li><code>&amp;</code> 操作符会生成一个指向其操作数的指针。</li>
+        <li><code>*</code> 操作符表示指针指向的底层值。</li>
+      </ul>
+      <pre><code class="language-go">// 类型 *T 是指向 T 类型值的指针。其零值为 nil。
+var p *int
+
+
+package main
+import &quot;fmt&quot;
+func main() {
+  i, j := 42, 2701
+
+  p := &amp;i         // 指向 i
+  fmt.Println(*p) // 通过指针读取 i 的值
+  *p = 21         // 通过指针设置 i 的值
+  fmt.Println(i)  // 查看 i 的值
+
+  p = &amp;j         // 指向 j
+  *p = *p / 37   // 通过指针对 j 进行除法运算
+  fmt.Println(j) // 查看 j 的值
+}
+// 42
+// 21
+// 73</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="结构体">结构体</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>一个结构体（struct）就是一组字段（field）。</p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+type Vertex struct {
+  X int
+  Y int
+}
+func main() {
+  fmt.Println(Vertex{1, 2})
+}
+
+// 结构体字段使用点号来访问。
+package main
+import &quot;fmt&quot;
+type Vertex struct {
+  X int
+  Y int
+}
+func main() {
+  v := Vertex{1, 2}
+  v.X = 4
+  fmt.Println(v.X)
+}
+
+
+// 如果我们有一个指向结构体的指针 p，
+// 那么可以通过 (*p).X 来访问其字段 X。
+//不过这么写太啰嗦了，所以语言也允许我们使用隐式间接引用，
+//直接写 p.X 就可以。
+package main
+import &quot;fmt&quot;
+type Vertex struct {
+  X int
+  Y int
+}
+func main() {
+  v := Vertex{1, 2}
+  p := &amp;v
+  // var p int = &amp;v
+  fmt.Println(p)
+  fmt.Println(*p)
+  p.X = 3
+  // (*p).X = 3
+  fmt.Println(v)
+}
+// &amp;{1 2}
+// {1 2}
+// {3 2}
+
+
+// 仅列出部分字段。（字段名的顺序无关。）
+package main
+import &quot;fmt&quot;
+type Vertex struct {
+  X, Y int
+}
+var (
+  v1 = Vertex{1, 2}  // 创建一个 Vertex 类型的结构体
+  v2 = Vertex{X: 1}  // Y:0 被隐式地赋予
+  v3 = Vertex{}      // X:0 Y:0
+  p  = &amp;Vertex{1, 2} // 创建一个 *Vertex 类型的结构体（指针）
+)
+func main() {
+  fmt.Println(v1, p, v2, v3)
+}
+// {1 2} &amp;{1 2} {1 0} {0 0}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h2 id="类型转换">类型转换</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>表达式 <code>T(v)</code> 将值 v 转换为类型 T。</p>
+      <p>Go 在不同类型的项之间赋值时需要显式转换。</p>
+      <pre><code class="language-go">var i int = 42
+var f float64 = float64(i)
+var u uint = uint(f)
+
+// 或者，更加简单的形式：
+i := 42
+f := float64(i)
+u := uint(f)</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
       <h3 id="数值转字符串">数值转字符串</h3>
       <p>dart</p>
       <pre><code class="language-dart">// Convert an int to a string.
