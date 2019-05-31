@@ -109,7 +109,7 @@ outlines.forEach(item => {
   })
 });
 const readmeStr = `
-# 编程语言 对比学习/速查
+# 编程语言 对比学习/速查笔记
 
 ${readmeLines.join('\n')}
 

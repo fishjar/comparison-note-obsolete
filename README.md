@@ -1,9 +1,13 @@
 
-# 编程语言 对比学习/速查
+# 编程语言 对比学习/速查笔记
 
 - [1.基础知识](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
   - [hello](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#hello)
   - [helloword](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#helloword)
+    - [dart](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#dart)
+    - [go](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#go)
+    - [js](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#js)
+    - [python](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#python)
   - [概念](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#%E6%A6%82%E5%BF%B5)
     - [安装](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#%E5%AE%89%E8%A3%85)
     - [常用命令](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4)
