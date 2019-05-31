@@ -16,55 +16,69 @@
           <ul>
             <li>
               <a
-                href="#Functions%EF%BC%88%E6%96%B9%E6%B3%95%EF%BC%89%E5%87%BD%E6%95%B0%E5%AE%9A%E4%B9%89"
-                >Functions（方法）函数定义</a
+                href="#%E5%87%BD%E6%95%B0%E5%92%8C%E6%96%B9%E6%B3%95%E5%AE%9A%E4%B9%89"
+                >函数和方法定义</a
               >
             </li>
             <li>
-              [Optional named parameters（可选命名参数）](#Optional named
-              parameters（可选命名参数）)
+              <a href="#%E5%85%A5%E5%8F%A3%E5%87%BD%E6%95%B0">入口函数</a>
             </li>
             <li>
-              [Optional positional parameters（可选位置参数）](#Optional
-              positional parameters（可选位置参数）)
+              <a href="#%E5%8F%82%E6%95%B0">参数</a>
+              <ul>
+                <li>
+                  <a
+                    href="#%E5%8F%AF%E9%80%89%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0"
+                    >可选命名参数</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E5%8F%AF%E9%80%89%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0"
+                    >可选位置参数</a
+                  >
+                </li>
+                <li>
+                  <a href="#%E9%BB%98%E8%AE%A4%E5%8F%82%E6%95%B0%E5%80%BC"
+                    >默认参数值</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E8%A7%A3%E5%8C%85%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8"
+                    >解包参数列表</a
+                  >
+                </li>
+              </ul>
             </li>
             <li>
-              [Default parameter values（默认参数值）](#Default parameter
-              values（默认参数值）)
-            </li>
-            <li>
-              <a href="#%E8%A7%A3%E5%8C%85%E5%8F%82%E6%95%B0%E5%88%97%E8%A1%A8"
-                >解包参数列表</a
+              <a href="#%E9%BB%98%E8%AE%A4%E8%BF%94%E5%9B%9E%E5%80%BC"
+                >默认返回值</a
               >
             </li>
             <li>
-              [The main() function（入口函数）](#The main()
-              function（入口函数）)
+              <a href="#%E4%B8%80%E7%AD%89%E6%96%B9%E6%B3%95%E5%AF%B9%E8%B1%A1"
+                >一等方法对象</a
+              >
             </li>
             <li>
-              [Functions as first-class objects（一等方法对象）](#Functions as
-              first-class objects（一等方法对象）)
-            </li>
-            <li>
-              [Anonymous functions（匿名方法）匿名函数](#Anonymous
-              functions（匿名方法）匿名函数)
+              <a href="#%E5%8C%BF%E5%90%8D%E5%87%BD%E6%95%B0">匿名函数</a>
             </li>
             <li>
               <a href="#%E5%87%BD%E6%95%B0%E6%A0%87%E6%B3%A8">函数标注</a>
             </li>
-            <li>[Lexical scope（静态作用域）](#Lexical scope（静态作用域）)</li>
-            <li>
-              [Lexical closures（词法闭包）](#Lexical closures（词法闭包）)
-            </li>
-            <li>
-              [Testing functions for equality（测试函数是否相等）](#Testing
-              functions for equality（测试函数是否相等）)
-            </li>
-            <li>[Return values（默认返回值）](#Return values（默认返回值）)</li>
+            <li><a href="#%E4%BD%9C%E7%94%A8%E5%9F%9F">作用域</a></li>
+            <li><a href="#%E9%97%AD%E5%8C%85">闭包</a></li>
             <li>
               <a
-                href="#%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F%EF%BC%88IIFE%EF%BC%89"
-                >立即调用的函数表达式（IIFE）</a
+                href="#%E6%B5%8B%E8%AF%95%E5%87%BD%E6%95%B0%E6%98%AF%E5%90%A6%E7%9B%B8%E7%AD%89"
+                >测试函数是否相等</a
+              >
+            </li>
+            <li>
+              <a
+                href="#%E7%AB%8B%E5%8D%B3%E8%B0%83%E7%94%A8%E7%9A%84%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F"
+                >立即调用的函数表达式</a
               >
             </li>
           </ul>
@@ -73,7 +87,7 @@
     </div>
     <div id="content">
       <h1 id="函数和方法">函数和方法</h1>
-      <h2 id="Functions（方法）函数定义">Functions（方法）函数定义</h2>
+      <h2 id="函数和方法定义">函数和方法定义</h2>
       <p>dart</p>
       <p>
         Dart 是一个真正的面向对象语言，方法也是对象并且具有一种 类型，
@@ -153,9 +167,35 @@ def fib2(n):  # return Fibonacci series up to n
 f100 = fib2(100)    # call it
 f100                # write the result
 # 0 1 1 2 3 5 8 13 21 34 55 89</code></pre>
-      <h2 id="Optional named parameters（可选命名参数）">
-        Optional named parameters（可选命名参数）
-      </h2>
+      <h2 id="入口函数">入口函数</h2>
+      <p>dart</p>
+      <p>
+        每个应用都需要有个顶级的 main() 入口方法才能执行。 main() 方法的返回值为
+        void 并且有个可选的 <code>List&lt;String&gt;</code> 参数。
+      </p>
+      <pre><code class="language-dart">void main() {
+  querySelector(&quot;#sample_text_id&quot;)
+    ..text = &quot;Click me!&quot;
+    ..onClick.listen(reverseText);
+}
+
+// 下面是一个命令行应用的 main() 方法，并且使用了 方法参数作为输入参数
+// Run the app like this: dart args.dart 1 test
+void main(List&lt;String&gt; arguments) {
+  print(arguments);
+  assert(arguments.length == 2);
+  assert(int.parse(arguments[0]) == 1);
+  assert(arguments[1] == &#39;test&#39;);
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="参数">参数</h2>
+      <h3 id="可选命名参数">可选命名参数</h3>
+      <p>Optional named parameters（可选命名参数）</p>
       <p>dart</p>
       <pre><code class="language-dart">/// Sets the [bold] and [hidden] flags to the values
 /// you specify.
@@ -184,9 +224,8 @@ parrot(voltage=1000000, action=&#39;VOOOOOM&#39;)             # 2 keyword argume
 parrot(action=&#39;VOOOOOM&#39;, voltage=1000000)             # 2 keyword arguments
 parrot(&#39;a million&#39;, &#39;bereft of life&#39;, &#39;jump&#39;)         # 3 positional arguments
 parrot(&#39;a thousand&#39;, state=&#39;pushing up the daisies&#39;)  # 1 positional, 1 keyword</code></pre>
-      <h2 id="Optional positional parameters（可选位置参数）">
-        Optional positional parameters（可选位置参数）
-      </h2>
+      <h3 id="可选位置参数">可选位置参数</h3>
+      <p>Optional positional parameters（可选位置参数）</p>
       <p>dart</p>
       <p>把一些方法的参数放到 [] 中就变成可选 位置参数了：</p>
       <pre><code class="language-dart">String say(String from, String msg, [String device]) {
@@ -236,9 +275,8 @@ cheeseshop(&quot;Limburger&quot;,
 &#39;earth/mars/venus&#39;
 &gt;&gt;&gt; concat(&quot;earth&quot;, &quot;mars&quot;, &quot;venus&quot;, sep=&quot;.&quot;)
 &#39;earth.mars.venus&#39;</code></pre>
-      <h2 id="Default parameter values（默认参数值）">
-        Default parameter values（默认参数值）
-      </h2>
+      <h3 id="默认参数值">默认参数值</h3>
+      <p>Default parameter values（默认参数值）</p>
       <p>dart</p>
       <p>
         在定义方法的时候，可以使用 = 来定义可选参数的默认值。
@@ -359,7 +397,7 @@ def f(a, L=None):
         L = []
     L.append(a)
     return L</code></pre>
-      <h2 id="解包参数列表">解包参数列表</h2>
+      <h3 id="解包参数列表">解包参数列表</h3>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
@@ -379,37 +417,21 @@ def f(a, L=None):
 
 d = {&quot;voltage&quot;: &quot;four million&quot;, &quot;state&quot;: &quot;bleedin&#39; demised&quot;, &quot;action&quot;: &quot;VOOM&quot;}
 parrot(**d)</code></pre>
-      <h2 id="The main() function（入口函数）">
-        The main() function（入口函数）
-      </h2>
+      <h2 id="默认返回值">默认返回值</h2>
+      <p>Return values（默认返回值）</p>
       <p>dart</p>
       <p>
-        每个应用都需要有个顶级的 main() 入口方法才能执行。 main() 方法的返回值为
-        void 并且有个可选的 <code>List&lt;String&gt;</code> 参数。
+        所有的函数都返回一个值。 如果没有指定返回值，则 默认把语句 return null;
+        作为函数的最后一个语句执行。
       </p>
-      <pre><code class="language-dart">void main() {
-  querySelector(&quot;#sample_text_id&quot;)
-    ..text = &quot;Click me!&quot;
-    ..onClick.listen(reverseText);
-}
-
-// 下面是一个命令行应用的 main() 方法，并且使用了 方法参数作为输入参数
-// Run the app like this: dart args.dart 1 test
-void main(List&lt;String&gt; arguments) {
-  print(arguments);
-  assert(arguments.length == 2);
-  assert(int.parse(arguments[0]) == 1);
-  assert(arguments[1] == &#39;test&#39;);
-}</code></pre>
+      <pre><code class="language-dart"></code></pre>
       <p>go</p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Functions as first-class objects（一等方法对象）">
-        Functions as first-class objects（一等方法对象）
-      </h2>
+      <h2 id="一等方法对象">一等方法对象</h2>
       <p>dart</p>
       <pre><code class="language-dart">// 可以把方法当做参数调用另外一个方法。
 printElement(element) {
@@ -440,9 +462,8 @@ a(add)(1, 1)
 // 2</code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Anonymous functions（匿名方法）匿名函数">
-        Anonymous functions（匿名方法）匿名函数
-      </h2>
+      <h2 id="匿名函数">匿名函数</h2>
+      <p>Anonymous functions（匿名方法）匿名函数</p>
       <p>dart</p>
       <p>
         大部分方法都带有名字，例如 main() 或者 printElement()。
@@ -551,7 +572,8 @@ pairs.sort(key=lambda pair: pair[1])
     return ham + &#39; and &#39; + eggs
 
 f(&#39;spam&#39;)</code></pre>
-      <h2 id="Lexical scope（静态作用域）">Lexical scope（静态作用域）</h2>
+      <h2 id="作用域">作用域</h2>
+      <p>Lexical scope（静态作用域）</p>
       <p>dart</p>
       <p>
         Dart 是静态作用域语言，变量的作用域在写代码的时候就确定过了。
@@ -577,7 +599,8 @@ main() {
       <pre><code class="language-js"></code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Lexical closures（词法闭包）">Lexical closures（词法闭包）</h2>
+      <h2 id="闭包">闭包</h2>
+      <p>Lexical closures（词法闭包）</p>
       <p>dart</p>
       <p>
         一个 闭包 是一个方法对象， 不管该对象在何处被调用，
@@ -645,9 +668,8 @@ p1.setAge(25);
 p1.getAge() // 25</code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Testing functions for equality（测试函数是否相等）">
-        Testing functions for equality（测试函数是否相等）
-      </h2>
+      <h2 id="测试函数是否相等">测试函数是否相等</h2>
+      <p>Testing functions for equality（测试函数是否相等）</p>
       <p>dart</p>
       <pre><code class="language-dart">foo() {}               // A top-level function
 
@@ -687,20 +709,8 @@ main() {
       <pre><code class="language-js"></code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Return values（默认返回值）">Return values（默认返回值）</h2>
-      <p>dart</p>
-      <p>
-        所有的函数都返回一个值。 如果没有指定返回值，则 默认把语句 return null;
-        作为函数的最后一个语句执行。
-      </p>
-      <pre><code class="language-dart"></code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="立即调用的函数表达式（IIFE）">立即调用的函数表达式（IIFE）</h2>
+      <h2 id="立即调用的函数表达式">立即调用的函数表达式</h2>
+      <p>（IIFE）</p>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>

@@ -1,4 +1,5 @@
 const fs = require('fs');
+const fse = require('fs-extra');
 const marked = require('marked');
 const prettier = require("prettier"); // 格式化工具
 
@@ -135,3 +136,11 @@ const languageStr = languageLines.join('\n');
 // console.log(languageStr)
 fs.writeFileSync('./outlines.txt', languageStr);
 
+
+/**
+ * 复制images
+ */
+fse.copy('src/images', 'dist/images', function (err) {
+  if (err) return console.error(err)
+  console.log('success!')
+})

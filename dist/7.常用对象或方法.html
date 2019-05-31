@@ -19,73 +19,115 @@
               <a href="#%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0">内置函数</a>
             </li>
             <li>
-              [Encoding and decoding fully qualified
-              URIs（编码解码URI）](#Encoding and decoding fully qualified
-              URIs（编码解码URI）)
-            </li>
-            <li>
-              [Encoding and decoding URI
-              components（编码解码URI组件）](#Encoding and decoding URI
-              components（编码解码URI组件）)
-            </li>
-            <li>[Parsing URIs](#Parsing URIs)</li>
-            <li>[Building URIs](#Building URIs)</li>
-            <li>[Dates and times 日期和时间](#Dates and times 日期和时间)</li>
-            <li>
-              [Comparing objects（比较对象）](#Comparing objects（比较对象）)
-            </li>
-            <li>[Finding elements](#Finding elements)</li>
-            <li>[Manipulating elements](#Manipulating elements)</li>
-            <li>[Creating elements](#Creating elements)</li>
-            <li>
-              [Adding, replacing, and removing nodes](#Adding, replacing, and
-              removing nodes)
-            </li>
-            <li>[Manipulating CSS styles](#Manipulating CSS styles)</li>
-            <li>[Handling events](#Handling events)</li>
-            <li>
-              [Getting data from the server](#Getting data from the server)
-            </li>
-            <li>[Sending data to the server](#Sending data to the server)</li>
-            <li>
-              [Sending and receiving real-time data with WebSockets](#Sending
-              and receiving real-time data with WebSockets)
-            </li>
-            <li>[HTTP server](#HTTP server)</li>
-            <li>[HTTP client](#HTTP client)</li>
-            <li>
-              [Reading a file as text 读取整个文本](#Reading a file as text
-              读取整个文本)
-            </li>
-            <li>
-              [Reading a file as binary 把文件数据读取为字节流](#Reading a file
-              as binary 把文件数据读取为字节流)
-            </li>
-            <li>
-              [Streaming file contents 一点点的/逐行读取](#Streaming file
-              contents 一点点的/逐行读取)
-            </li>
-            <li>
-              [Writing file contents 写入内容](#Writing file contents 写入内容)
-            </li>
-            <li>
-              [Listing files in a directory
-              查找目录中的所有文件和子目录](#Listing files in a directory
-              查找目录中的所有文件和子目录)
-            </li>
-            <li>[Decoding and encoding JSON](#Decoding and encoding JSON)</li>
-            <li>
-              [Decoding and encoding UTF-8 characters](#Decoding and encoding
-              UTF-8 characters)
-            </li>
-            <li><a href="#Base64">Base64</a></li>
-            <li>
               <a href="#%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E6%8E%A5%E5%8F%A3"
                 >操作系统接口</a
               >
             </li>
+            <li>
+              <a href="#%E6%97%A5%E6%9C%9F%E5%92%8C%E6%97%B6%E9%97%B4"
+                >日期和时间</a
+              >
+            </li>
+            <li><a href="#UTF-8">UTF-8</a></li>
+            <li><a href="#Base64">Base64</a></li>
+            <li><a href="#JSON">JSON</a></li>
             <li><a href="#%E6%A8%A1%E6%9D%BF">模板</a></li>
             <li><a href="#%E6%97%A5%E5%BF%97">日志</a></li>
+            <li>
+              <a href="#URIs">URIs</a>
+              <ul>
+                <li><a href="#%E8%A7%A3%E6%9E%90URIs">解析URIs</a></li>
+                <li><a href="#%E6%9E%84%E5%BB%BAURIs">构建URIs</a></li>
+                <li>
+                  <a href="#%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81URI"
+                    >编码解码URI</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E7%BC%96%E7%A0%81%E8%A7%A3%E7%A0%81URI%E7%BB%84%E4%BB%B6"
+                    >编码解码URI组件</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#IO">IO</a>
+              <ul>
+                <li>
+                  <a
+                    href="#%E8%AF%BB%E5%8F%96%E6%95%B4%E4%B8%AA%E6%96%87%E6%9C%AC"
+                    >读取整个文本</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E6%8A%8A%E6%96%87%E4%BB%B6%E6%95%B0%E6%8D%AE%E8%AF%BB%E5%8F%96%E4%B8%BA%E5%AD%97%E8%8A%82%E6%B5%81"
+                    >把文件数据读取为字节流</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96%E6%96%87%E4%BB%B6"
+                    >逐行读取文件</a
+                  >
+                </li>
+                <li>
+                  <a href="#%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6">写入文件</a>
+                </li>
+                <li>
+                  <a
+                    href="#%E6%9F%A5%E6%89%BE%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E6%96%87%E4%BB%B6%E5%92%8C%E5%AD%90%E7%9B%AE%E5%BD%95"
+                    >查找目录中的所有文件和子目录</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#HTTP">HTTP</a>
+              <ul>
+                <li>
+                  <a
+                    href="#%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE"
+                    >向服务器获取数据</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#%E5%90%91%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%8F%91%E9%80%81%E6%95%B0%E6%8D%AE"
+                    >向服务器发送数据</a
+                  >
+                </li>
+                <li><a href="#WebSockets">WebSockets</a></li>
+                <li><a href="#HTTP%E6%9C%8D%E5%8A%A1">HTTP服务</a></li>
+                <li>
+                  <a href="#HTTP%E5%AE%A2%E6%88%B7%E7%AB%AF">HTTP客户端</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#DOM">DOM</a>
+              <ul>
+                <li>
+                  <a href="#%E6%9F%A5%E6%89%BE%E5%85%83%E7%B4%A0">查找元素</a>
+                </li>
+                <li>
+                  <a href="#%E6%93%8D%E4%BD%9C%E5%85%83%E7%B4%A0">操作元素</a>
+                </li>
+                <li>
+                  <a href="#%E5%88%9B%E5%BB%BA%E5%85%83%E7%B4%A0">创建元素</a>
+                </li>
+                <li>
+                  <a href="#%E6%93%8D%E4%BD%9C%E8%8A%82%E7%82%B9">操作节点</a>
+                </li>
+                <li>
+                  <a href="#%E6%93%8D%E4%BD%9C%E6%A0%B7%E5%BC%8F">操作样式</a>
+                </li>
+                <li>
+                  <a href="#%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86">事件处理</a>
+                </li>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
@@ -115,183 +157,39 @@ classmethod()    getattr()    locals()    repr()    zip()
 compile()    globals()    map()    reversed()    __import__()
 complex()    hasattr()    max()    round()</code></pre>
       <pre><code class="language-python"></code></pre>
-      <h2 id="Encoding and decoding fully qualified URIs（编码解码URI）">
-        Encoding and decoding fully qualified URIs（编码解码URI）
-      </h2>
+      <h2 id="操作系统接口">操作系统接口</h2>
       <p>dart</p>
-      <p>
-        要编码和解码除了 URI 中特殊意义（例如 /, :, &amp;, #）的字符，
-        则可以使用 encodeFull() 和 decodeFull() 函数。
-        这两个函数可以用来编码和解码整个 URI，并且保留 URI 特殊意义的字符不变。
-      </p>
-      <pre><code class="language-dart">var uri = &#39;http://example.org/api?foo=some message&#39;;
-
-var encoded = Uri.encodeFull(uri);
-assert(encoded == &#39;http://example.org/api?foo=some%20message&#39;);
-// 注意上面 some 和 message 之间的空格被编码了。
-
-var decoded = Uri.decodeFull(encoded);
-assert(uri == decoded);</code></pre>
+      <pre><code class="language-dart"></code></pre>
       <p>go</p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
-      <p>
-        <code>encodeURI()</code>
-        函数通过将特定字符的每个实例替换为一个、两个、三或四转义序列
-        来对统一资源标识符 (URI) 进行编码 (该字符的 UTF-8
-        编码仅为四转义序列)由两个 &quot;代理&quot; 字符组成)。
-      </p>
-      <p>encodeURI 会替换所有的字符，但不包括以下字符</p>
-      <ul>
-        <li>保留字符 ; , / ? : @ &amp; = + $</li>
-        <li>非转义的字符 字母 数字 - _ . ! ~ * &#39; ( )</li>
-        <li>数字符号 #</li>
-      </ul>
-      <p>
-        <code>decodeURI()</code> 函数解码一个由encodeURI
-        先前创建的统一资源标识符（URI）或类似的例程。
-      </p>
-      <pre><code class="language-js">var uri = &#39;http://example.org/api?foo=some message&#39;;
-encodeURI(uri) // &#39;http://example.org/api?foo=some%20message&#39;
-decodeURI(encodeURI(uri)) // &#39;http://example.org/api?foo=some message&#39;</code></pre>
+      <pre><code class="language-js">const os = require(&#39;os&#39;);</code></pre>
       <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Encoding and decoding URI components（编码解码URI组件）">
-        Encoding and decoding URI components（编码解码URI组件）
-      </h2>
-      <p>dart</p>
-      <p>
-        使用 encodeComponent() 和 decodeComponent() 可以编码 和解码 URI
-        中的所有字符， 特殊意义的字符（/, &amp;, 和 : 等） 也会编码，
-      </p>
-      <pre><code class="language-dart">var uri = &#39;http://example.org/api?foo=some message&#39;;
+      <pre><code class="language-sh">&gt;&gt;&gt; import os
+&gt;&gt;&gt; os.getcwd()      # Return the current working directory
+&#39;C:\\Python37&#39;
+&gt;&gt;&gt; os.chdir(&#39;/server/accesslogs&#39;)   # Change current working directory
+&gt;&gt;&gt; os.system(&#39;mkdir today&#39;)   # Run the command mkdir in the system shell
+0
 
-var encoded = Uri.encodeComponent(uri);
-assert(encoded == &#39;http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message&#39;);
-// 注意上面特殊字符也被编码了，比如 / 编码为 %2F。
+&gt;&gt;&gt; import os
+&gt;&gt;&gt; dir(os)
+&lt;returns a list of all module functions&gt;
+&gt;&gt;&gt; help(os)
+&lt;returns an extensive manual page created from the module&#39;s docstrings&gt;
 
-var decoded = Uri.decodeComponent(encoded);
-assert(uri == decoded);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <p>
-        <code>encodeURIComponent()</code
-        >是对统一资源标识符（URI）的组成部分进行编码的方法。
-        它使用一到四个转义序列来表示字符串中的每个字符的UTF-8编码
-        （只有由两个Unicode代理区字符组成的字符才用四个转义字符编码）。
-      </p>
-      <p>
-        encodeURIComponent
-        转义除了字母、数字、(、)、.、!、~、*、&#39;、-和_之外的所有字符。
-      </p>
-      <p>
-        <code>decodeURIComponent()</code> 方法用于解码由 encodeURIComponent
-        方法或者其它类似方法编码的部分统一资源标识符（URI）。
-      </p>
-      <pre><code class="language-js">var uri = &#39;http://example.org/api?foo=some message&#39;;
-encodeURIComponent(uri) // &#39;http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message&#39;
-decodeURIComponent(encodeURIComponent(uri)) // &#39;http://example.org/api?foo=some message&#39;</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Parsing URIs">Parsing URIs</h2>
-      <pre><code class="language-sh">┌────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                              href                                              │
-├──────────┬──┬─────────────────────┬────────────────────────┬───────────────────────────┬───────┤
-│ protocol │  │        auth         │          host          │           path            │ hash  │
-│          │  │                     ├─────────────────┬──────┼──────────┬────────────────┤       │
-│          │  │                     │    hostname     │ port │ pathname │     search     │       │
-│          │  │                     │                 │      │          ├─┬──────────────┤       │
-│          │  │                     │                 │      │          │ │    query     │       │
-&quot;  https:   //    user   :   pass   @ sub.example.com : 8080   /p/a/t/h  ?  query=string   #hash &quot;
-│          │  │          │          │    hostname     │ port │          │                │       │
-│          │  │          │          ├─────────────────┴──────┤          │                │       │
-│ protocol │  │ username │ password │          host          │          │                │       │
-├──────────┴──┼──────────┴──────────┼────────────────────────┤          │                │       │
-│   origin    │                     │         origin         │ pathname │     search     │ hash  │
-├─────────────┴─────────────────────┴────────────────────────┴──────────┴────────────────┴───────┤
-│                                              href                                              │
-└────────────────────────────────────────────────────────────────────────────────────────────────┘</code></pre>
-      <p>dart</p>
-      <p>
-        如果有个 Uri 对象或者 URI 字符串，使用 Uri 的属性 可以获取每个部分，比如
-        path。 使用 parse() 静态 函数可以从字符串中解析一个 Uri 对象：
-      </p>
-      <pre><code class="language-dart">var uri = Uri.parse(&#39;http://example.org:8080/foo/bar#frag&#39;);
+&gt;&gt;&gt; import shutil
+&gt;&gt;&gt; shutil.copyfile(&#39;data.db&#39;, &#39;archive.db&#39;)
+&#39;archive.db&#39;
+&gt;&gt;&gt; shutil.move(&#39;/build/executables&#39;, &#39;installdir&#39;)
+&#39;installdir&#39;
 
-assert(uri.scheme   == &#39;http&#39;);
-assert(uri.host     == &#39;example.org&#39;);
-assert(uri.path     == &#39;/foo/bar&#39;);
-assert(uri.fragment == &#39;frag&#39;);
-assert(uri.origin   == &#39;http://example.org:8080&#39;);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <p>new URL(input[, base])</p>
-      <pre><code class="language-js">// 使用 WHATWG 的 API 解析 URL 字符串：
-const myURL = new URL(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
-
-// 使用遗留的 API 解析 URL 字符串：
-const url = require(&#39;url&#39;);
-const myURL = url.parse(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
-
-// 可以将 true 作为第二个参数传递给 require(&#39;url&#39;).parse
-require(&#39;url&#39;).parse(&#39;/status?name=ryan&#39;, true)
-
-const { URL } = require(&#39;url&#39;);
-const myURL = new URL(&#39;/foo&#39;, &#39;https://example.org/&#39;); // https://example.org/foo
-
-
-// URLSearchParams
-const { URL, URLSearchParams } = require(&#39;url&#39;);
-
-const myURL = new URL(&#39;https://example.org/?abc=123&#39;);
-console.log(myURL.searchParams.get(&#39;abc&#39;));
-// 输出 123
-
-myURL.searchParams.append(&#39;abc&#39;, &#39;xyz&#39;);
-console.log(myURL.href);
-// 输出 https://example.org/?abc=123&amp;abc=xyz
-
-myURL.searchParams.delete(&#39;abc&#39;);
-myURL.searchParams.set(&#39;a&#39;, &#39;b&#39;);
-console.log(myURL.href);
-// 输出 https://example.org/?a=b
-
-
-const { URLSearchParams } = require(&#39;url&#39;);
-const params = new URLSearchParams({
-  user: &#39;abc&#39;,
-  query: [&#39;first&#39;, &#39;second&#39;]
-});
-console.log(params.getAll(&#39;query&#39;));
-  // 输出 [ &#39;first,second&#39; ]
-console.log(params.toString());
-  // 输出 &#39;user=abc&amp;query=first%2Csecond&#39;</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Building URIs">Building URIs</h2>
-      <p>dart</p>
-      <p>使用 Uri() 构造函数可以从 URI 的 各个部分来构造一个 Uri 对象：</p>
-      <pre><code class="language-dart">var uri = new Uri(scheme: &#39;http&#39;, host: &#39;example.org&#39;,
-                  path: &#39;/foo/bar&#39;, fragment: &#39;frag&#39;);
-assert(uri.toString() ==
-    &#39;http://example.org/foo/bar#frag&#39;);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">// 使用 WHATWG 的 API 解析 URL 字符串：
-const myURL = new URL(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
-
-// 使用遗留的 API 解析 URL 字符串：
-const url = require(&#39;url&#39;);
-const myURL = url.parse(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
-
-const { URL } = require(&#39;url&#39;);
-const myURL = new URL(&#39;/foo&#39;, &#39;https://example.org/&#39;); // https://example.org/foo</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Dates and times 日期和时间">Dates and times 日期和时间</h2>
+# 以下输出来自在命令行运行 python demo.py one two three
+&gt;&gt;&gt; import sys
+&gt;&gt;&gt; print(sys.argv)
+[&#39;demo.py&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;]</code></pre>
+      <h2 id="日期和时间">日期和时间</h2>
+      <p>Dates and times 日期和时间</p>
       <p>dart</p>
       <p>
         DateTime 对象代表某个时刻。时区是 UTC 或者 本地时区。
@@ -453,966 +351,8 @@ datetime.date(2003, 12, 2)
 &gt;&gt;&gt; age = now - birthday
 &gt;&gt;&gt; age.days
 14368</code></pre>
-      <h2 id="Comparing objects（比较对象）">Comparing objects（比较对象）</h2>
-      <p>dart</p>
-      <p>实现 Comparable 接口表明该对象可以相互比较，通常用来 排序。</p>
-      <ul>
-        <li>compareTo() 函数对于 小于的值返回 &lt; 0 ；</li>
-        <li>相同的值返回 0 ；</li>
-        <li>大于的值返回 &gt; 0</li>
-      </ul>
-      <pre><code class="language-dart">class Line implements Comparable { // 隐式接口
-  final length;
-  const Line(this.length);
-  int compareTo(Line other) =&gt; length - other.length;
-}
-
-main() {
-  var short = const Line(1);
-  var long = const Line(100);
-  assert(short.compareTo(long) &lt; 0);
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Finding elements">Finding elements</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:html&#39;;
-
-// Find an element by id (an-id).
-Element elem1 = querySelector(&#39;#an-id&#39;);
-
-// Find an element by class (a-class).
-Element elem2 = querySelector(&#39;.a-class&#39;);
-
-// Find all elements by tag (&lt;div&gt;).
-List&lt;Element&gt; elems1 = querySelectorAll(&#39;div&#39;);
-
-// Find all text inputs.
-  List&lt;Element&gt; elems2 =
-      querySelectorAll(&#39;input[type=&quot;text&quot;]&#39;);
-
-// Find all elements with the CSS class &#39;class&#39;
-// inside of a &lt;p&gt; that is inside an element with
-// the ID &#39;id&#39;.
-List&lt;Element&gt; elems3 = querySelectorAll(&#39;#id p.class&#39;);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Manipulating elements">Manipulating elements</h2>
-      <p>dart</p>
-      <pre><code class="language-html">&lt;!-- In HTML: --&gt;
-&lt;a id=&quot;example&quot; href=&quot;http://example.com&quot;&gt;link text&lt;/a&gt;
-&lt;p&gt;
-  &lt;span class=&quot;linux&quot;&gt;Words for Linux&lt;/span&gt;
-  &lt;span class=&quot;macos&quot;&gt;Words for Mac&lt;/span&gt;
-  &lt;span class=&quot;windows&quot;&gt;Words for Windows&lt;/span&gt;
-&lt;/p&gt;</code></pre>
-      <pre><code class="language-dart">// In Dart:
-querySelector(&#39;#example&#39;).href = &#39;http://dartlang.org&#39;;
-
-final osList = [&#39;macos&#39;, &#39;windows&#39;, &#39;linux&#39;];
-
-// In real code you&#39;d programmatically determine userOs.
-var userOs = &#39;linux&#39;;
-
-for (var os in osList) { // For each possible OS...
-  bool shouldShow = (os == userOs); // Matches user OS?
-
-  // Find all elements with class=os. For example, if
-  // os == &#39;windows&#39;, call querySelectorAll(&#39;.windows&#39;)
-  // to find all elements with the class &quot;windows&quot;.
-  // Note that &#39;.$os&#39; uses string interpolation.
-  for (var elem in querySelectorAll(&#39;.$os&#39;)) {
-    elem.hidden = !shouldShow; // Show or hide.
-  }
-}
-
-elem.attributes[&#39;someAttribute&#39;] = &#39;someValue&#39;;</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Creating elements">Creating elements</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">var elem = new ParagraphElement();
-elem.text = &#39;Creating is easy!&#39;;
-var elem2 = new Element.html(&#39;&lt;p&gt;Creating &lt;em&gt;is&lt;/em&gt; easy!&lt;/p&gt;&#39;);
-document.body.children.add(elem2);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Adding, replacing, and removing nodes">
-        Adding, replacing, and removing nodes
-      </h2>
-      <p>dart</p>
-      <p>
-        element 也是 node 的一种。 使用 Node 的 nodes 属性可以 获取到当前 node
-        的所有子元素， nodes 返回的是 <code>List&lt;Node&gt;</code> ( children
-        属性只包含 Element 类型的 nodes)。
-      </p>
-      <pre><code class="language-dart">// 使用 List 的add() 函数可以把一个 node 添加到所有子元素的 最后：
-// Find the parent by ID, and add elem as its last child.
-querySelector(&#39;#inputs&#39;).nodes.add(elem);
-
-// 使用 Node 的 replaceWith() 函数可以替换一个 Node：
-// Find a node by ID, and replace it in the DOM.
-querySelector(&#39;#status&#39;).replaceWith(elem);
-
-// 使用 Node 的 remove() 函数来删除 node：
-// Find a node by ID, and remove it from the DOM.
-querySelector(&#39;#expendable&#39;).remove();</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Manipulating CSS styles">Manipulating CSS styles</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">// 下面的示例中给 element 添加了 warning CSS 类样式。
-var element = querySelector(&#39;#message&#39;);
-element.classes.add(&#39;warning&#39;);
-
-// 通过 id 属性你可以动态给一个 Element 指定 一个 ID 值。
-var message = new DivElement();
-message.id = &#39;message2&#39;;
-message.text = &#39;Please subscribe to the Dart mailing list.&#39;;
-
-// 使用级联调用可以减少 需要编写的代码：
-var message = new DivElement()
-    ..id = &#39;message2&#39;
-    ..text = &#39;Please subscribe to the Dart mailing list.&#39;;
-
-// 直接使用 style 属性
-message.style
-    ..fontWeight = &#39;bold&#39;
-    ..fontSize = &#39;3em&#39;;</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Handling events">Handling events</h2>
-      <p>dart</p>
-      <p>一些常见的事件：</p>
-      <ul>
-        <li>change</li>
-        <li>blur</li>
-        <li>keyDown</li>
-        <li>keyUp</li>
-        <li>mouseDown</li>
-        <li>mouseUp</li>
-      </ul>
-      <pre><code class="language-dart">// 处理按钮点击的事件：
-// Find a button by ID and add an event handler.
-querySelector(&#39;#submitInfo&#39;).onClick.listen((e) {
-  // When the button is clicked, it runs this code.
-  submitData();
-});
-
-//  通过 e.target 可以获取是哪个 element 触发该事件的：
-document.body.onClick.listen((e) {
-  var clickedElem = e.target;
-  print(&#39;You clicked the ${clickedElem.id} element.&#39;);
-});</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Getting data from the server">Getting data from the server</h2>
-      <p>dart</p>
-      <p>HttpRequest 的静态函数 getString() 可以很方便的从服务器获取资源。</p>
-      <pre><code class="language-dart">import &#39;dart:html&#39;;
-import &#39;dart:async&#39;;
-
-// A JSON-formatted file next to this page.
-var uri = &#39;data.json&#39;;
-
-main() async {
-  // Read a JSON file.
-  var data = await HttpRequest.getString(uri);
-  processString(data);
-}
-
-processString(String jsonText) {
-  parseText(jsonText);
-}
-
-// 使用 try-catch 来指定异常处理代码：
-try {
-  data = await HttpRequest.getString(jsonUri);
-  processString(data);
-} catch (e) {
-  handleError(e);
-}
-// ...
-handleError(error) {
-  print(&#39;Uh oh, there was an error.&#39;);
-  print(error.toString());
-}
-
-// 如果除了返回的文本数据以外你还需要 访问 HttpRequest，你可以使用 request() 静态函数。
-// 下面 是一个读取 XML 数据的示例：
-import &#39;dart:html&#39;;
-import &#39;dart:async&#39;;
-
-// An XML-formatted file next to this page.
-var xmlUri = &#39;data.xml&#39;;
-
-main() async {
-  // Read an XML file.
-  try {
-    var data = await HttpRequest.request(xmlUri);
-    processRequest(data);
-  } catch (e) {
-    handleError(e);
-  }
-}
-
-processRequest(HttpRequest request) {
-  var xmlDoc = request.responseXml;
-  try {
-    var license = xmlDoc.querySelector(&#39;license&#39;).text;
-    print(&#39;License: $license&#39;);
-  } catch (e) {
-    print(&quot;$xmlUri doesn&#39;t have correct XML formatting.&quot;);
-  }
-}
-
-// 下面是使用 HttpRequest full API 的常用流程：
-// 1.创建 HttpRequest 对象。
-// 2.使用 GET 或者 POST 打开一个 URL。
-// 3.添加事件处理器。
-// 4.发送请求。
-import &#39;dart:html&#39;;
-// ...
-var request = new HttpRequest()
-    ..open(&#39;POST&#39;, dataUrl)
-    ..onLoadEnd.listen((_) =&gt; requestComplete(request))
-    ..send(encodedData);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">// 浏览器
-var xhr = new XMLHttpRequest();
-xhr.onreadystatechange = function(){
-  // 通信成功时，状态值为4
-  if (xhr.readyState === 4){
-    if (xhr.status === 200){
-      console.log(xhr.responseText);
-    } else {
-      console.error(xhr.statusText);
-    }
-  }
-};
-xhr.onerror = function (e) {
-  console.error(xhr.statusText);
-};
-xhr.open(&#39;GET&#39;, &#39;/endpoint&#39;, true);
-xhr.send(null);
-
-// node
-const http = require(&#39;http&#39;);
-http.get({
-  hostname: &#39;localhost&#39;,
-  port: 80,
-  path: &#39;/&#39;,
-  agent: false  // 仅为此一个请求创建一个新代理。
-}, (res) =&gt; {
-  // 用响应做些事情。
-});
-
-const http = require(&#39;http&#39;);
-const keepAliveAgent = new http.Agent({ keepAlive: true });
-options.agent = keepAliveAgent;
-http.request(options, onResponseCallback);
-
-// http.get
-const http = require(&#39;http&#39;);
-http.get(&#39;http://nodejs.cn/index.json&#39;, (res) =&gt; {
-  const { statusCode } = res;
-  const contentType = res.headers[&#39;content-type&#39;];
-
-  let error;
-  if (statusCode !== 200) {
-    error = new Error(&#39;请求失败\n&#39; +
-                      `状态码: ${statusCode}`);
-  } else if (!/^application\/json/.test(contentType)) {
-    error = new Error(&#39;无效的 content-type.\n&#39; +
-                      `期望的是 application/json 但接收到的是 ${contentType}`);
-  }
-  if (error) {
-    console.error(error.message);
-    // 消费响应数据来释放内存。
-    res.resume();
-    return;
-  }
-
-  res.setEncoding(&#39;utf8&#39;);
-  let rawData = &#39;&#39;;
-  res.on(&#39;data&#39;, (chunk) =&gt; { rawData += chunk; });
-  res.on(&#39;end&#39;, () =&gt; {
-    try {
-      const parsedData = JSON.parse(rawData);
-      console.log(parsedData);
-    } catch (e) {
-      console.error(e.message);
-    }
-  });
-}).on(&#39;error&#39;, (e) =&gt; {
-  console.error(`出现错误: ${e.message}`);
-});</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Sending data to the server">Sending data to the server</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:html&#39;;
-
-String encodeMap(Map data) {
-  return data.keys.map((k) {
-    return &#39;${Uri.encodeComponent(k)}=&#39; +
-           &#39;${Uri.encodeComponent(data[k])}&#39;;
-  }).join(&#39;&amp;&#39;);
-}
-
-loadEnd(HttpRequest request) {
-  if (request.status != 200) {
-    print(&#39;Uh oh, error: ${request.status}&#39;);
-  } else {
-    print(&#39;Data has been posted&#39;);
-  }
-}
-
-main() async {
-  var dataUrl = &#39;/registrations/create&#39;;
-  var data = {&#39;dart&#39;: &#39;fun&#39;, &#39;editor&#39;: &#39;productive&#39;};
-  var encodedData = encodeMap(data);
-
-  var httpRequest = new HttpRequest();
-  httpRequest.open(&#39;POST&#39;, dataUrl);
-  httpRequest.setRequestHeader(
-      &#39;Content-type&#39;,
-      &#39;application/x-www-form-urlencoded&#39;);
-  httpRequest.send(encodedData);
-  await httpRequest.onLoadEnd.first;
-  loadEnd(httpRequest);
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">// http.request
-const http = require(&#39;http&#39;);
-
-const postData = querystring.stringify({
-  &#39;msg&#39;: &#39;你好世界&#39;
-});
-const options = {
-  hostname: &#39;nodejs.cn&#39;,
-  port: 80,
-  path: &#39;/upload&#39;,
-  method: &#39;POST&#39;,
-  headers: {
-    &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;,
-    &#39;Content-Length&#39;: Buffer.byteLength(postData)
-  }
-};
-const req = http.request(options, (res) =&gt; {
-  console.log(`状态码: ${res.statusCode}`);
-  console.log(`响应头: ${JSON.stringify(res.headers)}`);
-  res.setEncoding(&#39;utf8&#39;);
-  res.on(&#39;data&#39;, (chunk) =&gt; {
-    console.log(`响应主体: ${chunk}`);
-  });
-  res.on(&#39;end&#39;, () =&gt; {
-    console.log(&#39;响应中已无数据&#39;);
-  });
-});
-req.on(&#39;error&#39;, (e) =&gt; {
-  console.error(`请求遇到问题: ${e.message}`);
-});
-// 将数据写入请求主体。
-req.write(postData);
-req.end();</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Sending and receiving real-time data with WebSockets">
-        Sending and receiving real-time data with WebSockets
-      </h2>
-      <p>dart</p>
-      <p>
-        WebSocket 可以让你的 web 应用和服务器持续的交互数据，不用 一直的轮询。
-        创建 WebSocket 的服务器会监听 ws:// 开头的 URL， 例如
-        ws://127.0.0.1:1337/ws。 通过 WebSocket 发送的数据可以是字符串或者
-        blob。 通常都是使用 JSON 格式的字符串。
-      </p>
-      <pre><code class="language-dart">// 先创建 WebSocket 对象
-var ws = new WebSocket(&#39;ws://echo.websocket.org&#39;);
-
-// 使用 send() 函数向 WebSocket 发送数据：
-ws.send(&#39;Hello from Dart!&#39;);
-
-// 要从 WebSocket 接收数据，需要注册一个事件 监听器：
-ws.onMessage.listen((MessageEvent e) {
-  print(&#39;Received message: ${e.data}&#39;);
-});
-
-// 处理如下的 WebSocket 事件：open, close, error,
-void initWebSocket([int retrySeconds = 2]) {
-  var reconnectScheduled = false;
-
-  print(&quot;Connecting to websocket&quot;);
-  ws = new WebSocket(&#39;ws://echo.websocket.org&#39;);
-
-  void scheduleReconnect() {
-    if (!reconnectScheduled) {
-      new Timer(
-          new Duration(milliseconds: 1000 * retrySeconds),
-          () =&gt; initWebSocket(retrySeconds * 2));
-    }
-    reconnectScheduled = true;
-  }
-
-  ws.onOpen.listen((e) {
-    print(&#39;Connected&#39;);
-    ws.send(&#39;Hello from Dart!&#39;);
-  });
-
-  ws.onClose.listen((e) {
-    print(&#39;Websocket closed, retrying in &#39; +
-          &#39;$retrySeconds seconds&#39;);
-    scheduleReconnect();
-  });
-
-  ws.onError.listen((e) {
-    print(&quot;Error connecting to ws&quot;);
-    scheduleReconnect();
-  });
-
-  ws.onMessage.listen((MessageEvent e) {
-    print(&#39;Received message: ${e.data}&#39;);
-  });
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const http = require(&#39;http&#39;);
-
-// 创建 HTTP 服务器。
-const srv = http.createServer( (req, res) =&gt; {
-  res.writeHead(200, { &#39;Content-Type&#39;: &#39;text/plain&#39; });
-  res.end(&#39;响应内容&#39;);
-});
-srv.on(&#39;upgrade&#39;, (req, socket, head) =&gt; {
-  socket.write(&#39;HTTP/1.1 101 Web Socket Protocol Handshake\r\n&#39; +
-               &#39;Upgrade: WebSocket\r\n&#39; +
-               &#39;Connection: Upgrade\r\n&#39; +
-               &#39;\r\n&#39;);
-
-  socket.pipe(socket);
-});
-
-// 服务器正在运行。
-srv.listen(1337, &#39;127.0.0.1&#39;, () =&gt; {
-
-  // 发送请求。
-  const options = {
-    port: 1337,
-    host: &#39;127.0.0.1&#39;,
-    headers: {
-      &#39;Connection&#39;: &#39;Upgrade&#39;,
-      &#39;Upgrade&#39;: &#39;websocket&#39;
-    }
-  };
-
-  const req = http.request(options);
-  req.end();
-
-  req.on(&#39;upgrade&#39;, (res, socket, upgradeHead) =&gt; {
-    console.log(&#39;接收到响应&#39;);
-    socket.end();
-    process.exit(0);
-  });
-});</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="HTTP server">HTTP server</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-
-main() async {
-  dartHandler(HttpRequest request) {
-    request.response.headers.contentType =
-        new ContentType(&#39;text&#39;, &#39;plain&#39;);
-    request.response.write(&#39;Dart is optionally typed&#39;);
-    request.response.close();
-  }
-
-  var requests = await HttpServer.bind(&#39;127.0.0.1&#39;, 8888);
-  await for (var request in requests) {
-    print(&#39;Got request for ${request.uri.path}&#39;);
-    if (request.uri.path == &#39;/languages/dart&#39;) {
-      dartHandler(request);
-    } else {
-      request.response.write(&#39;Not found&#39;);
-      request.response.close();
-    }
-  }
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const http = require(&#39;http&#39;);
-
-const server = http.createServer((req, res) =&gt; {
-  res.end();
-});
-server.on(&#39;clientError&#39;, (err, socket) =&gt; {
-  socket.end(&#39;HTTP/1.1 400 Bad Request\r\n\r\n&#39;);
-});
-server.listen(8000);</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="HTTP client">HTTP client</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-import &#39;dart:convert&#39;;
-
-main() async {
-  var url = Uri.parse(
-      &#39;http://127.0.0.1:8888/languages/dart&#39;);
-  var httpClient = new HttpClient();
-  var request = await httpClient.getUrl(url);
-  print(&#39;have request&#39;);
-  var response = await request.close();
-  print(&#39;have response&#39;);
-  var data = await response.transform(UTF8.decoder).toList();
-  var body = data.join(&#39;&#39;);
-  print(body);
-  httpClient.close();
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Reading a file as text 读取整个文本">
-        Reading a file as text 读取整个文本
-      </h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-
-main() async {
-  var config = new File(&#39;config.txt&#39;);
-  var contents;
-
-  // Put the whole file in a single string.
-  contents = await config.readAsString();
-  print(&#39;The entire file is ${contents.length} characters long.&#39;);
-
-  // Put each line of the file into its own string.
-  contents = await config.readAsLines();
-  print(&#39;The entire file is ${contents.length} lines long.&#39;);
-}
-
-// 异常处理
-import &#39;dart:io&#39;;
-
-main() async {
-  var config = new File(&#39;config.txt&#39;);
-  try {
-    var contents = await config.readAsString();
-    print(contents);
-  } catch (e) {
-    print(e);
-  }
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const fs = require(&#39;fs&#39;);
-fs.readFile(&#39;/etc/passwd&#39;, (err, data) =&gt; {
-  if (err) throw err;
-  console.log(data);
-});
-
-fs.open(&#39;myfile&#39;, &#39;r&#39;, (err, fd) =&gt; {
-  if (err) {
-    if (err.code === &#39;ENOENT&#39;) {
-      console.error(&#39;myfile 不存在&#39;);
-      return;
-    }
-    throw err;
-  }
-  readMyData(fd);
-});</code></pre>
-      <p>python</p>
-      <pre><code class="language-python">f = open(&#39;workfile&#39;, &#39;w&#39;)
-
-# 最好使用 with 关键字。 优点是当子句体结束后文件会正确关闭
-with open(&#39;workfile&#39;) as f:
-    read_data = f.read()</code></pre>
-      <h2 id="Reading a file as binary 把文件数据读取为字节流">
-        Reading a file as binary 把文件数据读取为字节流
-      </h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-
-main() async {
-  var config = new File(&#39;config.txt&#39;);
-
-  var contents = await config.readAsBytes();
-  print(&#39;The entire file is ${contents.length} bytes long&#39;);
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const fs = require(&#39;fs&#39;);
-// 从某个字符设备创建一个流。
-const stream = fs.createReadStream(&#39;/dev/input/event0&#39;);
-setTimeout(() =&gt; {
-  stream.close(); // 这可能不会关闭流。
-  // 人工标记流末尾，就好像底层资源本身已指示文件结尾一样，允许流关闭。
-  // 这不会取消挂起的读取操作，如果存在此类操作，则该过程可能仍无法成功退出，直到完成为止。
-  stream.push(null);
-  stream.read(0);
-}, 100);</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Streaming file contents 一点点的/逐行读取">
-        Streaming file contents 一点点的/逐行读取
-      </h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-import &#39;dart:convert&#39;;
-import &#39;dart:async&#39;;
-
-main() async {
-  var config = new File(&#39;config.txt&#39;);
-  Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
-
-  var lines = inputStream
-      .transform(UTF8.decoder)
-      .transform(new LineSplitter());
-  try {
-    await for (var line in lines) {
-      print(&#39;Got ${line.length} characters from stream&#39;);
-    }
-    print(&#39;file is now closed&#39;);
-  } catch (e) {
-    print(e);
-  }
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const readline = require(&#39;readline&#39;);
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
-
-rl.question(&#39;你如何看待 Node.js 中文网？&#39;, (answer) =&gt; {
-  // TODO：将答案记录在数据库中。
-  console.log(`感谢您的宝贵意见：${answer}`);
-
-  rl.close();
-});
-
-
-// 微型 CLI
-// 使用 readline.Interface 类来实现一个小型命令行界面
-const readline = require(&#39;readline&#39;);
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  prompt: &#39;请输入&gt; &#39;
-});
-
-rl.prompt();
-
-rl.on(&#39;line&#39;, (line) =&gt; {
-  switch (line.trim()) {
-    case &#39;hello&#39;:
-      console.log(&#39;world!&#39;);
-      break;
-    default:
-      console.log(`你输入的是：&#39;${line.trim()}&#39;`);
-      break;
-  }
-  rl.prompt();
-}).on(&#39;close&#39;, () =&gt; {
-  console.log(&#39;再见!&#39;);
-  process.exit(0);
-});
-
-
-// 逐行读取文件流
-const readline = require(&#39;readline&#39;);
-const fs = require(&#39;fs&#39;);
-
-const rl = readline.createInterface({
-  input: fs.createReadStream(&#39;sample.txt&#39;),
-  crlfDelay: Infinity
-});
-
-rl.on(&#39;line&#39;, (line) =&gt; {
-  console.log(`文件的每行内容：${line}`);
-});</code></pre>
-      <p>python</p>
-      <pre><code class="language-python"># 要从文件中读取行，你可以循环遍历文件对象。这是内存高效，快速的，并简化代码:
-for line in f:
-    print(line, end=&#39;&#39;)</code></pre>
-      <h2 id="Writing file contents 写入内容">
-        Writing file contents 写入内容
-      </h2>
-      <p>dart</p>
-      <pre><code class="language-dart">// 默认的写模式为 FileMode.WRITE，新写入的数据会完全覆盖 文件之前的内容。
-var logFile = new File(&#39;log.txt&#39;);
-var sink = logFile.openWrite();
-sink.write(&#39;FILE ACCESSED ${new DateTime.now()}\n&#39;);
-sink.close();
-
-// 如果想在文件末尾追加内容，则可以使用 mode 可选参数，参数取值 为 FileMode.APPEND：
-var sink = logFile.openWrite(mode: FileMode.APPEND);</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js">const data = new Uint8Array(Buffer.from(&#39;Node.js中文网&#39;));
-fs.writeFile(&#39;文件.txt&#39;, data, (err) =&gt; {
-  if (err) throw err;
-  console.log(&#39;文件已被保存&#39;);
-});
-
-fs.writeFile(&#39;文件.txt&#39;, &#39;Node.js中文网&#39;, &#39;utf8&#39;, callback);
-
-fs.open(&#39;message.txt&#39;, &#39;a&#39;, (err, fd) =&gt; {
-  if (err) throw err;
-  fs.appendFile(fd, &#39;追加的数据&#39;, &#39;utf8&#39;, (err) =&gt; {
-    fs.close(fd, (err) =&gt; {
-      if (err) throw err;
-    });
-    if (err) throw err;
-  });
-});
-
-fs.open(&#39;myfile&#39;, &#39;wx&#39;, (err, fd) =&gt; {
-  if (err) {
-    if (err.code === &#39;EEXIST&#39;) {
-      console.error(&#39;myfile 已存在&#39;);
-      return;
-    }
-
-    throw err;
-  }
-  writeMyData(fd);
-});</code></pre>
-      <p>python</p>
-      <pre><code class="language-python">f.write(&#39;This is a test\n&#39;)</code></pre>
-      <h2 id="Listing files in a directory 查找目录中的所有文件和子目录">
-        Listing files in a directory 查找目录中的所有文件和子目录
-      </h2>
-      <p>dart</p>
-      <pre><code class="language-dart">import &#39;dart:io&#39;;
-
-main() async {
-  var dir = new Directory(&#39;/tmp&#39;);
-
-  try {
-    var dirList = dir.list();
-    await for (FileSystemEntity f in dirList) {
-      if (f is File) {
-        print(&#39;Found file ${f.path}&#39;);
-      } else if (f is Directory) {
-        print(&#39;Found dir ${f.path}&#39;);
-      }
-    }
-  } catch (e) {
-    print(e.toString());
-  }
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <pre><code class="language-js"></code></pre>
-      <p>python</p>
-      <pre><code class="language-python"></code></pre>
-      <h2 id="Decoding and encoding JSON">Decoding and encoding JSON</h2>
-      <p>dart</p>
-      <pre><code class="language-dart">// 使用 JSON.decode() 函数把 JSON 字符串解码为 Dart 对象：
-import &#39;dart:convert&#39; show JSON;
-
-main() {
-  // NOTE: Be sure to use double quotes (&quot;),
-  // not single quotes (&#39;), inside the JSON string.
-  // This string is JSON, not Dart.
-  var jsonString = &#39;&#39;&#39;
-  [
-    {&quot;score&quot;: 40},
-    {&quot;score&quot;: 80}
-  ]
-  &#39;&#39;&#39;;
-
-  var scores = JSON.decode(jsonString);
-  assert(scores is List);
-
-  var firstScore = scores[0];
-  assert(firstScore is Map);
-  assert(firstScore[&#39;score&#39;] == 40);
-}
-
-// 使用 JSON.encode() 可以把 Dart 对象 编码为 JSON 字符串：
-import &#39;dart:convert&#39; show JSON;
-
-main() {
-  var scores = [
-    {&#39;score&#39;: 40},
-    {&#39;score&#39;: 80},
-    {&#39;score&#39;: 100, &#39;overtime&#39;: true, &#39;special_guest&#39;: null}
-  ];
-
-  var jsonText = JSON.encode(scores);
-  assert(jsonText == &#39;[{&quot;score&quot;:40},{&quot;score&quot;:80},&#39;
-                     &#39;{&quot;score&quot;:100,&quot;overtime&quot;:true,&#39;
-                     &#39;&quot;special_guest&quot;:null}]&#39;);
-}</code></pre>
-      <p>go</p>
-      <pre><code class="language-go"></code></pre>
-      <p>js</p>
-      <p>JSON.stringify(value[, replacer [, space]])</p>
-      <ul>
-        <li>value 将要序列化成 一个JSON 字符串的值。</li>
-        <li>
-          replacer 可选
-          如果该参数是一个函数，则在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理；
-          如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的
-          JSON 字符串中；
-          如果该参数为null或者未提供，则对象所有的属性都会被序列化；
-          关于该参数更详细的解释和示例，请参考使用原生的 JSON 对象一文。
-        </li>
-        <li>
-          space 可选 指定缩进用的空白字符串，用于美化输出（pretty-print）；
-          如果参数是个数字，它代表有多少的空格；
-          上限为10。该值若小于1，则意味着没有空格；
-          如果该参数为字符串(字符串的前十个字母)，该字符串将被作为空格；
-          如果该参数没有提供（或者为null）将没有空格。
-        </li>
-      </ul>
-      <pre><code class="language-js">var json = &#39;{&quot;result&quot;:true, &quot;count&quot;:42}&#39;;
-obj = JSON.parse(json);
-
-JSON.stringify({});                        // &#39;{}&#39;
-JSON.stringify(true);                      // &#39;true&#39;
-JSON.stringify(&quot;foo&quot;);                     // &#39;&quot;foo&quot;&#39;
-JSON.stringify([1, &quot;false&quot;, false]);       // &#39;[1,&quot;false&quot;,false]&#39;
-JSON.stringify({ x: 5 });                  // &#39;{&quot;x&quot;:5}&#39;
-
-JSON.stringify({x: 5, y: 6});
-// &quot;{&quot;x&quot;:5,&quot;y&quot;:6}&quot;
-
-JSON.stringify([new Number(1), new String(&quot;false&quot;), new Boolean(false)]); 
-// &#39;[1,&quot;false&quot;,false]&#39;
-
-JSON.stringify({x: undefined, y: Object, z: Symbol(&quot;&quot;)}); 
-// &#39;{}&#39;
-
-JSON.stringify([undefined, Object, Symbol(&quot;&quot;)]);
-// &#39;[null,null,null]&#39; 
-
-JSON.stringify({[Symbol(&quot;foo&quot;)]: &quot;foo&quot;});
-// &#39;{}&#39;
-
-JSON.stringify({[Symbol.for(&quot;foo&quot;)]: &quot;foo&quot;}, [Symbol.for(&quot;foo&quot;)]);
-// &#39;{}&#39;
-
-JSON.stringify(
-    {[Symbol.for(&quot;foo&quot;)]: &quot;foo&quot;}, 
-    function (k, v) {
-        if (typeof k === &quot;symbol&quot;){
-            return &quot;a symbol&quot;;
-        }
-    }
-);
-// undefined
-
-// 不可枚举的属性默认会被忽略：
-JSON.stringify( 
-    Object.create(
-        null,
-        {
-            x: { value: &#39;x&#39;, enumerable: false }, 
-            y: { value: &#39;y&#39;, enumerable: true } 
-        }
-    )
-);
-// &quot;{&quot;y&quot;:&quot;y&quot;}&quot;</code></pre>
-      <p>python</p>
-      <pre><code class="language-python">import json
-json.dumps([1, &#39;simple&#39;, &#39;list&#39;])
-# dumps() 函数的另一个变体叫做 dump() ，它只是将对象序列化为 text file 
-json.dump(x, f)
-# 要再次解码对象，如果 f 是一个打开的以供阅读的 text file 对象:
-x = json.load(f)</code></pre>
-      <pre><code class="language-sh"># 对基本的 Python 对象层次结构进行编码：
-&gt;&gt;&gt; import json
-&gt;&gt;&gt; json.dumps([&#39;foo&#39;, {&#39;bar&#39;: (&#39;baz&#39;, None, 1.0, 2)}])
-&#39;[&quot;foo&quot;, {&quot;bar&quot;: [&quot;baz&quot;, null, 1.0, 2]}]&#39;
-&gt;&gt;&gt; print(json.dumps(&quot;\&quot;foo\bar&quot;))
-&quot;\&quot;foo\bar&quot;
-&gt;&gt;&gt; print(json.dumps(&#39;\u1234&#39;))
-&quot;\u1234&quot;
-&gt;&gt;&gt; print(json.dumps(&#39;\\&#39;))
-&quot;\\&quot;
-&gt;&gt;&gt; print(json.dumps({&quot;c&quot;: 0, &quot;b&quot;: 0, &quot;a&quot;: 0}, sort_keys=True))
-{&quot;a&quot;: 0, &quot;b&quot;: 0, &quot;c&quot;: 0}
-&gt;&gt;&gt; from io import StringIO
-&gt;&gt;&gt; io = StringIO()
-&gt;&gt;&gt; json.dump([&#39;streaming API&#39;], io)
-&gt;&gt;&gt; io.getvalue()
-&#39;[&quot;streaming API&quot;]&#39;
-
-# 紧凑编码:
-&gt;&gt;&gt; import json
-&gt;&gt;&gt; json.dumps([1, 2, 3, {&#39;4&#39;: 5, &#39;6&#39;: 7}], separators=(&#39;,&#39;, &#39;:&#39;))
-&#39;[1,2,3,{&quot;4&quot;:5,&quot;6&quot;:7}]&#39;
-
-# 美化输出:
-&gt;&gt;&gt; import json
-&gt;&gt;&gt; print(json.dumps({&#39;4&#39;: 5, &#39;6&#39;: 7}, sort_keys=True, indent=4))
-{
-    &quot;4&quot;: 5,
-    &quot;6&quot;: 7
-}
-
-# JSON解码:
-&gt;&gt;&gt; import json
-&gt;&gt;&gt; json.loads(&#39;[&quot;foo&quot;, {&quot;bar&quot;:[&quot;baz&quot;, null, 1.0, 2]}]&#39;)
-[&#39;foo&#39;, {&#39;bar&#39;: [&#39;baz&#39;, None, 1.0, 2]}]
-&gt;&gt;&gt; json.loads(&#39;&quot;\\&quot;foo\\bar&quot;&#39;)
-&#39;&quot;foo\x08ar&#39;
-&gt;&gt;&gt; from io import StringIO
-&gt;&gt;&gt; io = StringIO(&#39;[&quot;streaming API&quot;]&#39;)
-&gt;&gt;&gt; json.load(io)
-[&#39;streaming API&#39;]</code></pre>
-      <h2 id="Decoding and encoding UTF-8 characters">
-        Decoding and encoding UTF-8 characters
-      </h2>
+      <h2 id="UTF-8">UTF-8</h2>
+      <p>Decoding and encoding UTF-8 characters</p>
       <p>dart</p>
       <pre><code class="language-dart">// 使用 UTF8.decode() 来解码 UTF8-encoded 字节流为 Dart 字符串：
 import &#39;dart:convert&#39; show UTF8;
@@ -1572,37 +512,164 @@ let buff = new Buffer(data, &#39;base64&#39;);
 fs.writeFileSync(&#39;stack-abuse-logo-out.png&#39;, buff);</code></pre>
       <p>python</p>
       <pre><code class="language-sh"></code></pre>
-      <h2 id="操作系统接口">操作系统接口</h2>
+      <h2 id="JSON">JSON</h2>
+      <p>Decoding and encoding JSON</p>
       <p>dart</p>
-      <pre><code class="language-dart"></code></pre>
+      <pre><code class="language-dart">// 使用 JSON.decode() 函数把 JSON 字符串解码为 Dart 对象：
+import &#39;dart:convert&#39; show JSON;
+
+main() {
+  // NOTE: Be sure to use double quotes (&quot;),
+  // not single quotes (&#39;), inside the JSON string.
+  // This string is JSON, not Dart.
+  var jsonString = &#39;&#39;&#39;
+  [
+    {&quot;score&quot;: 40},
+    {&quot;score&quot;: 80}
+  ]
+  &#39;&#39;&#39;;
+
+  var scores = JSON.decode(jsonString);
+  assert(scores is List);
+
+  var firstScore = scores[0];
+  assert(firstScore is Map);
+  assert(firstScore[&#39;score&#39;] == 40);
+}
+
+// 使用 JSON.encode() 可以把 Dart 对象 编码为 JSON 字符串：
+import &#39;dart:convert&#39; show JSON;
+
+main() {
+  var scores = [
+    {&#39;score&#39;: 40},
+    {&#39;score&#39;: 80},
+    {&#39;score&#39;: 100, &#39;overtime&#39;: true, &#39;special_guest&#39;: null}
+  ];
+
+  var jsonText = JSON.encode(scores);
+  assert(jsonText == &#39;[{&quot;score&quot;:40},{&quot;score&quot;:80},&#39;
+                     &#39;{&quot;score&quot;:100,&quot;overtime&quot;:true,&#39;
+                     &#39;&quot;special_guest&quot;:null}]&#39;);
+}</code></pre>
       <p>go</p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
-      <pre><code class="language-js">const os = require(&#39;os&#39;);</code></pre>
+      <p>JSON.stringify(value[, replacer [, space]])</p>
+      <ul>
+        <li>value 将要序列化成 一个JSON 字符串的值。</li>
+        <li>
+          replacer 可选
+          如果该参数是一个函数，则在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理；
+          如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的
+          JSON 字符串中；
+          如果该参数为null或者未提供，则对象所有的属性都会被序列化；
+          关于该参数更详细的解释和示例，请参考使用原生的 JSON 对象一文。
+        </li>
+        <li>
+          space 可选 指定缩进用的空白字符串，用于美化输出（pretty-print）；
+          如果参数是个数字，它代表有多少的空格；
+          上限为10。该值若小于1，则意味着没有空格；
+          如果该参数为字符串(字符串的前十个字母)，该字符串将被作为空格；
+          如果该参数没有提供（或者为null）将没有空格。
+        </li>
+      </ul>
+      <pre><code class="language-js">var json = &#39;{&quot;result&quot;:true, &quot;count&quot;:42}&#39;;
+obj = JSON.parse(json);
+
+JSON.stringify({});                        // &#39;{}&#39;
+JSON.stringify(true);                      // &#39;true&#39;
+JSON.stringify(&quot;foo&quot;);                     // &#39;&quot;foo&quot;&#39;
+JSON.stringify([1, &quot;false&quot;, false]);       // &#39;[1,&quot;false&quot;,false]&#39;
+JSON.stringify({ x: 5 });                  // &#39;{&quot;x&quot;:5}&#39;
+
+JSON.stringify({x: 5, y: 6});
+// &quot;{&quot;x&quot;:5,&quot;y&quot;:6}&quot;
+
+JSON.stringify([new Number(1), new String(&quot;false&quot;), new Boolean(false)]); 
+// &#39;[1,&quot;false&quot;,false]&#39;
+
+JSON.stringify({x: undefined, y: Object, z: Symbol(&quot;&quot;)}); 
+// &#39;{}&#39;
+
+JSON.stringify([undefined, Object, Symbol(&quot;&quot;)]);
+// &#39;[null,null,null]&#39; 
+
+JSON.stringify({[Symbol(&quot;foo&quot;)]: &quot;foo&quot;});
+// &#39;{}&#39;
+
+JSON.stringify({[Symbol.for(&quot;foo&quot;)]: &quot;foo&quot;}, [Symbol.for(&quot;foo&quot;)]);
+// &#39;{}&#39;
+
+JSON.stringify(
+    {[Symbol.for(&quot;foo&quot;)]: &quot;foo&quot;}, 
+    function (k, v) {
+        if (typeof k === &quot;symbol&quot;){
+            return &quot;a symbol&quot;;
+        }
+    }
+);
+// undefined
+
+// 不可枚举的属性默认会被忽略：
+JSON.stringify( 
+    Object.create(
+        null,
+        {
+            x: { value: &#39;x&#39;, enumerable: false }, 
+            y: { value: &#39;y&#39;, enumerable: true } 
+        }
+    )
+);
+// &quot;{&quot;y&quot;:&quot;y&quot;}&quot;</code></pre>
       <p>python</p>
-      <pre><code class="language-sh">&gt;&gt;&gt; import os
-&gt;&gt;&gt; os.getcwd()      # Return the current working directory
-&#39;C:\\Python37&#39;
-&gt;&gt;&gt; os.chdir(&#39;/server/accesslogs&#39;)   # Change current working directory
-&gt;&gt;&gt; os.system(&#39;mkdir today&#39;)   # Run the command mkdir in the system shell
-0
+      <pre><code class="language-python">import json
+json.dumps([1, &#39;simple&#39;, &#39;list&#39;])
+# dumps() 函数的另一个变体叫做 dump() ，它只是将对象序列化为 text file 
+json.dump(x, f)
+# 要再次解码对象，如果 f 是一个打开的以供阅读的 text file 对象:
+x = json.load(f)</code></pre>
+      <pre><code class="language-sh"># 对基本的 Python 对象层次结构进行编码：
+&gt;&gt;&gt; import json
+&gt;&gt;&gt; json.dumps([&#39;foo&#39;, {&#39;bar&#39;: (&#39;baz&#39;, None, 1.0, 2)}])
+&#39;[&quot;foo&quot;, {&quot;bar&quot;: [&quot;baz&quot;, null, 1.0, 2]}]&#39;
+&gt;&gt;&gt; print(json.dumps(&quot;\&quot;foo\bar&quot;))
+&quot;\&quot;foo\bar&quot;
+&gt;&gt;&gt; print(json.dumps(&#39;\u1234&#39;))
+&quot;\u1234&quot;
+&gt;&gt;&gt; print(json.dumps(&#39;\\&#39;))
+&quot;\\&quot;
+&gt;&gt;&gt; print(json.dumps({&quot;c&quot;: 0, &quot;b&quot;: 0, &quot;a&quot;: 0}, sort_keys=True))
+{&quot;a&quot;: 0, &quot;b&quot;: 0, &quot;c&quot;: 0}
+&gt;&gt;&gt; from io import StringIO
+&gt;&gt;&gt; io = StringIO()
+&gt;&gt;&gt; json.dump([&#39;streaming API&#39;], io)
+&gt;&gt;&gt; io.getvalue()
+&#39;[&quot;streaming API&quot;]&#39;
 
-&gt;&gt;&gt; import os
-&gt;&gt;&gt; dir(os)
-&lt;returns a list of all module functions&gt;
-&gt;&gt;&gt; help(os)
-&lt;returns an extensive manual page created from the module&#39;s docstrings&gt;
+# 紧凑编码:
+&gt;&gt;&gt; import json
+&gt;&gt;&gt; json.dumps([1, 2, 3, {&#39;4&#39;: 5, &#39;6&#39;: 7}], separators=(&#39;,&#39;, &#39;:&#39;))
+&#39;[1,2,3,{&quot;4&quot;:5,&quot;6&quot;:7}]&#39;
 
-&gt;&gt;&gt; import shutil
-&gt;&gt;&gt; shutil.copyfile(&#39;data.db&#39;, &#39;archive.db&#39;)
-&#39;archive.db&#39;
-&gt;&gt;&gt; shutil.move(&#39;/build/executables&#39;, &#39;installdir&#39;)
-&#39;installdir&#39;
+# 美化输出:
+&gt;&gt;&gt; import json
+&gt;&gt;&gt; print(json.dumps({&#39;4&#39;: 5, &#39;6&#39;: 7}, sort_keys=True, indent=4))
+{
+    &quot;4&quot;: 5,
+    &quot;6&quot;: 7
+}
 
-# 以下输出来自在命令行运行 python demo.py one two three
-&gt;&gt;&gt; import sys
-&gt;&gt;&gt; print(sys.argv)
-[&#39;demo.py&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;]</code></pre>
+# JSON解码:
+&gt;&gt;&gt; import json
+&gt;&gt;&gt; json.loads(&#39;[&quot;foo&quot;, {&quot;bar&quot;:[&quot;baz&quot;, null, 1.0, 2]}]&#39;)
+[&#39;foo&#39;, {&#39;bar&#39;: [&#39;baz&#39;, None, 1.0, 2]}]
+&gt;&gt;&gt; json.loads(&#39;&quot;\\&quot;foo\\bar&quot;&#39;)
+&#39;&quot;foo\x08ar&#39;
+&gt;&gt;&gt; from io import StringIO
+&gt;&gt;&gt; io = StringIO(&#39;[&quot;streaming API&quot;]&#39;)
+&gt;&gt;&gt; json.load(io)
+[&#39;streaming API&#39;]</code></pre>
       <h2 id="模板">模板</h2>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
@@ -1626,6 +693,963 @@ logging.info(&#39;Informational message&#39;)
 logging.warning(&#39;Warning:config file %s not found&#39;, &#39;server.conf&#39;)
 logging.error(&#39;Error occurred&#39;)
 logging.critical(&#39;Critical error -- shutting down&#39;)</code></pre>
+      <h2 id="URIs">URIs</h2>
+      <h3 id="解析URIs">解析URIs</h3>
+      <p>Parsing URIs</p>
+      <pre><code class="language-sh">┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                                              href                                              │
+├──────────┬──┬─────────────────────┬────────────────────────┬───────────────────────────┬───────┤
+│ protocol │  │        auth         │          host          │           path            │ hash  │
+│          │  │                     ├─────────────────┬──────┼──────────┬────────────────┤       │
+│          │  │                     │    hostname     │ port │ pathname │     search     │       │
+│          │  │                     │                 │      │          ├─┬──────────────┤       │
+│          │  │                     │                 │      │          │ │    query     │       │
+&quot;  https:   //    user   :   pass   @ sub.example.com : 8080   /p/a/t/h  ?  query=string   #hash &quot;
+│          │  │          │          │    hostname     │ port │          │                │       │
+│          │  │          │          ├─────────────────┴──────┤          │                │       │
+│ protocol │  │ username │ password │          host          │          │                │       │
+├──────────┴──┼──────────┴──────────┼────────────────────────┤          │                │       │
+│   origin    │                     │         origin         │ pathname │     search     │ hash  │
+├─────────────┴─────────────────────┴────────────────────────┴──────────┴────────────────┴───────┤
+│                                              href                                              │
+└────────────────────────────────────────────────────────────────────────────────────────────────┘</code></pre>
+      <p>dart</p>
+      <p>
+        如果有个 Uri 对象或者 URI 字符串，使用 Uri 的属性 可以获取每个部分，比如
+        path。 使用 parse() 静态 函数可以从字符串中解析一个 Uri 对象：
+      </p>
+      <pre><code class="language-dart">var uri = Uri.parse(&#39;http://example.org:8080/foo/bar#frag&#39;);
+
+assert(uri.scheme   == &#39;http&#39;);
+assert(uri.host     == &#39;example.org&#39;);
+assert(uri.path     == &#39;/foo/bar&#39;);
+assert(uri.fragment == &#39;frag&#39;);
+assert(uri.origin   == &#39;http://example.org:8080&#39;);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>new URL(input[, base])</p>
+      <pre><code class="language-js">// 使用 WHATWG 的 API 解析 URL 字符串：
+const myURL = new URL(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
+
+// 使用遗留的 API 解析 URL 字符串：
+const url = require(&#39;url&#39;);
+const myURL = url.parse(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
+
+// 可以将 true 作为第二个参数传递给 require(&#39;url&#39;).parse
+require(&#39;url&#39;).parse(&#39;/status?name=ryan&#39;, true)
+
+const { URL } = require(&#39;url&#39;);
+const myURL = new URL(&#39;/foo&#39;, &#39;https://example.org/&#39;); // https://example.org/foo
+
+
+// URLSearchParams
+const { URL, URLSearchParams } = require(&#39;url&#39;);
+
+const myURL = new URL(&#39;https://example.org/?abc=123&#39;);
+console.log(myURL.searchParams.get(&#39;abc&#39;));
+// 输出 123
+
+myURL.searchParams.append(&#39;abc&#39;, &#39;xyz&#39;);
+console.log(myURL.href);
+// 输出 https://example.org/?abc=123&amp;abc=xyz
+
+myURL.searchParams.delete(&#39;abc&#39;);
+myURL.searchParams.set(&#39;a&#39;, &#39;b&#39;);
+console.log(myURL.href);
+// 输出 https://example.org/?a=b
+
+
+const { URLSearchParams } = require(&#39;url&#39;);
+const params = new URLSearchParams({
+  user: &#39;abc&#39;,
+  query: [&#39;first&#39;, &#39;second&#39;]
+});
+console.log(params.getAll(&#39;query&#39;));
+  // 输出 [ &#39;first,second&#39; ]
+console.log(params.toString());
+  // 输出 &#39;user=abc&amp;query=first%2Csecond&#39;</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="构建URIs">构建URIs</h3>
+      <p>Building URIs</p>
+      <p>dart</p>
+      <p>使用 Uri() 构造函数可以从 URI 的 各个部分来构造一个 Uri 对象：</p>
+      <pre><code class="language-dart">var uri = new Uri(scheme: &#39;http&#39;, host: &#39;example.org&#39;,
+                  path: &#39;/foo/bar&#39;, fragment: &#39;frag&#39;);
+assert(uri.toString() ==
+    &#39;http://example.org/foo/bar#frag&#39;);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// 使用 WHATWG 的 API 解析 URL 字符串：
+const myURL = new URL(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
+
+// 使用遗留的 API 解析 URL 字符串：
+const url = require(&#39;url&#39;);
+const myURL = url.parse(&#39;https://user:pass@sub.host.com:8080/p/a/t/h?query=string#hash&#39;);
+
+const { URL } = require(&#39;url&#39;);
+const myURL = new URL(&#39;/foo&#39;, &#39;https://example.org/&#39;); // https://example.org/foo</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="编码解码URI">编码解码URI</h3>
+      <p>Encoding and decoding fully qualified URIs（编码解码URI）</p>
+      <p>dart</p>
+      <p>
+        要编码和解码除了 URI 中特殊意义（例如 /, :, &amp;, #）的字符，
+        则可以使用 encodeFull() 和 decodeFull() 函数。
+        这两个函数可以用来编码和解码整个 URI，并且保留 URI 特殊意义的字符不变。
+      </p>
+      <pre><code class="language-dart">var uri = &#39;http://example.org/api?foo=some message&#39;;
+
+var encoded = Uri.encodeFull(uri);
+assert(encoded == &#39;http://example.org/api?foo=some%20message&#39;);
+// 注意上面 some 和 message 之间的空格被编码了。
+
+var decoded = Uri.decodeFull(encoded);
+assert(uri == decoded);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>
+        <code>encodeURI()</code>
+        函数通过将特定字符的每个实例替换为一个、两个、三或四转义序列
+        来对统一资源标识符 (URI) 进行编码 (该字符的 UTF-8
+        编码仅为四转义序列)由两个 &quot;代理&quot; 字符组成)。
+      </p>
+      <p>encodeURI 会替换所有的字符，但不包括以下字符</p>
+      <ul>
+        <li>保留字符 ; , / ? : @ &amp; = + $</li>
+        <li>非转义的字符 字母 数字 - _ . ! ~ * &#39; ( )</li>
+        <li>数字符号 #</li>
+      </ul>
+      <p>
+        <code>decodeURI()</code> 函数解码一个由encodeURI
+        先前创建的统一资源标识符（URI）或类似的例程。
+      </p>
+      <pre><code class="language-js">var uri = &#39;http://example.org/api?foo=some message&#39;;
+encodeURI(uri) // &#39;http://example.org/api?foo=some%20message&#39;
+decodeURI(encodeURI(uri)) // &#39;http://example.org/api?foo=some message&#39;</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="编码解码URI组件">编码解码URI组件</h3>
+      <p>Encoding and decoding URI components（编码解码URI组件）</p>
+      <p>dart</p>
+      <p>
+        使用 encodeComponent() 和 decodeComponent() 可以编码 和解码 URI
+        中的所有字符， 特殊意义的字符（/, &amp;, 和 : 等） 也会编码，
+      </p>
+      <pre><code class="language-dart">var uri = &#39;http://example.org/api?foo=some message&#39;;
+
+var encoded = Uri.encodeComponent(uri);
+assert(encoded == &#39;http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message&#39;);
+// 注意上面特殊字符也被编码了，比如 / 编码为 %2F。
+
+var decoded = Uri.decodeComponent(encoded);
+assert(uri == decoded);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <p>
+        <code>encodeURIComponent()</code
+        >是对统一资源标识符（URI）的组成部分进行编码的方法。
+        它使用一到四个转义序列来表示字符串中的每个字符的UTF-8编码
+        （只有由两个Unicode代理区字符组成的字符才用四个转义字符编码）。
+      </p>
+      <p>
+        encodeURIComponent
+        转义除了字母、数字、(、)、.、!、~、*、&#39;、-和_之外的所有字符。
+      </p>
+      <p>
+        <code>decodeURIComponent()</code> 方法用于解码由 encodeURIComponent
+        方法或者其它类似方法编码的部分统一资源标识符（URI）。
+      </p>
+      <pre><code class="language-js">var uri = &#39;http://example.org/api?foo=some message&#39;;
+encodeURIComponent(uri) // &#39;http%3A%2F%2Fexample.org%2Fapi%3Ffoo%3Dsome%20message&#39;
+decodeURIComponent(encodeURIComponent(uri)) // &#39;http://example.org/api?foo=some message&#39;</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="IO">IO</h2>
+      <h3 id="读取整个文本">读取整个文本</h3>
+      <p>Reading a file as text 读取整个文本</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+
+main() async {
+  var config = new File(&#39;config.txt&#39;);
+  var contents;
+
+  // Put the whole file in a single string.
+  contents = await config.readAsString();
+  print(&#39;The entire file is ${contents.length} characters long.&#39;);
+
+  // Put each line of the file into its own string.
+  contents = await config.readAsLines();
+  print(&#39;The entire file is ${contents.length} lines long.&#39;);
+}
+
+// 异常处理
+import &#39;dart:io&#39;;
+
+main() async {
+  var config = new File(&#39;config.txt&#39;);
+  try {
+    var contents = await config.readAsString();
+    print(contents);
+  } catch (e) {
+    print(e);
+  }
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const fs = require(&#39;fs&#39;);
+fs.readFile(&#39;/etc/passwd&#39;, (err, data) =&gt; {
+  if (err) throw err;
+  console.log(data);
+});
+
+fs.open(&#39;myfile&#39;, &#39;r&#39;, (err, fd) =&gt; {
+  if (err) {
+    if (err.code === &#39;ENOENT&#39;) {
+      console.error(&#39;myfile 不存在&#39;);
+      return;
+    }
+    throw err;
+  }
+  readMyData(fd);
+});</code></pre>
+      <p>python</p>
+      <pre><code class="language-python">f = open(&#39;workfile&#39;, &#39;w&#39;)
+
+# 最好使用 with 关键字。 优点是当子句体结束后文件会正确关闭
+with open(&#39;workfile&#39;) as f:
+    read_data = f.read()</code></pre>
+      <h3 id="把文件数据读取为字节流">把文件数据读取为字节流</h3>
+      <p>Reading a file as binary 把文件数据读取为字节流</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+
+main() async {
+  var config = new File(&#39;config.txt&#39;);
+
+  var contents = await config.readAsBytes();
+  print(&#39;The entire file is ${contents.length} bytes long&#39;);
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const fs = require(&#39;fs&#39;);
+// 从某个字符设备创建一个流。
+const stream = fs.createReadStream(&#39;/dev/input/event0&#39;);
+setTimeout(() =&gt; {
+  stream.close(); // 这可能不会关闭流。
+  // 人工标记流末尾，就好像底层资源本身已指示文件结尾一样，允许流关闭。
+  // 这不会取消挂起的读取操作，如果存在此类操作，则该过程可能仍无法成功退出，直到完成为止。
+  stream.push(null);
+  stream.read(0);
+}, 100);</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="逐行读取文件">逐行读取文件</h3>
+      <p>Streaming file contents 一点点的/逐行读取</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+import &#39;dart:convert&#39;;
+import &#39;dart:async&#39;;
+
+main() async {
+  var config = new File(&#39;config.txt&#39;);
+  Stream&lt;List&lt;int&gt;&gt; inputStream = config.openRead();
+
+  var lines = inputStream
+      .transform(UTF8.decoder)
+      .transform(new LineSplitter());
+  try {
+    await for (var line in lines) {
+      print(&#39;Got ${line.length} characters from stream&#39;);
+    }
+    print(&#39;file is now closed&#39;);
+  } catch (e) {
+    print(e);
+  }
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const readline = require(&#39;readline&#39;);
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+rl.question(&#39;你如何看待 Node.js 中文网？&#39;, (answer) =&gt; {
+  // TODO：将答案记录在数据库中。
+  console.log(`感谢您的宝贵意见：${answer}`);
+
+  rl.close();
+});
+
+
+// 微型 CLI
+// 使用 readline.Interface 类来实现一个小型命令行界面
+const readline = require(&#39;readline&#39;);
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+  prompt: &#39;请输入&gt; &#39;
+});
+
+rl.prompt();
+
+rl.on(&#39;line&#39;, (line) =&gt; {
+  switch (line.trim()) {
+    case &#39;hello&#39;:
+      console.log(&#39;world!&#39;);
+      break;
+    default:
+      console.log(`你输入的是：&#39;${line.trim()}&#39;`);
+      break;
+  }
+  rl.prompt();
+}).on(&#39;close&#39;, () =&gt; {
+  console.log(&#39;再见!&#39;);
+  process.exit(0);
+});
+
+
+// 逐行读取文件流
+const readline = require(&#39;readline&#39;);
+const fs = require(&#39;fs&#39;);
+
+const rl = readline.createInterface({
+  input: fs.createReadStream(&#39;sample.txt&#39;),
+  crlfDelay: Infinity
+});
+
+rl.on(&#39;line&#39;, (line) =&gt; {
+  console.log(`文件的每行内容：${line}`);
+});</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"># 要从文件中读取行，你可以循环遍历文件对象。这是内存高效，快速的，并简化代码:
+for line in f:
+    print(line, end=&#39;&#39;)</code></pre>
+      <h3 id="写入文件">写入文件</h3>
+      <p>Writing file contents 写入内容</p>
+      <p>dart</p>
+      <pre><code class="language-dart">// 默认的写模式为 FileMode.WRITE，新写入的数据会完全覆盖 文件之前的内容。
+var logFile = new File(&#39;log.txt&#39;);
+var sink = logFile.openWrite();
+sink.write(&#39;FILE ACCESSED ${new DateTime.now()}\n&#39;);
+sink.close();
+
+// 如果想在文件末尾追加内容，则可以使用 mode 可选参数，参数取值 为 FileMode.APPEND：
+var sink = logFile.openWrite(mode: FileMode.APPEND);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const data = new Uint8Array(Buffer.from(&#39;Node.js中文网&#39;));
+fs.writeFile(&#39;文件.txt&#39;, data, (err) =&gt; {
+  if (err) throw err;
+  console.log(&#39;文件已被保存&#39;);
+});
+
+fs.writeFile(&#39;文件.txt&#39;, &#39;Node.js中文网&#39;, &#39;utf8&#39;, callback);
+
+fs.open(&#39;message.txt&#39;, &#39;a&#39;, (err, fd) =&gt; {
+  if (err) throw err;
+  fs.appendFile(fd, &#39;追加的数据&#39;, &#39;utf8&#39;, (err) =&gt; {
+    fs.close(fd, (err) =&gt; {
+      if (err) throw err;
+    });
+    if (err) throw err;
+  });
+});
+
+fs.open(&#39;myfile&#39;, &#39;wx&#39;, (err, fd) =&gt; {
+  if (err) {
+    if (err.code === &#39;EEXIST&#39;) {
+      console.error(&#39;myfile 已存在&#39;);
+      return;
+    }
+
+    throw err;
+  }
+  writeMyData(fd);
+});</code></pre>
+      <p>python</p>
+      <pre><code class="language-python">f.write(&#39;This is a test\n&#39;)</code></pre>
+      <h3 id="查找目录中的所有文件和子目录">查找目录中的所有文件和子目录</h3>
+      <p>Listing files in a directory 查找目录中的所有文件和子目录</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+
+main() async {
+  var dir = new Directory(&#39;/tmp&#39;);
+
+  try {
+    var dirList = dir.list();
+    await for (FileSystemEntity f in dirList) {
+      if (f is File) {
+        print(&#39;Found file ${f.path}&#39;);
+      } else if (f is Directory) {
+        print(&#39;Found dir ${f.path}&#39;);
+      }
+    }
+  } catch (e) {
+    print(e.toString());
+  }
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="HTTP">HTTP</h2>
+      <h3 id="向服务器获取数据">向服务器获取数据</h3>
+      <p>Getting data from the server</p>
+      <p>dart</p>
+      <p>HttpRequest 的静态函数 getString() 可以很方便的从服务器获取资源。</p>
+      <pre><code class="language-dart">import &#39;dart:html&#39;;
+import &#39;dart:async&#39;;
+
+// A JSON-formatted file next to this page.
+var uri = &#39;data.json&#39;;
+
+main() async {
+  // Read a JSON file.
+  var data = await HttpRequest.getString(uri);
+  processString(data);
+}
+
+processString(String jsonText) {
+  parseText(jsonText);
+}
+
+// 使用 try-catch 来指定异常处理代码：
+try {
+  data = await HttpRequest.getString(jsonUri);
+  processString(data);
+} catch (e) {
+  handleError(e);
+}
+// ...
+handleError(error) {
+  print(&#39;Uh oh, there was an error.&#39;);
+  print(error.toString());
+}
+
+// 如果除了返回的文本数据以外你还需要 访问 HttpRequest，你可以使用 request() 静态函数。
+// 下面 是一个读取 XML 数据的示例：
+import &#39;dart:html&#39;;
+import &#39;dart:async&#39;;
+
+// An XML-formatted file next to this page.
+var xmlUri = &#39;data.xml&#39;;
+
+main() async {
+  // Read an XML file.
+  try {
+    var data = await HttpRequest.request(xmlUri);
+    processRequest(data);
+  } catch (e) {
+    handleError(e);
+  }
+}
+
+processRequest(HttpRequest request) {
+  var xmlDoc = request.responseXml;
+  try {
+    var license = xmlDoc.querySelector(&#39;license&#39;).text;
+    print(&#39;License: $license&#39;);
+  } catch (e) {
+    print(&quot;$xmlUri doesn&#39;t have correct XML formatting.&quot;);
+  }
+}
+
+// 下面是使用 HttpRequest full API 的常用流程：
+// 1.创建 HttpRequest 对象。
+// 2.使用 GET 或者 POST 打开一个 URL。
+// 3.添加事件处理器。
+// 4.发送请求。
+import &#39;dart:html&#39;;
+// ...
+var request = new HttpRequest()
+    ..open(&#39;POST&#39;, dataUrl)
+    ..onLoadEnd.listen((_) =&gt; requestComplete(request))
+    ..send(encodedData);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// 浏览器
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+  // 通信成功时，状态值为4
+  if (xhr.readyState === 4){
+    if (xhr.status === 200){
+      console.log(xhr.responseText);
+    } else {
+      console.error(xhr.statusText);
+    }
+  }
+};
+xhr.onerror = function (e) {
+  console.error(xhr.statusText);
+};
+xhr.open(&#39;GET&#39;, &#39;/endpoint&#39;, true);
+xhr.send(null);
+
+// node
+const http = require(&#39;http&#39;);
+http.get({
+  hostname: &#39;localhost&#39;,
+  port: 80,
+  path: &#39;/&#39;,
+  agent: false  // 仅为此一个请求创建一个新代理。
+}, (res) =&gt; {
+  // 用响应做些事情。
+});
+
+const http = require(&#39;http&#39;);
+const keepAliveAgent = new http.Agent({ keepAlive: true });
+options.agent = keepAliveAgent;
+http.request(options, onResponseCallback);
+
+// http.get
+const http = require(&#39;http&#39;);
+http.get(&#39;http://nodejs.cn/index.json&#39;, (res) =&gt; {
+  const { statusCode } = res;
+  const contentType = res.headers[&#39;content-type&#39;];
+
+  let error;
+  if (statusCode !== 200) {
+    error = new Error(&#39;请求失败\n&#39; +
+                      `状态码: ${statusCode}`);
+  } else if (!/^application\/json/.test(contentType)) {
+    error = new Error(&#39;无效的 content-type.\n&#39; +
+                      `期望的是 application/json 但接收到的是 ${contentType}`);
+  }
+  if (error) {
+    console.error(error.message);
+    // 消费响应数据来释放内存。
+    res.resume();
+    return;
+  }
+
+  res.setEncoding(&#39;utf8&#39;);
+  let rawData = &#39;&#39;;
+  res.on(&#39;data&#39;, (chunk) =&gt; { rawData += chunk; });
+  res.on(&#39;end&#39;, () =&gt; {
+    try {
+      const parsedData = JSON.parse(rawData);
+      console.log(parsedData);
+    } catch (e) {
+      console.error(e.message);
+    }
+  });
+}).on(&#39;error&#39;, (e) =&gt; {
+  console.error(`出现错误: ${e.message}`);
+});</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="向服务器发送数据">向服务器发送数据</h3>
+      <p>Sending data to the server</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:html&#39;;
+
+String encodeMap(Map data) {
+  return data.keys.map((k) {
+    return &#39;${Uri.encodeComponent(k)}=&#39; +
+           &#39;${Uri.encodeComponent(data[k])}&#39;;
+  }).join(&#39;&amp;&#39;);
+}
+
+loadEnd(HttpRequest request) {
+  if (request.status != 200) {
+    print(&#39;Uh oh, error: ${request.status}&#39;);
+  } else {
+    print(&#39;Data has been posted&#39;);
+  }
+}
+
+main() async {
+  var dataUrl = &#39;/registrations/create&#39;;
+  var data = {&#39;dart&#39;: &#39;fun&#39;, &#39;editor&#39;: &#39;productive&#39;};
+  var encodedData = encodeMap(data);
+
+  var httpRequest = new HttpRequest();
+  httpRequest.open(&#39;POST&#39;, dataUrl);
+  httpRequest.setRequestHeader(
+      &#39;Content-type&#39;,
+      &#39;application/x-www-form-urlencoded&#39;);
+  httpRequest.send(encodedData);
+  await httpRequest.onLoadEnd.first;
+  loadEnd(httpRequest);
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">// http.request
+const http = require(&#39;http&#39;);
+
+const postData = querystring.stringify({
+  &#39;msg&#39;: &#39;你好世界&#39;
+});
+const options = {
+  hostname: &#39;nodejs.cn&#39;,
+  port: 80,
+  path: &#39;/upload&#39;,
+  method: &#39;POST&#39;,
+  headers: {
+    &#39;Content-Type&#39;: &#39;application/x-www-form-urlencoded&#39;,
+    &#39;Content-Length&#39;: Buffer.byteLength(postData)
+  }
+};
+const req = http.request(options, (res) =&gt; {
+  console.log(`状态码: ${res.statusCode}`);
+  console.log(`响应头: ${JSON.stringify(res.headers)}`);
+  res.setEncoding(&#39;utf8&#39;);
+  res.on(&#39;data&#39;, (chunk) =&gt; {
+    console.log(`响应主体: ${chunk}`);
+  });
+  res.on(&#39;end&#39;, () =&gt; {
+    console.log(&#39;响应中已无数据&#39;);
+  });
+});
+req.on(&#39;error&#39;, (e) =&gt; {
+  console.error(`请求遇到问题: ${e.message}`);
+});
+// 将数据写入请求主体。
+req.write(postData);
+req.end();</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="WebSockets">WebSockets</h3>
+      <p>Sending and receiving real-time data with WebSockets</p>
+      <p>dart</p>
+      <p>
+        WebSocket 可以让你的 web 应用和服务器持续的交互数据，不用 一直的轮询。
+        创建 WebSocket 的服务器会监听 ws:// 开头的 URL， 例如
+        ws://127.0.0.1:1337/ws。 通过 WebSocket 发送的数据可以是字符串或者
+        blob。 通常都是使用 JSON 格式的字符串。
+      </p>
+      <pre><code class="language-dart">// 先创建 WebSocket 对象
+var ws = new WebSocket(&#39;ws://echo.websocket.org&#39;);
+
+// 使用 send() 函数向 WebSocket 发送数据：
+ws.send(&#39;Hello from Dart!&#39;);
+
+// 要从 WebSocket 接收数据，需要注册一个事件 监听器：
+ws.onMessage.listen((MessageEvent e) {
+  print(&#39;Received message: ${e.data}&#39;);
+});
+
+// 处理如下的 WebSocket 事件：open, close, error,
+void initWebSocket([int retrySeconds = 2]) {
+  var reconnectScheduled = false;
+
+  print(&quot;Connecting to websocket&quot;);
+  ws = new WebSocket(&#39;ws://echo.websocket.org&#39;);
+
+  void scheduleReconnect() {
+    if (!reconnectScheduled) {
+      new Timer(
+          new Duration(milliseconds: 1000 * retrySeconds),
+          () =&gt; initWebSocket(retrySeconds * 2));
+    }
+    reconnectScheduled = true;
+  }
+
+  ws.onOpen.listen((e) {
+    print(&#39;Connected&#39;);
+    ws.send(&#39;Hello from Dart!&#39;);
+  });
+
+  ws.onClose.listen((e) {
+    print(&#39;Websocket closed, retrying in &#39; +
+          &#39;$retrySeconds seconds&#39;);
+    scheduleReconnect();
+  });
+
+  ws.onError.listen((e) {
+    print(&quot;Error connecting to ws&quot;);
+    scheduleReconnect();
+  });
+
+  ws.onMessage.listen((MessageEvent e) {
+    print(&#39;Received message: ${e.data}&#39;);
+  });
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const http = require(&#39;http&#39;);
+
+// 创建 HTTP 服务器。
+const srv = http.createServer( (req, res) =&gt; {
+  res.writeHead(200, { &#39;Content-Type&#39;: &#39;text/plain&#39; });
+  res.end(&#39;响应内容&#39;);
+});
+srv.on(&#39;upgrade&#39;, (req, socket, head) =&gt; {
+  socket.write(&#39;HTTP/1.1 101 Web Socket Protocol Handshake\r\n&#39; +
+               &#39;Upgrade: WebSocket\r\n&#39; +
+               &#39;Connection: Upgrade\r\n&#39; +
+               &#39;\r\n&#39;);
+
+  socket.pipe(socket);
+});
+
+// 服务器正在运行。
+srv.listen(1337, &#39;127.0.0.1&#39;, () =&gt; {
+
+  // 发送请求。
+  const options = {
+    port: 1337,
+    host: &#39;127.0.0.1&#39;,
+    headers: {
+      &#39;Connection&#39;: &#39;Upgrade&#39;,
+      &#39;Upgrade&#39;: &#39;websocket&#39;
+    }
+  };
+
+  const req = http.request(options);
+  req.end();
+
+  req.on(&#39;upgrade&#39;, (res, socket, upgradeHead) =&gt; {
+    console.log(&#39;接收到响应&#39;);
+    socket.end();
+    process.exit(0);
+  });
+});</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="HTTP服务">HTTP服务</h3>
+      <p>HTTP server</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+
+main() async {
+  dartHandler(HttpRequest request) {
+    request.response.headers.contentType =
+        new ContentType(&#39;text&#39;, &#39;plain&#39;);
+    request.response.write(&#39;Dart is optionally typed&#39;);
+    request.response.close();
+  }
+
+  var requests = await HttpServer.bind(&#39;127.0.0.1&#39;, 8888);
+  await for (var request in requests) {
+    print(&#39;Got request for ${request.uri.path}&#39;);
+    if (request.uri.path == &#39;/languages/dart&#39;) {
+      dartHandler(request);
+    } else {
+      request.response.write(&#39;Not found&#39;);
+      request.response.close();
+    }
+  }
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js">const http = require(&#39;http&#39;);
+
+const server = http.createServer((req, res) =&gt; {
+  res.end();
+});
+server.on(&#39;clientError&#39;, (err, socket) =&gt; {
+  socket.end(&#39;HTTP/1.1 400 Bad Request\r\n\r\n&#39;);
+});
+server.listen(8000);</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="HTTP客户端">HTTP客户端</h3>
+      <p>HTTP client</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:io&#39;;
+import &#39;dart:convert&#39;;
+
+main() async {
+  var url = Uri.parse(
+      &#39;http://127.0.0.1:8888/languages/dart&#39;);
+  var httpClient = new HttpClient();
+  var request = await httpClient.getUrl(url);
+  print(&#39;have request&#39;);
+  var response = await request.close();
+  print(&#39;have response&#39;);
+  var data = await response.transform(UTF8.decoder).toList();
+  var body = data.join(&#39;&#39;);
+  print(body);
+  httpClient.close();
+}</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="DOM">DOM</h2>
+      <h3 id="查找元素">查找元素</h3>
+      <p>Finding elements</p>
+      <p>dart</p>
+      <pre><code class="language-dart">import &#39;dart:html&#39;;
+
+// Find an element by id (an-id).
+Element elem1 = querySelector(&#39;#an-id&#39;);
+
+// Find an element by class (a-class).
+Element elem2 = querySelector(&#39;.a-class&#39;);
+
+// Find all elements by tag (&lt;div&gt;).
+List&lt;Element&gt; elems1 = querySelectorAll(&#39;div&#39;);
+
+// Find all text inputs.
+  List&lt;Element&gt; elems2 =
+      querySelectorAll(&#39;input[type=&quot;text&quot;]&#39;);
+
+// Find all elements with the CSS class &#39;class&#39;
+// inside of a &lt;p&gt; that is inside an element with
+// the ID &#39;id&#39;.
+List&lt;Element&gt; elems3 = querySelectorAll(&#39;#id p.class&#39;);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="操作元素">操作元素</h3>
+      <p>Manipulating elements</p>
+      <p>dart</p>
+      <pre><code class="language-html">&lt;!-- In HTML: --&gt;
+&lt;a id=&quot;example&quot; href=&quot;http://example.com&quot;&gt;link text&lt;/a&gt;
+&lt;p&gt;
+  &lt;span class=&quot;linux&quot;&gt;Words for Linux&lt;/span&gt;
+  &lt;span class=&quot;macos&quot;&gt;Words for Mac&lt;/span&gt;
+  &lt;span class=&quot;windows&quot;&gt;Words for Windows&lt;/span&gt;
+&lt;/p&gt;</code></pre>
+      <pre><code class="language-dart">// In Dart:
+querySelector(&#39;#example&#39;).href = &#39;http://dartlang.org&#39;;
+
+final osList = [&#39;macos&#39;, &#39;windows&#39;, &#39;linux&#39;];
+
+// In real code you&#39;d programmatically determine userOs.
+var userOs = &#39;linux&#39;;
+
+for (var os in osList) { // For each possible OS...
+  bool shouldShow = (os == userOs); // Matches user OS?
+
+  // Find all elements with class=os. For example, if
+  // os == &#39;windows&#39;, call querySelectorAll(&#39;.windows&#39;)
+  // to find all elements with the class &quot;windows&quot;.
+  // Note that &#39;.$os&#39; uses string interpolation.
+  for (var elem in querySelectorAll(&#39;.$os&#39;)) {
+    elem.hidden = !shouldShow; // Show or hide.
+  }
+}
+
+elem.attributes[&#39;someAttribute&#39;] = &#39;someValue&#39;;</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="创建元素">创建元素</h3>
+      <p>Creating elements</p>
+      <p>dart</p>
+      <pre><code class="language-dart">var elem = new ParagraphElement();
+elem.text = &#39;Creating is easy!&#39;;
+var elem2 = new Element.html(&#39;&lt;p&gt;Creating &lt;em&gt;is&lt;/em&gt; easy!&lt;/p&gt;&#39;);
+document.body.children.add(elem2);</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="操作节点">操作节点</h3>
+      <p>Adding, replacing, and removing nodes</p>
+      <p>dart</p>
+      <p>
+        element 也是 node 的一种。 使用 Node 的 nodes 属性可以 获取到当前 node
+        的所有子元素， nodes 返回的是 <code>List&lt;Node&gt;</code> ( children
+        属性只包含 Element 类型的 nodes)。
+      </p>
+      <pre><code class="language-dart">// 使用 List 的add() 函数可以把一个 node 添加到所有子元素的 最后：
+// Find the parent by ID, and add elem as its last child.
+querySelector(&#39;#inputs&#39;).nodes.add(elem);
+
+// 使用 Node 的 replaceWith() 函数可以替换一个 Node：
+// Find a node by ID, and replace it in the DOM.
+querySelector(&#39;#status&#39;).replaceWith(elem);
+
+// 使用 Node 的 remove() 函数来删除 node：
+// Find a node by ID, and remove it from the DOM.
+querySelector(&#39;#expendable&#39;).remove();</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="操作样式">操作样式</h3>
+      <p>Manipulating CSS styles</p>
+      <p>dart</p>
+      <pre><code class="language-dart">// 下面的示例中给 element 添加了 warning CSS 类样式。
+var element = querySelector(&#39;#message&#39;);
+element.classes.add(&#39;warning&#39;);
+
+// 通过 id 属性你可以动态给一个 Element 指定 一个 ID 值。
+var message = new DivElement();
+message.id = &#39;message2&#39;;
+message.text = &#39;Please subscribe to the Dart mailing list.&#39;;
+
+// 使用级联调用可以减少 需要编写的代码：
+var message = new DivElement()
+    ..id = &#39;message2&#39;
+    ..text = &#39;Please subscribe to the Dart mailing list.&#39;;
+
+// 直接使用 style 属性
+message.style
+    ..fontWeight = &#39;bold&#39;
+    ..fontSize = &#39;3em&#39;;</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="事件处理">事件处理</h3>
+      <p>Handling events</p>
+      <p>dart</p>
+      <p>一些常见的事件：</p>
+      <ul>
+        <li>change</li>
+        <li>blur</li>
+        <li>keyDown</li>
+        <li>keyUp</li>
+        <li>mouseDown</li>
+        <li>mouseUp</li>
+      </ul>
+      <pre><code class="language-dart">// 处理按钮点击的事件：
+// Find a button by ID and add an event handler.
+querySelector(&#39;#submitInfo&#39;).onClick.listen((e) {
+  // When the button is clicked, it runs this code.
+  submitData();
+});
+
+//  通过 e.target 可以获取是哪个 element 触发该事件的：
+document.body.onClick.listen((e) {
+  var clickedElem = e.target;
+  print(&#39;You clicked the ${clickedElem.id} element.&#39;);
+});</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
     </div>
     <script src="./highlight/highlight.pack.js"></script>
     <script>
