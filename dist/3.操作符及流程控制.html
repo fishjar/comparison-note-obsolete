@@ -510,7 +510,17 @@ for (var x in collection) {
         和 C、Java、JavaScript 之类的语言不同， Go 的 for
         语句后面的三个构成部分外没有小括号， 大括号 { } 则是必须的。
       </p>
-      <pre><code class="language-go">package main
+      <pre><code class="language-go">// 如同C的for循环
+for init; condition; post { }
+
+// 如同C的while循环
+for condition { }
+
+// 如同C的for(;;)循环
+for { }
+
+
+package main
 import &quot;fmt&quot;
 func main() {
   sum := 1
@@ -580,7 +590,23 @@ func main() {
 // 1.414213562373095
 // 1.4142135623730951
 // 1.414213562373095
-// 1.4142135623730951</code></pre>
+// 1.4142135623730951
+
+
+// range 子句能够帮你轻松实现循环
+for key, value := range oldMap {
+  newMap[key] = value
+}
+
+// 解析UTF-8， 将每个独立的Unicode码点分离出来
+for pos, char := range &quot;日本\x80語&quot; { // \x80 是个非法的UTF-8编码
+  fmt.Printf(&quot;字符 %#U 始于字节位置 %d\n&quot;, char, pos)
+}
+
+// 反转 a
+for i, j := 0, len(a)-1; i &lt; j; i, j = i+1, j-1 {
+  a[i], a[j] = a[j], a[i]
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -941,6 +967,27 @@ func main() {
     default:
       fmt.Println(&quot;Good evening.&quot;)
   }
+}
+
+func unhex(c byte) byte {
+  switch {
+  case &#39;0&#39; &lt;= c &amp;&amp; c &lt;= &#39;9&#39;:
+    return c - &#39;0&#39;
+  case &#39;a&#39; &lt;= c &amp;&amp; c &lt;= &#39;f&#39;:
+    return c - &#39;a&#39; + 10
+  case &#39;A&#39; &lt;= c &amp;&amp; c &lt;= &#39;F&#39;:
+    return c - &#39;A&#39; + 10
+  }
+  return 0
+}
+
+// switch 并不会自动下溯，但 case 可通过逗号分隔来列举相同的处理条件。
+func shouldEscape(c byte) bool {
+  switch c {
+  case &#39; &#39;, &#39;?&#39;, &#39;&amp;&#39;, &#39;=&#39;, &#39;#&#39;, &#39;+&#39;, &#39;%&#39;:
+    return true
+  }
+  return false
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
@@ -990,7 +1037,31 @@ func main() {
 // 3
 // 2
 // 1
-// 0</code></pre>
+// 0
+
+
+// Contents 将文件的内容作为字符串返回。
+func Contents(filename string) (string, error) {
+  f, err := os.Open(filename)
+  if err != nil {
+    return &quot;&quot;, err
+  }
+  defer f.Close()  // f.Close 会在我们结束后运行。
+
+  var result []byte
+  buf := make([]byte, 100)
+  for {
+    n, err := f.Read(buf[0:])
+    result = append(result, buf[0:n]...) // append 将在后面讨论。
+    if err != nil {
+      if err == io.EOF {
+        break
+      }
+      return &quot;&quot;, err  // 我们在这里返回后，f 就会被关闭。
+    }
+  }
+  return string(result), nil // 我们在这里返回后，f 就会被关闭。
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>

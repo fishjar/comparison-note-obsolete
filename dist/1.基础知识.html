@@ -183,7 +183,33 @@ $ sudo apt-get update
 
 $ sudo apt-get install dart</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-sh"># 下载此压缩包并提取到 /usr/local 目录，在 /usr/local/go 中创建Go目录树。
+# 该压缩包的名称可能不同，这取决于你安装的Go版本和你的操作系统以及处理器架构。
+tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+
+# 要将 /usr/local/go/bin 添加到 PATH 环境变量，
+# 你需要将此行添加到你的 /etc/profile（全系统安装）或 $HOME/.profile 文件中：
+export PATH=$PATH:/usr/local/go/bin
+
+# 安装到指定位置
+# GOROOT 仅在安装到指定位置时才需要设置。
+export GOROOT=$HOME/go
+export PATH=$PATH:$GOROOT/bin
+
+# 测试你的安装
+# package main
+# import &quot;fmt&quot;
+# func main() {
+#     fmt.Printf(&quot;hello, world\n&quot;)
+# }
+go run hello.go
+
+# GOPATH 环境变量
+# GOPATH 环境变量指定了你的工作空间位置。
+# 注意，它绝对不能和你的Go安装目录相同。
+mkdir $HOME/work
+export GOPATH=$HOME/work
+export PATH=$PATH:$GOPATH/bin</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -987,9 +1013,37 @@ import &#39;package:flutter/material.dart&#39; show StatefulWidget, StatelessWid
       </p>
       <p>言外之意，</p>
       <ul>
-        <li>大写字母开头的变量会导出给其他包使用，</li>
-        <li>小写字母开头的变量为包内私有，不会导出</li>
+        <li><p>大写字母开头的变量会导出给其他包使用，</p></li>
+        <li><p>小写字母开头的变量为包内私有，不会导出</p></li>
+        <li>
+          <p>Go源文件中的第一个语句必须是 <code>package 名称</code></p>
+        </li>
+        <li>
+          <p>
+            这里的 名称 即为导入该包时使用的默认名称。
+            （一个包中的所有文件都必须使用相同的 名称。）
+          </p>
+        </li>
+        <li>
+          <p>
+            Go的约定是包名为导入路径的最后一个元素：作为 “crypto/rot13”
+            导入的包应命名为 rot13。
+          </p>
+        </li>
+        <li>
+          <p>可执行命令必须使用 <code>package main</code>。</p>
+        </li>
+        <li>
+          <p>
+            链接成单个二进制文件的所有包，其包名无需是唯一的，只有导入路径（它们的完整文件名）
+            才是唯一的。
+          </p>
+        </li>
       </ul>
+      <p>
+        在 <code>src/pkg/encoding/base64</code> 中的包应作为
+        <code>encoding/base64</code> 导入，
+      </p>
       <pre><code class="language-go">import (
   &quot;fmt&quot;
   &quot;math&quot;
@@ -1002,6 +1056,28 @@ import &quot;math&quot;
 func main() {
   fmt.Println(math.Pi)
 }</code></pre>
+      <pre><code class="language-sh"># 若你在包的导入路径中包含了代码仓库的URL，go get 就会自动地获取、 构建并安装它：
+$ go get github.com/golang/example/hello
+$ $GOPATH/bin/hello
+Hello, Go examples!
+
+# 在执行完上面的go get 命令后，工作空间的目录树看起来应该是这样的：
+bin/
+    hello                           # command executable
+src/
+    github.com/golang/example/
+        .git/                       # Git repository metadata
+        hello/
+            hello.go                # command source
+        stringutil/
+            reverse.go              # package source
+            reverse_test.go         # test source
+    github.com/user/
+        hello/
+            hello.go                # command source
+        stringutil/
+            reverse.go              # package source
+            reverse_test.go         # test source</code></pre>
       <p>js</p>
       <ul>
         <li>一个Node.js文件就是一个模块</li>
@@ -1165,6 +1241,125 @@ pip install -r requirements.txt</code></pre>
       </p>
 
       <p>go</p>
+      <p>Go代码必须放在工作空间内。它其实就是一个目录，其中包含三个子目录：</p>
+      <ul>
+        <li>
+          src 目录包含Go的源文件，它们被组织成包（每个目录都对应一个包），
+        </li>
+        <li>pkg 目录包含包对象，</li>
+        <li>bin 目录包含可执行命令。</li>
+      </ul>
+      <p>
+        go 工具用于构建源码包，并将其生成的二进制文件安装到 pkg 和 bin 目录中。
+        src 子目录通常包会含多种版本控制的代码仓库（例如Git或Mercurial），
+        以此来跟踪一个或多个源码包的开发。
+      </p>
+      <pre><code class="language-sh"># 此工作空间包含三个代码库（goauth2、streak 和 todo），
+# 两个命令（streak 和 todo） 以及两个库（oauth 和 task）。
+bin/
+  streak                         # 可执行命令
+  todo                           # 可执行命令
+pkg/
+  linux_amd64/
+    code.google.com/p/goauth2/
+      oauth.a                # 包对象
+    github.com/nf/todo/
+      task.a                 # 包对象
+src/
+  code.google.com/p/goauth2/
+    .hg/                       # mercurial 代码库元数据
+    oauth/
+      oauth.go               # 包源码
+      oauth_test.go          # 测试源码
+  github.com/nf/
+    streak/
+      .git/                      # git 代码库元数据
+      oauth.go               # 命令源码
+      streak.go              # 命令源码
+    todo/
+      .git/                      # git 代码库元数据
+      task/
+        task.go            # 包源码
+      todo.go                # 命令源码</code></pre>
+      <pre><code class="language-go">// hello.go
+package main
+import (
+  &quot;fmt&quot;
+  &quot;github.com/user/stringutil&quot;
+)
+func main() {
+  fmt.Printf(stringutil.Reverse(&quot;!oG ,olleH&quot;))
+}
+
+// reverse.go
+// stringutil 包含有用于处理字符串的工具函数。
+package stringutil
+// Reverse 将其实参字符串以符文为单位左右反转。
+func Reverse(s string) string {
+  r := []rune(s)
+  for i, j := 0, len(r)-1; i &lt; len(r)/2; i, j = i+1, j-1 {
+    r[i], r[j] = r[j], r[i]
+  }
+  return string(r)
+}</code></pre>
+      <pre><code class="language-sh"># 你的第一个程序
+bin/
+  hello                 # 可执行命令
+pkg/
+  linux_amd64/          # 这里会反映出你的操作系统和架构
+    github.com/user/
+      stringutil.a  # 包对象
+src/
+  github.com/user/
+    hello/
+      hello.go      # 命令源码
+    stringutil/
+      reverse.go       # 包源码
+
+
+# 创建目录
+mkdir $GOPATH/src/github.com/user/hello
+
+# 用 go build 命令来测试该包
+# 它会将包的对象放到工作空间的 pkg 目录中
+# 这不会产生输出文件。想要输出的话，必须使用 go install 命令
+go build github.com/user/stringutil
+# 若你在该包的源码目录中，只需执行
+go build
+
+# 用 go 工具构建并安装此程序
+# 此命令会构建 hello 命令，产生一个可执行的二进制文件。
+# 接着它会将该二进制文件作为 hello（在 Windows 下则为 hello.exe）安装到工作空间的 bin 目录中。
+# go 工具只有在发生错误时才会打印输出
+go install github.com/user/hello
+# 或者
+cd $GOPATH/src/github.com/user/hello
+go install
+
+# 现在，你可以在命令行下输入它的完整路径来运行它了：
+$GOPATH/bin/hello
+# 若你已经将 $GOPATH/bin 添加到 PATH 中了
+hello</code></pre>
+      <pre><code class="language-sh">bin/
+    hello                          # command executable
+    outyet                         # command executable
+src/
+    github.com/golang/example/
+        .git/                      # Git repository metadata
+  hello/
+      hello.go               # command source
+  outyet/
+      main.go                # command source
+      main_test.go           # test source
+  stringutil/
+      reverse.go             # package source
+      reverse_test.go        # test source
+    golang.org/x/image/
+        .git/                      # Git repository metadata
+  bmp/
+      reader.go              # package source
+      writer.go              # package source
+    ... (many more repositories and packages omitted) ...</code></pre>
       <p>js</p>
       <p>常见包结构</p>
       <pre><code class="language-sh">├── root
@@ -1221,9 +1416,17 @@ from sound.effects import *
         <li>lowerCamelCase</li>
         <li>lowercase_with_underscores</li>
       </ul>
+      <p>go</p>
+      <ul>
+        <li>
+          只包含一个方法的接口应当以该方法的名称加上-er后缀来命名， 如
+          Reader、Writer、 Formatter、CloseNotifier 等。
+        </li>
+      </ul>
       <h3 id="标识符">标识符</h3>
       <p>dart</p>
       <ul>
+        <li>包应当以小写的单个单词来命名，且不应使用下划线或驼峰记法。</li>
         <li>
           标识符可以以字母或者 _ 下划线开头，后面可以是 其他字符和数字的组合。
         </li>
@@ -1333,7 +1536,41 @@ class Llama {
   }
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>Go语言支持C风格的块注释 /* */ 和C++风格的行注释 //。</p>
+      <ul>
+        <li>每个包都应包含一段包注释，即放置在包子句前的一个块注释。</li>
+        <li>对于包含多个文件的包， 包注释只需出现在其中的任一文件中即可。</li>
+        <li>包注释应在整体上对该包进行介绍，并提供包的相关信息。</li>
+      </ul>
+      <pre><code class="language-go">/*
+  regexp 包为正则表达式实现了一个简单的库。
+
+  该库接受的正则表达式语法为：
+
+  正则表达式:
+    串联 { &#39;|&#39; 串联 }
+  串联:
+    { 闭包 }
+  闭包:
+    条目 [ &#39;*&#39; | &#39;+&#39; | &#39;?&#39; ]
+  条目:
+    &#39;^&#39;
+    &#39;$&#39;
+    &#39;.&#39;
+    字符
+    &#39;[&#39; [ &#39;^&#39; ] 字符遍历 &#39;]&#39;
+    &#39;(&#39; 正则表达式 &#39;)&#39;
+*/
+package regexp
+// path 包实现了一些常用的工具，以便于操作用反斜杠分隔的路径.
+
+// 表达式解析失败后返回错误代码。
+var (
+  ErrInternal      = errors.New(&quot;regexp: internal error&quot;)
+  ErrUnmatchedLpar = errors.New(&quot;regexp: unmatched &#39;(&#39;&quot;)
+  ErrUnmatchedRpar = errors.New(&quot;regexp: unmatched &#39;)&#39;&quot;)
+  // ...
+)</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -1353,7 +1590,35 @@ print(my_function.__doc__)
       <p>dart</p>
       <pre><code class="language-dart">print(&#39;The number is $aNumber.&#39;); // 在控制台打印内容。</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">fmt.Printf(&quot;Hello %d\n&quot;, 23)
+fmt.Fprint(os.Stdout, &quot;Hello &quot;, 23, &quot;\n&quot;)
+fmt.Println(&quot;Hello&quot;, 23)
+fmt.Println(fmt.Sprint(&quot;Hello &quot;, 23))
+
+var x uint64 = 1&lt;&lt;64 - 1
+fmt.Printf(&quot;%d %x; %d %x\n&quot;, x, x, int64(x), int64(x))
+
+// 若你只想要默认的转换，如使用十进制的整数，你可以使用通用的格式 %v（对应“值”）；
+// 其结果与 Print 和 Println 的输出完全相同。
+// 此外，这种格式还能打印任意值，甚至包括数组、结构体和映射。
+fmt.Printf(&quot;%v\n&quot;, timeZone)  // 或只用 fmt.Println(timeZone)
+
+// 改进的格式 %+v 会为结构体的每个字段添上字段名，
+// 而另一种格式 %#v 将完全按照Go的语法打印值。
+type T struct {
+  a int
+  b float64
+  c string
+}
+t := &amp;T{ 7, -2.35, &quot;abc\tdef&quot; }
+fmt.Printf(&quot;%v\n&quot;, t)
+fmt.Printf(&quot;%+v\n&quot;, t)
+fmt.Printf(&quot;%#v\n&quot;, t)
+fmt.Printf(&quot;%#v\n&quot;, timeZone)
+// &amp;{7 -2.35 abc   def}
+// &amp;{a:7 b:-2.35 c:abc     def}
+// &amp;main.T{a:7, b:-2.35, c:&quot;abc\tdef&quot;}
+// map[string] int{&quot;CST&quot;:-21600, &quot;PST&quot;:-28800, &quot;EST&quot;:-18000, &quot;UTC&quot;:0, &quot;MST&quot;:-25200}</code></pre>
       <p>js</p>
       <pre><code class="language-js">console.log(`The number is ${aNumber}.`)
 var number = 11 * 9;
@@ -1398,7 +1663,7 @@ try {
       <pre><code class="language-sh">pub global activate dart_style
 dartfmt test.dart</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-sh">gofmt</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -1496,6 +1761,8 @@ var varList = const [];</code></pre>
         <li>常量的声明与变量类似，只不过是使用 const 关键字。</li>
         <li>常量可以是字符、字符串、布尔值或数值。</li>
         <li>常量不能用 := 语法声明。</li>
+        <li>它们在编译时创建</li>
+        <li>定义它们的表达式必须也是可被编译器求值的常量表达式</li>
       </ul>
       <pre><code class="language-go">package main
 import &quot;fmt&quot;
