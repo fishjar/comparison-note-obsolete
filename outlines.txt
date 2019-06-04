@@ -90,7 +90,8 @@ language
 			级联操作符
 			条件成员访问
 		流程控制
-			IfElse
+			if
+			goto
 			For
 			range
 			While
@@ -183,6 +184,7 @@ language
 		异常
 		测试
 		goroutine
+		make与new
 	7.常用对象或方法
 		内置函数
 		操作系统接口

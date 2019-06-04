@@ -111,6 +111,7 @@
             <li><a href="#%E5%BC%82%E5%B8%B8">异常</a></li>
             <li><a href="#%E6%B5%8B%E8%AF%95">测试</a></li>
             <li><a href="#goroutine">goroutine</a></li>
+            <li><a href="#make%E4%B8%8Enew">make与new</a></li>
           </ul>
         </li>
       </ul>
@@ -1620,7 +1621,11 @@ class FooException implements Exception {
   String toString() =&gt; msg ?? &#39;FooException&#39;;
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>Go内置有一个error类型，专门用来处理错误信息</p>
+      <pre><code class="language-go">err := errors.New(&quot;emit macho dwarf: elf header corrupted&quot;)
+if err != nil {
+  fmt.Print(err)
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js">throw new Error(&#39;&#39;);
 
@@ -1757,6 +1762,29 @@ func main() {
   go say(&quot;world&quot;)
   say(&quot;hello&quot;)
 }</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="make与new">make与new</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>
+        <code>make</code>用于内建类型（map、slice
+        和channel）的内存分配。<code>new</code>用于各种类型的内存分配。
+      </p>
+      <p>
+        <code>new(T)</code
+        >分配了零值填充的T类型的内存空间，并且返回其地址，即一个<code>*T</code>类型的值。
+        用Go的术语说，它返回了一个指针，指向新分配的类型T的零值。
+      </p>
+      <p>
+        内建函数<code>make(T, args)</code
+        >与<code>new(T)</code>有着不同的功能，<code>make</code>只能创建<code>slice</code>、<code>map</code>和<code>channel</code>，
+        并且返回一个有初始值(非零)的<code>T</code>类型，而不是*T。
+      </p>
+      <pre><code class="language-go"></code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>

@@ -72,7 +72,8 @@
             <li>
               <a href="#%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6">流程控制</a>
               <ul>
-                <li><a href="#IfElse">IfElse</a></li>
+                <li><a href="#if">if</a></li>
+                <li><a href="#goto">goto</a></li>
                 <li><a href="#For">For</a></li>
                 <li><a href="#range">range</a></li>
                 <li><a href="#While">While</a></li>
@@ -386,7 +387,7 @@ button.onClick.listen((e) =&gt; window.alert(&#39;Confirmed!&#39;));</code></pre
       <p>python</p>
       <pre><code class="language-python"></code></pre>
       <h2 id="流程控制">流程控制</h2>
-      <h3 id="IfElse">IfElse</h3>
+      <h3 id="if">if</h3>
       <p>dart</p>
       <pre><code class="language-dart">if (isRaining()) {
   you.bringRainCoat();
@@ -457,6 +458,15 @@ func main() {
     pow(3, 2, 10),
     pow(3, 3, 20),
   )
+}
+
+// 多个条件的时候
+if integer == 3 {
+  fmt.Println(&quot;The integer is equal to 3&quot;)
+} else if integer &lt; 3 {
+  fmt.Println(&quot;The integer is less than 3&quot;)
+} else {
+  fmt.Println(&quot;The integer is greater than 3&quot;)
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
@@ -474,6 +484,22 @@ elif x == 1:
     print(&#39;Single&#39;)
 else:
     print(&#39;More&#39;)</code></pre>
+      <h3 id="goto">goto</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p>用goto跳转到必须在当前函数内定义的标签。</p>
+      <pre><code class="language-go">func myFunc() {
+    i := 0
+Here:   //这行的第一个词，以冒号结束作为标签
+    println(i)
+    i++
+    goto Here   //跳转到Here去
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h3 id="For">For</h3>
       <p>dart</p>
       <pre><code class="language-dart">var message = new StringBuffer(&quot;Dart is fun&quot;);
