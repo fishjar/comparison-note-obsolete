@@ -29,6 +29,11 @@
                     >检查两个引用是否指向同一个对象</a
                   >
                 </li>
+                <li>
+                  <a href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B"
+                    >自定义类型</a
+                  >
+                </li>
               </ul>
             </li>
             <li>
@@ -247,6 +252,11 @@
                   <ul>
                     <li><a href="#select%E8%AF%AD%E5%8F%A5">select语句</a></li>
                     <li><a href="#%E4%BA%92%E6%96%A5%E9%94%81">互斥锁</a></li>
+                    <li>
+                      <a href="#%E4%BF%A1%E9%81%93%E9%98%BB%E5%A1%9E"
+                        >信道阻塞</a
+                      >
+                    </li>
                   </ul>
                 </li>
               </ul>
@@ -510,6 +520,13 @@
             <td></td>
             <td></td>
           </tr>
+          <tr>
+            <td>error</td>
+            <td></td>
+            <td>error</td>
+            <td></td>
+            <td></td>
+          </tr>
         </tbody>
       </table>
       <p>go</p>
@@ -518,6 +535,17 @@
         位宽。 当你需要一个整数值时应使用 int
         类型，除非你有特殊的理由使用固定大小或无符号的整数类型。
       </p>
+      <pre><code class="language-go">package tempconv
+import &quot;fmt&quot;
+type Celsius float64    // 摄氏温度
+type Fahrenheit float64 // 华氏温度
+const (
+  AbsoluteZeroC Celsius = -273.15 // 绝对零度
+  FreezingC     Celsius = 0       // 结冰点温度
+  BoilingC      Celsius = 100     // 沸水温度
+)
+func CToF(c Celsius) Fahrenheit { return Fahrenheit(c*9/5 + 32) }
+func FToC(f Fahrenheit) Celsius { return Celsius((f - 32) * 5 / 9) }</code></pre>
       <h3 id="默认类型">默认类型</h3>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
@@ -558,7 +586,22 @@ getTypeName(dynamic obj) {
   return reflect(obj).type.reflectedType.toString();
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go">var t interface{}
+      <pre><code class="language-go">fmt.Println(reflect.TypeOf(x).String())
+
+// 可以通过%T参数打印类型信息
+const noDelay time.Duration = 0
+const timeout = 5 * time.Minute
+fmt.Printf(&quot;%T %[1]v\n&quot;, noDelay)     // &quot;time.Duration 0&quot;
+fmt.Printf(&quot;%T %[1]v\n&quot;, timeout)     // &quot;time.Duration 5m0s&quot;
+fmt.Printf(&quot;%T %[1]v\n&quot;, time.Minute) // &quot;time.Duration 1m0s&quot;
+
+fmt.Printf(&quot;%T\n&quot;, 0)      // &quot;int&quot;
+fmt.Printf(&quot;%T\n&quot;, 0.0)    // &quot;float64&quot;
+fmt.Printf(&quot;%T\n&quot;, 0i)     // &quot;complex128&quot;
+fmt.Printf(&quot;%T\n&quot;, &#39;\000&#39;) // &quot;int32&quot; (rune)
+
+
+var t interface{}
 t = functionOfSomeType()
 switch t := t.(type) {
   default:
@@ -571,6 +614,52 @@ switch t := t.(type) {
     fmt.Printf(&quot;pointer to boolean %t\n&quot;, *t) // t 是 *bool 类型
   case *int:
     fmt.Printf(&quot;pointer to integer %d\n&quot;, *t) // t 是 *int 类型
+}
+
+
+package main
+import (
+  &quot;fmt&quot;
+  &quot;strconv&quot;
+)
+type Element interface{}
+type List [] Element
+type Person struct {
+    name string
+    age int
+}
+//定义了String方法，实现了fmt.Stringer
+func (p Person) String() string {
+  return &quot;(name: &quot; + p.name + &quot; - age: &quot;+strconv.Itoa(p.age)+ &quot; years)&quot;
+}
+func main() {
+  list := make(List, 3)
+  list[0] = 1 // an int
+  list[1] = &quot;Hello&quot; // a string
+  list[2] = Person{&quot;Dennis&quot;, 70}
+  // for index, element := range list {
+  //   if value, ok := element.(int); ok {
+  //     fmt.Printf(&quot;list[%d] is an int and its value is %d\n&quot;, index, value)
+  //   } else if value, ok := element.(string); ok {
+  //     fmt.Printf(&quot;list[%d] is a string and its value is %s\n&quot;, index, value)
+  //   } else if value, ok := element.(Person); ok {
+  //     fmt.Printf(&quot;list[%d] is a Person and its value is %s\n&quot;, index, value)
+  //   } else {
+  //     fmt.Printf(&quot;list[%d] is of a different type\n&quot;, index)
+  //   }
+  // }
+  for index, element := range list{
+    switch value := element.(type) {
+      case int:
+        fmt.Printf(&quot;list[%d] is an int and its value is %d\n&quot;, index, value)
+      case string:
+        fmt.Printf(&quot;list[%d] is a string and its value is %s\n&quot;, index, value)
+      case Person:
+        fmt.Printf(&quot;list[%d] is a Person and its value is %s\n&quot;, index, value)
+      default:
+        fmt.Println(&quot;list[%d] is of a different type&quot;, index)
+    }
+  }
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js">typeof undefined; // undefined
@@ -655,6 +744,26 @@ isinstance(myInt, int)</code></pre>
 // true
 Object.is({}, {})
 // false</code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="自定义类型">自定义类型</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">type ages int
+type money float32
+type months map[string]int
+m := months {
+  &quot;January&quot;:31,
+  &quot;February&quot;:28,
+  // ...
+  &quot;December&quot;:31,
+}
+type Rectangle struct {
+  width, height float64
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
       <h2 id="基本类型">基本类型</h2>
@@ -1284,7 +1393,17 @@ print(some_string.replace(&quot; &quot;, &quot;,&quot;))</code></pre>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-sh">%d          十进制整数
+%x, %o, %b  十六进制，八进制，二进制整数。
+%f, %g, %e  浮点数： 3.141593 3.141592653589793 3.141593e+00
+%t          布尔：true或false
+%c          字符（rune） (Unicode码点)
+%s          字符串
+%q          带双引号的字符串&quot;abc&quot;或带单引号的字符&#39;c&#39;
+%v          变量的自然形式（natural format）
+%T          变量的类型
+%%          字面上的百分号标志（无操作数）</code></pre>
+      <pre><code class="language-go">fmt.Printf(&quot;%d\t%s\n&quot;, n, line)</code></pre>
       <p>js</p>
       <pre><code class="language-js">const x = &#39;Hello&#39;
 // Hello World
@@ -1564,7 +1683,69 @@ func main() {
 }
 // Hello World
 // [Hello World]
-// [2 3 5 7 11 0]</code></pre>
+// [2 3 5 7 11 0]
+
+
+// 如果在数组的长度位置出现的是“...”省略号，
+// 则表示数组的长度是根据初始化值的个数来计算。
+q := [...]int{1, 2, 3}
+fmt.Printf(&quot;%T\n&quot;, q) // &quot;[3]int&quot;
+
+// 数组的长度是数组类型的一个组成部分，
+// 因此[3]int和[4]int是两种不同的数组类型。
+q := [3]int{1, 2, 3}
+q = [4]int{1, 2, 3, 4} // 编译错误: 不能赋值 [4]int 给 [3]int
+
+
+// 指定一个索引和对应值列表的方式初始化
+type Currency int
+const (
+  USD Currency = iota // 美元
+  EUR                 // 欧元
+  GBP                 // 英镑
+  RMB                 // 人民币
+)
+symbol := [...]string{USD: &quot;$&quot;, EUR: &quot;€&quot;, GBP: &quot;￡&quot;, RMB: &quot;￥&quot;}
+fmt.Println(RMB, symbol[RMB]) // &quot;3 ￥&quot;
+
+// 定义了一个含有100个元素的数组r，最后一个元素被初始化为-1，其它元素都是用0初始化。
+r := [...]int{99: -1}
+
+
+// 如果一个数组的元素类型是可以相互比较的，那么数组类型也是可以相互比较的，
+// 只有当两个数组的所有元素都是相等的时候数组才是相等的。
+a := [2]int{1, 2}
+b := [...]int{1, 2}
+c := [2]int{1, 3}
+fmt.Println(a == b, a == c, b == c) // &quot;true false false&quot;
+d := [3]int{1, 2}
+fmt.Println(a == d) // compile error: cannot compare [2]int == [3]int
+
+// 消息摘要有256bit大小，因此对应[32]byte数组类型。
+import &quot;crypto/sha256&quot;
+func main() {
+    c1 := sha256.Sum256([]byte(&quot;x&quot;))
+    c2 := sha256.Sum256([]byte(&quot;X&quot;))
+    fmt.Printf(&quot;%x\n%x\n%t\n%T\n&quot;, c1, c2, c1 == c2, c1)
+    // Output:
+    // 2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881
+    // 4b68ab3847feda7d6c62c1fbcbeebfa35eab7351ed5e78f4ddadea5df64b8015
+    // false
+    // [32]uint8
+}
+
+
+// 下面的函数用于给[32]byte类型的数组清零：
+func zero(ptr *[32]byte) {
+  for i := range ptr {
+    ptr[i] = 0
+  }
+}
+// 其实数组字面值[32]byte{}就可以生成一个32字节的数组。
+// 将上面的zero函数写的更简洁一点：
+func zero(ptr *[32]byte) {
+  *ptr = [32]byte{}
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js">let l = [1, 2, 3];
 
@@ -2755,7 +2936,13 @@ func main() {
 x := []int{1,2,3}
 y := []int{4,5,6}
 x = append(x, y...)
-fmt.Println(x)</code></pre>
+fmt.Println(x)
+
+
+// 字符串切片拼接
+strings.Join(os.Args[1:], &quot; &quot;)
+// 字符串切片
+strings.Split(string(data), &quot;\n&quot;)</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -2836,7 +3023,27 @@ var pages = &lt;String, String&gt;{
         映射将键映射到值。 映射的零值为 nil 。nil 映射既没有键，也不能添加键。
         <code>make</code> 函数会返回给定类型的映射，并将其初始化备用。
       </p>
-      <pre><code class="language-go">// 声明一个key是字符串，值为int的字典,这种方式的声明需要在使用之前使用make初始化
+      <p>
+        map类型可以写为map[K]V，其中K和V分别对应key和value。
+        其中K对应的key必须是支持==比较运算符的数据类型，
+        所以map可以通过测试key是否相等来判断是否已经存在。
+        对于V对应的value数据类型则没有任何的限制。
+      </p>
+      <p>
+        内置的<code>make</code>函数可以创建一个map：
+        也可以用<code>map</code>字面值的语法创建map，同时还可以指定一些最初的<code>key/value</code>：
+      </p>
+      <pre><code class="language-go">ages := map[string]int{
+  &quot;alice&quot;:   31,
+  &quot;charlie&quot;: 34,
+}
+// 这相当于
+ages := make(map[string]int)
+ages[&quot;alice&quot;] = 31
+ages[&quot;charlie&quot;] = 34
+
+
+// 声明一个key是字符串，值为int的字典,这种方式的声明需要在使用之前使用make初始化
 var numbers map[string]int
 // 另一种map的声明方式
 numbers := make(map[string]int)
@@ -3497,6 +3704,7 @@ type Vertex struct {
 }
 func main() {
   fmt.Println(Vertex{1, 2})
+  fmt.Println(Vertex{X:1, Y:2})
 }
 
 // 结构体字段使用点号来访问。
@@ -3553,7 +3761,79 @@ var (
 func main() {
   fmt.Println(v1, p, v2, v3)
 }
-// {1 2} &amp;{1 2} {1 0} {0 0}</code></pre>
+// {1 2} &amp;{1 2} {1 0} {0 0}
+
+
+// struct的匿名字段
+package main
+import &quot;fmt&quot;
+type Human struct {
+  name string
+  age int
+  weight int
+}
+
+type Student struct {
+  Human  // 匿名字段，那么默认Student就包含了Human的所有字段
+  speciality string
+}
+
+func main() {
+  // 我们初始化一个学生
+  mark := Student{Human{&quot;Mark&quot;, 25, 120}, &quot;Computer Science&quot;}
+
+  // 我们访问相应的字段
+  fmt.Println(&quot;His name is &quot;, mark.name)
+  fmt.Println(&quot;His age is &quot;, mark.age)
+  fmt.Println(&quot;His weight is &quot;, mark.weight)
+  fmt.Println(&quot;His speciality is &quot;, mark.speciality)
+  // 修改对应的备注信息
+  mark.speciality = &quot;AI&quot;
+  fmt.Println(&quot;Mark changed his speciality&quot;)
+  fmt.Println(&quot;His speciality is &quot;, mark.speciality)
+  // 修改他的年龄信息
+  fmt.Println(&quot;Mark become old&quot;)
+  mark.age = 46
+  fmt.Println(&quot;His age is&quot;, mark.age)
+  // 修改他的体重信息
+  fmt.Println(&quot;Mark is not an athlet anymore&quot;)
+  mark.weight += 60
+  fmt.Println(&quot;His weight is&quot;, mark.weight)
+}
+
+
+package main
+import &quot;fmt&quot;
+type Skills []string
+type Human struct {
+  name string
+  age int
+  weight int
+}
+type Student struct {
+  Human  // 匿名字段，struct
+  Skills // 匿名字段，自定义的类型string slice
+  int    // 内置类型作为匿名字段
+  speciality string
+}
+func main() {
+  // 初始化学生Jane
+  jane := Student{Human:Human{&quot;Jane&quot;, 35, 100}, speciality:&quot;Biology&quot;}
+  // 现在我们来访问相应的字段
+  fmt.Println(&quot;Her name is &quot;, jane.name)
+  fmt.Println(&quot;Her age is &quot;, jane.age)
+  fmt.Println(&quot;Her weight is &quot;, jane.weight)
+  fmt.Println(&quot;Her speciality is &quot;, jane.speciality)
+  // 我们来修改他的skill技能字段
+  jane.Skills = []string{&quot;anatomy&quot;}
+  fmt.Println(&quot;Her skills are &quot;, jane.Skills)
+  fmt.Println(&quot;She acquired two new ones &quot;)
+  jane.Skills = append(jane.Skills, &quot;physics&quot;, &quot;golang&quot;)
+  fmt.Println(&quot;Her skills now are &quot;, jane.Skills)
+  // 修改匿名内置类型字段
+  jane.int = 3
+  fmt.Println(&quot;Her preferred number is&quot;, jane.int)
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -3609,9 +3889,13 @@ func main() {
 // 若没有值可以接收且信道已被关闭
 // v, ok := &lt;-ch
 // ok 会被设置为 false。
+// 记住应该在生产者的地方关闭channel，而不是消费的地方去关闭它，这样容易引起panic
+// 另外记住一点的就是channel不像文件之类的，不需要经常去关闭，
+// 只有当你确实没有任何发送数据了，或者你想显式的结束range循环之类的
 
 // 循环 for i := range c 会不断从信道接收值，直到它被关闭。
 // *注意：* 只有发送者才能关闭信道，而接收者不能。
+// for i := range c能够不断的读取channel里面的数据，直到该channel被显式的关闭。
 package main
 import (
   &quot;fmt&quot;
@@ -3622,12 +3906,12 @@ func fibonacci(n int, c chan int) {
     c &lt;- x
     x, y = y, x+y
   }
-  close(c) // 关闭信道
+  close(c) // 关闭信道，不关闭会报错
 }
 func main() {
   c := make(chan int, 10)
   go fibonacci(cap(c), c)
-  for i := range c { // 循环信道
+  for i := range c { // 循环信道，注意i就是信道保存值，而不是序号
     fmt.Println(i)
   }
 }
@@ -3910,12 +4194,96 @@ func main() {
       <pre><code class="language-js"></code></pre>
       <p>python</p>
       <pre><code class="language-python"></code></pre>
+      <h4 id="信道阻塞">信道阻塞</h4>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <p><code>ch := make(chan type, value)</code></p>
+      <ul>
+        <li>
+          <p>
+            当 <code>value = 0</code> 时，<code>channel</code>
+            是无缓冲阻塞读写的，
+          </p>
+        </li>
+        <li>
+          <p>
+            当 <code>value &gt; 0</code> 时，<code>channel</code>
+            有缓冲、是非阻塞的， 直到写满 <code>value</code> 个元素才阻塞写入。
+          </p>
+        </li>
+        <li><p>如果一个go程写，一个go程读，不会阻塞报错</p></li>
+        <li><p>如果同一个go程写+读，需要注意信道的缓冲大小</p></li>
+      </ul>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func main() {
+  c := make(chan int, 2) //修改2为1就报错，修改2为3可以正常运行
+  c &lt;- 1
+  c &lt;- 2
+  fmt.Println(&lt;-c)
+  fmt.Println(&lt;-c)
+}
+
+
+// 亦会报错
+package main
+import &quot;fmt&quot;
+func main() {
+  c := make(chan int) // 想当于 c := make(chan int， 0)
+  c &lt;- 1 // 此处阻塞，无法执行，必须在另一个go程取出数据才会继续
+  c &lt;- 2
+  fmt.Println(&lt;-c)
+  fmt.Println(&lt;-c)
+}
+
+
+// 正确执行
+package main
+import &quot;fmt&quot;
+func main() {
+  c := make(chan int)
+  go func() { // 新开一个go程，向信道写入数据
+    c &lt;- 1
+    c &lt;- 2
+  }()
+  fmt.Println(&lt;-c) // 取出数据
+  fmt.Println(&lt;-c)
+}
+
+
+// package main
+import &quot;fmt&quot;
+func main() {
+  ch := make(chan int, 2)
+  ch &lt;- 1
+  ch &lt;- 2
+  close(ch) // 这里不关闭将会报错
+  for i := range ch {
+    fmt.Println(i)
+  }
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h2 id="类型转换">类型转换</h2>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <p>表达式 <code>T(v)</code> 将值 v 转换为类型 T。</p>
-      <p>Go 在不同类型的项之间赋值时需要显式转换。</p>
+      <p>
+        表达式 <code>T(v)</code> 将值 v 转换为类型 T。 Go
+        在不同类型的项之间赋值时需要显式转换。
+      </p>
+      <p>
+        对于每一个类型T，都有一个对应的类型转换操作<code>T(x)</code>，
+        用于将x转为T类型（译注：如果T是指针类型，
+        可能会需要用小括弧包装T，比如<code>(*int)(0)</code>）。
+        只有当两个类型的底层基础类型相同时，才允许这种转型操作，
+        或者是两者都是指向相同底层结构的指针类型，
+        这些转换只改变类型而不会影响值本身。
+        如果x是可以赋值给T类型的值，那么x必然也可以被转为T类型，但是一般没有这个必要。
+      </p>
       <pre><code class="language-go">var i int = 42
 var f float64 = float64(i)
 var u uint = uint(f)
@@ -3923,7 +4291,28 @@ var u uint = uint(f)
 // 或者，更加简单的形式：
 i := 42
 f := float64(i)
-u := uint(f)</code></pre>
+u := uint(f)
+
+
+// 字符串和字节slice之间可以相互转换
+s := &quot;abc&quot;
+b := []byte(s)
+s2 := string(b)
+
+
+// 整数转为字符串
+x := 123
+y := fmt.Sprintf(&quot;%d&quot;, x)
+fmt.Println(y, strconv.Itoa(x)) // &quot;123 123&quot;
+fmt.Println(strconv.FormatInt(int64(x), 2)) // &quot;1111011&quot;
+s := fmt.Sprintf(&quot;x=%b&quot;, x) // &quot;x=1111011&quot;
+
+
+// 字符串解析为整数
+// 可以使用strconv包的Atoi或ParseInt函数，
+// 还有用于解析无符号整数的ParseUint函数：
+x, err := strconv.Atoi(&quot;123&quot;)             // x is an int
+y, err := strconv.ParseInt(&quot;123&quot;, 10, 64) // base 10, up to 64 bits</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <h3 id="数值转字符串">数值转字符串</h3>

@@ -109,7 +109,17 @@
             <li><a href="#%E5%8F%8D%E5%B0%84">反射</a></li>
             <li><a href="#%E6%96%AD%E8%A8%80">断言</a></li>
             <li><a href="#%E5%BC%82%E5%B8%B8">异常</a></li>
-            <li><a href="#%E6%B5%8B%E8%AF%95">测试</a></li>
+            <li>
+              <a href="#%E6%B5%8B%E8%AF%95">测试</a>
+              <ul>
+                <li>
+                  <a href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">单元测试</a>
+                </li>
+                <li>
+                  <a href="#%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95">压力测试</a>
+                </li>
+              </ul>
+            </li>
             <li><a href="#goroutine">goroutine</a></li>
             <li><a href="#make%E4%B8%8Enew">make与new</a></li>
           </ul>
@@ -123,6 +133,12 @@
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
+      <p>
+        一个对象其实也就是一个简单的值或者一个变量，在这个对象中会包含一些方法，
+        而一个方法则是一个一个和特殊类型关联的函数。
+        一个面向对象的程序会用方法来表达其属性和对应的操作，
+        这样使用这个对象的用户就不需要直接去操作对象，而是借助方法来做这些事情。
+      </p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
       <p>使用new命令时，它后面的函数依次执行下面的步骤。</p>
@@ -1532,6 +1548,24 @@ re.sub(r&#39;(\b[a-z]+) \1&#39;, r&#39;\1&#39;, &#39;cat in the the hat&#39;)
 # 只需要简单的功能时，首选字符串方法
 &#39;tea for too&#39;.replace(&#39;too&#39;, &#39;two&#39;)</code></pre>
       <h2 id="反射">反射</h2>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+import &quot;reflect&quot;
+func main() {
+  var x float64 = 3.4
+  v := reflect.ValueOf(x)
+  fmt.Println(&quot;type:&quot;, v.Type())
+  fmt.Println(&quot;kind is float64:&quot;, v.Kind() == reflect.Float64)
+  fmt.Println(&quot;value:&quot;, v.Float())
+}
+// type: float64
+// kind is float64: true
+// value: 3.4</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
       <h2 id="断言">断言</h2>
       <p>Assert（断言）</p>
       <p>dart</p>
@@ -1622,9 +1656,30 @@ class FooException implements Exception {
 }</code></pre>
       <p>go</p>
       <p>Go内置有一个error类型，专门用来处理错误信息</p>
+      <p>错误处理策略</p>
+      <ul>
+        <li>传播错误</li>
+        <li>重新尝试失败的操作</li>
+        <li>输出错误信息并结束程序(这种策略只应在main中执行)</li>
+        <li>有时，我们只需要输出错误信息就足够了</li>
+        <li>我们可以直接忽略掉错误</li>
+      </ul>
       <pre><code class="language-go">err := errors.New(&quot;emit macho dwarf: elf header corrupted&quot;)
 if err != nil {
   fmt.Print(err)
+}
+
+
+in := bufio.NewReader(os.Stdin)
+for {
+  r, _, err := in.ReadRune()
+  if err == io.EOF {
+    break // finished reading
+  }
+  if err != nil {
+    return fmt.Errorf(&quot;read failed:%v&quot;, err)
+  }
+  // ...use r…
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js">throw new Error(&#39;&#39;);
@@ -1706,14 +1761,31 @@ class TransitionError(Error):
         self.next = next
         self.message = message</code></pre>
       <h2 id="测试">测试</h2>
+      <h3 id="单元测试">单元测试</h3>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
       <p>
-        你可以通过创建一个名字以 _test.go 结尾的， 包含名为 TestXXX 且签名为
-        func (t *testing.T) 函数的文件来编写测试。
-        测试框架会运行每一个这样的函数； 若该函数调用了像 t.Error 或 t.Fail
-        这样表示失败的函数，此测试即表示失败。
+        你可以通过创建一个名字以 <code>_test.go</code> 结尾的， 包含名为
+        <code>TestXXX</code> 且签名为
+        <code>func (t *testing.T)</code> 函数的文件来编写测试。
+        测试框架会运行每一个这样的函数； 若该函数调用了像
+        <code>t.Error</code> 或
+        <code>t.Fail</code> 这样表示失败的函数，此测试即表示失败。
+      </p>
+      <p>
+        文件名必须是<code>_test.go</code>结尾的，这样在执行<code>go test</code
+        >的时候才会执行到相应的代码 你必须<code>import testing</code>这个包
+        所有的测试用例函数必须是<code>Test</code>开头
+        测试用例会按照源代码中写的顺序依次执行
+        测试函数<code>TestXxx()</code>的参数是<code>testing.T</code>，我们可以使用该类型来记录错误或者是测试状态
+        测试格式：<code>func TestXxx (t *testing.T)</code
+        >,Xxx部分可以为任意的字母数字的组合，
+        但是首字母不能是小写字母<code>[a-z]</code>，例如<code>Testintdiv</code>是错误的函数名。
+        函数中通过调用<code>testing.T</code>的<code>Error</code>,
+        <code>Errorf</code>, <code>FailNow</code>, <code>Fatal</code>,
+        <code>FatalIf</code>方法，
+        说明测试不通过，调用Log方法用来记录测试的信息。
       </p>
       <pre><code class="language-go">// $GOPATH/src/github.com/user/stringutil/reverse_test.go
 package stringutil
@@ -1732,9 +1804,84 @@ func TestReverse(t *testing.T) {
       t.Errorf(&quot;Reverse(%q) == %q, want %q&quot;, c.in, got, c.want)
     }
   }
-}</code></pre>
-      <pre><code class="language-sh">$ go test github.com/user/stringutil
-ok      github.com/user/stringutil 0.165s</code></pre>
+}
+
+
+// gotest.go
+package gotest
+import (
+  &quot;errors&quot;
+)
+func Division(a, b float64) (float64, error) {
+  if b == 0 {
+    return 0, errors.New(&quot;除数不能为0&quot;)
+  }
+  return a / b, nil
+}
+
+// gotest_test.go
+package gotest
+import (
+  &quot;testing&quot;
+)
+func Test_Division_1(t *testing.T) {
+  if i, e := Division(6, 2); i != 3 || e != nil { //try a unit test on function
+    t.Error(&quot;除法函数测试没通过&quot;) // 如果不是如预期的那么就报错
+  } else {
+    t.Log(&quot;第一个测试通过了&quot;) //记录一些你期望记录的信息
+  }
+}
+func Test_Division_2(t *testing.T) {
+  t.Error(&quot;就是不通过&quot;)
+}
+// 在项目目录下面执行`go test`</code></pre>
+      <pre><code class="language-sh">go test github.com/user/stringutil
+ok    github.com/user/stringutil 0.165s</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="压力测试">压力测试</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <ul>
+        <li>
+          压力测试用例必须遵循如下格式，其中XXX可以是任意字母数字的组合，但是首字母不能是小写字母
+          <code>func BenchmarkXXX(b *testing.B) { ... }</code>
+        </li>
+        <li>
+          <code>go test</code
+          >不会默认执行压力测试的函数，如果要执行压力测试需要带上参数<code>-test.bench</code>，
+          语法:<code>-test.bench=&quot;test_name_regex&quot;</code>, 例如<code
+            >go test -test.bench=&quot;.*&quot;</code
+          >表示测试全部的压力测试函数
+        </li>
+        <li>
+          在压力测试用例中,请记得在循环体内使用<code>testing.B.N</code>,以使测试可以正常的运行
+        </li>
+        <li>文件名也必须以<code>_test.go</code>结尾</li>
+      </ul>
+      <pre><code class="language-go">// webbench_test.go
+package gotest
+import (
+  &quot;testing&quot;
+)
+func Benchmark_Division(b *testing.B) {
+  for i := 0; i &lt; b.N; i++ { //use b.N for looping
+    Division(4, 5)
+  }
+}
+func Benchmark_TimeConsumingFunction(b *testing.B) {
+  b.StopTimer() //调用该函数停止压力测试的时间计数
+  //做一些初始化的工作,例如读取文件数据,数据库连接之类的,
+  //这样这些时间不影响我们测试函数本身的性能
+  b.StartTimer() //重新开始时间
+  for i := 0; i &lt; b.N; i++ {
+    Division(4, 5)
+  }
+}
+// 执行命令 go test webbench_test.go -test.bench=&quot;.*&quot;</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>

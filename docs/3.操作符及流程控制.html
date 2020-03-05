@@ -122,7 +122,17 @@
       </ul>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        比较运算符<code>==</code>和<code>&lt;</code>也可以用来比较一个命名类型的变量和另一个有相同类型的变量，
+        或有着相同底层类型的未命名类型的值之间做比较。
+        但是如果两个值有着不同的类型，则不能直接进行比较：
+      </p>
+      <pre><code class="language-go">var c Celsius
+var f Fahrenheit
+fmt.Println(c == 0)          // &quot;true&quot;
+fmt.Println(f &gt;= 0)          // &quot;true&quot;
+fmt.Println(c == f)          // compile error: type mismatch
+fmt.Println(c == Celsius(f)) // &quot;true&quot;!</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -694,7 +704,22 @@ func main() {
 // 2
 // 4
 // 8
-// 16</code></pre>
+// 16
+
+
+// Go语言的range循环在处理字符串的时候，会自动隐式解码UTF8字符串。
+for i, r := range &quot;Hello, 世界&quot; {
+  fmt.Printf(&quot;%d\t%q\t%d\n&quot;, i, r, r)
+}
+// 0    &#39;H&#39;    72
+// 1    &#39;e&#39;    101
+// 2    &#39;l&#39;    108
+// 3    &#39;l&#39;    108
+// 4    &#39;o&#39;    111
+// 5    &#39;,&#39;    44
+// 6    &#39; &#39;    32
+// 7    &#39;世&#39;    19990
+// 10    &#39;界&#39;    30028</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -1032,6 +1057,10 @@ func shouldEscape(c byte) bool {
         推迟的函数调用会被压入一个栈中。
         当外层函数返回时，被推迟的函数会按照后进先出的顺序调用。
       </p>
+      <p>
+        defer语句经常被用于处理成对的操作，
+        如打开、关闭、连接、断开连接、加锁、释放锁。通过defer机制
+      </p>
       <pre><code class="language-go">package main
 import &quot;fmt&quot;
 func main() {
@@ -1087,7 +1116,25 @@ func Contents(filename string) (string, error) {
     }
   }
   return string(result), nil // 我们在这里返回后，f 就会被关闭。
-}</code></pre>
+}
+
+
+// 对匿名函数采用defer机制，可以使其观察函数的返回值。
+func double(x int) (result int) {
+  defer func() { fmt.Printf(&quot;double(%d) = %d\n&quot;, x,result) }()
+  return x + x
+}
+_ = double(4)
+// Output:
+// &quot;double(4) = 8&quot;
+
+
+// 被延迟执行的匿名函数甚至可以修改函数返回给调用者的返回值：
+func triple(x int) (result int) {
+  defer func() { result += x }()
+  return double(x)
+}
+fmt.Println(triple(4)) // &quot;12&quot;</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>

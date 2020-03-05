@@ -36,9 +36,20 @@
               <a href="#%E6%96%B9%E6%B3%95">方法</a>
               <ul>
                 <li>
+                  <a href="#%E6%96%B9%E6%B3%95%E7%BB%A7%E6%89%BF">方法继承</a>
+                </li>
+                <li>
+                  <a href="#%E6%96%B9%E6%B3%95%E9%87%8D%E5%86%99">方法重写</a>
+                </li>
+                <li>
                   <a href="#%E6%8E%A5%E5%8F%A3">接口</a>
                   <ul>
                     <li><a href="#%E7%A9%BA%E6%8E%A5%E5%8F%A3">空接口</a></li>
+                    <li>
+                      <a href="#%E6%8E%A5%E5%8F%A3%E5%B5%8C%E5%A5%97"
+                        >接口嵌套</a
+                      >
+                    </li>
                     <li>
                       <a href="#%E7%B1%BB%E5%9E%8B%E6%96%AD%E8%A8%80"
                         >类型断言</a
@@ -91,6 +102,7 @@
                     >解包参数列表</a
                   >
                 </li>
+                <li><a href="#%E5%8F%98%E5%8F%82">变参</a></li>
               </ul>
             </li>
             <li>
@@ -147,6 +159,11 @@ isNoble(atomicNumber) {
 // 在箭头 (=&gt;) 和冒号 (;) 之间只能使用一个 表达式 – 不能使用 语句。
 bool isNoble(int atomicNumber) =&gt; _nobleGases[atomicNumber] != null;</code></pre>
       <p>go</p>
+      <p>
+        实参通过值的方式传递，因此函数的形参是实参的拷贝。
+        如果实参包括引用类型，如指针，slice(切片)、map、function、channel等类型，
+        实参可能会由于函数的间接引用被修改。
+      </p>
       <pre><code class="language-go">package main
 import &quot;fmt&quot;
 // 注意类型在变量名 之后。
@@ -181,7 +198,12 @@ func main() {
   a, b := swap(&quot;hello&quot;, &quot;world&quot;)
   fmt.Println(a, b)
 }
-</code></pre>
+
+
+// 有函数体的函数声明，这表示该函数不是以Go实现的。
+// 这样的声明定义了函数标识符。
+package math
+func Sin(x float64) float //implemented in assembly language</code></pre>
       <p>js</p>
       <pre><code class="language-js">function print(s) {
   console.log(s);
@@ -288,6 +310,14 @@ func main() {
         <li>方法就是一类带特殊的 接收者 参数的函数。</li>
         <li>方法接收者在它自己的参数列表内，位于 func 关键字和方法名之间。</li>
       </ul>
+      <p>
+        我们可以给任何自定义类型添加一个或多个方法。
+        每种类型对应的方法必须和类型的定义在同一个包中，
+        因此是无法给int这类内置类型添加方法的
+        （因为方法的定义和类型的定义不在一个包中）。
+        对于给定的类型，每个方法的名字必须是唯一的，
+        同时方法和函数一样也不支持重载。
+      </p>
       <pre><code class="language-go">package main
 import (
   &quot;fmt&quot;
@@ -302,6 +332,102 @@ func (v Vertex) Abs() float64 {
 func main() {
   v := Vertex{3, 4}
   fmt.Println(v.Abs())
+}
+
+// 虽然method的名字一模一样，但是如果接收者不一样，那么method就不一样
+// method里面可以访问接收者的字段
+// 调用method通过.访问，就像struct里面访问字段一样
+package main
+import (
+  &quot;fmt&quot;
+  &quot;math&quot;
+)
+type Rectangle struct {             // 定义矩形
+  width, height float64
+}
+type Circle struct {                // 定义圆形
+  radius float64
+}
+func (r Rectangle) area() float64 { // 矩形的面积
+  return r.width*r.height
+}
+func (c Circle) area() float64 {    // 圆形的面积
+  return c.radius * c.radius * math.Pi
+}
+func main() {
+  r1 := Rectangle{12, 2}
+  r2 := Rectangle{9, 4}
+  c1 := Circle{10}
+  c2 := Circle{25}
+  fmt.Println(&quot;Area of r1 is: &quot;, r1.area())
+  fmt.Println(&quot;Area of r2 is: &quot;, r2.area())
+  fmt.Println(&quot;Area of c1 is: &quot;, c1.area())
+  fmt.Println(&quot;Area of c2 is: &quot;, c2.area())
+}
+
+
+// 复杂一点的例子
+package main
+import &quot;fmt&quot;
+const(
+  WHITE = iota // 枚举
+  BLACK
+  BLUE
+  RED
+  YELLOW
+)
+type Color byte
+type Box struct {
+  width, height, depth float64
+  color Color
+}
+type BoxList []Box // a slice of boxes
+func (b Box) Volume() float64 {
+  return b.width * b.height * b.depth
+}
+func (b *Box) SetColor(c Color) {
+  b.color = c
+}
+func (bl BoxList) BiggestColor() Color {
+  v := 0.00
+  k := Color(WHITE)
+  for _, b := range bl {
+    if bv := b.Volume(); bv &gt; v {
+      v = bv
+      k = b.color
+    }
+  }
+  return k
+}
+func (bl BoxList) PaintItBlack() {
+  for i, _ := range bl {
+    bl[i].SetColor(BLACK)
+  }
+}
+func (c Color) String() string {
+  strings := []string {&quot;WHITE&quot;, &quot;BLACK&quot;, &quot;BLUE&quot;, &quot;RED&quot;, &quot;YELLOW&quot;}
+  return strings[c]
+}
+func main() {
+  boxes := BoxList {
+    Box{4, 4, 4, RED},
+    Box{10, 10, 1, YELLOW},
+    Box{1, 1, 20, BLACK},
+    Box{10, 10, 1, BLUE},
+    Box{10, 30, 1, WHITE},
+    Box{20, 20, 20, YELLOW},
+  }
+
+  fmt.Printf(&quot;We have %d boxes in our set\n&quot;, len(boxes))
+  fmt.Println(&quot;The volume of the first one is&quot;, boxes[0].Volume(), &quot;cm³&quot;)
+  fmt.Println(&quot;The color of the last one is&quot;,boxes[len(boxes)-1].color.String())
+  fmt.Println(&quot;The biggest one is&quot;, boxes.BiggestColor().String())
+
+  fmt.Println(&quot;Let&#39;s paint them all black&quot;)
+  boxes.PaintItBlack()
+  fmt.Println(&quot;The color of the second one is&quot;, boxes[1].color.String())
+
+  fmt.Println(&quot;Obviously, now, the biggest one is&quot;, boxes.BiggestColor().String())
 }
 
 
@@ -470,6 +596,102 @@ func main() {
   fmt.Printf(&quot;Before scaling: %+v, Abs: %v\n&quot;, v, v.Abs())
   v.Scale(5)
   fmt.Printf(&quot;After scaling: %+v, Abs: %v\n&quot;, v, v.Abs())
+}
+
+
+// 想要调用指针类型方法(*Point).ScaleBy
+r := &amp;Point{1, 2}
+r.ScaleBy(2)
+fmt.Println(*r) // &quot;{2, 4}&quot;
+// 或者这样：
+p := Point{1, 2}
+pptr := &amp;p
+pptr.ScaleBy(2)
+fmt.Println(p) // &quot;{2, 4}&quot;
+// 或者这样:
+p := Point{1, 2}
+(&amp;p).ScaleBy(2)
+fmt.Println(p) // &quot;{2, 4}&quot;
+// 如果接收器p是一个Point类型的变量，
+// 并且其方法需要一个Point指针作为接收器，
+// 我们可以用下面这种简短的写法：
+p.ScaleBy(2)
+
+// 所以下面这两种写法等价的：
+pptr.Distance(q)
+(*pptr).Distance(q)</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="方法继承">方法继承</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+type Human struct {
+  name string
+  age int
+  phone string
+}
+type Student struct {
+  Human //匿名字段
+  school string
+}
+type Employee struct {
+  Human //匿名字段
+  company string
+}
+//在human上面定义了一个method
+func (h *Human) SayHi() {
+  fmt.Printf(&quot;Hi, I am %s you can call me on %s\n&quot;, h.name, h.phone)
+}
+func main() {
+  mark := Student{Human{&quot;Mark&quot;, 25, &quot;222-222-YYYY&quot;}, &quot;MIT&quot;}
+  sam := Employee{Human{&quot;Sam&quot;, 45, &quot;111-888-XXXX&quot;}, &quot;Golang Inc&quot;}
+
+  mark.SayHi()
+  sam.SayHi()
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h3 id="方法重写">方法重写</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+type Human struct {
+  name string
+  age int
+  phone string
+}
+type Student struct {
+  Human //匿名字段
+  school string
+}
+type Employee struct {
+  Human //匿名字段
+  company string
+}
+//Human定义method
+func (h *Human) SayHi() {
+  fmt.Printf(&quot;Hi, I am %s you can call me on %s\n&quot;, h.name, h.phone)
+}
+//Employee的method重写Human的method
+func (e *Employee) SayHi() {
+  fmt.Printf(&quot;Hi, I am %s, I work at %s. Call me on %s\n&quot;, e.name,
+    e.company, e.phone) //Yes you can split into 2 lines here.
+}
+func main() {
+  mark := Student{Human{&quot;Mark&quot;, 25, &quot;222-222-YYYY&quot;}, &quot;MIT&quot;}
+  sam := Employee{Human{&quot;Sam&quot;, 45, &quot;111-888-XXXX&quot;}, &quot;Golang Inc&quot;}
+
+  mark.SayHi()
+  sam.SayHi()
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
@@ -480,8 +702,27 @@ func main() {
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
       <p>
+        接口类型具体描述了一系列方法的集合，
+        一个实现了这些方法的具体类型是这个接口类型的实例
+      </p>
+      <p>
+        一个类型如果拥有一个接口需要的所有方法，那么这个类型就实现了这个接口。
+      </p>
+      <p>
         接口类型 是由一组方法签名定义的集合。
         接口类型的变量可以保存任何实现了这些方法的值。
+      </p>
+      <p>
+        interface类型定义了一组方法，
+        如果某个对象实现了某个接口的所有方法，则此对象就实现了此接口。
+      </p>
+      <p>
+        interface可以被任意的对象实现，
+        同理，一个对象可以实现任意多个interface。
+      </p>
+      <p>
+        任意的类型都实现了空interface(我们这样定义：interface{})，
+        也就是包含0个method的interface。
       </p>
       <pre><code class="language-go">package main
 import (
@@ -504,7 +745,6 @@ func (f MyFloat) Abs() float64 {
 func (v *Vertex) Abs() float64 {
   return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
-
 func main() {
   var a Abser
   f := MyFloat(-math.Sqrt2)
@@ -517,6 +757,71 @@ func main() {
   // a = v
 
   fmt.Println(a.Abs())
+}
+
+
+//
+package main
+import &quot;fmt&quot;
+type Human struct {
+  name string
+  age int
+  phone string
+}
+type Student struct {
+  Human //匿名字段
+  school string
+  loan float32
+}
+type Employee struct {
+  Human //匿名字段
+  company string
+  money float32
+}
+//Human实现SayHi方法
+func (h Human) SayHi() {
+  fmt.Printf(&quot;Hi, I am %s you can call me on %s\n&quot;, h.name, h.phone)
+}
+//Human实现Sing方法
+func (h Human) Sing(lyrics string) {
+  fmt.Println(&quot;La la la la...&quot;, lyrics)
+}
+//Employee重载Human的SayHi方法
+func (e Employee) SayHi() {
+  fmt.Printf(&quot;Hi, I am %s, I work at %s. Call me on %s\n&quot;, e.name,
+    e.company, e.phone)
+}
+// Interface Men被Human,Student和Employee实现
+// 因为这三个类型都实现了这两个方法
+type Men interface {
+  SayHi()
+  Sing(lyrics string)
+}
+func main() {
+  mike := Student{Human{&quot;Mike&quot;, 25, &quot;222-222-XXX&quot;}, &quot;MIT&quot;, 0.00}
+  paul := Student{Human{&quot;Paul&quot;, 26, &quot;111-222-XXX&quot;}, &quot;Harvard&quot;, 100}
+  sam := Employee{Human{&quot;Sam&quot;, 36, &quot;444-222-XXX&quot;}, &quot;Golang Inc.&quot;, 1000}
+  tom := Employee{Human{&quot;Tom&quot;, 37, &quot;222-444-XXX&quot;}, &quot;Things Ltd.&quot;, 5000}
+  //定义Men类型的变量i
+  var i Men
+  //i能存储Student
+  i = mike
+  fmt.Println(&quot;This is Mike, a Student:&quot;)
+  i.SayHi()
+  i.Sing(&quot;November rain&quot;)
+  //i也能存储Employee
+  i = tom
+  fmt.Println(&quot;This is tom, an Employee:&quot;)
+  i.SayHi()
+  i.Sing(&quot;Born to be wild&quot;)
+  //定义了slice Men
+  fmt.Println(&quot;Let&#39;s use a slice of Men and see what happens&quot;)
+  x := make([]Men, 3)
+  //这三个都是不同类型的元素，但是他们实现了interface同一个接口
+  x[0], x[1], x[2] = paul, sam, mike
+  for _, value := range x{
+    value.SayHi()
+  }
 }
 
 
@@ -536,6 +841,10 @@ func (t T) M() {
   fmt.Println(t.S)
 }
 func main() {
+  // var i I
+  // var t T = T{&quot;hello&quot;}
+  // i = t
+  // i.M()
   var i I = T{&quot;hello&quot;}
   i.M()
 }
@@ -632,6 +941,28 @@ func main() {
 }
 func describe(i I) {
   fmt.Printf(&quot;(%v, %T)\n&quot;, i, i)
+}
+
+
+
+// 任何实现了String方法的类型都能作为参数被fmt.Println调用
+package main
+import (
+  &quot;fmt&quot;
+  &quot;strconv&quot;
+)
+type Human struct {
+  name string
+  age int
+  phone string
+}
+// 通过这个方法 Human 实现了 fmt.Stringer
+func (h Human) String() string {
+  return &quot;❰&quot;+h.name+&quot; - &quot;+strconv.Itoa(h.age)+&quot; years -  ✆ &quot; +h.phone+&quot;❱&quot;
+}
+func main() {
+  Bob := Human{&quot;Bob&quot;, 39, &quot;000-7777-XXX&quot;}
+  fmt.Println(&quot;This Human is : &quot;, Bob)
 }</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
@@ -662,6 +993,36 @@ func describe(i interface{}) {
 // (&lt;nil&gt;, &lt;nil&gt;)
 // (42, int)
 // (hello, string)</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h4 id="接口嵌套">接口嵌套</h4>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">// 源码包container/heap
+type Interface interface {
+  // Len is the number of elements in the collection.
+  Len() int
+  // Less returns whether the element with index i should sort
+  // before the element with index j.
+  Less(i, j int) bool
+  // Swap swaps the elements with indexes i and j.
+  Swap(i, j int)
+}
+type Interface interface {
+  sort.Interface //嵌入字段sort.Interface
+  Push(x interface{}) //a Push method to push elements into the heap
+  Pop() interface{} //a Pop elements that pops elements from the heap
+}
+
+
+// io包下面的 io.ReadWriter
+type ReadWriter interface {
+  Reader
+  Writer
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -943,6 +1304,10 @@ void main(List&lt;String&gt; arguments) {
   assert(arguments[1] == &#39;test&#39;);
 }</code></pre>
       <p>go</p>
+      <p>
+        程序的初始化和执行都起始于main包。 在定义时不能有任何的参数和返回值。
+        <code>package main</code>就必须包含一个<code>main</code>函数。
+      </p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
@@ -955,6 +1320,7 @@ void main(List&lt;String&gt; arguments) {
         （其实每个文件都可以拥有多个 init 函数。） init
         函数还常被用在程序真正开始执行前，检验或校正程序的状态。
       </p>
+      <p><img src="images/init.png" alt="main函数引入包初始化流程图" /></p>
       <pre><code class="language-go">func init() {
   if user == &quot;&quot; {
     log.Fatal(&quot;$USER not set&quot;)
@@ -1196,6 +1562,21 @@ def f(a, L=None):
 
 d = {&quot;voltage&quot;: &quot;four million&quot;, &quot;state&quot;: &quot;bleedin&#39; demised&quot;, &quot;action&quot;: &quot;VOOM&quot;}
 parrot(**d)</code></pre>
+      <h3 id="变参">变参</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
+      <p>go</p>
+      <pre><code class="language-go">// arg ...int告诉Go这个函数接受不定数量的参数。
+func myfunc(arg ...int) {}
+
+// 变量arg是一个int的slice：
+for _, n := range arg {
+  fmt.Printf(&quot;And the number is: %d\n&quot;, n)
+}</code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
       <h2 id="一等方法对象">一等方法对象</h2>
       <p>dart</p>
       <pre><code class="language-dart">// 可以把方法当做参数调用另外一个方法。
@@ -1232,7 +1613,44 @@ func main() {
 }
 // 13
 // 5
-// 81</code></pre>
+// 81
+
+
+
+// 函数作为类型
+// package main
+import &quot;fmt&quot;
+type testInt func(int) bool // 声明了一个函数类型
+func isOdd(integer int) bool {
+  if integer%2 == 0 {
+    return false
+  }
+  return true
+}
+func isEven(integer int) bool {
+  if integer%2 == 0 {
+    return true
+  }
+  return false
+}
+// 声明的函数类型在这个地方当做了一个参数
+func filter(slice []int, f testInt) []int {
+  var result []int
+  for _, value := range slice {
+    if f(value) {
+      result = append(result, value)
+    }
+  }
+  return result
+}
+func main(){
+  slice := []int {1, 2, 3, 4, 5, 7}
+  fmt.Println(&quot;slice = &quot;, slice)
+  odd := filter(slice, isOdd)    // 函数当做值来传递了
+  fmt.Println(&quot;Odd elements of slice are: &quot;, odd)
+  even := filter(slice, isEven)  // 函数当做值来传递了
+  fmt.Println(&quot;Even elements of slice are: &quot;, even)
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js">function add(x, y) {
   return x + y;
@@ -1264,7 +1682,13 @@ list.forEach((i) {
 // 如果方法只包含一个语句，可以使用胖箭头语法缩写。
 list.forEach((i) =&gt; print(list.indexOf(i).toString() + &#39;: &#39; + i));</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func main() {
+  func() { // 匿名函数
+    fmt.Println(&quot;run!&quot;)
+  }()
+}</code></pre>
       <p>js</p>
       <p>箭头函数有几个使用注意点。</p>
       <ul>
@@ -1417,7 +1841,25 @@ main() {
         该函数可以访问并赋予其引用的变量的值，
         换句话说，该函数被这些变量“绑定”在一起。
       </p>
-      <pre><code class="language-go">package main
+      <pre><code class="language-go">// squares返回一个匿名函数。
+// 该匿名函数每次被调用时都会返回下一个数的平方。
+func squares() func() int {
+  var x int
+  return func() int {
+    x++
+    return x * x
+  }
+}
+func main() {
+  f := squares()
+  fmt.Println(f()) // &quot;1&quot;
+  fmt.Println(f()) // &quot;4&quot;
+  fmt.Println(f()) // &quot;9&quot;
+  fmt.Println(f()) // &quot;16&quot;
+}
+
+
+package main
 import &quot;fmt&quot;
 func adder() func(int) int { // 返回：func(int) int
   sum := 0
@@ -1465,16 +1907,16 @@ func main() {
     fmt.Println(f())
   }
 }
-0
-1
-1
-2
-3
-5
-8
-13
-21
-34</code></pre>
+// 0
+// 1
+// 1
+// 2
+// 3
+// 5
+// 8
+// 13
+// 21
+// 34</code></pre>
       <p>js</p>
       <pre><code class="language-js">function f1() {
   var n = 999;
@@ -1563,7 +2005,13 @@ main() {
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import &quot;fmt&quot;
+func main() {
+  func() {
+    fmt.Println(&quot;run!&quot;)
+  }()
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js">(function(){ /* code */ }());
 // 或者

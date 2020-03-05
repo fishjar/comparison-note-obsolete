@@ -3,7 +3,7 @@ const fse = require('fs-extra');
 const marked = require('marked');
 const prettier = require("prettier"); // 格式化工具
 
-
+const distFolder = "docs";
 const outlines = []; // 所有标题
 
 
@@ -49,7 +49,7 @@ fs.readdirSync('./src')
       </html>`;
 
     // 生成 html
-    fs.writeFileSync(`./dist/${file.slice(0, -3)}.html`, prettier.format(htmlStr, {
+    fs.writeFileSync(`./docs/${file.slice(0, -3)}.html`, prettier.format(htmlStr, {
       parser: 'html'
     }));
 
@@ -90,7 +90,7 @@ const indexStr = `<!doctype html>
 </html>
 `;
 // console.log(readmeStr)
-fs.writeFileSync('./dist/index.html', prettier.format(indexStr, {
+fs.writeFileSync('./docs/index.html', prettier.format(indexStr, {
   parser: 'html'
 }));
 
@@ -140,7 +140,7 @@ fs.writeFileSync('./outlines.txt', languageStr);
 /**
  * 复制images
  */
-fse.copy('src/images', 'dist/images', function (err) {
+fse.copy('src/images', 'docs/images', function (err) {
   if (err) return console.error(err)
   console.log('success!')
 })

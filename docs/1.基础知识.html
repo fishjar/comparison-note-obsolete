@@ -146,6 +146,18 @@ func main() {
           例如，&quot;math/rand&quot; 包中的源码均以
           <code>package rand</code> 语句开始。
         </li>
+        <li>
+          传指针比较轻量级
+          (8bytes),只是传内存地址，我们可以用指针传递体积大的结构体。
+          如果用参数值传递的话,
+          在每次copy上面就会花费相对较多的系统开销（内存和时间）。
+          所以当你要传递大的结构体的时候，用指针是一个明智的选择。
+        </li>
+        <li>
+          Go语言中channel，slice，map这三种类型的实现机制类似指针，
+          所以可以直接传递，而不用取地址后传递指针。
+          （注：若函数需改变slice的长度，则仍需要取地址传递指针）
+        </li>
       </ul>
       <p>js</p>
       <ul>
@@ -943,6 +955,20 @@ Object.getOwnPropertyNames(Date)</code></pre>
           </tr>
         </tbody>
       </table>
+      <p>go</p>
+      <pre><code class="language-sh">#内建常量:
+true false iota nil
+
+#内建类型:
+int int8 int16 int32 int64
+uint uint8 uint16 uint32 uint64 uintptr
+float32 float64 complex128 complex64
+bool byte rune string error
+
+#内建函数:
+make len cap new append copy close delete
+complex real imag
+panic recover</code></pre>
       <h2 id="库包模块">库包模块</h2>
       <p>dart</p>
       <p>Dart 有两种类型的包： 应用 包 和 库 包。</p>
@@ -1004,6 +1030,27 @@ export &#39;french.dart&#39; show hello;
 import &#39;package:flutter/material.dart&#39; show StatefulWidget, StatelessWidget;</code></pre>
       <p>go</p>
       <p>
+        每个源文件都是以包的声明语句开始，用来指明包的名字。
+        当包被导入的时候，包内的成员将通过类似tempconv.CToF的形式访问。
+        而包级别的名字，例如在一个文件声明的类型和常量，
+        在同一个包的其他源文件也是可以直接访问的，就好像所有代码都在一个文件一样。
+      </p>
+      <p>
+        Go语言的代码通过包（package）组织，
+        包类似于其它语言里的库（libraries）或者模块（modules）。
+        一个包由位于单个目录下的一个或多个.go源代码文件组成, 目录定义包的作用。
+        每个源文件都以一条package声明语句开始，这个例子里就是package main,
+        表示该文件属于哪个包，紧跟着一系列导入（import）的包，之后是存储在这个文件里的程序语句。
+      </p>
+      <p>
+        在Go语言程序中，每个包都有一个全局唯一的导入路径。
+        一个导入路径代表一个目录中的一个或多个Go源文件。
+      </p>
+      <p>
+        Go的标准库提供了100多个包，以支持常见功能，如输入、输出、排序以及文本处理。
+      </p>
+      <p>main包比较特殊。它定义了一个独立可执行的程序，而不是一个库。</p>
+      <p>
         此代码用圆括号组合了导入，这是“分组”形式的导入语句。
         不过使用分组导入语句是更好的形式。
       </p>
@@ -1054,6 +1101,11 @@ import &#39;package:flutter/material.dart&#39; show StatefulWidget, StatelessWid
 // 等同于
 import &quot;fmt&quot;
 import &quot;math&quot;
+
+// 别名操作
+import(
+  f &quot;fmt&quot;
+)
 
 // math包内的Pi即为导出的
 func main() {
@@ -1545,6 +1597,12 @@ class Llama {
         <li>对于包含多个文件的包， 包注释只需出现在其中的任一文件中即可。</li>
         <li>包注释应在整体上对该包进行介绍，并提供包的相关信息。</li>
       </ul>
+      <p>
+        在每个源文件的包声明前紧跟着的注释是包注释（§10.7.4）。
+        通常，包注释的第一句应该先是包的功能概要说明。
+        一个包通常只有一个源文件有包注释。
+        如果包注释很大，通常会放到一个独立的doc.go文件中。
+      </p>
       <pre><code class="language-go">/*
   regexp 包为正则表达式实现了一个简单的库。
 
@@ -1697,6 +1755,10 @@ var points = &lt;Point&gt;[];
 var addresses = &lt;String, Address&gt;{};</code></pre>
       <p>go</p>
       <p>var 语句用于声明一个变量列表，跟函数的参数列表一样，类型在最后。</p>
+      <p>
+        函数和包级别的变量（package-level
+        entities）可以任意顺序声明，并不影响其被调用。
+      </p>
       <pre><code class="language-go">package main
 import &quot;fmt&quot;
 var c, python, java bool
@@ -1727,7 +1789,44 @@ func main() {
   k := 3
   c, python, java := true, false, &quot;no!&quot;
   fmt.Println(i, j, k, c, python, java) // 1 2 3 true false no!
-}</code></pre>
+}
+
+// 简短变量声明语句中必须至少要声明一个新的变量
+// 下面的代码将不能编译通过
+// 解决的方法是第二个简短变量声明语句改用普通的多重赋值语句。
+f, err := os.Open(infile)
+// ...
+f, err := os.Create(outfile) // compile error: no new variables
+
+
+// 另一个创建变量的方法是调用用内建的new函数。
+// 表达式new(T)将创建一个T类型的匿名变量，初始化为T类型的零值，
+// 然后返回变量地址，返回的指针类型为*T
+p := new(int)   // p, *int 类型, 指向匿名的 int 变量
+fmt.Println(*p) // &quot;0&quot;
+*p = 2          // 设置 int 匿名变量的值为 2
+fmt.Println(*p) // &quot;2&quot;
+
+p := new(int)
+q := new(int)
+fmt.Println(p == q) // &quot;false&quot;
+
+// 下面的两个newInt函数有着相同的行为：
+func newInt() *int {
+  return new(int)
+}
+func newInt() *int {
+  var dummy int
+  return &amp;dummy
+}
+
+
+f, err = os.Open(&quot;foo.txt&quot;) // function call returns two values
+v, ok = m[key]             // map lookup
+v, ok = x.(T)              // type assertion
+v, ok = &lt;-ch               // channel receive
+_, err = io.Copy(dst, src) // 丢弃字节数
+_, ok = x.(T)              // 只检测类型，忽略具体值</code></pre>
       <p>js</p>
       <pre><code class="language-js">// var name = &#39;Bob&#39;;
 let name = &#39;Bob&#39;;
@@ -1781,7 +1880,10 @@ final String name = &#39;Bob&#39;;
 const bar = 1000000;
 var varList = const [];</code></pre>
       <p>go</p>
-      <p>程序编译阶段就确定下来的值，而程序在运行时无法改变该值。</p>
+      <p>
+        程序编译阶段就确定下来的值，而程序在运行时无法改变该值。
+        目前常量声明的值必须是一个数字值、字符串或者一个固定的boolean值。
+      </p>
       <ul>
         <li>常量的声明与变量类似，只不过是使用 const 关键字。</li>
         <li>常量可以是字符、字符串、布尔值或数值。</li>
@@ -1819,7 +1921,47 @@ func main() {
   fmt.Println(needInt(Small))
   fmt.Println(needFloat(Small))
   fmt.Println(needFloat(Big))
-}</code></pre>
+}
+
+
+const (
+  a = 1
+  b
+  c = 2
+  d
+)
+fmt.Println(a, b, c, d) // &quot;1 1 2 2&quot;
+
+
+// iota将会被置为0，然后在每一个有常量声明的行加1
+// 周日将对应0，周一为1，如此等等
+type Weekday int
+const (
+  Sunday Weekday = iota
+  Monday
+  Tuesday
+  Wednesday
+  Thursday
+  Friday
+  Saturday
+)
+
+// 随着iota的递增，每个常量对应表达式1 &lt;&lt; iota，
+// 是连续的2的幂，分别对应一个bit位置。
+type Flags uint
+const (
+  FlagUp Flags = 1 &lt;&lt; iota // is up
+  FlagBroadcast            // supports broadcast access capability
+  FlagLoopback             // is a loopback interface
+  FlagPointToPoint         // belongs to a point-to-point link
+  FlagMulticast            // supports multicast access capability
+)
+
+
+// 无类型常量
+var x float32 = math.Pi
+var y float64 = math.Pi
+var z complex128 = math.Pi</code></pre>
       <p>js</p>
       <ul>
         <li>js的<code>const</code>类似与dart的final，声明一个只读的常量。</li>

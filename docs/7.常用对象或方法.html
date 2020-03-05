@@ -128,6 +128,12 @@
                 </li>
               </ul>
             </li>
+            <li>
+              <a href="#%E5%8A%A0%E8%A7%A3%E5%AF%86">加解密</a>
+              <ul>
+                <li><a href="#AES">AES</a></li>
+              </ul>
+            </li>
           </ul>
         </li>
       </ul>
@@ -142,20 +148,20 @@
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
-      <pre><code class="language-sh">abs()    delattr()    hash()    memoryview()    set()
-all()    dict()    help()    min()    setattr()
-any()    dir()    hex()    next()    slice()
-ascii()    divmod()    id()    object()    sorted()
-bin()    enumerate()    input()    oct()    staticmethod()
-bool()    eval()    int()    open()    str()
-breakpoint()    exec()    isinstance()    ord()    sum()
-bytearray()    filter()    issubclass()    pow()    super()
-bytes()    float()    iter()    print()    tuple()
-callable()    format()    len()    property()    type()
-chr()    frozenset()    list()    range()    vars()
-classmethod()    getattr()    locals()    repr()    zip()
-compile()    globals()    map()    reversed()    __import__()
-complex()    hasattr()    max()    round()</code></pre>
+      <pre><code class="language-sh">abs()  delattr()  hash()  memoryview()  set()
+all()  dict()  help()  min()  setattr()
+any()  dir()  hex()  next()  slice()
+ascii()  divmod()  id()  object()  sorted()
+bin()  enumerate()  input()  oct()  staticmethod()
+bool()  eval()  int()  open()  str()
+breakpoint()  exec()  isinstance()  ord()  sum()
+bytearray()  filter()  issubclass()  pow()  super()
+bytes()  float()  iter()  print()  tuple()
+callable()  format()  len()  property()  type()
+chr()  frozenset()  list()  range()  vars()
+classmethod()  getattr()  locals()  repr()  zip()
+compile()  globals()  map()  reversed()  __import__()
+complex()  hasattr()  max()  round()</code></pre>
       <pre><code class="language-python"></code></pre>
       <h2 id="操作系统接口">操作系统接口</h2>
       <p>dart</p>
@@ -442,7 +448,35 @@ foo // &quot;abc&quot;
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import (
+  &quot;encoding/base64&quot;
+  &quot;fmt&quot;
+)
+func base64Encode(src []byte) []byte {
+  return []byte(base64.StdEncoding.EncodeToString(src))
+}
+func base64Decode(src []byte) ([]byte, error) {
+  return base64.StdEncoding.DecodeString(string(src))
+}
+func main() {
+  // encode
+  hello := &quot;你好，世界！ hello world&quot;
+  debyte := base64Encode([]byte(hello))
+  fmt.Println(debyte)
+  // decode
+  enbyte, err := base64Decode(debyte)
+  if err != nil {
+    fmt.Println(err.Error())
+  }
+  if hello != string(enbyte) {
+    fmt.Println(&quot;hello is not equal to enbyte&quot;)
+  }
+  fmt.Println(string(enbyte))
+}
+// [53 76 50 103 53 97 87 57 55 55 121 77 53 76 105 87 53 53
+// 87 77 55 55 121 66 73 71 104 108 98 71 120 118 73 72 100 118 99 109 120 107]
+// 你好，世界！ hello world</code></pre>
       <p>js</p>
       <p>
         所谓 Base64 就是一种编码方法，可以将任意值转成
@@ -553,7 +587,127 @@ main() {
                      &#39;&quot;special_guest&quot;:null}]&#39;);
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <ul>
+        <li>bool 代表 JSON booleans,</li>
+        <li>float64 代表 JSON numbers,</li>
+        <li>string 代表 JSON strings,</li>
+        <li>nil 代表 JSON null.</li>
+      </ul>
+      <pre><code class="language-go">// 解析到结构体
+package main
+import (
+  &quot;encoding/json&quot;
+  &quot;fmt&quot;
+)
+type Server struct {
+  ServerName string
+  ServerIP   string
+}
+type Serverslice struct {
+  Servers []Server
+}
+func main() {
+  var s Serverslice
+  str := `{&quot;servers&quot;:[{&quot;serverName&quot;:&quot;Shanghai_VPN&quot;,&quot;serverIP&quot;:&quot;127.0.0.1&quot;},
+    {&quot;serverName&quot;:&quot;Beijing_VPN&quot;,&quot;serverIP&quot;:&quot;127.0.0.2&quot;}]}`
+  json.Unmarshal([]byte(str), &amp;s)
+  fmt.Println(s)
+}
+// {[{Shanghai_VPN 127.0.0.1} {Beijing_VPN 127.0.0.2}]}
+
+
+// 解析到interface
+package main
+import (
+  &quot;encoding/json&quot;
+  &quot;fmt&quot;
+)
+var f interface{}
+func main() {
+  b := []byte(`{&quot;Name&quot;:&quot;Wednesday&quot;,&quot;Age&quot;:6,&quot;Parents&quot;:[&quot;Gomez&quot;,&quot;Morticia&quot;]}`)
+  err := json.Unmarshal(b, &amp;f)
+  if err != nil {
+    return
+  }
+  fmt.Println(f)
+}
+// map[Age:6 Name:Wednesday Parents:[Gomez Morticia]]
+
+
+// https://github.com/bitly/go-simplejson
+js, err := NewJson([]byte(`{
+  &quot;test&quot;: {
+    &quot;array&quot;: [1, &quot;2&quot;, 3],
+    &quot;int&quot;: 10,
+    &quot;float&quot;: 5.150,
+    &quot;bignum&quot;: 9223372036854775807,
+    &quot;string&quot;: &quot;simplejson&quot;,
+    &quot;bool&quot;: true
+  }
+}`))
+arr, _ := js.Get(&quot;test&quot;).Get(&quot;array&quot;).Array()
+i, _ := js.Get(&quot;test&quot;).Get(&quot;int&quot;).Int()
+ms := js.Get(&quot;test&quot;).Get(&quot;string&quot;).MustString()
+
+
+// 生成JSON
+// 字段的tag是&quot;-&quot;，那么这个字段不会输出到JSON
+// tag中带有自定义名称，那么这个自定义名称会出现在JSON的字段名中，例如上面例子中serverName
+// tag中如果带有&quot;omitempty&quot;选项，那么如果该字段值为空，就不会输出到JSON串中
+// 如果字段类型是bool, string, int, int64等，而tag中带有&quot;,string&quot;选项，
+// 那么这个字段在输出到JSON的时候会把该字段对应的值转换成JSON字符串
+package main
+import (
+  &quot;encoding/json&quot;
+  &quot;fmt&quot;
+)
+type Server struct {
+  ServerName string `json:&quot;serverName&quot;`
+  ServerIP   string `json:&quot;serverIP&quot;`
+}
+type Serverslice struct {
+  Servers []Server `json:&quot;servers&quot;`
+}
+func main() {
+  var s Serverslice
+  s.Servers = append(s.Servers, Server{ServerName: &quot;Shanghai_VPN&quot;, ServerIP: &quot;127.0.0.1&quot;})
+  s.Servers = append(s.Servers, Server{ServerName: &quot;Beijing_VPN&quot;, ServerIP: &quot;127.0.0.2&quot;})
+  b, err := json.Marshal(s)
+  if err != nil {
+    fmt.Println(&quot;json err:&quot;, err)
+  }
+  fmt.Println(string(b))
+}
+
+// 一个构体成员Tag是和在编译阶段关联到该成员的元信息字符串
+// Color成员的Tag还带了一个额外的omitempty选项，
+// 表示当Go语言结构体成员为空或零值时不生成JSON对象（这里false为零值）。
+type Movie struct {
+  Title  string
+  Year   int  `json:&quot;released&quot;`
+  Color  bool `json:&quot;color,omitempty&quot;`
+  Actors []string
+}
+var movies = []Movie{
+  {Title: &quot;Casablanca&quot;, Year: 1942, Color: false,
+    Actors: []string{&quot;Humphrey Bogart&quot;, &quot;Ingrid Bergman&quot;}},
+  {Title: &quot;Cool Hand Luke&quot;, Year: 1967, Color: true,
+    Actors: []string{&quot;Paul Newman&quot;}},
+  {Title: &quot;Bullitt&quot;, Year: 1968, Color: true,
+    Actors: []string{&quot;Steve McQueen&quot;, &quot;Jacqueline Bisset&quot;}},
+  // ...
+}
+data, err := json.Marshal(movies)
+if err != nil {
+  log.Fatalf(&quot;JSON marshaling failed: %s&quot;, err)
+}
+fmt.Printf(&quot;%s\n&quot;, data)
+// json.MarshalIndent函数将产生整齐缩进的输出
+data, err := json.MarshalIndent(movies, &quot;&quot;, &quot;    &quot;)
+if err != nil {
+  log.Fatalf(&quot;JSON marshaling failed: %s&quot;, err)
+}
+fmt.Printf(&quot;%s\n&quot;, data)</code></pre>
       <p>js</p>
       <p>JSON.stringify(value[, replacer [, space]])</p>
       <ul>
@@ -674,7 +828,63 @@ x = json.load(f)</code></pre>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <p>
+        对于每一个action，都有一个当前值的概念，对应点操作符，写作“.”。
+        在一个action中，|操作符表示将前一个表达式的结果作为后一个函数的输入，类似于UNIX中管道的概念。
+      </p>
+      <pre><code class="language-go">const templ = `{{.TotalCount}} issues:
+{{range .Items}}----------------------------------------
+Number: {{.Number}}
+User:   {{.User.Login}}
+Title:  {{.Title | printf &quot;%.64s&quot;}}
+Age:    {{.CreatedAt | daysAgo}} days
+{{end}}`
+
+func daysAgo(t time.Time) int {
+  return int(time.Since(t).Hours() / 24)
+}
+
+// template.New先创建并返回一个模板；
+// Funcs方法将daysAgo等自定义函数注册到模板中，并返回模板
+// 最后调用Parse函数分析模板。
+// 如果模板解析失败将是一个致命的错误。
+// template.Must辅助函数可以简化这个致命错误的处理
+var report = template.Must(template.New(&quot;issuelist&quot;).
+  Funcs(template.FuncMap{&quot;daysAgo&quot;: daysAgo}).
+  Parse(templ))
+
+func main() {
+  result, err := github.SearchIssues(os.Args[1:])
+  if err != nil {
+    log.Fatal(err)
+  }
+  if err := report.Execute(os.Stdout, result); err != nil {
+    log.Fatal(err)
+  }
+}
+
+
+
+import &quot;html/template&quot;
+var issueList = template.Must(template.New(&quot;issuelist&quot;).Parse(`
+&lt;h1&gt;{{.TotalCount}} issues&lt;/h1&gt;
+&lt;table&gt;
+&lt;tr style=&#39;text-align: left&#39;&gt;
+  &lt;th&gt;#&lt;/th&gt;
+  &lt;th&gt;State&lt;/th&gt;
+  &lt;th&gt;User&lt;/th&gt;
+  &lt;th&gt;Title&lt;/th&gt;
+&lt;/tr&gt;
+{{range .Items}}
+&lt;tr&gt;
+  &lt;td&gt;&lt;a href=&#39;{{.HTMLURL}}&#39;&gt;{{.Number}}&lt;/a&gt;&lt;/td&gt;
+  &lt;td&gt;{{.State}}&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#39;{{.User.HTMLURL}}&#39;&gt;{{.User.Login}}&lt;/a&gt;&lt;/td&gt;
+  &lt;td&gt;&lt;a href=&#39;{{.HTMLURL}}&#39;&gt;{{.Title}}&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+{{end}}
+&lt;/table&gt;
+`))</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -683,7 +893,42 @@ x = json.load(f)</code></pre>
       <p>dart</p>
       <pre><code class="language-dart"></code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import (
+  &quot;os&quot;
+  log &quot;github.com/Sirupsen/logrus&quot;
+)
+func init() {
+  // 日志格式化为JSON而不是默认的ASCII
+  log.SetFormatter(&amp;log.JSONFormatter{})
+  // 输出stdout而不是默认的stderr，也可以是一个文件
+  log.SetOutput(os.Stdout)
+  // 只记录严重或以上警告
+  log.SetLevel(log.WarnLevel)
+}
+
+func main() {
+  log.WithFields(log.Fields{
+    &quot;animal&quot;: &quot;walrus&quot;,
+    &quot;size&quot;:   10,
+  }).Info(&quot;A group of walrus emerges from the ocean&quot;)
+  log.WithFields(log.Fields{
+    &quot;omg&quot;:    true,
+    &quot;number&quot;: 122,
+  }).Warn(&quot;The group&#39;s number increased tremendously!&quot;)
+  log.WithFields(log.Fields{
+    &quot;omg&quot;:    true,
+    &quot;number&quot;: 100,
+  }).Fatal(&quot;The ice breaks!&quot;)
+  // 通过日志语句重用字段
+  // logrus.Entry返回自WithFields()
+  contextLogger := log.WithFields(log.Fields{
+    &quot;common&quot;: &quot;this is a common field&quot;,
+    &quot;other&quot;:  &quot;I also should be logged always&quot;,
+  })
+  contextLogger.Info(&quot;I&#39;ll be logged with common and other field&quot;)
+  contextLogger.Info(&quot;Me too&quot;)
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js"></code></pre>
       <p>python</p>
@@ -938,7 +1183,30 @@ main() async {
   print(&#39;The entire file is ${contents.length} bytes long&#39;);
 }</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import (
+  &quot;fmt&quot;
+  &quot;os&quot;
+)
+func main() {
+  userFile := &quot;test.txt&quot;
+  fl, err := os.Open(userFile)
+  if err != nil {
+    fmt.Println(userFile, err)
+    return
+  }
+  defer fl.Close()
+  buf := make([]byte, 1024)
+  for {
+    n, _ := fl.Read(buf)
+    if 0 == n {
+      break
+    }
+    fmt.Println(n)
+    os.Stdout.Write(buf[:n])
+  }
+}
+</code></pre>
       <p>js</p>
       <pre><code class="language-js">const fs = require(&#39;fs&#39;);
 // 从某个字符设备创建一个流。
@@ -1048,7 +1316,24 @@ sink.close();
 // 如果想在文件末尾追加内容，则可以使用 mode 可选参数，参数取值 为 FileMode.APPEND：
 var sink = logFile.openWrite(mode: FileMode.APPEND);</code></pre>
       <p>go</p>
-      <pre><code class="language-go"></code></pre>
+      <pre><code class="language-go">package main
+import (
+  &quot;fmt&quot;
+  &quot;os&quot;
+)
+func main() {
+  userFile := &quot;astaxie.txt&quot;
+  fout, err := os.Create(userFile)
+  if err != nil {
+    fmt.Println(userFile, err)
+    return
+  }
+  defer fout.Close()
+  for i := 0; i &lt; 10; i++ {
+    fout.WriteString(&quot;Just a test!\r\n&quot;)
+    fout.Write([]byte(&quot;Just a test!\r\n&quot;))
+  }
+}</code></pre>
       <p>js</p>
       <pre><code class="language-js">const data = new Uint8Array(Buffer.from(&#39;Node.js中文网&#39;));
 fs.writeFile(&#39;文件.txt&#39;, data, (err) =&gt; {
@@ -1644,6 +1929,16 @@ document.body.onClick.listen((e) {
   var clickedElem = e.target;
   print(&#39;You clicked the ${clickedElem.id} element.&#39;);
 });</code></pre>
+      <p>go</p>
+      <pre><code class="language-go"></code></pre>
+      <p>js</p>
+      <pre><code class="language-js"></code></pre>
+      <p>python</p>
+      <pre><code class="language-python"></code></pre>
+      <h2 id="加解密">加解密</h2>
+      <h3 id="AES">AES</h3>
+      <p>dart</p>
+      <pre><code class="language-dart"></code></pre>
       <p>go</p>
       <pre><code class="language-go"></code></pre>
       <p>js</p>
