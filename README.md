@@ -1,7 +1,7 @@
 
 # 编程语言 对比学习/速查笔记
 
-（本项目不再更新，新项目地址：https://github.com/fishjar/comparison-note）
+（本项目不再更新，新项目地址： https://github.com/fishjar/comparison-note ）
 
 - [1.基础知识](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md)
   - [hello](./src/1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86.md#hello)
